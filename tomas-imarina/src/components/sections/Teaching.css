@@ -1,0 +1,61 @@
+.teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.teaching-card {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(46, 196, 182, 0.08);
+}
+
+.teaching-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px var(--sombra);
+    border-color: var(--principal);
+}
+
+.teaching-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.teaching-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: var(--texto-principal);
+}
+
+.teaching-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+    margin-bottom: 0.5rem;
+}
+
+.teaching-desc {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.teaching-level {
+    display: inline-block;
+    background: rgba(46, 196, 182, 0.1);
+    color: var(--principal-oscuro);
+    padding: 0.15rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .teaching-grid {
+        grid-template-columns: 1fr;
+    }
+}

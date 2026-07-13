@@ -1,0 +1,54 @@
+.supervision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.supervision-card {
+    background: var(--principal-suave);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--principal);
+}
+
+.supervision-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px var(--sombra);
+}
+
+.supervision-level {
+    display: inline-block;
+    background: rgba(46, 196, 182, 0.12);
+    color: var(--principal-oscuro);
+    padding: 0.15rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.supervision-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--texto-principal);
+}
+
+.supervision-desc {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.supervision-status {
+    font-size: 0.8rem;
+    color: var(--texto-terciario);
+    font-weight: 450;
+}
+
+@media (max-width: 480px) {
+    .supervision-grid {
+        grid-template-columns: 1fr;
+    }
+}
