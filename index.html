@@ -1,129 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tomás Imarina | CADIC-CONICET</title>
     <meta name="description" content="Investigador en ecología marina, modelado de redes tróficas">
-    
-    <!-- ===== CSS PROPIO ===== -->
-    <link rel="stylesheet" href="styles/inicio.css">
     
     <!-- ===== GOOGLE FONTS ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- ===== FONT AWESOME (iconos reales) ===== -->
+    <!-- ===== FONT AWESOME (ICONOS) ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-
-    <!-- ============================================
-    HEADER - NAVEGACIÓN COMPLETA
-    ============================================ -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <div class="logo">
-                <span class="logo-name">Tomás Imarina</span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#funding">Funding</a></li>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#supervision">Supervision</a></li>
-                <li><a href="#updates">Updates</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Menú">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <!-- ============================================
-    BANNER - FOTO HORIZONTAL ANCHO COMPLETO
-    ============================================ -->
-    <section class="banner">
-        <img src="assets/Foto horizontal 1.jpeg" alt="Banner" class="banner-image">
-    </section>
-
-    <!-- ============================================
-    ABOUT - Acerca de mí (con foto de perfil)
-    ============================================ -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-wrapper">
-                <!-- Foto de perfil + Contacto -->
-                <div class="about-profile">
-                    <img src="assets/foto-de-perfil-1.jpeg" alt="Tomás Simarina" class="profile-image" loading="lazy">
-
-                    <div class="profile-contact">
-                        <a href="mailto:tomasimarina@gmail.com" class="contact-item">
-                            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
-                            <span>tomasimarina@gmail.com</span>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=w5BCHNcAAAAJ&hl=en" target="_blank" class="contact-item">
-                            <span class="contact-icon"><i class="fas fa-graduation-cap"></i></span>
-                            <span>Google Académico</span>
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Tomas-Marina" target="_blank" class="contact-item">
-                            <span class="contact-icon"><i class="fab fa-researchgate"></i></span>
-                            <span>ResearchGate</span>
-                        </a>
-                        <a href="https://orcid.org/0000-0002-9203-7411" target="_blank" class="contact-item">
-                            <span class="contact-icon"><i class="fab fa-orcid"></i></span>
-                            <span>ORCID</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Texto About -->
-                <div class="about-text">
-                    <span class="section-tag">About Me</span>
-                    <p class="about-intro">
-                        I am a full-time researcher at <strong>CADIC-CONICET</strong> in Ushuaia, Argentina. 
-                        With an M.Sc. in Biological Oceanography (CINVESTAV-IPN, Mexico) and a Ph.D. in Science 
-                        (UNGS, Argentina), my research focuses on <strong>modeling species interactions</strong> 
-                        in high-latitude marine ecosystems, using a network perspective.
-                    </p>
-                    <p>
-                        I have published over <strong>20 peer-reviewed articles</strong> and I am currently 
-                        (2022-2026) leading a project on the effects of multiple stressors on marine ecosystems. 
-                        I also teach a postgraduate course on <strong>food web modeling</strong>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
- <!-- ============================================
-    FOOTER
-    ============================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p class="footer-name">Tomás Imarina</p>
-                    <p class="footer-role">Researcher · CADIC-CONICET</p>
-                    <p class="footer-location">Ushuaia, Tierra del Fuego · Argentina</p>
-                </div>
-                <div class="footer-social">
-                    <a href="mailto:tomasimarina@gmail.com" class="social-link email" title="Email">
-                        <span class="social-icon"><i class="fas fa-envelope"></i></span> tomasimarina@gmail.com
-                    </a>
-                    <a href="https://x.com/tomimarina1" target="_blank" class="social-link x" title="X">
-                        <span class="social-icon"><i class="fab fa-x-twitter"></i></span> @tomimarina1
-                    </a>
-                    <a href="https://www.instagram.com/tomasimarina86/" target="_blank" class="social-link instagram" title="Instagram">
-                        <span class="social-icon"><i class="fab fa-instagram"></i></span> @tomasimarina86
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Tomás Imarina · All rights reserved</p>
-            </div>
-        </div>
-    </footer>
-
-</body>
-<script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
