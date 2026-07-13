@@ -272,10 +272,6 @@
   }
 }
 
-/* ============================================
-   RESPONSIVE - MÓVILES MUY PEQUEÑOS
-   ============================================ */
-
 @media (max-width: 360px) {
   .about {
     padding-top: 80px;
