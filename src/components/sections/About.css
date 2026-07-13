@@ -19,7 +19,8 @@
 
 .about-wrapper {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  /* Aumentado de 280px a 320px para dar más espacio al correo */
+  grid-template-columns: 320px 1fr;
   gap: 3.5rem;
   align-items: start;
 }
@@ -56,9 +57,11 @@
   text-decoration: none;
   color: var(--texto-secundario);
   font-size: 0.9rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  
+  /* Corregido para evitar que rompa el ".com" a la mitad */
+  word-break: normal;
+  overflow-wrap: anywhere;
+  hyphens: manual;
 }
 
 .contact-item:hover {
@@ -133,7 +136,8 @@
     padding-bottom: 4rem;
   }
   .about-wrapper {
-    grid-template-columns: 240px 1fr;
+    /* Aumentado de 240px a 280px */
+    grid-template-columns: 280px 1fr;
     gap: 2.5rem;
   }
   .about-container {
@@ -292,6 +296,8 @@
     font-size: 0.7rem;
     padding: 0.25rem 0.3rem;
     gap: 0.4rem;
+    /* En pantallas críticamente pequeñas, permitimos romper texto si es necesario */
+    word-break: break-all; 
   }
   .contact-icon {
     width: 18px;
@@ -326,6 +332,7 @@
   }
   .about-wrapper {
     gap: 4rem;
+    grid-template-columns: 340px 1fr; /* Más espacio en pantallas gigantes */
   }
   .about-intro {
     font-size: 1.15rem;
@@ -345,6 +352,7 @@
   }
   .about-wrapper {
     gap: 5rem;
+    grid-template-columns: 360px 1fr;
   }
   .about-intro {
     font-size: 1.25rem;
@@ -353,12 +361,13 @@
     font-size: 1.15rem;
   }
 }
+
 /* ============================================
    TÍTULO ABOUT ME - MÁS GRANDE Y CON SOMBRA
    ============================================ */
 
 .section-tag {
-  font-size: 1.2rem; /* Aumenta el tamaño base */
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--principal);
