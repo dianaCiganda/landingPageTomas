@@ -1,78 +1,41 @@
-.banner {
-    margin-top: 60px;
-    width: 100%;
-    overflow: hidden;
-    background: var(--principal);
-    position: relative;
+section.banner .banner-profile {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%); 
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.banner-image {
-    width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: cover;
-    display: block;
-    opacity: 0.92;
+section.banner .banner-profile img.banner-profile-image,
+section.banner .banner-profile .banner-profile-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
 }
 
-.banner-fallback {
-    width: 100%;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #2EC4B6 0%, #1FA89A 100%);
-    text-align: center;
-    color: white;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner-fallback h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.banner-fallback p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+section.about, 
+.about {
+  margin-top: 0; 
+  padding-top: 110px; 
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-    .banner-image {
-        max-height: 280px;
-    }
-
-    .banner-fallback {
-        padding: 3rem 1rem;
-        min-height: 200px;
-    }
-
-    .banner-fallback h1 {
-        font-size: 2rem;
-    }
-
-    .banner-fallback p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner-image {
-        max-height: 200px;
-    }
-
-    .banner-fallback {
-        padding: 2rem 1rem;
-        min-height: 150px;
-    }
-
-    .banner-fallback h1 {
-        font-size: 1.5rem;
-    }
-
-    .banner-fallback p {
-        font-size: 0.9rem;
-    }
+  section.banner .banner-profile {
+    width: 140px;
+    height: 140px;
+  }
 }

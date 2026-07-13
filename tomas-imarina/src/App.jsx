@@ -1,16 +1,37 @@
-import React from 'react'
-import Layout from './components/layout/Layout'
-import Banner from './components/sections/Banner'
-import About from './components/sections/About'
-import './styles/App.css'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import CVPage from "./components/sections/CV";
+import Home from "./components/sections/Home";
+import "./styles/App.css";
+
 
 function App() {
+
   return (
-    <Layout>
-      <Banner />
-      <About />
-    </Layout>
-  )
+    <BrowserRouter>
+
+      <Layout>
+
+        <Routes>
+
+          <Route 
+            path="/" 
+            element={<Home />} 
+          />
+
+          <Route 
+            path="/cv" 
+            element={<CVPage />} 
+          />
+
+        </Routes>
+
+      </Layout>
+
+    </BrowserRouter>
+  );
 }
 
-export default App
+
+export default App;

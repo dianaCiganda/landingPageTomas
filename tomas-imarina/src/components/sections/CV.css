@@ -1,0 +1,26 @@
+.cv-page {
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+.cv-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cv-iframe {
+  width: 100%;
+  height: 85vh;
+  border: none;
+  display: block;
+}
+
+.cv-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}

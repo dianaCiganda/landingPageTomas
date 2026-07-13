@@ -1,6 +1,6 @@
 import React from 'react'
 import './About.css'
-import fotoPerfil  from "../../assets/perfil.jpeg"
+
 const About = () => {
   const contactLinks = [
     {
@@ -10,7 +10,7 @@ const About = () => {
     },
     {
       icon: 'fa-graduation-cap',
-      label: 'Google Académico',
+      label: 'Google Scholar',
       href: 'https://scholar.google.com/citations?user=w5BCHNcAAAAJ&hl=en',
     },
     {
@@ -29,13 +29,8 @@ const About = () => {
     <section id="about" className="about">
       <div className="container">
         <div className="about-wrapper">
+          {/* Contactos - SIN FOTO DE PERFIL */}
           <div className="about-profile">
-            <img
-              src={fotoPerfil}
-              alt="Tomás Imarina"
-              className="profile-image"
-              loading="lazy"
-            />
             <div className="profile-contact">
               {contactLinks.map((link) => (
                 <a
@@ -53,6 +48,8 @@ const About = () => {
               ))}
             </div>
           </div>
+          
+          {/* Texto About */}
           <div className="about-text">
             <span className="section-tag">About Me</span>
             <p className="about-intro">
