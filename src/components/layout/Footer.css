@@ -43,9 +43,6 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* ============================================
-   REDES SOCIALES - CENTRADAS
-   ============================================ */
 .footer-social {
   display: flex;
   flex-direction: row;
@@ -82,71 +79,72 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  color: #FFFFFF;
 }
 
-/* Email */
 .social-link.email {
-  background: rgba(96, 165, 250, 0.08);
-  border-color: rgba(96, 165, 250, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .social-link.email .social-icon {
-  color: #60A5FA;
+  color: #FFFFFF;
 }
 
 .social-link.email:hover {
   background: rgba(96, 165, 250, 0.2);
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: #60A5FA;
   color: #60A5FA;
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
 }
 
 .social-link.email:hover .social-icon {
+  color: #60A5FA;
   transform: scale(1.1);
 }
 
-/* X (Twitter) */
 .social-link.x {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .social-link.x .social-icon {
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
 }
 
 .social-link.x:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #FFFFFF;
+  background: rgba(96, 165, 250, 0.2);
+  border-color: #60A5FA;
+  color: #60A5FA;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
 }
 
 .social-link.x:hover .social-icon {
+  color: #60A5FA;
   transform: scale(1.1);
 }
 
-/* Instagram */
 .social-link.instagram {
-  background: rgba(244, 114, 182, 0.08);
-  border-color: rgba(244, 114, 182, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .social-link.instagram .social-icon {
-  color: #F472B6;
+  color: #FFFFFF;
 }
 
 .social-link.instagram:hover {
-  background: rgba(244, 114, 182, 0.2);
-  border-color: rgba(244, 114, 182, 0.4);
-  color: #F472B6;
+  background: rgba(96, 165, 250, 0.2);
+  border-color: #60A5FA;
+  color: #60A5FA;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(244, 114, 182, 0.2);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
 }
 
 .social-link.instagram:hover .social-icon {
+  color: #60A5FA;
   transform: scale(1.1);
 }
 
@@ -162,9 +160,6 @@
   padding-top: 0.5rem;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
 @media (max-width: 768px) {
   .footer {
     padding: 2rem 0 1.2rem;
@@ -216,9 +211,6 @@
   }
 }
 
-/* ============================================
-   ANIMACIÓN DE ENTRADA
-   ============================================ */
 .social-link {
   animation: fadeInUp 0.5s ease backwards;
 }
