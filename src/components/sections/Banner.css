@@ -2,14 +2,22 @@ section.banner .banner-profile {
   position: absolute;
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, 50%); 
+  transform: translate(-50%, 50%);
   width: 200px;
   height: 200px;
   z-index: 10;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section.banner .banner-profile:hover {
+  transform: translate(-50%, 50%) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 section.banner .banner-profile img.banner-profile-image,
@@ -18,16 +26,16 @@ section.banner .banner-profile .banner-profile-placeholder {
   height: 100%;
   object-fit: cover;
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
   outline: none;
   background: transparent;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+  display: block;
 }
 
-section.about, 
+section.about,
 .about {
-  margin-top: 0; 
-  padding-top: 110px; 
+  margin-top: 0;
+  padding-top: 110px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -37,5 +45,7 @@ section.about,
   section.banner .banner-profile {
     width: 140px;
     height: 140px;
+    border-width: 2px;
+    padding: 2px;
   }
 }
