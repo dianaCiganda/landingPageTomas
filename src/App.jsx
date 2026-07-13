@@ -6,7 +6,7 @@ import "./styles/App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/landing-tomas">
+   <BrowserRouter basename="/landingPageTomas">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cv" element={<CVPage />} />
