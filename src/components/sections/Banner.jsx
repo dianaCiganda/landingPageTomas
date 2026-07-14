@@ -69,46 +69,39 @@ const Banner = () => {
         </div>
       </section>
 
-      {/* Nombre */}
-      <h1 className="titulo-profile">Tomás I. Marina</h1>
-
       {/* Contenido */}
       <div className="profile-content">
+        {/* Columna izquierda: Foto + Nombre + Contacto */}
+        <div className="profile-left">
+          <h1 className="titulo-profile">Tomás I. Marina</h1>
 
-        {/* Redes */}
-        <aside className="redes">
-          <div className="profile-contact">
-            {contactLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  link.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="contact-item"
-              >
-                <span className="contact-icon">
-                  <i className={`${link.type} ${link.icon}`}></i>
-                </span>
-
-                <span>{link.label}</span>
-              </a>
-            ))}
-          </div>
-        </aside>
+          {/* Redes / Contacto */}
+          <aside className="redes">
+            <div className="profile-contact">
+              {contactLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="contact-item"
+                >
+                  <span className="contact-icon">
+                    <i className={`${link.type} ${link.icon}`}></i>
+                  </span>
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          </aside>
+        </div>
 
         {/* About */}
         <section id="about" className="about">
           <div className="about-container">
             <div className="about-wrapper">
               <div className="about-text">
-
-                <span className="section-tag">
-                  About Me
-                </span>
+                <span className="section-tag">About Me</span>
 
                 <p className="about-intro">
                   I am a full-time researcher at <strong>CADIC-CONICET</strong> in Ushuaia,
@@ -128,12 +121,10 @@ const Banner = () => {
                   ecosystems. I also teach a postgraduate course on
                   <strong> food web modeling</strong>.
                 </p>
-
               </div>
             </div>
           </div>
         </section>
-
       </div>
     </>
   );
