@@ -10,7 +10,7 @@
 .banner-contenedor {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 350px; /* Aumentado de 320px a 350px */
 }
 
 /* Imagen de portada */
@@ -21,7 +21,7 @@
 
 .image-banner {
     width: 100%;
-    height: 320px;
+    height: 350px; /* Aumentado de 320px a 350px */
     object-fit: cover;
     display: block;
 }
@@ -29,7 +29,7 @@
 /* Fallback */
 .banner-bg-fallback {
     width: 100%;
-    height: 320px;
+    height: 350px; /* Aumentado de 320px a 350px */
     background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
     display: flex;
     align-items: center;
@@ -44,13 +44,13 @@
 .banner-de-perfil {
     position: absolute;
     left: 50px;
-    bottom: -100px;
+    bottom: -120px; /* Aumentado de -100px a -120px */
     z-index: 10;
 }
 
 .imagen-de-perfil {
-    width: 225px;
-    height: 225px;
+    width: 260px;  /* 225px + 50% = 337px → redondeado a 340px */
+    height: 340px; /* 225px + 50% = 337px → redondeado a 340px */
     object-fit: cover;
     border: 5px solid white;
     border-radius: 8px;
@@ -59,13 +59,13 @@
 }
 
 .banner-profile-placeholder {
-    width: 225px;
-    height: 225px;
+    width: 340px;
+    height: 340px;
     background: #e8f5f3;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 5rem;
     border: 5px solid white;
     border-radius: 8px;
 }
@@ -88,20 +88,20 @@
 ================================ */
 
 .profile-left {
-    flex: 0 0 280px;
+    flex: 0 0 320px; /* Aumentado de 280px a 320px */
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-/* TITULO */
+/* TITULO - Ajustado para la foto más grande */
 .titulo-profile {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Aumentado de 1.8rem a 2rem */
     color: #1a2a3a;
     font-weight: 700;
-    padding-top: 80px;
-    margin-left: -17px;
+    padding-top: 180px; /* Aumentado de 120px a 180px */
+    margin-left: 0;
 }
 
 /* ================================
@@ -110,13 +110,13 @@
 
 .redes {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px; /* Aumentado de 10px a 15px */
 }
 
 .profile-contact {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px; /* Aumentado de 8px a 10px */
 }
 
 .contact-item {
@@ -124,11 +124,11 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 8px;
+    gap: 12px; /* Aumentado de 10px a 12px */
+    padding: 8px 10px; /* Aumentado de 6px 8px a 8px 10px */
     border-radius: 6px;
     transition: 0.3s;
-    font-size: 0.85rem;
+    font-size: 0.95rem; /* Aumentado de 0.85rem a 0.95rem */
 }
 
 .contact-item:hover {
@@ -136,9 +136,9 @@
 }
 
 .contact-icon {
-    width: 22px;
+    width: 26px; /* Aumentado de 22px a 26px */
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.15rem; /* Aumentado de 1rem a 1.15rem */
 }
 
 /* ================================
@@ -164,21 +164,21 @@
 
 .section-tag {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.9rem; /* Aumentado de 0.8rem a 0.9rem */
     font-weight: 600;
     color: #2ec4b6;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* Aumentado de 10px a 12px */
 }
 
 .about-intro {
-    font-size: 1rem;
-    margin-bottom: 14px;
+    font-size: 1.1rem; /* Aumentado de 1rem a 1.1rem */
+    margin-bottom: 16px; /* Aumentado de 14px a 16px */
 }
 
 .about-text p {
-    margin-bottom: 14px;
+    margin-bottom: 16px; /* Aumentado de 14px a 16px */
     color: #333;
 }
 
@@ -193,33 +193,32 @@
 
 @media (max-width: 900px) {
     .banner-contenedor {
-        height: 260px;
+        height: 280px;
     }
 
     .image-banner {
-        height: 260px;
+        height: 280px;
     }
 
     .banner-de-perfil {
         left: 50%;
-        bottom: -85px;
+        bottom: -100px;
         transform: translateX(-50%);
     }
 
     .imagen-de-perfil {
-        width: 180px;
-        height: 180px;
+        width: 240px;
+        height: 240px;
     }
 
     .banner-profile-placeholder {
-        width: 180px;
-        height: 180px;
+        width: 240px;
+        height: 240px;
     }
 
-    /* FORZAMOS FLEX Y ORDEN */
     .profile-content {
-        display: flex !important;
-        flex-direction: column !important;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
         padding: 30px 30px 30px 30px;
     }
@@ -234,21 +233,95 @@
     }
 
     .titulo-profile {
-        padding-top: 100px;
-        font-size: 1.8rem;
+        padding-top: 130px;
+        font-size: 2rem;
         text-align: center;
         margin-left: 0;
     }
 
-    /* FORZAMOS EL ORDEN */
     .about {
-        order: 1 !important;
+        order: 1;
         margin-top: 0;
         width: 100%;
     }
 
     .redes {
-        order: 2 !important;
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .profile-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .contact-item {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ================================
+   CELULAR (max-width: 600px)
+================================ */
+
+@media (max-width: 600px) {
+    .banner-contenedor {
+        height: 220px;
+    }
+
+    .image-banner {
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .banner-de-perfil {
+        bottom: -80px;
+    }
+
+    .imagen-de-perfil {
+        width: 180px;
+        height: 180px;
+        border-width: 4px;
+    }
+
+    .banner-profile-placeholder {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px 20px 20px;
+        gap: 15px;
+    }
+
+    .profile-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .titulo-profile {
+        padding-top: 100px;
+        font-size: 1.6rem;
+        margin-left: 0;
+    }
+
+    .about {
+        order: 1;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .redes {
+        order: 2;
         width: 100%;
         margin-top: 10px;
     }
@@ -263,97 +336,20 @@
     .contact-item {
         padding: 6px 12px;
         font-size: 0.8rem;
-    }
-}
-
-/* ================================
-   CELULAR (max-width: 600px)
-================================ */
-
-@media (max-width: 600px) {
-    .banner-contenedor {
-        height: 200px;
-    }
-
-    .image-banner {
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .banner-de-perfil {
-        bottom: -70px;
-    }
-
-    .imagen-de-perfil {
-        width: 150px;
-        height: 150px;
-        border-width: 4px;
-    }
-
-    .banner-profile-placeholder {
-        width: 150px;
-        height: 150px;
-    }
-
-    /* FORZAMOS FLEX Y ORDEN */
-    .profile-content {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 20px 20px 20px 20px;
-        gap: 15px;
-    }
-
-    .profile-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-    }
-
-    .titulo-profile {
-        padding-top: 80px;
-        font-size: 1.5rem;
-        margin-left: 0;
-    }
-
-    /* FORZAMOS EL ORDEN */
-    .about {
-        order: 1 !important;
-        margin-top: 0;
-        width: 100%;
-    }
-
-    .redes {
-        order: 2 !important;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .profile-contact {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .contact-item {
-        padding: 5px 10px;
-        font-size: 0.75rem;
-        gap: 6px;
+        gap: 8px;
     }
 
     .contact-icon {
-        width: 18px;
-        font-size: 0.85rem;
-    }
-
-    .about-text {
+        width: 20px;
         font-size: 0.9rem;
     }
 
-    .about-intro {
+    .about-text {
         font-size: 0.95rem;
+    }
+
+    .about-intro {
+        font-size: 1rem;
     }
 }
 
@@ -363,57 +359,63 @@
 
 @media (max-width: 400px) {
     .banner-contenedor {
-        height: 170px;
+        height: 180px;
     }
 
     .image-banner {
-        height: 170px;
+        height: 180px;
     }
 
     .banner-de-perfil {
-        bottom: -60px;
+        bottom: -65px;
     }
 
     .imagen-de-perfil {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
     }
 
     .banner-profile-placeholder {
-        width: 120px;
-        height: 120px;
-        font-size: 2.5rem;
+        width: 140px;
+        height: 140px;
+        font-size: 3rem;
     }
 
-    /* FORZAMOS FLEX Y ORDEN */
     .profile-content {
-        display: flex !important;
-        flex-direction: column !important;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px 15px 15px;
     }
 
     .titulo-profile {
-        padding-top: 65px;
-        font-size: 1.3rem;
+        padding-top: 80px;
+        font-size: 1.4rem;
     }
 
     .about {
-        order: 1 !important;
+        order: 1;
     }
 
     .redes {
-        order: 2 !important;
+        order: 2;
     }
 
     .contact-item span:last-child {
-        display: none;
+        display: inline-block;
+        font-size: 0.7rem;
+    }
+
+    .contact-item {
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
 
     .contact-icon {
-        width: 24px;
-        font-size: 1rem;
+        width: 22px;
+        font-size: 0.9rem;
     }
 
     .about-text {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
