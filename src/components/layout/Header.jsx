@@ -51,12 +51,6 @@ const Header = () => {
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <nav className="nav container">
 
-        <div className="logo">
-          <Link to="/" className="logo-name">
-            Tomás I. Marina
-          </Link>
-        </div>
-
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
 
           <li>

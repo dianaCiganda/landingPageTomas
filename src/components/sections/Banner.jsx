@@ -5,36 +5,137 @@ const Banner = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
 
-  return (
-    <section className="banner">
-      <div className="banner-container">
-        <div className="banner-background">
-          {!bannerError ? (
-            <img
-              src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
-              alt="Banner"
-              className="banner-image"
-              onError={() => setBannerError(true)}
-            />
-          ) : (
-            <div className="banner-bg-fallback"></div>
-          )}
-        </div>
+  const contactLinks = [
+    {
+      icon: "fa-envelope",
+      type: "fas",
+      label: "tomasimarina@gmail.com",
+      href: "mailto:tomasimarina@gmail.com",
+    },
+    {
+      icon: "fa-graduation-cap",
+      type: "fas",
+      label: "Google Scholar",
+      href: "https://scholar.google.com/citations?user=w5BCHNcAAAAJ&hl=en",
+    },
+    {
+      icon: "fa-researchgate",
+      type: "fab",
+      label: "ResearchGate",
+      href: "https://www.researchgate.net/profile/Tomas-Marina",
+    },
+    {
+      icon: "fa-orcid",
+      type: "fab",
+      label: "ORCID",
+      href: "https://orcid.org/0000-0002-9203-7411",
+    },
+  ];
 
-        <div className="banner-profile">
-          {!profileError ? (
-            <img
-              src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
-              alt="Tomás I. Marina"
-              className="banner-profile-image"
-              onError={() => setProfileError(true)}
-            />
-          ) : (
-            <div className="banner-profile-placeholder">👨‍🔬</div>
-          )}
+  return (
+    <>
+      {/* Banner */}
+      <section className="banner">
+        <div className="banner-contenedor">
+          <div className="banner-background">
+            {!bannerError ? (
+              <img
+                src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
+                className="image-banner"
+                alt="Imagen de fondo"
+                onError={() => setBannerError(true)}
+              />
+            ) : (
+              <div className="banner-bg-fallback">
+                <span>🌊</span>
+              </div>
+            )}
+          </div>
+
+          <div className="banner-de-perfil">
+            {!profileError ? (
+              <img
+                src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
+                className="imagen-de-perfil"
+                alt="Imagen de perfil"
+                onError={() => setProfileError(true)}
+              />
+            ) : (
+              <div className="banner-profile-placeholder">
+                <span>👤</span>
+              </div>
+            )}
+          </div>
         </div>
+      </section>
+
+      {/* Nombre */}
+      <h1 className="titulo-profile">Tomás I. Marina</h1>
+
+      {/* Contenido */}
+      <div className="profile-content">
+
+        {/* Redes */}
+        <aside className="redes">
+          <div className="profile-contact">
+            {contactLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className="contact-item"
+              >
+                <span className="contact-icon">
+                  <i className={`${link.type} ${link.icon}`}></i>
+                </span>
+
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+        </aside>
+
+        {/* About */}
+        <section id="about" className="about">
+          <div className="about-container">
+            <div className="about-wrapper">
+              <div className="about-text">
+
+                <span className="section-tag">
+                  About Me
+                </span>
+
+                <p className="about-intro">
+                  I am a full-time researcher at <strong>CADIC-CONICET</strong> in Ushuaia,
+                  Argentina. With an M.Sc. in Biological Oceanography
+                  (CINVESTAV-IPN, Mexico) and a Ph.D. in Science
+                  (UNGS, Argentina), my research focuses on
+                  <strong> modeling species interactions</strong> in
+                  high-latitude marine ecosystems using a network
+                  perspective.
+                </p>
+
+                <p>
+                  I have published over
+                  <strong> 20 peer-reviewed articles </strong>
+                  and I am currently (2022–2026) leading a project on
+                  the effects of multiple stressors on marine
+                  ecosystems. I also teach a postgraduate course on
+                  <strong> food web modeling</strong>.
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
-    </section>
+    </>
   );
 };
 
