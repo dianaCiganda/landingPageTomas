@@ -8,7 +8,6 @@ const Banner = () => {
   return (
     <section className="banner">
       <div className="banner-container">
-
         <div className="banner-background">
           {!bannerError ? (
             <img
@@ -26,7 +25,7 @@ const Banner = () => {
           {!profileError ? (
             <img
               src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
-              alt="Tomás Imarina"
+              alt="Tomás I. Marina"
               className="banner-profile-image"
               onError={() => setProfileError(true)}
             />
@@ -34,7 +33,6 @@ const Banner = () => {
             <div className="banner-profile-placeholder">👨‍🔬</div>
           )}
         </div>
-
       </div>
     </section>
   );
