@@ -89,10 +89,26 @@
 }
 
 /* ================================
-   BOTONES SOCIALES - HOVER
+   HOVER UNIFICADO PARA TODOS LOS BOTONES
    ================================ */
 
-/* Email */
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: #2ec4b6 !important;
+  color: #2ec4b6 !important;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(46, 196, 182, 0.3);
+}
+
+.social-link:hover .social-icon {
+  color: #2ec4b6 !important;
+  transform: scale(1.1);
+}
+
+/* ================================
+   BOTONES SOCIALES - COLORES POR PLATAFORMA (SOLO BASE)
+   ================================ */
+
 .social-link.email {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.12);
@@ -103,20 +119,6 @@
   color: #FFFFFF;
 }
 
-.social-link.email:hover {
-  background: rgba(96, 165, 250, 0.25) !important;
-  border-color: #60A5FA !important;
-  color: #60A5FA !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.25);
-}
-
-.social-link.email:hover .social-icon {
-  color: #60A5FA !important;
-  transform: scale(1.1);
-}
-
-/* X (Twitter) */
 .social-link.x {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.12);
@@ -127,20 +129,6 @@
   color: #FFFFFF;
 }
 
-.social-link.x:hover {
-  background: rgba(96, 165, 250, 0.25) !important;
-  border-color: #60A5FA !important;
-  color: #60A5FA !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.25);
-}
-
-.social-link.x:hover .social-icon {
-  color: #60A5FA !important;
-  transform: scale(1.1);
-}
-
-/* Instagram */
 .social-link.instagram {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.12);
@@ -151,20 +139,6 @@
   color: #FFFFFF;
 }
 
-.social-link.instagram:hover {
-  background: rgba(225, 48, 108, 0.25) !important;
-  border-color: #E1306C !important;
-  color: #E1306C !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25);
-}
-
-.social-link.instagram:hover .social-icon {
-  color: #E1306C !important;
-  transform: scale(1.1);
-}
-
-/* LinkedIn */
 .social-link.linkedin {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.12);
@@ -175,20 +149,6 @@
   color: #FFFFFF;
 }
 
-.social-link.linkedin:hover {
-  background: rgba(10, 102, 194, 0.25) !important;
-  border-color: #0A66C2 !important;
-  color: #0A66C2 !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(10, 102, 194, 0.25);
-}
-
-.social-link.linkedin:hover .social-icon {
-  color: #0A66C2 !important;
-  transform: scale(1.1);
-}
-
-/* GitHub */
 .social-link.github {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.12);
@@ -197,19 +157,6 @@
 
 .social-link.github .social-icon {
   color: #FFFFFF;
-}
-
-.social-link.github:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: #FFFFFF !important;
-  color: #FFFFFF !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-}
-
-.social-link.github:hover .social-icon {
-  color: #FFFFFF !important;
-  transform: scale(1.1);
 }
 
 /* ================================
@@ -266,6 +213,18 @@
   .social-link .social-icon {
     font-size: 0.95rem;
     width: 20px;
+    color: #FFFFFF; /* Mantiene el color blanco en responsive */
+  }
+
+  /* Mantiene el hover unificado en tablet */
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: #2ec4b6 !important;
+    color: #2ec4b6 !important;
+  }
+
+  .social-link:hover .social-icon {
+    color: #2ec4b6 !important;
   }
 
   .footer-bottom {
@@ -299,6 +258,18 @@
   .social-link .social-icon {
     font-size: 0.85rem;
     width: 18px;
+    color: #FFFFFF; /* Mantiene el color blanco en responsive */
+  }
+
+  /* Mantiene el hover unificado en móvil */
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: #2ec4b6 !important;
+    color: #2ec4b6 !important;
+  }
+
+  .social-link:hover .social-icon {
+    color: #2ec4b6 !important;
   }
 }
 
@@ -317,10 +288,22 @@
     font-size: 1rem;
     width: 22px;
     margin: 0;
+    color: #FFFFFF; /* Mantiene el color blanco en responsive */
   }
 
   .footer-social {
     gap: 0.4rem;
+  }
+
+  /* Mantiene el hover unificado en móvil pequeño */
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: #2ec4b6 !important;
+    color: #2ec4b6 !important;
+  }
+
+  .social-link:hover .social-icon {
+    color: #2ec4b6 !important;
   }
 }
 
