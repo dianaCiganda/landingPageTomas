@@ -981,3 +981,88 @@ body {
         min-width: 120px;
     }
 }
+/* ==========================================
+   TOOLTIP PARA CONTACT - Mismo estilo que Footer
+========================================== */
+
+.contact-email-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.copy-tooltip-contact {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    animation: fadeInContact 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes fadeInContact {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Estado de copiado para el botón de email - Mantiene el texto "Email" */
+.social-contact-link.email.copied {
+    background: #28a745 !important;
+    color: white !important;
+    transform: none !important;
+}
+
+.social-contact-link.email.copied .social-contact-label {
+    color: white !important;
+}
+
+/* ==========================================
+   BOTÓN DE COPIAR EN EMAIL DISPLAY
+========================================== */
+
+.email-btn-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.copy-email-btn.copied {
+    background: #28a745 !important;
+    transform: none !important;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+}
+
+.copy-email-btn.copied:hover {
+    background: #28a745 !important;
+    transform: none !important;
+}
+
+/* Ajustes responsivos para el tooltip */
+@media (max-width: 550px) {
+    .copy-tooltip-contact {
+        font-size: 10px;
+        padding: 3px 10px;
+        top: -28px;
+    }
+}
+
+@media (max-width: 400px) {
+    .copy-tooltip-contact {
+        font-size: 9px;
+        padding: 2px 8px;
+        top: -25px;
+    }
+}

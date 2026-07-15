@@ -745,3 +745,35 @@ body {
         font-size: 2.5rem;
     }
 }
+/* Tooltip de copiado para Banner */
+.contact-item-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.copy-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    animation: fadeIn 0.3s ease;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

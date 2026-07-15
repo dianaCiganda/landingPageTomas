@@ -8,7 +8,6 @@ const Contact = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = (e) => {
-    // Remover el foco inmediatamente después del clic
     if (e && e.currentTarget) {
       e.currentTarget.blur();
     }
@@ -116,8 +115,6 @@ const Contact = () => {
                   <div className="contact-social-wrapper">
                     <div className="contact-social">
                       {socialLinks.map((link) => {
-                        const isExternal = link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'));
-                        
                         if (link.isEmail) {
                           return (
                             <div key="email" className="contact-email-wrapper">
@@ -131,9 +128,12 @@ const Contact = () => {
                                   <i className={`${link.type} ${link.icon}`}></i>
                                 </span>
                                 <span className="social-contact-label">
-                                  {copied ? '¡Copiado!' : link.label}
+                                  {link.label}
                                 </span>
                               </button>
+                              {copied && (
+                                <span className="copy-tooltip-contact">¡Email copiado!</span>
+                              )}
                             </div>
                           );
                         }
@@ -162,13 +162,15 @@ const Contact = () => {
                   {/* Email visible con opción de copiar */}
                   <div className="email-display">
                     <span className="email-address">📧 tomasimarina@gmail.com</span>
-                    <button 
-                      onClick={handleCopyEmail}
-                      onMouseDown={(e) => e.preventDefault()}
-                      className={`copy-email-btn ${copied ? 'copied' : ''}`}
-                    >
-                      {copied ? '✅ Copiado' : '📋 Copiar Email'}
-                    </button>
+                    <div className="email-btn-wrapper">
+                      <button 
+                        onClick={handleCopyEmail}
+                        onMouseDown={(e) => e.preventDefault()}
+                        className={`copy-email-btn ${copied ? 'copied' : ''}`}
+                      >
+                        {copied ? '✅ Copiado' : '📋 Copiar Email'}
+                      </button>
+                    </div>
                   </div>
 
                 </div>
