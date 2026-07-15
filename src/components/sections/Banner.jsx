@@ -1,3 +1,4 @@
+// Banner.jsx - Versión simplificada sin JavaScript para el email
 import React, { useState } from "react";
 import "./Banner.css";
 
@@ -5,19 +6,13 @@ const Banner = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
 
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    window.location.href = "mailto:tomasimarina@gmail.com";
-  };
-
   const contactLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com",
+      href: "mailto:tomasimarina@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20Tomás,",
       className: "email",
       type: "fas",
       label: "Email",
-      onClick: handleEmailClick,
     },
     {
       icon: "fa-graduation-cap",
@@ -98,7 +93,6 @@ const Banner = () => {
                     target={isMailto ? '_self' : '_blank'}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     className="contact-item"
-                    onClick={link.onClick || undefined}
                   >
                     <span className="contact-icon">
                       <i className={`${link.type} ${link.icon}`}></i>
