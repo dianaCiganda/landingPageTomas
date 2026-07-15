@@ -156,8 +156,9 @@ body {
 }
 
 .contact-item {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     text-decoration: none;
     color: #033694;
@@ -190,6 +191,9 @@ body {
 }
 
 .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 26px;
     text-align: center;
     font-size: 1.15rem;
@@ -271,13 +275,16 @@ body {
     .banner-contenedor {
         height: 420px;
     }
+
     .banner-de-perfil {
         margin-top: -170px;
     }
+
     .profile-content {
         grid-template-columns: 340px 1fr;
         column-gap: 60px;
     }
+
     .titulo-profile {
         font-size: 2.2rem;
     }
@@ -291,17 +298,21 @@ body {
     .banner-contenedor {
         height: 400px;
     }
+
     .banner-de-perfil {
         margin-top: -160px;
     }
+
     .profile-content {
         grid-template-columns: 320px 1fr;
         column-gap: 50px;
     }
+
     .imagen-de-perfil {
         width: 320px;
         height: 320px;
     }
+
     .titulo-profile {
         font-size: 2rem;
     }
@@ -315,17 +326,21 @@ body {
     .banner-contenedor {
         height: 380px;
     }
+
     .banner-de-perfil {
         margin-top: -150px;
     }
+
     .profile-content {
         grid-template-columns: 300px 1fr;
         column-gap: 40px;
     }
+
     .imagen-de-perfil {
         width: 300px;
         height: 300px;
     }
+
     .titulo-profile {
         font-size: 1.8rem;
     }
@@ -339,19 +354,23 @@ body {
     .banner-contenedor {
         height: 360px;
     }
+
     .banner-de-perfil {
         margin-top: -140px;
     }
+
     .profile-content {
         grid-template-columns: 280px 1fr;
         column-gap: 30px;
         width: 85%;
         max-width: 1600px;
     }
+
     .imagen-de-perfil {
         width: 280px;
         height: 280px;
     }
+
     .titulo-profile {
         font-size: 1.6rem;
     }
@@ -365,18 +384,22 @@ body {
     .banner-contenedor {
         height: 390px;
     }
+
     .banner-de-perfil {
         margin-top: -180px;
     }
+
     .profile-content {
         grid-template-columns: 320px 1fr;
         column-gap: 40px;
         width: 94%;
     }
+
     .imagen-de-perfil {
         width: 320px;
         height: 320px;
     }
+
     .titulo-profile {
         font-size: 2rem;
     }
@@ -390,18 +413,22 @@ body {
     .banner-contenedor {
         height: 370px;
     }
+
     .banner-de-perfil {
         margin-top: -190px;
     }
+
     .profile-content {
         grid-template-columns: 300px 1fr;
         column-gap: 30px;
         width: 95%;
     }
+
     .imagen-de-perfil {
         width: 300px;
         height: 300px;
     }
+
     .titulo-profile {
         font-size: 1.8rem;
     }
@@ -415,24 +442,30 @@ body {
     .banner-contenedor {
         height: 330px;
     }
+
     .banner-de-perfil {
         margin-top: -200px;
     }
+
     .profile-content {
         grid-template-columns: 260px 1fr;
         column-gap: 20px;
         width: 96%;
     }
+
     .imagen-de-perfil {
         width: 260px;
         height: 260px;
     }
+
     .titulo-profile {
         font-size: 1.5rem;
     }
+
     .contact-label {
         font-size: 0.8rem;
     }
+
     .about-text {
         font-size: 0.9rem;
     }
@@ -446,45 +479,54 @@ body {
     .banner-contenedor {
         height: 290px;
     }
+
     .banner-de-perfil {
         width: 220px;
         margin-top: -180px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .profile-content {
         grid-template-columns: 1fr;
         row-gap: 20px;
         width: 96%;
     }
+
     .profile-left {
         align-items: center;
         text-align: center;
     }
+
     .titulo-profile {
         font-size: 1.5rem;
         text-align: center;
     }
+
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
     }
+
     /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.75rem;
         color: white;
     }
+
     .contact-item {
         padding: 8px 12px;
         gap: 8px;
     }
+
     .contact-icon {
         width: auto;
         font-size: 1.4rem;
@@ -499,54 +541,65 @@ body {
     .banner-contenedor {
         height: 250px;
     }
+
     .banner-de-perfil {
         width: 180px;
         margin-top: -150px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .imagen-de-perfil {
         border-width: 4px;
     }
+
     .profile-content {
         grid-template-columns: 1fr;
         width: 98%;
         row-gap: 15px;
         padding: 0 5px;
     }
+
     .profile-left {
         align-items: center;
         text-align: center;
     }
+
     .titulo-profile {
         font-size: 1.3rem;
         text-align: center;
         margin-bottom: 15px;
     }
+
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 6px;
     }
+
     /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
         color: white;
     }
+
     .contact-item {
         padding: 6px 10px;
         gap: 6px;
     }
+
     .contact-icon {
         width: auto;
         font-size: 1.3rem;
     }
+
     .about-text {
         font-size: 0.85rem;
     }
@@ -560,66 +613,80 @@ body {
     .banner-contenedor {
         height: 200px;
     }
+
     .banner-de-perfil {
         width: 140px;
         margin-top: -120px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .imagen-de-perfil {
         border-width: 3px;
     }
+
     .profile-content {
         grid-template-columns: 1fr;
         width: 100%;
         row-gap: 10px;
         padding: 0 5px;
     }
+
     .profile-left {
         align-items: center;
         text-align: center;
     }
+
     .titulo-profile {
         font-size: 1.1rem;
         text-align: center;
         margin-bottom: 12px;
     }
+
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 4px;
     }
+
     /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.65rem;
         color: white;
     }
+
     .contact-item {
         padding: 4px 8px;
         gap: 4px;
     }
+
     .contact-icon {
         width: auto;
         font-size: 1.1rem;
     }
+
     .about-text {
         font-size: 0.8rem;
         line-height: 1.6;
     }
+
     .section-tag {
         font-size: 0.7rem;
         margin-bottom: 8px;
     }
+
     .about-intro {
         font-size: 0.85rem;
         margin-bottom: 12px;
     }
+
     .about-text p {
         margin-bottom: 12px;
     }
@@ -633,49 +700,59 @@ body {
     .banner-contenedor {
         height: 320px;
     }
+
     .banner-de-perfil {
         width: 240px;
         margin-top: -120px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .imagen-de-perfil {
         width: 240px;
         height: 240px;
     }
+
     .profile-content {
         grid-template-columns: 1fr;
         row-gap: 20px;
         width: 92%;
     }
+
     .profile-left {
         align-items: center;
         text-align: center;
     }
+
     .titulo-profile {
         font-size: 1.8rem;
         text-align: center;
     }
+
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
+
     /* Ocultar labels en tablet - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.8rem;
         color: white;
     }
+
     .contact-item {
         padding: 10px 14px;
         gap: 8px;
     }
+
     .contact-icon {
         width: auto;
         font-size: 1.5rem;
@@ -690,45 +767,55 @@ body {
     .banner-contenedor {
         height: 280px;
     }
+
     .banner-de-perfil {
         width: 200px;
         margin-top: -100px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .imagen-de-perfil {
         width: 200px;
         height: 200px;
         border-width: 4px;
     }
+
     .profile-content {
         row-gap: 15px;
         width: 95%;
     }
+
     .titulo-profile {
         font-size: 1.5rem;
         text-align: center;
     }
+
     .profile-contact {
         gap: 6px;
     }
+
     /* Ocultar labels en mobile - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
         color: white;
     }
+
     .contact-item {
         padding: 6px 10px;
         gap: 6px;
     }
+
     .contact-icon {
         font-size: 1.3rem;
     }
+
     .about-text {
         font-size: 0.95rem;
     }
@@ -742,35 +829,43 @@ body {
     .banner-contenedor {
         height: 230px;
     }
+
     .banner-de-perfil {
         width: 160px;
         margin-top: -80px;
     }
+
     .imagen-de-perfil {
         width: 160px;
         height: 160px;
         border-width: 3px;
     }
+
     .titulo-profile {
         font-size: 1.3rem;
     }
+
     /* Ocultar labels en mobile pequeña - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
+
     /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.65rem;
         color: white;
     }
+
     .contact-item {
         padding: 4px 8px;
         gap: 4px;
     }
+
     .contact-icon {
         font-size: 1.1rem;
     }
+
     .about-text {
         font-size: 0.9rem;
     }
@@ -784,18 +879,22 @@ body {
     .banner-contenedor {
         height: 420px;
     }
+
     .banner-de-perfil {
         margin-top: -170px;
     }
+
     .profile-content {
         max-width: 1400px;
         column-gap: 80px;
         grid-template-columns: 340px 1fr;
     }
+
     .imagen-de-perfil {
         width: 340px;
         height: 340px;
     }
+
     .titulo-profile {
         font-size: 2.5rem;
     }
