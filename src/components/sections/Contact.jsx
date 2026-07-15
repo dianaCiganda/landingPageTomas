@@ -155,18 +155,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Email visible con opción de copiar */}
-                  <div className="email-display">
-                    <span className="email-address">📧 tomasimarina@gmail.com</span>
-                    <button 
-                      onClick={handleCopyEmail}
-                      onMouseDown={(e) => e.preventDefault()}
-                      className={`copy-email-btn ${copied ? 'copied' : ''}`}
-                    >
-                      {copied ? '✅ Copiado' : '📋 Copiar Email'}
-                    </button>
-                  </div>
-
                 </div>
               </div>
             </div>
