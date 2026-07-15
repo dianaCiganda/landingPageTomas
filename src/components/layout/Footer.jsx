@@ -2,6 +2,11 @@ import React from 'react'
 import './Footer.css'
 
 const Footer = () => {
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:tomasimarina@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20Tomás,";
+  };
+
   const socialLinks = [
     {
       icon: "fa-envelope",
@@ -9,6 +14,7 @@ const Footer = () => {
       className: "email",
       type: "fas",
       label: "Email",
+      onClick: handleEmailClick,
     },
     {
       icon: 'fa-x-twitter',
@@ -25,6 +31,17 @@ const Footer = () => {
       label: "Instagram",
     },
   ]
+
+  const handleLinkClick = (e, link) => {
+    if (link.href.startsWith('mailto:')) {
+      e.preventDefault();
+      window.location.href = link.href;
+      
+      setTimeout(() => {
+        window.open(link.href, '_self');
+      }, 100);
+    }
+  };
 
   return (
     <footer className="footer">
@@ -48,6 +65,7 @@ const Footer = () => {
                   rel={isExternal ? 'noopener noreferrer' : undefined}
                   className={`social-link ${link.className}`}
                   aria-label={link.label || link.className}
+                  onClick={(e) => handleLinkClick(e, link)}
                 >
                   <span className="social-icon">
                     <i className={`${link.type} ${link.icon}`}></i>

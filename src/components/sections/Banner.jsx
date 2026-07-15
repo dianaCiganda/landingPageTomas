@@ -5,13 +5,19 @@ const Banner = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
 
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:tomasimarina@gmail.com";
+  };
+
   const contactLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com", // Agregado mailto:
+      href: "mailto:tomasimarina@gmail.com",
       className: "email",
       type: "fas",
       label: "Email",
+      onClick: handleEmailClick,
     },
     {
       icon: "fa-graduation-cap",
@@ -92,6 +98,7 @@ const Banner = () => {
                     target={isMailto ? '_self' : '_blank'}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     className="contact-item"
+                    onClick={link.onClick || undefined}
                   >
                     <span className="contact-icon">
                       <i className={`${link.type} ${link.icon}`}></i>

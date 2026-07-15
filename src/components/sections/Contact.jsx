@@ -6,6 +6,11 @@ const Contact = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
 
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:tomasimarina@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20Tomás,";
+  };
+
   const socialLinks = [
     {
       icon: "fa-envelope",
@@ -13,6 +18,7 @@ const Contact = () => {
       className: "email",
       type: "fas",
       label: "Email",
+      onClick: handleEmailClick,
     },
     {
       icon: "fa-x-twitter",
@@ -29,6 +35,17 @@ const Contact = () => {
       label: "Instagram",
     },
   ];
+
+  const handleLinkClick = (e, link) => {
+    if (link.href.startsWith('mailto:')) {
+      e.preventDefault();
+      window.location.href = link.href;
+      
+      setTimeout(() => {
+        window.open(link.href, '_self');
+      }, 100);
+    }
+  };
 
   return (
     <>
@@ -123,6 +140,7 @@ const Contact = () => {
                             rel={isExternal ? 'noopener noreferrer' : undefined}
                             className={`social-contact-link ${link.className}`}
                             title={link.label}
+                            onClick={(e) => handleLinkClick(e, link)}
                           >
                             <span className="social-contact-icon">
                               <i className={`${link.type} ${link.icon}`}></i>
