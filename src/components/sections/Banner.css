@@ -156,7 +156,7 @@ body {
 }
 
 .contact-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 12px;
     text-decoration: none;
@@ -172,6 +172,7 @@ body {
     font-size: inherit;
     -webkit-tap-highlight-color: transparent;
     outline: none;
+    vertical-align: middle;
 }
 
 /* Eliminar estado de foco persistente en móviles */
@@ -199,6 +200,8 @@ body {
 .contact-label {
     font-size: .95rem;
     white-space: nowrap;
+    display: inline-block;
+    line-height: 1;
 }
 
 /* Estado de copiado para el botón de email */
@@ -469,13 +472,13 @@ body {
         justify-content: center;
         gap: 8px;
     }
-    /* Mostrar el label en pantallas medianas */
     .contact-label {
         display: inline-block !important;
         font-size: 0.75rem;
     }
     .contact-item {
         padding: 8px 12px;
+        gap: 8px;
     }
     .contact-icon {
         width: auto;
@@ -521,12 +524,13 @@ body {
         justify-content: center;
         gap: 6px;
     }
-    /* Ocultar label en pantallas muy pequeñas */
     .contact-label {
-        display: none !important;
+        display: inline-block !important;
+        font-size: 0.7rem;
     }
     .contact-item {
         padding: 6px 10px;
+        gap: 6px;
     }
     .contact-icon {
         width: auto;
@@ -576,11 +580,12 @@ body {
         gap: 4px;
     }
     .contact-label {
-        display: none !important;
+        display: inline-block !important;
+        font-size: 0.65rem;
     }
     .contact-item {
         padding: 4px 8px;
-        gap: 0;
+        gap: 4px;
     }
     .contact-icon {
         width: auto;
@@ -640,13 +645,13 @@ body {
         justify-content: center;
         gap: 10px;
     }
-    /* Mostrar label en tablet */
     .contact-label {
         display: inline-block !important;
         font-size: 0.8rem;
     }
     .contact-item {
         padding: 10px 14px;
+        gap: 8px;
     }
     .contact-icon {
         width: auto;
@@ -685,10 +690,12 @@ body {
         gap: 6px;
     }
     .contact-label {
-        display: none !important;
+        display: inline-block !important;
+        font-size: 0.7rem;
     }
     .contact-item {
         padding: 6px 10px;
+        gap: 6px;
     }
     .contact-icon {
         font-size: 1.2rem;
@@ -718,8 +725,13 @@ body {
     .titulo-profile {
         font-size: 1.3rem;
     }
+    .contact-label {
+        display: inline-block !important;
+        font-size: 0.65rem;
+    }
     .contact-item {
         padding: 4px 8px;
+        gap: 4px;
     }
     .contact-icon {
         font-size: 1rem;

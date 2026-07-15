@@ -264,7 +264,7 @@ body {
 }
 
 /* ==========================================
-   TEXTO DEL LABEL - AHORA VISIBLE
+   TEXTO DEL LABEL - AHORA VISIBLE EN TODOS LOS TAMAÑOS
 ========================================== */
 
 .social-contact-label {
@@ -592,9 +592,9 @@ body {
         height: 32px;
         font-size: 1.4rem;
     }
-    /* Ocultar label en pantallas muy pequeñas */
     .social-contact-label {
-        display: none !important;
+        font-size: 0.7rem;
+        display: inline-block !important;
     }
 }
 
@@ -662,7 +662,8 @@ body {
         font-size: 1.2rem;
     }
     .social-contact-label {
-        display: none !important;
+        font-size: 0.65rem;
+        display: inline-block !important;
     }
 }
 
@@ -766,7 +767,8 @@ body {
         font-size: 1.4rem;
     }
     .social-contact-label {
-        display: none !important;
+        font-size: 0.7rem;
+        display: inline-block !important;
     }
 }
 
@@ -810,7 +812,8 @@ body {
         font-size: 1.2rem;
     }
     .social-contact-label {
-        display: none !important;
+        font-size: 0.65rem;
+        display: inline-block !important;
     }
 }
 
