@@ -1,14 +1,7 @@
 /* ================================
    BANNER PRINCIPAL
 ================================ */
-/* ================================
-   SCROLL - COMPENSACIÓN PARA EL BANNER
-================================ */
 
-/* Compensa la foto superpuesta al hacer scroll */
-#about {
-    scroll-margin-top: 500px;
-}
 .banner {
     position: relative;
     width: 100%;
@@ -45,14 +38,14 @@
 }
 
 /* ================================
-   FOTO DE PERFIL - 50% MÁS GRANDE
+   FOTO DE PERFIL
 ================================ */
 
 .banner-de-perfil {
     position: absolute;
-    left: 60px;
     bottom: -170px;
     z-index: 10;
+    left: 90px;
 }
 
 .imagen-de-perfil {
@@ -78,17 +71,17 @@
 }
 
 /* ================================
-   TITULO - ALINEADO A LA IZQUIERDA
+   TITULO
 ================================ */
 
 .titulo-profile {
     margin: 0;
-    margin-left: 0; /* Alineado a la izquierda */
-    padding-top: 180px;
+    padding-top: 170px;
     font-size: 2.2rem;
     color: #1a2a3a;
     font-weight: 700;
-    text-align: left; /* Alineado a la izquierda */
+    text-align: left;
+    padding-left: 0;
 }
 
 /* ================================
@@ -98,7 +91,7 @@
 .profile-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 40px 40px 40px;
+    padding: 20px 40px 40px 60px;
     display: flex;
     gap: 60px;
     align-items: flex-start;
@@ -113,11 +106,11 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-items: flex-start; /* Alinea todo a la izquierda */
+    align-items: flex-start;
 }
 
 /* ================================
-   REDES SOCIALES - ALINEADAS A LA IZQUIERDA
+   REDES SOCIALES
 ================================ */
 
 .redes {
@@ -129,7 +122,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-start; /* Alinea los enlaces a la izquierda */
+    align-items: flex-start;
 }
 
 .contact-item {
@@ -142,11 +135,11 @@
     border-radius: 6px;
     transition: 0.3s;
     font-size: 0.95rem;
-    text-align: left; /* Alinea el texto a la izquierda */
+    text-align: left;
 }
 
 .contact-item:hover {
-    background: #efefef;
+    background: #a9c9f8;
 }
 
 .contact-icon {
@@ -202,6 +195,14 @@
 }
 
 /* ================================
+   SCROLL - COMPENSACIÓN PARA EL BANNER
+================================ */
+
+#about {
+    scroll-margin-top: 80px;
+}
+
+/* ================================
    TABLET (max-width: 900px)
 ================================ */
 
@@ -230,6 +231,13 @@
         height: 240px;
     }
 
+    .titulo-profile {
+        padding-top: 130px;
+        padding-left: 0;
+        font-size: 2rem;
+        text-align: center;
+    }
+
     .profile-content {
         flex-direction: column;
         gap: 20px;
@@ -241,15 +249,8 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centrado en tablet */
+        align-items: center;
         text-align: center;
-    }
-
-    .titulo-profile {
-        padding-top: 130px;
-        font-size: 2rem;
-        text-align: center; /* Centrado en tablet */
-        margin-left: 0;
     }
 
     .redes {
@@ -257,11 +258,26 @@
     }
 
     .profile-contact {
-        align-items: center; /* Centrado en tablet */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* OCULTAR TEXTO EN TABLET */
+    .contact-label {
+        display: none;
     }
 
     .contact-item {
-        text-align: center;
+        padding: 8px 14px;
+        gap: 0;
+        justify-content: center;
+    }
+
+    .contact-icon {
+        width: auto;
+        font-size: 1.5rem;
     }
 
     .about {
@@ -276,16 +292,8 @@
         margin-top: 10px;
     }
 
-    .profile-contact {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .contact-item {
-        padding: 8px 14px;
-        font-size: 0.85rem;
+    #about {
+        scroll-margin-top: 40px;
     }
 }
 
@@ -318,6 +326,13 @@
         height: 180px;
     }
 
+    .titulo-profile {
+        padding-top: 100px;
+        padding-left: 0;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
     .profile-content {
         flex-direction: column;
         padding: 20px 20px 20px 20px;
@@ -332,13 +347,6 @@
         width: 100%;
     }
 
-    .titulo-profile {
-        padding-top: 100px;
-        font-size: 1.6rem;
-        text-align: center;
-        margin-left: 0;
-    }
-
     .redes {
         width: 100%;
     }
@@ -348,19 +356,22 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 6px;
-        align-items: center;
+    }
+
+    /* OCULTAR TEXTO EN MÓVIL */
+    .contact-label {
+        display: none;
     }
 
     .contact-item {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-        gap: 8px;
-        text-align: center;
+        padding: 8px 12px;
+        gap: 0;
+        justify-content: center;
     }
 
     .contact-icon {
-        width: 20px;
-        font-size: 0.9rem;
+        width: auto;
+        font-size: 1.4rem;
     }
 
     .about {
@@ -381,6 +392,10 @@
 
     .about-intro {
         font-size: 1rem;
+    }
+
+    #about {
+        scroll-margin-top: 20px;
     }
 }
 
@@ -414,6 +429,7 @@
 
     .titulo-profile {
         padding-top: 85px;
+        padding-left: 0;
         font-size: 1.4rem;
         text-align: center;
     }
@@ -426,22 +442,27 @@
         gap: 5px;
     }
 
-    .contact-item span:last-child {
-        display: inline-block;
-        font-size: 0.7rem;
+    /* OCULTAR TEXTO EN MÓVIL PEQUEÑO */
+    .contact-label {
+        display: none;
     }
 
     .contact-item {
-        padding: 5px 10px;
-        font-size: 0.75rem;
+        padding: 6px 10px;
+        gap: 0;
+        justify-content: center;
     }
 
     .contact-icon {
-        width: 22px;
-        font-size: 0.9rem;
+        width: auto;
+        font-size: 1.3rem;
     }
 
     .about-text {
         font-size: 0.9rem;
+    }
+
+    #about {
+        scroll-margin-top: 10px;
     }
 }

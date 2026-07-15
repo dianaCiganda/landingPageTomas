@@ -30,12 +30,17 @@ const Banner = () => {
       label: "ORCID",
       href: "https://orcid.org/0000-0002-9203-7411",
     },
+    {
+      icon: "fa-linkedin-in",
+      type: "fab",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/tomas-ignacio-marina/ ", 
+    },
   ];
 
   return (
     <>
-      {/* Banner */}
-      <section className="banner">
+      <section id="home" className="banner">
         <div className="banner-contenedor">
           <div className="banner-background">
             {!bannerError ? (
@@ -69,16 +74,13 @@ const Banner = () => {
         </div>
       </section>
 
-      {/* Contenido */}
       <div className="profile-content">
-        {/* Columna izquierda: Foto + Nombre + Contacto */}
         <div className="profile-left">
           <h1 className="titulo-profile">Tomás I. Marina</h1>
 
-          {/* Redes / Contacto */}
           <aside className="redes">
             <div className="profile-contact">
-              {contactLinks.map((link) => (
+              {contactLinks.map((link, index) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -89,20 +91,23 @@ const Banner = () => {
                   <span className="contact-icon">
                     <i className={`${link.type} ${link.icon}`}></i>
                   </span>
-                  <span>{link.label}</span>
+                  <span 
+                    className="contact-label"
+                    style={{ textTransform: 'none' }}
+                  >
+                    {index === 0 ? link.label.toLowerCase() : link.label}
+                  </span>
                 </a>
               ))}
             </div>
           </aside>
         </div>
 
-        {/* About */}
-        <section id="about" className="about">
+        <section className="about">
           <div className="about-container">
             <div className="about-wrapper">
               <div className="about-text">
                 <span className="section-tag">About Me</span>
-
                 <p className="about-intro">
                   I am a full-time researcher at <strong>CADIC-CONICET</strong> in Ushuaia,
                   Argentina. With an M.Sc. in Biological Oceanography
@@ -112,7 +117,6 @@ const Banner = () => {
                   high-latitude marine ecosystems using a network
                   perspective.
                 </p>
-
                 <p>
                   I have published over
                   <strong> 20 peer-reviewed articles </strong>

@@ -54,7 +54,7 @@ const Header = () => {
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
 
           <li>
-            <button onClick={() => goToSection("about")}>
+            <button onClick={() => goToSection("home")}>
               About
             </button>
           </li>
@@ -90,8 +90,8 @@ const Header = () => {
           </li>
 
           <li>
-            <Link 
-              to="/cv" 
+            <Link
+              to="/cv"
               onClick={closeMenu}
               className={isCVPage ? "active" : ""}
             >
