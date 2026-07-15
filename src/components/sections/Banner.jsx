@@ -8,9 +8,10 @@ const Banner = () => {
   const contactLinks = [
     {
       icon: "fa-envelope",
+      href: "mailto:tomasimarina@gmail.com", // Agregado mailto:
+      className: "email",
       type: "fas",
-      label: "tomasimarina@gmail.com",
-     href: "mailto:tomasimarina@gmail.com?subject=Contacto desde tu página web&body=Hola Tomás,",
+      label: "Email",
     },
     {
       icon: "fa-graduation-cap",
@@ -80,22 +81,27 @@ const Banner = () => {
 
           <aside className="redes">
             <div className="profile-contact">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="contact-item"
-                >
-                  <span className="contact-icon">
-                    <i className={`${link.type} ${link.icon}`}></i>
-                  </span>
-                  <span className="contact-label">
-                    {link.label}
-                  </span>
-                </a>
-              ))}
+              {contactLinks.map((link) => {
+                const isMailto = link.href.startsWith('mailto:');
+                const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
+                
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target={isMailto ? '_self' : '_blank'}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    className="contact-item"
+                  >
+                    <span className="contact-icon">
+                      <i className={`${link.type} ${link.icon}`}></i>
+                    </span>
+                    <span className="contact-label">
+                      {link.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </aside>
         </div>

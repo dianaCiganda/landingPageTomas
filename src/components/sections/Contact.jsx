@@ -9,7 +9,7 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: "fa-envelope",
-       href: "mailto:tomasimarina@gmail.com?subject=Contacto desde tu página web&body=Hola Tomás,",
+      href: "mailto:tomasimarina@gmail.com",
       className: "email",
       type: "fas",
       label: "Email",
@@ -112,16 +112,15 @@ const Contact = () => {
                     <div className="contact-social">
 
                       {socialLinks.map((link) => {
-
-                        // Para mailto: no usar target="_blank"
                         const isMailto = link.href.startsWith('mailto:');
+                        const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
                         
                         return (
                           <a
                             key={link.href}
                             href={link.href}
                             target={isMailto ? '_self' : '_blank'}
-                            rel={isMailto ? undefined : 'noopener noreferrer'}
+                            rel={isExternal ? 'noopener noreferrer' : undefined}
                             className={`social-contact-link ${link.className}`}
                             title={link.label}
                           >
