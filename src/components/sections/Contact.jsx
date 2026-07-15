@@ -9,7 +9,7 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com",
+       href: "mailto:tomasimarina@gmail.com?subject=Contacto desde tu página web&body=Hola Tomás,",
       className: "email",
       type: "fas",
       label: "Email",

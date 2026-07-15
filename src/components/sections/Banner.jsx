@@ -10,7 +10,7 @@ const Banner = () => {
       icon: "fa-envelope",
       type: "fas",
       label: "tomasimarina@gmail.com",
-      href: "mailto:tomasimarina@gmail.com",
+     href: "mailto:tomasimarina@gmail.com?subject=Contacto desde tu página web&body=Hola Tomás,",
     },
     {
       icon: "fa-graduation-cap",
