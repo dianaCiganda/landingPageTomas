@@ -264,25 +264,22 @@ body {
 }
 
 /* ==========================================
-   TEXTO DEL LABEL - VISIBLE EN TODOS LOS TAMAÑOS
+   TEXTO DEL LABEL
 ========================================== */
 
 .social-contact-label {
-    display: inline-block !important;
+    display: inline-block;
     font-size: 0.95rem;
     font-weight: 500;
     color: #033694;
     line-height: 1;
     white-space: nowrap;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
 /* ==========================================
-   COLORES HOVER - Especificidad sin !important
+   COLORES HOVER
 ========================================== */
 
-/* Email */
 .social-contact-link.email:hover,
 .social-contact-link.x:hover,
 .social-contact-link.instagram:hover {
@@ -294,17 +291,17 @@ body {
 ========================================== */
 
 .social-contact-link.email.copied {
-    background: #28a745 !important;
-    color: white !important;
-    transform: none !important;
+    background: #28a745;
+    color: white;
+    transform: none;
 }
 
 .social-contact-link.email.copied .social-contact-label {
-    color: white !important;
+    color: white;
 }
 
 .social-contact-link.email.copied .social-contact-icon {
-    color: white !important;
+    color: white;
 }
 
 /* ==========================================
@@ -491,7 +488,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.85rem;
-        display: inline-block !important;
     }
 }
 
@@ -540,7 +536,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.8rem;
-        display: inline-block !important;
     }
 }
 
@@ -597,7 +592,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.7rem;
-        display: inline-block !important;
     }
 }
 
@@ -666,7 +660,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.65rem;
-        display: inline-block !important;
     }
 }
 
@@ -719,7 +712,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.8rem;
-        display: inline-block !important;
     }
 }
 
@@ -771,7 +763,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.7rem;
-        display: inline-block !important;
     }
 }
 
@@ -816,7 +807,6 @@ body {
     }
     .social-contact-label {
         font-size: 0.65rem;
-        display: inline-block !important;
     }
 }
 
@@ -857,6 +847,5 @@ body {
     }
     .social-contact-label {
         font-size: 1.1rem;
-        display: inline-block !important;
     }
 }
