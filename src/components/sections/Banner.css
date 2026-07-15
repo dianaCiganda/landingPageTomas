@@ -1,10 +1,38 @@
-/* ================================
-   BANNER PRINCIPAL
-================================ */
+/* ==========================================
+   RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 16px;
+    background-color: #fdfdfd;
+}
+
+/* ==========================================
+   BANNER
+========================================== */
 
 .banner {
-    position: relative;
     width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .banner-contenedor {
@@ -13,7 +41,6 @@
     height: 420px;
 }
 
-/* Imagen de portada */
 .banner-background {
     width: 100%;
     height: 100%;
@@ -21,121 +48,123 @@
 
 .image-banner {
     width: 100%;
-    height: 420px;
+    height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* Fallback */
 .banner-bg-fallback {
     width: 100%;
-    height: 420px;
-    background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
     font-size: 4rem;
 }
 
-/* ================================
-   FOTO DE PERFIL
-================================ */
-
-.banner-de-perfil {
-    position: absolute;
-    bottom: -170px;
-    z-index: 10;
-    left: 90px;
-}
-
-.imagen-de-perfil {
-    width: 340px;
-    height: 340px;
-    object-fit: cover;
-    border: 5px solid white;
-    border-radius: 8px;
-    display: block;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-.banner-profile-placeholder {
-    width: 340px;
-    height: 340px;
-    background: #e8f5f3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5rem;
-    border: 5px solid white;
-    border-radius: 8px;
-}
-
-/* ================================
-   TITULO
-================================ */
-
-.titulo-profile {
-    margin: 0;
-    padding-top: 170px;
-    font-size: 2.2rem;
-    color: #1a2a3a;
-    font-weight: 700;
-    text-align: left;
-    padding-left: 0;
-}
-
-/* ================================
-   CONTENIDO PRINCIPAL
-================================ */
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
 
 .profile-content {
     max-width: 1200px;
+    width: 92%;
     margin: 0 auto;
-    padding: 20px 40px 40px 60px;
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    column-gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 10;
 }
 
-/* ================================
+/* ==========================================
    COLUMNA IZQUIERDA
-================================ */
+========================================== */
 
 .profile-left {
-    flex: 0 0 320px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
     align-items: flex-start;
+    width: 100%;
+    position: relative;
+    z-index: 20;
 }
 
-/* ================================
-   REDES SOCIALES
-================================ */
+/* ==========================================
+   FOTO DE PERFIL - POSICIÓN RELATIVA
+========================================== */
+
+.banner-de-perfil {
+    width: 100%;
+    margin-top: -170px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 30;
+}
+
+.imagen-de-perfil {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
+    display: block;
+}
+
+.banner-profile-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8f5f3;
+    font-size: 5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
+}
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.titulo-profile {
+    margin: 0 0 25px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* ==========================================
+   REDES
+========================================== */
 
 .redes {
     width: 100%;
-    margin-top: 10px;
 }
 
 .profile-contact {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    width: 100%;
     align-items: flex-start;
 }
 
 .contact-item {
-    color: #033694;
-    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    transition: 0.3s;
-    font-size: 0.95rem;
-    text-align: left;
+    text-decoration: none;
+    color: #033694;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: .25s;
+    width: fit-content;
 }
 
 .contact-item:hover {
@@ -146,323 +175,540 @@
     width: 26px;
     text-align: center;
     font-size: 1.15rem;
+    flex-shrink: 0;
 }
 
-/* ================================
-   ABOUT - DERECHA
-================================ */
+.contact-label {
+    font-size: .95rem;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   ABOUT
+========================================== */
 
 .about {
-    flex: 1;
-    margin-top: 0;
-}
-
-.about-container {
     width: 100%;
-}
-
-.about-wrapper {
-    width: 100%;
+    padding-top: 20px;
+    min-width: 0;
 }
 
 .about-text {
     line-height: 1.8;
+    color: #333;
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .section-tag {
     display: inline-block;
-    font-size: 0.9rem;
+    margin-bottom: 14px;
+    font-size: .9rem;
     font-weight: 600;
     color: #2ec4b6;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 12px;
+    text-transform: uppercase;
 }
 
 .about-intro {
-    font-size: 1.1rem;
-    margin-bottom: 16px;
+    font-size: 1.08rem;
+    margin-bottom: 18px;
 }
 
 .about-text p {
-    margin-bottom: 16px;
-    color: #333;
+    margin-bottom: 18px;
 }
 
 .about-text strong {
     color: #1a2a3a;
-    font-weight: 600;
 }
-
-/* ================================
-   SCROLL - COMPENSACIÓN PARA EL BANNER
-================================ */
 
 #about {
     scroll-margin-top: 80px;
 }
 
-/* ================================
-   TABLET (max-width: 900px)
-================================ */
+/* ==========================================
+   ZOOM 100% - BASE
+========================================== */
 
-@media (max-width: 900px) {
+@media screen and (min-width: 1201px) {
     .banner-contenedor {
-        height: 350px;
+        height: 420px;
     }
-
-    .image-banner {
-        height: 350px;
-    }
-
     .banner-de-perfil {
-        left: 50%;
-        bottom: -120px;
-        transform: translateX(-50%);
+        margin-top: -170px;
     }
-
-    .imagen-de-perfil {
-        width: 240px;
-        height: 240px;
-    }
-
-    .banner-profile-placeholder {
-        width: 240px;
-        height: 240px;
-    }
-
-    .titulo-profile {
-        padding-top: 130px;
-        padding-left: 0;
-        font-size: 2rem;
-        text-align: center;
-    }
-
     .profile-content {
-        flex-direction: column;
-        gap: 20px;
-        padding: 30px 30px 30px 30px;
+        grid-template-columns: 340px 1fr;
+        column-gap: 60px;
     }
+    .titulo-profile {
+        font-size: 2.2rem;
+    }
+}
 
+/* ==========================================
+   ZOOM 90%
+========================================== */
+
+@media screen and (min-width: 1300px) and (max-width: 1440px) {
+    .banner-contenedor {
+        height: 400px;
+    }
+    .banner-de-perfil {
+        margin-top: -160px;
+    }
+    .profile-content {
+        grid-template-columns: 320px 1fr;
+        column-gap: 50px;
+    }
+    .imagen-de-perfil {
+        width: 320px;
+        height: 320px;
+    }
+    .titulo-profile {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 80%
+========================================== */
+
+@media screen and (min-width: 1450px) and (max-width: 1600px) {
+    .banner-contenedor {
+        height: 380px;
+    }
+    .banner-de-perfil {
+        margin-top: -150px;
+    }
+    .profile-content {
+        grid-template-columns: 300px 1fr;
+        column-gap: 40px;
+    }
+    .imagen-de-perfil {
+        width: 300px;
+        height: 300px;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 70%
+========================================== */
+
+@media screen and (min-width: 1650px) {
+    .banner-contenedor {
+        height: 360px;
+    }
+    .banner-de-perfil {
+        margin-top: -140px;
+    }
+    .profile-content {
+        grid-template-columns: 280px 1fr;
+        column-gap: 30px;
+        width: 85%;
+        max-width: 1600px;
+    }
+    .imagen-de-perfil {
+        width: 280px;
+        height: 280px;
+    }
+    .titulo-profile {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 110%
+========================================== */
+
+@media screen and (max-width: 1100px) and (min-width: 1001px) {
+    .banner-contenedor {
+        height: 390px;
+    }
+    .banner-de-perfil {
+        margin-top: -180px;
+    }
+    .profile-content {
+        grid-template-columns: 320px 1fr;
+        column-gap: 40px;
+        width: 94%;
+    }
+    .imagen-de-perfil {
+        width: 320px;
+        height: 320px;
+    }
+    .titulo-profile {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 125%
+========================================== */
+
+@media screen and (max-width: 1000px) and (min-width: 851px) {
+    .banner-contenedor {
+        height: 370px;
+    }
+    .banner-de-perfil {
+        margin-top: -190px;
+    }
+    .profile-content {
+        grid-template-columns: 300px 1fr;
+        column-gap: 30px;
+        width: 95%;
+    }
+    .imagen-de-perfil {
+        width: 300px;
+        height: 300px;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 150%
+========================================== */
+
+@media screen and (max-width: 850px) and (min-width: 701px) {
+    .banner-contenedor {
+        height: 330px;
+    }
+    .banner-de-perfil {
+        margin-top: -200px;
+    }
+    .profile-content {
+        grid-template-columns: 260px 1fr;
+        column-gap: 20px;
+        width: 96%;
+    }
+    .imagen-de-perfil {
+        width: 260px;
+        height: 260px;
+    }
+    .titulo-profile {
+        font-size: 1.5rem;
+    }
+    .contact-label {
+        font-size: 0.8rem;
+    }
+    .about-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 175% - CAMBIA A UNA COLUMNA
+========================================== */
+
+@media screen and (max-width: 700px) and (min-width: 551px) {
+    .banner-contenedor {
+        height: 290px;
+    }
+    .banner-de-perfil {
+        width: 220px;
+        margin-top: -180px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        width: 96%;
+    }
     .profile-left {
-        flex: 1;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
-    .redes {
-        width: 100%;
+    .titulo-profile {
+        font-size: 1.5rem;
+        text-align: center;
     }
-
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
     }
-
-    /* OCULTAR TEXTO EN TABLET */
     .contact-label {
         display: none;
     }
-
     .contact-item {
-        padding: 8px 14px;
-        gap: 0;
-        justify-content: center;
+        padding: 8px 12px;
     }
-
     .contact-icon {
         width: auto;
-        font-size: 1.5rem;
-    }
-
-    .about {
-        order: 1;
-        margin-top: 0;
-        width: 100%;
-    }
-
-    .redes {
-        order: 2;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    #about {
-        scroll-margin-top: 40px;
+        font-size: 1.4rem;
     }
 }
 
-/* ================================
-   CELULAR (max-width: 600px)
-================================ */
+/* ==========================================
+   ZOOM 200%
+========================================== */
 
-@media (max-width: 600px) {
+@media screen and (max-width: 550px) and (min-width: 401px) {
     .banner-contenedor {
-        height: 280px;
+        height: 250px;
     }
-
-    .image-banner {
-        height: 280px;
-        object-fit: cover;
-    }
-
     .banner-de-perfil {
-        bottom: -90px;
-    }
-
-    .imagen-de-perfil {
         width: 180px;
-        height: 180px;
+        margin-top: -150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
         border-width: 4px;
     }
-
-    .banner-profile-placeholder {
-        width: 180px;
-        height: 180px;
-    }
-
-    .titulo-profile {
-        padding-top: 100px;
-        padding-left: 0;
-        font-size: 1.6rem;
-        text-align: center;
-    }
-
     .profile-content {
-        flex-direction: column;
-        padding: 20px 20px 20px 20px;
-        gap: 15px;
+        grid-template-columns: 1fr;
+        width: 98%;
+        row-gap: 15px;
+        padding: 0 5px;
     }
-
     .profile-left {
-        display: flex;
-        flex-direction: column;
         align-items: center;
         text-align: center;
-        width: 100%;
     }
-
-    .redes {
-        width: 100%;
+    .titulo-profile {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 15px;
     }
-
     .profile-contact {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 6px;
     }
-
-    /* OCULTAR TEXTO EN MÓVIL */
     .contact-label {
         display: none;
     }
-
     .contact-item {
-        padding: 8px 12px;
-        gap: 0;
-        justify-content: center;
+        padding: 6px 10px;
     }
-
     .contact-icon {
         width: auto;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
-
-    .about {
-        order: 1;
-        margin-top: 0;
-        width: 100%;
-    }
-
-    .redes {
-        order: 2;
-        width: 100%;
-        margin-top: 10px;
-    }
-
     .about-text {
-        font-size: 0.95rem;
-    }
-
-    .about-intro {
-        font-size: 1rem;
-    }
-
-    #about {
-        scroll-margin-top: 20px;
+        font-size: 0.85rem;
     }
 }
 
-/* ================================
-   CELULAR PEQUEÑO (max-width: 400px)
-================================ */
+/* ==========================================
+   ZOOM 250% O MÁS
+========================================== */
+
+@media screen and (max-width: 400px) {
+    .banner-contenedor {
+        height: 200px;
+    }
+    .banner-de-perfil {
+        width: 140px;
+        margin-top: -120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        border-width: 3px;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        width: 100%;
+        row-gap: 10px;
+        padding: 0 5px;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .profile-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+    .contact-label {
+        display: none;
+    }
+    .contact-item {
+        padding: 4px 8px;
+        gap: 0;
+    }
+    .contact-icon {
+        width: auto;
+        font-size: 1rem;
+    }
+    .about-text {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+    .section-tag {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    .about-intro {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    .about-text p {
+        margin-bottom: 12px;
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 768px) {
+    .banner-contenedor {
+        height: 320px;
+    }
+    .banner-de-perfil {
+        width: 240px;
+        margin-top: -120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        width: 240px;
+        height: 240px;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        width: 92%;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .profile-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .contact-label {
+        display: none;
+    }
+    .contact-item {
+        padding: 10px 14px;
+    }
+    .contact-icon {
+        width: auto;
+        font-size: 1.45rem;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+    .banner-contenedor {
+        height: 280px;
+    }
+    .banner-de-perfil {
+        width: 200px;
+        margin-top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+    }
+    .profile-content {
+        row-gap: 15px;
+        width: 95%;
+    }
+    .titulo-profile {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .profile-contact {
+        gap: 6px;
+    }
+    .contact-item {
+        padding: 6px 10px;
+    }
+    .contact-icon {
+        font-size: 1.2rem;
+    }
+    .about-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================
+   MOBILE PEQUEÑA
+========================================== */
 
 @media (max-width: 400px) {
     .banner-contenedor {
         height: 230px;
     }
-
-    .image-banner {
-        height: 230px;
-    }
-
     .banner-de-perfil {
-        bottom: -75px;
+        width: 160px;
+        margin-top: -80px;
     }
-
     .imagen-de-perfil {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
+        border-width: 3px;
     }
-
-    .banner-profile-placeholder {
-        width: 150px;
-        height: 150px;
-        font-size: 3rem;
-    }
-
     .titulo-profile {
-        padding-top: 85px;
-        padding-left: 0;
-        font-size: 1.4rem;
-        text-align: center;
-    }
-
-    .profile-content {
-        padding: 15px 15px 15px 15px;
-    }
-
-    .profile-contact {
-        gap: 5px;
-    }
-
-    /* OCULTAR TEXTO EN MÓVIL PEQUEÑO */
-    .contact-label {
-        display: none;
-    }
-
-    .contact-item {
-        padding: 6px 10px;
-        gap: 0;
-        justify-content: center;
-    }
-
-    .contact-icon {
-        width: auto;
         font-size: 1.3rem;
     }
-
+    .contact-item {
+        padding: 4px 8px;
+    }
+    .contact-icon {
+        font-size: 1rem;
+    }
     .about-text {
         font-size: 0.9rem;
     }
+}
 
-    #about {
-        scroll-margin-top: 10px;
+/* ==========================================
+   PANTALLAS MUY GRANDES
+========================================== */
+
+@media (min-width: 1400px) {
+    .banner-contenedor {
+        height: 420px;
+    }
+    .banner-de-perfil {
+        margin-top: -170px;
+    }
+    .profile-content {
+        max-width: 1400px;
+        column-gap: 80px;
+        grid-template-columns: 340px 1fr;
+    }
+    .imagen-de-perfil {
+        width: 340px;
+        height: 340px;
+    }
+    .titulo-profile {
+        font-size: 2.5rem;
     }
 }
