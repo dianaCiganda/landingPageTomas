@@ -117,24 +117,20 @@ const Contact = () => {
                       {socialLinks.map((link) => {
                         if (link.isEmail) {
                           return (
-                            <div key="email" className="contact-email-wrapper">
-                              <button
-                                onClick={handleCopyEmail}
-                                onMouseDown={(e) => e.preventDefault()}
-                                className={`social-contact-link ${link.className} ${copied ? 'copied' : ''}`}
-                                title={copied ? '¡Copiado!' : 'Copiar email al portapapeles'}
-                              >
-                                <span className="social-contact-icon">
-                                  <i className={`${link.type} ${link.icon}`}></i>
-                                </span>
-                                <span className="social-contact-label">
-                                  {link.label}
-                                </span>
-                              </button>
-                              {copied && (
-                                <span className="copy-tooltip-contact">¡Email copiado!</span>
-                              )}
-                            </div>
+                            <button
+                              key="email"
+                              onClick={handleCopyEmail}
+                              onMouseDown={(e) => e.preventDefault()}
+                              className={`social-contact-link ${link.className} ${copied ? 'copied' : ''}`}
+                              title={copied ? '¡Copiado!' : 'Copiar email al portapapeles'}
+                            >
+                              <span className="social-contact-icon">
+                                <i className={`${link.type} ${link.icon}`}></i>
+                              </span>
+                              <span className="social-contact-label">
+                                {copied ? '¡Copiado!' : link.label}
+                              </span>
+                            </button>
                           );
                         }
                         
@@ -162,15 +158,13 @@ const Contact = () => {
                   {/* Email visible con opción de copiar */}
                   <div className="email-display">
                     <span className="email-address">📧 tomasimarina@gmail.com</span>
-                    <div className="email-btn-wrapper">
-                      <button 
-                        onClick={handleCopyEmail}
-                        onMouseDown={(e) => e.preventDefault()}
-                        className={`copy-email-btn ${copied ? 'copied' : ''}`}
-                      >
-                        {copied ? '✅ Copiado' : '📋 Copiar Email'}
-                      </button>
-                    </div>
+                    <button 
+                      onClick={handleCopyEmail}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`copy-email-btn ${copied ? 'copied' : ''}`}
+                    >
+                      {copied ? '✅ Copiado' : '📋 Copiar Email'}
+                    </button>
                   </div>
 
                 </div>

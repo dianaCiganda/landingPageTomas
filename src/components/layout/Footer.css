@@ -1,8 +1,18 @@
+/* ==========================================
+   FOOTER
+========================================== */
+
 .footer {
   background: linear-gradient(135deg, #0D3B3A 0%, #1A5C5A 100%);
   color: rgba(255, 255, 255, 0.9);
   padding: 3rem 0 1.5rem;
   margin-top: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .footer-content {
@@ -58,6 +68,13 @@
    BOTONES SOCIALES
    ================================ */
 
+.social-link-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -73,6 +90,22 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Eliminar estado de foco persistente en móviles */
+.social-link:focus:not(:active) {
+  transform: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.social-link:active {
+  transform: scale(0.95);
 }
 
 .social-link .social-icon {
@@ -101,6 +134,61 @@
 }
 
 /* ================================
+   ESTADO DE COPIADO - Igual que Banner
+   ================================ */
+
+.social-link.copied {
+  background: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+  transform: none !important;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+}
+
+.social-link.copied:hover {
+  background: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+  transform: none !important;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+}
+
+.social-link.copied .social-icon {
+  color: white !important;
+}
+
+/* ================================
+   TOOLTIP DE COPIADO
+   ================================ */
+
+.copy-tooltip {
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ================================
    FOOTER BOTTOM
    ================================ */
 
@@ -114,6 +202,29 @@
   color: rgba(255, 255, 255, 0.25);
   text-align: center;
   padding-top: 0.5rem;
+}
+
+/* ================================
+   ANIMACIONES
+   ================================ */
+
+.social-link {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.social-link-wrapper:nth-child(1) .social-link { animation-delay: 0.1s; }
+.social-link-wrapper:nth-child(2) .social-link { animation-delay: 0.2s; }
+.social-link-wrapper:nth-child(3) .social-link { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================================
@@ -149,6 +260,12 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .copy-tooltip {
+    font-size: 10px;
+    padding: 3px 10px;
+    top: -28px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -175,6 +292,12 @@
     font-size: 0.85rem;
     width: 18px;
   }
+
+  .copy-tooltip {
+    font-size: 9px;
+    padding: 2px 8px;
+    top: -25px;
+  }
 }
 
 /* ================================
@@ -182,7 +305,6 @@
    ================================ */
 
 @media (max-width: 380px) {
-  /* Aseguramos que el texto sea visible */
   .social-link span:last-child {
     display: inline-block;
     font-size: 0.65rem;
@@ -205,27 +327,10 @@
   .footer-social {
     gap: 0.4rem;
   }
-}
 
-/* ================================
-   ANIMACIONES
-   ================================ */
-
-.social-link {
-  animation: fadeInUp 0.5s ease backwards;
-}
-
-.social-link:nth-child(1) { animation-delay: 0.1s; }
-.social-link:nth-child(2) { animation-delay: 0.2s; }
-.social-link:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .copy-tooltip {
+    font-size: 8px;
+    padding: 2px 6px;
+    top: -22px;
   }
 }

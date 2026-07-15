@@ -4,12 +4,15 @@ import './Footer.css'
 const Footer = () => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
+  const handleCopyEmail = (e) => {
+    if (e && e.currentTarget) {
+      e.currentTarget.blur();
+    }
+    
     navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }).catch(() => {
-      // Fallback para navegadores que no soportan clipboard API
       const textArea = document.createElement('textarea');
       textArea.value = 'tomasimarina@gmail.com';
       document.body.appendChild(textArea);
@@ -56,14 +59,13 @@ const Footer = () => {
           </div>
           <div className="footer-social">
             {socialLinks.map((link) => {
-              const isExternal = link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'));
-              
               if (link.isEmail) {
                 return (
                   <div key="email" className="social-link-wrapper">
                     <button
                       onClick={handleCopyEmail}
-                      className={`social-link ${link.className}`}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`social-link ${link.className} ${copied ? 'copied' : ''}`}
                       aria-label={link.label}
                       title={copied ? '¡Copiado!' : 'Copiar email'}
                     >
