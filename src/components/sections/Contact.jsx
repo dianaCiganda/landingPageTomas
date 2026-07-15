@@ -1,77 +1,163 @@
-import React from 'react'
-import './Contact.css'
+import React, { useState } from "react";
+import "./Contact.css";
+import Footer from "../layout/Footer";
 
 const Contact = () => {
-  const contactInfo = [
+  const [bannerError, setBannerError] = useState(false);
+  const [profileError, setProfileError] = useState(false);
+
+  const socialLinks = [
     {
-      icon: 'fa-envelope',
-      label: 'Email',
-      value: 'tomasimarina@gmail.com',
-      href: 'mailto:tomasimarina@gmail.com',
+      icon: "fa-envelope",
+      href: "mailto:tomasimarina@gmail.com",
+      className: "email",
+      type: "fas",
+      label: "Email",
     },
     {
-      icon: 'fa-graduation-cap',
-      label: 'Google Scholar',
-      value: 'Google Académico',
-      href: 'https://scholar.google.com/citations?user=w5BCHNcAAAAJ&hl=en',
+      icon: "fa-x-twitter",
+      href: "https://x.com/tomimarina1",
+      className: "x",
+      type: "fab",
+      label: "X",
     },
     {
-      icon: 'fa-researchgate',
-      label: 'ResearchGate',
-      value: 'ResearchGate',
-      href: 'https://www.researchgate.net/profile/Tomas-Marina',
+      icon: "fa-instagram",
+      href: "https://www.instagram.com/tomasimarina86/",
+      className: "instagram",
+      type: "fab",
+      label: "Instagram",
     },
-    {
-      icon: 'fa-orcid',
-      label: 'ORCID',
-      value: 'ORCID',
-      href: 'https://orcid.org/0000-0002-9203-7411',
-    },
-    {
-      icon: 'fa-x-twitter',
-      label: 'X (Twitter)',
-      value: '@tomimarina1',
-      href: 'https://x.com/tomimarina1',
-    },
-    {
-      icon: 'fa-instagram',
-      label: 'Instagram',
-      value: '@tomasimarina86',
-      href: 'https://www.instagram.com/tomasimarina86/',
-    },
-  ]
+  ];
 
   return (
-    <section id="contact" className="contact section-padding section-white">
-      <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Contact</span>
-          <h2>Get in <span className="highlight">Touch</span></h2>
-          <p>Connect with me through any of the following platforms</p>
+    <>
+      <div className="page-wrapper">
+
+        {/* BANNER */}
+        <section id="home" className="banner">
+          <div className="banner-contenedor">
+
+            <div className="banner-background">
+              {!bannerError ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
+                  className="image-banner"
+                  alt="Imagen de fondo"
+                  onError={() => setBannerError(true)}
+                />
+              ) : (
+                <div className="banner-bg-fallback">
+                  <span>🌊</span>
+                </div>
+              )}
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* CONTENIDO PRINCIPAL */}
+        <div className="profile-content">
+
+          {/* COLUMNA IZQUIERDA */}
+          <div className="profile-left">
+
+            <div className="banner-de-perfil">
+
+              {!profileError ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
+                  className="imagen-de-perfil"
+                  alt="Imagen de perfil"
+                  onError={() => setProfileError(true)}
+                />
+              ) : (
+                <div className="banner-profile-placeholder">
+                  <span>👤</span>
+                </div>
+              )}
+
+            </div>
+
+            <h1 className="titulo-profile">
+              Tomás I. Marina
+            </h1>
+
+          </div>
+
+
+          {/* COLUMNA DERECHA */}
+          <section className="contact">
+
+            <div className="contact-container">
+
+              <div className="contact-wrapper">
+
+                <div className="contact-text">
+
+                  <span className="section-contact-tag">
+                    Contact
+                  </span>
+
+                  <p className="contact-intro">
+                    Always open to new perspectives and collaborative
+                    opportunities. If you have questions about my work,
+                    are interested in partnering on a research project,
+                    or just want to connect, please feel free to reach out.
+                    Pick your favorite way to get in touch.
+                  </p>
+ {/* REDES SOCIALES */}
+        <div className="contact-social-wrapper">
+
+          <div className="contact-social">
+
+            {socialLinks.map((link) => (
+
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`social-contact-link ${link.className}`}
+                title={link.label}
+              >
+
+                <span className="social-contact-icon">
+                  <i className={`${link.type} ${link.icon}`}></i>
+                </span>
+
+                <span className="social-contact-label">
+                  {link.label}
+                </span>
+
+              </a>
+
+            ))}
+
+          </div>
+
         </div>
 
-        <div className="contact-grid">
-          {contactInfo.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : undefined}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="contact-card"
-            >
-              <span className="contact-icon">
-                <i className={`fas ${item.icon}`}></i>
-              </span>
-              <div className="contact-info">
-                <span className="contact-label">{item.label}</span>
-                <span className="contact-value">{item.value}</span>
+
+                </div>
+
               </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
-export default Contact
+            </div>
+
+          </section>
+
+        </div>
+
+
+       
+      </div>
+
+      <Footer />
+
+    </>
+  );
+};
+
+export default Contact;

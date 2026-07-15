@@ -26,85 +26,66 @@ const Header = () => {
 
     if (location.pathname !== "/") {
       navigate("/");
-
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-          });
+          element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 150);
+      }, 200);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-        });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
 
+  const goToContact = () => {
+    closeMenu();
+    navigate("/contact");
+  };
+
   const isCVPage = location.pathname === "/cv";
+  const isContactPage = location.pathname === "/contact";
+  const isHomePage = location.pathname === "/";
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <nav className="nav container">
-
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-
           <li>
-            <button onClick={() => goToSection("home")}>
+            <button
+              onClick={() => goToSection("home")}
+              className={isHomePage ? "active" : ""}
+            >
               About
             </button>
           </li>
-
           <li>
-            <button onClick={() => goToSection("projects")}>
-              Projects
-            </button>
+            <button onClick={() => goToSection("projects")}>Projects</button>
           </li>
-
           <li>
-            <button onClick={() => goToSection("publications")}>
-              Publications
-            </button>
+            <button onClick={() => goToSection("publications")}>Publications</button>
           </li>
-
           <li>
-            <button onClick={() => goToSection("supervision")}>
-              Supervision
-            </button>
+            <button onClick={() => goToSection("supervision")}>Supervision</button>
           </li>
-
           <li>
-            <button onClick={() => goToSection("teaching")}>
-              Teaching
-            </button>
+            <button onClick={() => goToSection("teaching")}>Teaching</button>
           </li>
-
           <li>
-            <button onClick={() => goToSection("news")}>
-              News
-            </button>
+            <button onClick={() => goToSection("news")}>News</button>
           </li>
-
           <li>
-            <Link
-              to="/cv"
-              onClick={closeMenu}
-              className={isCVPage ? "active" : ""}
-            >
+            <Link to="/cv" onClick={closeMenu} className={isCVPage ? "active" : ""}>
               CV
             </Link>
           </li>
-
           <li>
-            <button onClick={() => goToSection("contact")}>
+            <button onClick={goToContact} className={isContactPage ? "active" : ""}>
               Contact
             </button>
           </li>
-
         </ul>
 
         <button
@@ -114,7 +95,6 @@ const Header = () => {
         >
           <i className="fas fa-bars"></i>
         </button>
-
       </nav>
     </header>
   );

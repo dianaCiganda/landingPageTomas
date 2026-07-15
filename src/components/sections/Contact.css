@@ -1,102 +1,779 @@
+/* ==========================================
+   CONTACT - Mismo estilo que Banner
+========================================== */
+
+/* ==========================================
+   RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 16px;
+    background-color: #fdfdfd;
+}
+
+/* ==========================================
+   BANNER
+========================================== */
+
+.banner {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.banner-contenedor {
+    position: relative;
+    width: 100%;
+    height: 420px;
+}
+
+.banner-background {
+    width: 100%;
+    height: 100%;
+}
+
+.image-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-bg-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
+    font-size: 4rem;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.profile-content {
+    max-width: 1200px;
+    width: 92%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    column-gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 10;
+}
+
+/* ==========================================
+   COLUMNA IZQUIERDA
+========================================== */
+
+.profile-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+
+/* ==========================================
+   FOTO DE PERFIL
+========================================== */
+
+.banner-de-perfil {
+    width: 100%;
+    margin-top: -170px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 30;
+}
+
+.imagen-de-perfil {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
+    display: block;
+}
+
+.banner-profile-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8f5f3;
+    font-size: 5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
+}
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.titulo-profile {
+    margin: 0 0 25px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* ==========================================
+   CONTACT - Mismo estilo que ABOUT
+========================================== */
+
 .contact {
-  background: var(--blanco);
+    width: 100%;
+    padding-top: 0;
+    min-width: 0;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
+.contact-container {
+    width: 100%;
+    margin-top: 20px;
 }
 
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 1.5rem;
-  background: var(--principal-suave);
-  border-radius: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(46, 196, 182, 0.08);
+.contact-wrapper {
+    width: 100%;
 }
 
-.contact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--sombra);
-  border-color: var(--principal);
-  background: var(--blanco);
+.contact-text {
+    line-height: 1.8;
+    color: #333;
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.contact-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  border-radius: 12px;
-  background: rgba(46, 196, 182, 0.1);
-  color: var(--principal);
-  flex-shrink: 0;
-  transition: all 0.3s ease;
+.section-contact-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #2ec4b6;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.contact-card:hover .contact-icon {
-  background: var(--principal);
-  color: white;
+.contact-intro {
+    font-size: 1.08rem;
+    margin-bottom: 18px;
 }
 
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+.contact-text p {
+    margin-bottom: 18px;
 }
 
-.contact-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--texto-terciario);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.contact-text strong {
+    color: #1a2a3a;
 }
 
-.contact-value {
-  font-size: 0.95rem;
-  color: var(--texto-principal);
-  font-weight: 500;
+/* ==========================================
+   REDES SOCIALES - Alineadas al margen izquierdo del About
+========================================== */
+
+.contact-social-wrapper {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e8ecef;
+    display: flex;
+    justify-content: flex-start;
 }
+
+.contact-social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.social-contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #033694;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: all .25s ease;
+    width: fit-content;
+}
+
+/* Hover general - igual que el Banner */
+.social-contact-link:hover {
+     color: #033694;
+    transform: translateY(-2px);
+}
+
+/* ICONOS - Tamaño grande pero proporcionado */
+.social-contact-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+}
+
+/* OCULTAR TEXTO DE LOS ICONOS */
+.social-contact-label {
+    display: none;
+}
+
+/* ==========================================
+   COLORES HOVER - Especificidad sin !important
+   ========================================== */
+
+/* Email */
+.social-contact-link.email:hover,.social-contact-link.x:hover,.social-contact-link.instagram:hover {
+      background: #a9c9f8;
+}
+
+
+/* ==========================================
+   ZOOM 100% - BASE
+========================================== */
+
+@media screen and (min-width: 1201px) {
+    .banner-contenedor {
+        height: 420px;
+    }
+    .banner-de-perfil {
+        margin-top: -170px;
+    }
+    .profile-content {
+        grid-template-columns: 340px 1fr;
+        column-gap: 60px;
+    }
+    .titulo-profile {
+        font-size: 2.2rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 90%
+========================================== */
+
+@media screen and (min-width: 1300px) and (max-width: 1440px) {
+    .banner-contenedor {
+        height: 400px;
+    }
+    .banner-de-perfil {
+        margin-top: -160px;
+    }
+    .profile-content {
+        grid-template-columns: 320px 1fr;
+        column-gap: 50px;
+    }
+    .imagen-de-perfil {
+        width: 320px;
+        height: 320px;
+    }
+    .titulo-profile {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 80%
+========================================== */
+
+@media screen and (min-width: 1450px) and (max-width: 1600px) {
+    .banner-contenedor {
+        height: 380px;
+    }
+    .banner-de-perfil {
+        margin-top: -150px;
+    }
+    .profile-content {
+        grid-template-columns: 300px 1fr;
+        column-gap: 40px;
+    }
+    .imagen-de-perfil {
+        width: 300px;
+        height: 300px;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 70%
+========================================== */
+
+@media screen and (min-width: 1650px) {
+    .banner-contenedor {
+        height: 360px;
+    }
+    .banner-de-perfil {
+        margin-top: -140px;
+    }
+    .profile-content {
+        grid-template-columns: 280px 1fr;
+        column-gap: 30px;
+        width: 85%;
+        max-width: 1600px;
+    }
+    .imagen-de-perfil {
+        width: 280px;
+        height: 280px;
+    }
+    .titulo-profile {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 110%
+========================================== */
+
+@media screen and (max-width: 1100px) and (min-width: 1001px) {
+    .banner-contenedor {
+        height: 390px;
+    }
+    .banner-de-perfil {
+        margin-top: -180px;
+    }
+    .profile-content {
+        grid-template-columns: 320px 1fr;
+        column-gap: 40px;
+        width: 94%;
+    }
+    .imagen-de-perfil {
+        width: 320px;
+        height: 320px;
+    }
+    .titulo-profile {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 125%
+========================================== */
+
+@media screen and (max-width: 1000px) and (min-width: 851px) {
+    .banner-contenedor {
+        height: 370px;
+    }
+    .banner-de-perfil {
+        margin-top: -190px;
+    }
+    .profile-content {
+        grid-template-columns: 300px 1fr;
+        column-gap: 30px;
+        width: 95%;
+    }
+    .imagen-de-perfil {
+        width: 300px;
+        height: 300px;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 150%
+========================================== */
+
+@media screen and (max-width: 850px) and (min-width: 701px) {
+    .banner-contenedor {
+        height: 330px;
+    }
+    .banner-de-perfil {
+        margin-top: -200px;
+    }
+    .profile-content {
+        grid-template-columns: 260px 1fr;
+        column-gap: 20px;
+        width: 96%;
+    }
+    .imagen-de-perfil {
+        width: 260px;
+        height: 260px;
+    }
+    .titulo-profile {
+        font-size: 1.5rem;
+    }
+    .contact-text {
+        font-size: 0.9rem;
+    }
+    .social-contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2.2rem;
+    }
+    .social-contact-link {
+        padding: 10px 14px;
+    }
+    .contact-social {
+        gap: 12px;
+    }
+}
+
+/* ==========================================
+   ZOOM 175% - CAMBIA A UNA COLUMNA
+========================================== */
+
+@media screen and (max-width: 700px) and (min-width: 551px) {
+    .banner-contenedor {
+        height: 290px;
+    }
+    .banner-de-perfil {
+        width: 220px;
+        margin-top: -180px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        width: 96%;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 10px;
+    }
+    .social-contact-link {
+        padding: 8px 12px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 200%
+========================================== */
+
+@media screen and (max-width: 550px) and (min-width: 401px) {
+    .banner-contenedor {
+        height: 250px;
+    }
+    .banner-de-perfil {
+        width: 180px;
+        margin-top: -150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        border-width: 4px;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        width: 98%;
+        row-gap: 15px;
+        padding: 0 5px;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .contact-text {
+        font-size: 0.85rem;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 8px;
+    }
+    .social-contact-link {
+        padding: 6px 10px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.4rem;
+    }
+}
+
+/* ==========================================
+   ZOOM 250% O MÁS
+========================================== */
+
+@media screen and (max-width: 400px) {
+    .banner-contenedor {
+        height: 200px;
+    }
+    .banner-de-perfil {
+        width: 140px;
+        margin-top: -120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        border-width: 3px;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        width: 100%;
+        row-gap: 10px;
+        padding: 0 5px;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .contact-text {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+    .section-contact-tag {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    .contact-intro {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    .contact-text p {
+        margin-bottom: 12px;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 6px;
+    }
+    .social-contact-link {
+        padding: 4px 8px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .contact-card {
-    padding: 1rem 1.2rem;
-  }
-
-  .contact-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
-  .contact-value {
-    font-size: 0.85rem;
-  }
+    .banner-contenedor {
+        height: 320px;
+    }
+    .banner-de-perfil {
+        width: 240px;
+        margin-top: -120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        width: 240px;
+        height: 240px;
+    }
+    .profile-content {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        width: 92%;
+    }
+    .profile-left {
+        align-items: center;
+        text-align: center;
+    }
+    .titulo-profile {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 10px;
+    }
+    .social-contact-link {
+        padding: 8px 12px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.8rem;
+    }
 }
 
-@media (max-width: 480px) {
-  .contact-card {
-    padding: 0.8rem 1rem;
-  }
+/* ==========================================
+   MOBILE
+========================================== */
 
-  .contact-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
-  }
+@media (max-width: 600px) {
+    .banner-contenedor {
+        height: 280px;
+    }
+    .banner-de-perfil {
+        width: 200px;
+        margin-top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-de-perfil {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+    }
+    .profile-content {
+        row-gap: 15px;
+        width: 95%;
+    }
+    .titulo-profile {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .contact-text {
+        font-size: 0.95rem;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 8px;
+    }
+    .social-contact-link {
+        padding: 6px 10px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.4rem;
+    }
+}
+
+/* ==========================================
+   MOBILE PEQUEÑA
+========================================== */
+
+@media (max-width: 400px) {
+    .banner-contenedor {
+        height: 230px;
+    }
+    .banner-de-perfil {
+        width: 160px;
+        margin-top: -80px;
+    }
+    .imagen-de-perfil {
+        width: 160px;
+        height: 160px;
+        border-width: 3px;
+    }
+    .titulo-profile {
+        font-size: 1.3rem;
+    }
+    .contact-text {
+        font-size: 0.9rem;
+    }
+    .contact-social-wrapper {
+        justify-content: center;
+    }
+    .contact-social {
+        justify-content: center;
+        gap: 6px;
+    }
+    .social-contact-link {
+        padding: 4px 8px;
+        gap: 0;
+    }
+    .social-contact-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
+    }
+}
+
+/* ==========================================
+   PANTALLAS MUY GRANDES
+========================================== */
+
+@media (min-width: 1400px) {
+    .banner-contenedor {
+        height: 420px;
+    }
+    .banner-de-perfil {
+        margin-top: -170px;
+    }
+    .profile-content {
+        max-width: 1400px;
+        column-gap: 80px;
+        grid-template-columns: 340px 1fr;
+    }
+    .imagen-de-perfil {
+        width: 340px;
+        height: 340px;
+    }
+    .titulo-profile {
+        font-size: 2.5rem;
+    }
+    .social-contact-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 3.2rem;
+    }
+    .social-contact-link {
+        padding: 14px 18px;
+    }
+    .contact-social {
+        gap: 18px;
+    }
 }
