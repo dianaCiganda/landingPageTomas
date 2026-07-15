@@ -105,24 +105,20 @@ const Banner = () => {
               {contactLinks.map((link) => {
                 if (link.isEmail) {
                   return (
-                    <div key="email" className="contact-item-wrapper">
-                      <button
-                        onClick={handleCopyEmail}
-                        onMouseDown={(e) => e.preventDefault()}
-                        className={`contact-item ${copied ? 'copied' : ''}`}
-                        title={copied ? '¡Copiado!' : 'Copiar email'}
-                      >
-                        <span className="contact-icon">
-                          <i className={`${link.type} ${link.icon}`}></i>
-                        </span>
-                        <span className="contact-label">
-                          {link.label}
-                        </span>
-                      </button>
-                      {copied && (
-                        <span className="copy-tooltip">¡Email copiado!</span>
-                      )}
-                    </div>
+                    <button
+                      key="email"
+                      onClick={handleCopyEmail}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`contact-item ${copied ? 'copied' : ''}`}
+                      title={copied ? '¡Copiado!' : 'Copiar email'}
+                    >
+                      <span className="contact-icon">
+                        <i className={`${link.type} ${link.icon}`}></i>
+                      </span>
+                      <span className="contact-label">
+                        {copied ? '¡Copiado!' : link.label}
+                      </span>
+                    </button>
                   );
                 }
                 

@@ -264,16 +264,18 @@ body {
 }
 
 /* ==========================================
-   TEXTO DEL LABEL - AHORA VISIBLE EN TODOS LOS TAMAÑOS
+   TEXTO DEL LABEL - VISIBLE EN TODOS LOS TAMAÑOS
 ========================================== */
 
 .social-contact-label {
-    display: inline-block;
+    display: inline-block !important;
     font-size: 0.95rem;
     font-weight: 500;
     color: #033694;
     line-height: 1;
     white-space: nowrap;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* ==========================================
@@ -489,6 +491,7 @@ body {
     }
     .social-contact-label {
         font-size: 0.85rem;
+        display: inline-block !important;
     }
 }
 
@@ -854,5 +857,6 @@ body {
     }
     .social-contact-label {
         font-size: 1.1rem;
+        display: inline-block !important;
     }
 }

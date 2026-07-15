@@ -172,7 +172,6 @@ body {
     font-size: inherit;
     -webkit-tap-highlight-color: transparent;
     outline: none;
-    vertical-align: middle;
 }
 
 /* Eliminar estado de foco persistente en móviles */
