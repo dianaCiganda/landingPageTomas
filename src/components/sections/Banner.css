@@ -471,17 +471,17 @@ body {
         justify-content: center;
         gap: 8px;
     }
+    /* Ocultar labels en responsive - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.75rem;
+        display: none !important;
     }
     .contact-item {
         padding: 8px 12px;
-        gap: 8px;
+        gap: 0;
     }
     .contact-icon {
         width: auto;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -523,17 +523,17 @@ body {
         justify-content: center;
         gap: 6px;
     }
+    /* Ocultar labels en responsive - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.7rem;
+        display: none !important;
     }
     .contact-item {
         padding: 6px 10px;
-        gap: 6px;
+        gap: 0;
     }
     .contact-icon {
         width: auto;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     .about-text {
         font-size: 0.85rem;
@@ -578,17 +578,17 @@ body {
         justify-content: center;
         gap: 4px;
     }
+    /* Ocultar labels en responsive - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.65rem;
+        display: none !important;
     }
     .contact-item {
         padding: 4px 8px;
-        gap: 4px;
+        gap: 0;
     }
     .contact-icon {
         width: auto;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .about-text {
         font-size: 0.8rem;
@@ -644,17 +644,17 @@ body {
         justify-content: center;
         gap: 10px;
     }
+    /* Ocultar labels en tablet - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.8rem;
+        display: none !important;
     }
     .contact-item {
         padding: 10px 14px;
-        gap: 8px;
+        gap: 0;
     }
     .contact-icon {
         width: auto;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -688,16 +688,16 @@ body {
     .profile-contact {
         gap: 6px;
     }
+    /* Ocultar labels en mobile - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.7rem;
+        display: none !important;
     }
     .contact-item {
         padding: 6px 10px;
-        gap: 6px;
+        gap: 0;
     }
     .contact-icon {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     .about-text {
         font-size: 0.95rem;
@@ -724,16 +724,16 @@ body {
     .titulo-profile {
         font-size: 1.3rem;
     }
+    /* Ocultar labels en mobile pequeña - solo iconos */
     .contact-label {
-        display: inline-block !important;
-        font-size: 0.65rem;
+        display: none !important;
     }
     .contact-item {
         padding: 4px 8px;
-        gap: 4px;
+        gap: 0;
     }
     .contact-icon {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .about-text {
         font-size: 0.9rem;
