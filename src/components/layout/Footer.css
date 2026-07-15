@@ -134,27 +134,27 @@
 }
 
 /* ================================
-   ESTADO DE COPIADO - Igual que Banner
+   ESTADO DE COPIADO
    ================================ */
 
 .social-link.copied {
-  background: #28a745 !important;
-  border-color: #28a745 !important;
-  color: white !important;
-  transform: none !important;
-  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+  transform: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
 }
 
 .social-link.copied:hover {
-  background: #28a745 !important;
-  border-color: #28a745 !important;
-  color: white !important;
-  transform: none !important;
-  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+  transform: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
 }
 
 .social-link.copied .social-icon {
-  color: white !important;
+  color: white;
 }
 
 /* ================================
