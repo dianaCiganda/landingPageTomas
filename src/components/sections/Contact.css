@@ -216,7 +216,7 @@ body {
 }
 
 .social-contact-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -233,6 +233,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     outline: none;
     gap: 8px;
+    vertical-align: middle;
 }
 
 /* Eliminar estado de foco persistente en móviles */
@@ -259,6 +260,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 2.8rem;
+    flex-shrink: 0;
 }
 
 /* ==========================================
@@ -270,6 +272,8 @@ body {
     font-size: 0.95rem;
     font-weight: 500;
     color: #033694;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 /* ==========================================
@@ -478,6 +482,7 @@ body {
     }
     .social-contact-link {
         padding: 10px 14px;
+        gap: 6px;
     }
     .contact-social {
         gap: 12px;
@@ -532,6 +537,7 @@ body {
     }
     .social-contact-label {
         font-size: 0.8rem;
+        display: inline-block !important;
     }
 }
 
@@ -586,8 +592,9 @@ body {
         height: 32px;
         font-size: 1.4rem;
     }
+    /* Ocultar label en pantallas muy pequeñas */
     .social-contact-label {
-        font-size: 0.7rem;
+        display: none !important;
     }
 }
 
@@ -655,7 +662,7 @@ body {
         font-size: 1.2rem;
     }
     .social-contact-label {
-        font-size: 0.65rem;
+        display: none !important;
     }
 }
 
@@ -708,6 +715,7 @@ body {
     }
     .social-contact-label {
         font-size: 0.8rem;
+        display: inline-block !important;
     }
 }
 
@@ -758,7 +766,7 @@ body {
         font-size: 1.4rem;
     }
     .social-contact-label {
-        font-size: 0.7rem;
+        display: none !important;
     }
 }
 
@@ -802,7 +810,7 @@ body {
         font-size: 1.2rem;
     }
     .social-contact-label {
-        font-size: 0.65rem;
+        display: none !important;
     }
 }
 
@@ -836,6 +844,7 @@ body {
     }
     .social-contact-link {
         padding: 14px 18px;
+        gap: 10px;
     }
     .contact-social {
         gap: 18px;
