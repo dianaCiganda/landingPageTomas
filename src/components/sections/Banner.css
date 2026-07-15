@@ -1,7 +1,14 @@
 /* ================================
    BANNER PRINCIPAL
 ================================ */
+/* ================================
+   SCROLL - COMPENSACIÓN PARA EL BANNER
+================================ */
 
+/* Compensa la foto superpuesta al hacer scroll */
+#about {
+    scroll-margin-top: 500px;
+}
 .banner {
     position: relative;
     width: 100%;
@@ -10,7 +17,7 @@
 .banner-contenedor {
     position: relative;
     width: 100%;
-    height: 350px; /* Aumentado de 320px a 350px */
+    height: 420px;
 }
 
 /* Imagen de portada */
@@ -21,7 +28,7 @@
 
 .image-banner {
     width: 100%;
-    height: 350px; /* Aumentado de 320px a 350px */
+    height: 420px;
     object-fit: cover;
     display: block;
 }
@@ -29,7 +36,7 @@
 /* Fallback */
 .banner-bg-fallback {
     width: 100%;
-    height: 350px; /* Aumentado de 320px a 350px */
+    height: 420px;
     background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
     display: flex;
     align-items: center;
@@ -43,14 +50,14 @@
 
 .banner-de-perfil {
     position: absolute;
-    left: 50px;
-    bottom: -120px; /* Aumentado de -100px a -120px */
+    left: 60px;
+    bottom: -170px;
     z-index: 10;
 }
 
 .imagen-de-perfil {
-    width: 260px;  /* 225px + 50% = 337px → redondeado a 340px */
-    height: 340px; /* 225px + 50% = 337px → redondeado a 340px */
+    width: 340px;
+    height: 340px;
     object-fit: cover;
     border: 5px solid white;
     border-radius: 8px;
@@ -71,6 +78,20 @@
 }
 
 /* ================================
+   TITULO - ALINEADO A LA IZQUIERDA
+================================ */
+
+.titulo-profile {
+    margin: 0;
+    margin-left: 0; /* Alineado a la izquierda */
+    padding-top: 180px;
+    font-size: 2.2rem;
+    color: #1a2a3a;
+    font-weight: 700;
+    text-align: left; /* Alineado a la izquierda */
+}
+
+/* ================================
    CONTENIDO PRINCIPAL
 ================================ */
 
@@ -79,7 +100,7 @@
     margin: 0 auto;
     padding: 20px 40px 40px 40px;
     display: flex;
-    gap: 50px;
+    gap: 60px;
     align-items: flex-start;
 }
 
@@ -88,35 +109,27 @@
 ================================ */
 
 .profile-left {
-    flex: 0 0 320px; /* Aumentado de 280px a 320px */
+    flex: 0 0 320px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-/* TITULO - Ajustado para la foto más grande */
-.titulo-profile {
-    margin: 0;
-    font-size: 2rem; /* Aumentado de 1.8rem a 2rem */
-    color: #1a2a3a;
-    font-weight: 700;
-    padding-top: 120px; /* Aumentado de 120px a 180px */
-    margin-left: 0;
+    align-items: flex-start; /* Alinea todo a la izquierda */
 }
 
 /* ================================
-   REDES / CONTACTO
+   REDES SOCIALES - ALINEADAS A LA IZQUIERDA
 ================================ */
 
 .redes {
     width: 100%;
-    margin-top: 15px; /* Aumentado de 10px a 15px */
+    margin-top: 10px;
 }
 
 .profile-contact {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Aumentado de 8px a 10px */
+    gap: 10px;
+    align-items: flex-start; /* Alinea los enlaces a la izquierda */
 }
 
 .contact-item {
@@ -124,11 +137,12 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 12px; /* Aumentado de 10px a 12px */
-    padding: 8px 10px; /* Aumentado de 6px 8px a 8px 10px */
+    gap: 12px;
+    padding: 8px 10px;
     border-radius: 6px;
     transition: 0.3s;
-    font-size: 0.95rem; /* Aumentado de 0.85rem a 0.95rem */
+    font-size: 0.95rem;
+    text-align: left; /* Alinea el texto a la izquierda */
 }
 
 .contact-item:hover {
@@ -136,9 +150,9 @@
 }
 
 .contact-icon {
-    width: 26px; /* Aumentado de 22px a 26px */
+    width: 26px;
     text-align: center;
-    font-size: 1.15rem; /* Aumentado de 1rem a 1.15rem */
+    font-size: 1.15rem;
 }
 
 /* ================================
@@ -164,21 +178,21 @@
 
 .section-tag {
     display: inline-block;
-    font-size: 0.9rem; /* Aumentado de 0.8rem a 0.9rem */
+    font-size: 0.9rem;
     font-weight: 600;
     color: #2ec4b6;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 12px; /* Aumentado de 10px a 12px */
+    margin-bottom: 12px;
 }
 
 .about-intro {
-    font-size: 1.1rem; /* Aumentado de 1rem a 1.1rem */
-    margin-bottom: 16px; /* Aumentado de 14px a 16px */
+    font-size: 1.1rem;
+    margin-bottom: 16px;
 }
 
 .about-text p {
-    margin-bottom: 16px; /* Aumentado de 14px a 16px */
+    margin-bottom: 16px;
     color: #333;
 }
 
@@ -193,16 +207,16 @@
 
 @media (max-width: 900px) {
     .banner-contenedor {
-        height: 280px;
+        height: 350px;
     }
 
     .image-banner {
-        height: 280px;
+        height: 350px;
     }
 
     .banner-de-perfil {
         left: 50%;
-        bottom: -100px;
+        bottom: -120px;
         transform: translateX(-50%);
     }
 
@@ -217,7 +231,6 @@
     }
 
     .profile-content {
-        display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 30px 30px 30px 30px;
@@ -228,15 +241,27 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Centrado en tablet */
         text-align: center;
     }
 
     .titulo-profile {
         padding-top: 130px;
         font-size: 2rem;
-        text-align: center;
+        text-align: center; /* Centrado en tablet */
         margin-left: 0;
+    }
+
+    .redes {
+        width: 100%;
+    }
+
+    .profile-contact {
+        align-items: center; /* Centrado en tablet */
+    }
+
+    .contact-item {
+        text-align: center;
     }
 
     .about {
@@ -270,16 +295,16 @@
 
 @media (max-width: 600px) {
     .banner-contenedor {
-        height: 220px;
+        height: 280px;
     }
 
     .image-banner {
-        height: 220px;
+        height: 280px;
         object-fit: cover;
     }
 
     .banner-de-perfil {
-        bottom: -80px;
+        bottom: -90px;
     }
 
     .imagen-de-perfil {
@@ -294,7 +319,6 @@
     }
 
     .profile-content {
-        display: flex;
         flex-direction: column;
         padding: 20px 20px 20px 20px;
         gap: 15px;
@@ -311,7 +335,32 @@
     .titulo-profile {
         padding-top: 100px;
         font-size: 1.6rem;
+        text-align: center;
         margin-left: 0;
+    }
+
+    .redes {
+        width: 100%;
+    }
+
+    .profile-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .contact-item {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .contact-icon {
+        width: 20px;
+        font-size: 0.9rem;
     }
 
     .about {
@@ -324,24 +373,6 @@
         order: 2;
         width: 100%;
         margin-top: 10px;
-    }
-
-    .profile-contact {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-    }
-
-    .contact-item {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-        gap: 8px;
-    }
-
-    .contact-icon {
-        width: 20px;
-        font-size: 0.9rem;
     }
 
     .about-text {
@@ -359,45 +390,40 @@
 
 @media (max-width: 400px) {
     .banner-contenedor {
-        height: 180px;
+        height: 230px;
     }
 
     .image-banner {
-        height: 180px;
+        height: 230px;
     }
 
     .banner-de-perfil {
-        bottom: -65px;
+        bottom: -75px;
     }
 
     .imagen-de-perfil {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
     }
 
     .banner-profile-placeholder {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
         font-size: 3rem;
     }
 
+    .titulo-profile {
+        padding-top: 85px;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
     .profile-content {
-        display: flex;
-        flex-direction: column;
         padding: 15px 15px 15px 15px;
     }
 
-    .titulo-profile {
-        padding-top: 80px;
-        font-size: 1.4rem;
-    }
-
-    .about {
-        order: 1;
-    }
-
-    .redes {
-        order: 2;
+    .profile-contact {
+        gap: 5px;
     }
 
     .contact-item span:last-child {
