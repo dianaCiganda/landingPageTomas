@@ -1,18 +1,34 @@
-// Banner.jsx - Versión simplificada sin JavaScript para el email
 import React, { useState } from "react";
 import "./Banner.css";
 
 const Banner = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    }).catch(() => {
+      const textArea = document.createElement('textarea');
+      textArea.value = 'tomasimarina@gmail.com';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
 
   const contactLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20Tomás,",
       className: "email",
       type: "fas",
       label: "Email",
+      isEmail: true,
     },
     {
       icon: "fa-graduation-cap",
@@ -36,7 +52,7 @@ const Banner = () => {
       icon: "fa-linkedin-in",
       type: "fab",
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/tomas-ignacio-marina/ ",
+      href: "https://www.linkedin.com/in/tomas-ignacio-marina/",
     },
   ];
 
@@ -83,15 +99,32 @@ const Banner = () => {
           <aside className="redes">
             <div className="profile-contact">
               {contactLinks.map((link) => {
-                const isMailto = link.href.startsWith('mailto:');
-                const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
+                const isExternal = link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'));
+                
+                if (link.isEmail) {
+                  return (
+                    <button
+                      key="email"
+                      onClick={handleCopyEmail}
+                      className="contact-item"
+                      title={copied ? '¡Copiado!' : 'Copiar email'}
+                    >
+                      <span className="contact-icon">
+                        <i className={`${link.type} ${link.icon}`}></i>
+                      </span>
+                      <span className="contact-label">
+                        {copied ? '¡Copiado!' : link.label}
+                      </span>
+                    </button>
+                  );
+                }
                 
                 return (
                   <a
                     key={link.href}
                     href={link.href}
-                    target={isMailto ? '_self' : '_blank'}
-                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="contact-item"
                   >
                     <span className="contact-icon">

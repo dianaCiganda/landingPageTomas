@@ -5,14 +5,31 @@ import Footer from "../layout/Footer";
 const Contact = () => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    }).catch(() => {
+      const textArea = document.createElement('textarea');
+      textArea.value = 'tomasimarina@gmail.com';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
 
   const socialLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20Tomás,",
       className: "email",
       type: "fas",
       label: "Email",
+      isEmail: true,
     },
     {
       icon: "fa-x-twitter",
@@ -34,10 +51,8 @@ const Contact = () => {
     <>
       <div className="page-wrapper">
 
-        {/* BANNER */}
         <section id="home" className="banner">
           <div className="banner-contenedor">
-
             <div className="banner-background">
               {!bannerError ? (
                 <img
@@ -52,18 +67,12 @@ const Contact = () => {
                 </div>
               )}
             </div>
-
           </div>
         </section>
 
-        {/* CONTENIDO PRINCIPAL */}
         <div className="profile-content">
-
-          {/* COLUMNA IZQUIERDA */}
           <div className="profile-left">
-
             <div className="banner-de-perfil">
-
               {!profileError ? (
                 <img
                   src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
@@ -76,24 +85,17 @@ const Contact = () => {
                   <span>👤</span>
                 </div>
               )}
-
             </div>
 
             <h1 className="titulo-profile">
               Tomás I. Marina
             </h1>
-
           </div>
 
-          {/* COLUMNA DERECHA */}
           <section className="contact">
-
             <div className="contact-container">
-
               <div className="contact-wrapper">
-
                 <div className="contact-text">
-
                   <span className="section-contact-tag">
                     Contact
                   </span>
@@ -106,21 +108,36 @@ const Contact = () => {
                     Pick your favorite way to get in touch.
                   </p>
 
-                  {/* REDES SOCIALES */}
                   <div className="contact-social-wrapper">
-
                     <div className="contact-social">
-
                       {socialLinks.map((link) => {
-                        const isMailto = link.href.startsWith('mailto:');
-                        const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
+                        const isExternal = link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'));
+                        
+                        if (link.isEmail) {
+                          return (
+                            <div key="email" className="contact-email-wrapper">
+                              <button
+                                onClick={handleCopyEmail}
+                                className={`social-contact-link ${link.className}`}
+                                title={copied ? '¡Copiado!' : 'Copiar email al portapapeles'}
+                              >
+                                <span className="social-contact-icon">
+                                  <i className={`${link.type} ${link.icon}`}></i>
+                                </span>
+                                <span className="social-contact-label">
+                                  {copied ? '¡Copiado!' : link.label}
+                                </span>
+                              </button>
+                            </div>
+                          );
+                        }
                         
                         return (
                           <a
                             key={link.href}
                             href={link.href}
-                            target={isMailto ? '_self' : '_blank'}
-                            rel={isExternal ? 'noopener noreferrer' : undefined}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`social-contact-link ${link.className}`}
                             title={link.label}
                           >
@@ -133,25 +150,28 @@ const Contact = () => {
                           </a>
                         );
                       })}
-
                     </div>
+                  </div>
 
+                  {/* Email visible con opción de copiar */}
+                  <div className="email-display">
+                    <span className="email-address">tomasimarina@gmail.com</span>
+                    <button 
+                      onClick={handleCopyEmail} 
+                      className="copy-email-btn"
+                    >
+                      {copied ? '✅ Copiado' : '📋 Copiar'}
+                    </button>
                   </div>
 
                 </div>
-
               </div>
-
             </div>
-
           </section>
-
         </div>
-
       </div>
 
       <Footer />
-
     </>
   );
 };
