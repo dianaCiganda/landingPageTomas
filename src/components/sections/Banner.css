@@ -469,15 +469,17 @@ body {
         justify-content: center;
         gap: 8px;
     }
+    /* Mostrar el label en pantallas medianas */
     .contact-label {
-        display: none;
+        display: inline-block !important;
+        font-size: 0.75rem;
     }
     .contact-item {
         padding: 8px 12px;
     }
     .contact-icon {
         width: auto;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -519,8 +521,9 @@ body {
         justify-content: center;
         gap: 6px;
     }
+    /* Ocultar label en pantallas muy pequeñas */
     .contact-label {
-        display: none;
+        display: none !important;
     }
     .contact-item {
         padding: 6px 10px;
@@ -573,7 +576,7 @@ body {
         gap: 4px;
     }
     .contact-label {
-        display: none;
+        display: none !important;
     }
     .contact-item {
         padding: 4px 8px;
@@ -637,15 +640,17 @@ body {
         justify-content: center;
         gap: 10px;
     }
+    /* Mostrar label en tablet */
     .contact-label {
-        display: none;
+        display: inline-block !important;
+        font-size: 0.8rem;
     }
     .contact-item {
         padding: 10px 14px;
     }
     .contact-icon {
         width: auto;
-        font-size: 1.45rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -678,6 +683,9 @@ body {
     }
     .profile-contact {
         gap: 6px;
+    }
+    .contact-label {
+        display: none !important;
     }
     .contact-item {
         padding: 6px 10px;

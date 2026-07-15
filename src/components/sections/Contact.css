@@ -232,6 +232,7 @@ body {
     font-size: inherit;
     -webkit-tap-highlight-color: transparent;
     outline: none;
+    gap: 8px;
 }
 
 /* Eliminar estado de foco persistente en móviles */
@@ -260,9 +261,15 @@ body {
     font-size: 2.8rem;
 }
 
-/* OCULTAR TEXTO DE LOS ICONOS */
+/* ==========================================
+   TEXTO DEL LABEL - AHORA VISIBLE
+========================================== */
+
 .social-contact-label {
-    display: none;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #033694;
 }
 
 /* ==========================================
@@ -290,71 +297,8 @@ body {
     color: white !important;
 }
 
-/* ==========================================
-   EMAIL DISPLAY - Contenedor de email y botón copiar
-========================================== */
-
-.email-display {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-    padding: 12px 20px;
-    background: #f8f9fa;
-    border-radius: 12px;
-    border: 2px dashed #dee2e6;
-    flex-wrap: wrap;
-}
-
-.email-address {
-    font-size: 16px;
-    color: #333;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-.copy-email-btn {
-    padding: 8px 20px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    min-width: 100px;
-    letter-spacing: 0.5px;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
-.copy-email-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-    background: linear-gradient(135deg, #0056b3, #003d80);
-}
-
-.copy-email-btn:active {
-    transform: scale(0.95);
-}
-
-.copy-email-btn:focus:not(:active) {
-    transform: none;
-    box-shadow: none;
-}
-
-/* Estado de copiado para el botón */
-.copy-email-btn.copied {
-    background: #28a745 !important;
-    transform: none !important;
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
-}
-
-.copy-email-btn.copied:hover {
-    background: #28a745 !important;
-    transform: none !important;
+.social-contact-link.email.copied .social-contact-icon {
+    color: white !important;
 }
 
 /* ==========================================
@@ -538,17 +482,8 @@ body {
     .contact-social {
         gap: 12px;
     }
-    .email-display {
-        padding: 10px 16px;
-        gap: 10px;
-    }
-    .email-address {
-        font-size: 14px;
-    }
-    .copy-email-btn {
-        padding: 6px 16px;
-        font-size: 13px;
-        min-width: 80px;
+    .social-contact-label {
+        font-size: 0.85rem;
     }
 }
 
@@ -588,24 +523,15 @@ body {
     }
     .social-contact-link {
         padding: 8px 12px;
-        gap: 0;
+        gap: 6px;
     }
     .social-contact-icon {
         width: 40px;
         height: 40px;
         font-size: 1.8rem;
     }
-    .email-display {
-        justify-content: center;
-        padding: 10px 14px;
-    }
-    .email-address {
-        font-size: 13px;
-    }
-    .copy-email-btn {
-        padding: 6px 14px;
-        font-size: 12px;
-        min-width: 70px;
+    .social-contact-label {
+        font-size: 0.8rem;
     }
 }
 
@@ -653,27 +579,15 @@ body {
     }
     .social-contact-link {
         padding: 6px 10px;
-        gap: 0;
+        gap: 4px;
     }
     .social-contact-icon {
         width: 32px;
         height: 32px;
         font-size: 1.4rem;
     }
-    .email-display {
-        flex-direction: column;
-        padding: 12px 10px;
-        gap: 8px;
-    }
-    .email-address {
-        font-size: 12px;
-        text-align: center;
-    }
-    .copy-email-btn {
-        padding: 6px 12px;
-        font-size: 11px;
-        min-width: 60px;
-        width: 100%;
+    .social-contact-label {
+        font-size: 0.7rem;
     }
 }
 
@@ -733,27 +647,15 @@ body {
     }
     .social-contact-link {
         padding: 4px 8px;
-        gap: 0;
+        gap: 4px;
     }
     .social-contact-icon {
         width: 28px;
         height: 28px;
         font-size: 1.2rem;
     }
-    .email-display {
-        flex-direction: column;
-        padding: 10px 8px;
-        gap: 6px;
-    }
-    .email-address {
-        font-size: 11px;
-        text-align: center;
-    }
-    .copy-email-btn {
-        padding: 5px 10px;
-        font-size: 10px;
-        min-width: 50px;
-        width: 100%;
+    .social-contact-label {
+        font-size: 0.65rem;
     }
 }
 
@@ -797,24 +699,15 @@ body {
     }
     .social-contact-link {
         padding: 8px 12px;
-        gap: 0;
+        gap: 6px;
     }
     .social-contact-icon {
         width: 40px;
         height: 40px;
         font-size: 1.8rem;
     }
-    .email-display {
-        justify-content: center;
-        padding: 10px 14px;
-    }
-    .email-address {
-        font-size: 13px;
-    }
-    .copy-email-btn {
-        padding: 6px 14px;
-        font-size: 12px;
-        min-width: 70px;
+    .social-contact-label {
+        font-size: 0.8rem;
     }
 }
 
@@ -857,27 +750,15 @@ body {
     }
     .social-contact-link {
         padding: 6px 10px;
-        gap: 0;
+        gap: 4px;
     }
     .social-contact-icon {
         width: 32px;
         height: 32px;
         font-size: 1.4rem;
     }
-    .email-display {
-        flex-direction: column;
-        padding: 10px 12px;
-        gap: 8px;
-    }
-    .email-address {
-        font-size: 12px;
-        text-align: center;
-    }
-    .copy-email-btn {
-        padding: 6px 12px;
-        font-size: 11px;
-        min-width: 60px;
-        width: 100%;
+    .social-contact-label {
+        font-size: 0.7rem;
     }
 }
 
@@ -913,27 +794,15 @@ body {
     }
     .social-contact-link {
         padding: 4px 8px;
-        gap: 0;
+        gap: 4px;
     }
     .social-contact-icon {
         width: 28px;
         height: 28px;
         font-size: 1.2rem;
     }
-    .email-display {
-        flex-direction: column;
-        padding: 8px 6px;
-        gap: 6px;
-    }
-    .email-address {
-        font-size: 10px;
-        text-align: center;
-    }
-    .copy-email-btn {
-        padding: 4px 8px;
-        font-size: 9px;
-        min-width: 40px;
-        width: 100%;
+    .social-contact-label {
+        font-size: 0.65rem;
     }
 }
 
@@ -971,16 +840,7 @@ body {
     .contact-social {
         gap: 18px;
     }
-    .email-display {
-        padding: 14px 24px;
-        gap: 14px;
-    }
-    .email-address {
-        font-size: 18px;
-    }
-    .copy-email-btn {
-        padding: 10px 24px;
-        font-size: 16px;
-        min-width: 120px;
+    .social-contact-label {
+        font-size: 1.1rem;
     }
 }
