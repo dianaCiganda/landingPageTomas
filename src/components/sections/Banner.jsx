@@ -6,7 +6,11 @@ const Banner = () => {
   const [profileError, setProfileError] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
+  const handleCopyEmail = (e) => {
+    if (e && e.currentTarget) {
+      e.currentTarget.blur();
+    }
+    
     navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -99,14 +103,13 @@ const Banner = () => {
           <aside className="redes">
             <div className="profile-contact">
               {contactLinks.map((link) => {
-                const isExternal = link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'));
-                
                 if (link.isEmail) {
                   return (
                     <button
                       key="email"
                       onClick={handleCopyEmail}
-                      className="contact-item"
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`contact-item ${copied ? 'copied' : ''}`}
                       title={copied ? '¡Copiado!' : 'Copiar email'}
                     >
                       <span className="contact-icon">

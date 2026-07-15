@@ -165,6 +165,24 @@ body {
     border-radius: 8px;
     transition: .25s;
     width: fit-content;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* Eliminar estado de foco persistente en móviles */
+.contact-item:focus:not(:active) {
+    transform: none;
+    background: none;
+    color: #033694;
+}
+
+.contact-item:active {
+    transform: scale(0.95);
 }
 
 .contact-item:hover {
@@ -181,6 +199,21 @@ body {
 .contact-label {
     font-size: .95rem;
     white-space: nowrap;
+}
+
+/* Estado de copiado para el botón de email */
+.contact-item.copied {
+    background: #28a745 !important;
+    color: white !important;
+    transform: none !important;
+}
+
+.contact-item.copied .contact-label {
+    color: white !important;
+}
+
+.contact-item.copied .contact-icon {
+    color: white !important;
 }
 
 /* ==========================================

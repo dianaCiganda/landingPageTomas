@@ -225,11 +225,28 @@ body {
     border-radius: 10px;
     transition: all .25s ease;
     width: fit-content;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
-/* Hover general - igual que el Banner */
+/* Eliminar estado de foco persistente en móviles */
+.social-contact-link:focus:not(:active) {
+    transform: none;
+    background: none;
+    color: #033694;
+}
+
+.social-contact-link:active {
+    transform: scale(0.95);
+}
+
 .social-contact-link:hover {
-     color: #033694;
+    color: #033694;
     transform: translateY(-2px);
 }
 
@@ -250,13 +267,92 @@ body {
 
 /* ==========================================
    COLORES HOVER - Especificidad sin !important
-   ========================================== */
+========================================== */
 
 /* Email */
-.social-contact-link.email:hover,.social-contact-link.x:hover,.social-contact-link.instagram:hover {
-      background: #a9c9f8;
+.social-contact-link.email:hover,
+.social-contact-link.x:hover,
+.social-contact-link.instagram:hover {
+    background: #a9c9f8;
 }
 
+/* Estado de copiado para el botón de email */
+.social-contact-link.email.copied {
+    background: #28a745 !important;
+    color: white !important;
+    transform: none !important;
+}
+
+.social-contact-link.email.copied .social-contact-label {
+    color: white !important;
+}
+
+/* ==========================================
+   EMAIL DISPLAY - Contenedor de email y botón copiar
+========================================== */
+
+.email-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+    flex-wrap: wrap;
+}
+
+.email-address {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.copy-email-btn {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    letter-spacing: 0.5px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.copy-email-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #0056b3, #003d80);
+}
+
+.copy-email-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-email-btn:focus:not(:active) {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estado de copiado para el botón */
+.copy-email-btn.copied {
+    background: #28a745 !important;
+    transform: none !important;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3) !important;
+}
+
+.copy-email-btn.copied:hover {
+    background: #28a745 !important;
+    transform: none !important;
+}
 
 /* ==========================================
    ZOOM 100% - BASE
@@ -439,6 +535,18 @@ body {
     .contact-social {
         gap: 12px;
     }
+    .email-display {
+        padding: 10px 16px;
+        gap: 10px;
+    }
+    .email-address {
+        font-size: 14px;
+    }
+    .copy-email-btn {
+        padding: 6px 16px;
+        font-size: 13px;
+        min-width: 80px;
+    }
 }
 
 /* ==========================================
@@ -483,6 +591,18 @@ body {
         width: 40px;
         height: 40px;
         font-size: 1.8rem;
+    }
+    .email-display {
+        justify-content: center;
+        padding: 10px 14px;
+    }
+    .email-address {
+        font-size: 13px;
+    }
+    .copy-email-btn {
+        padding: 6px 14px;
+        font-size: 12px;
+        min-width: 70px;
     }
 }
 
@@ -536,6 +656,21 @@ body {
         width: 32px;
         height: 32px;
         font-size: 1.4rem;
+    }
+    .email-display {
+        flex-direction: column;
+        padding: 12px 10px;
+        gap: 8px;
+    }
+    .email-address {
+        font-size: 12px;
+        text-align: center;
+    }
+    .copy-email-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+        min-width: 60px;
+        width: 100%;
     }
 }
 
@@ -602,6 +737,21 @@ body {
         height: 28px;
         font-size: 1.2rem;
     }
+    .email-display {
+        flex-direction: column;
+        padding: 10px 8px;
+        gap: 6px;
+    }
+    .email-address {
+        font-size: 11px;
+        text-align: center;
+    }
+    .copy-email-btn {
+        padding: 5px 10px;
+        font-size: 10px;
+        min-width: 50px;
+        width: 100%;
+    }
 }
 
 /* ==========================================
@@ -651,6 +801,18 @@ body {
         height: 40px;
         font-size: 1.8rem;
     }
+    .email-display {
+        justify-content: center;
+        padding: 10px 14px;
+    }
+    .email-address {
+        font-size: 13px;
+    }
+    .copy-email-btn {
+        padding: 6px 14px;
+        font-size: 12px;
+        min-width: 70px;
+    }
 }
 
 /* ==========================================
@@ -699,6 +861,21 @@ body {
         height: 32px;
         font-size: 1.4rem;
     }
+    .email-display {
+        flex-direction: column;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    .email-address {
+        font-size: 12px;
+        text-align: center;
+    }
+    .copy-email-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+        min-width: 60px;
+        width: 100%;
+    }
 }
 
 /* ==========================================
@@ -740,6 +917,21 @@ body {
         height: 28px;
         font-size: 1.2rem;
     }
+    .email-display {
+        flex-direction: column;
+        padding: 8px 6px;
+        gap: 6px;
+    }
+    .email-address {
+        font-size: 10px;
+        text-align: center;
+    }
+    .copy-email-btn {
+        padding: 4px 8px;
+        font-size: 9px;
+        min-width: 40px;
+        width: 100%;
+    }
 }
 
 /* ==========================================
@@ -775,5 +967,17 @@ body {
     }
     .contact-social {
         gap: 18px;
+    }
+    .email-display {
+        padding: 14px 24px;
+        gap: 14px;
+    }
+    .email-address {
+        font-size: 18px;
+    }
+    .copy-email-btn {
+        padding: 10px 24px;
+        font-size: 16px;
+        min-width: 120px;
     }
 }

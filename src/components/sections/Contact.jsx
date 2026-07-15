@@ -7,7 +7,12 @@ const Contact = () => {
   const [profileError, setProfileError] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
+  const handleCopyEmail = (e) => {
+    // Remover el foco inmediatamente después del clic
+    if (e && e.currentTarget) {
+      e.currentTarget.blur();
+    }
+    
     navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -118,7 +123,8 @@ const Contact = () => {
                             <div key="email" className="contact-email-wrapper">
                               <button
                                 onClick={handleCopyEmail}
-                                className={`social-contact-link ${link.className}`}
+                                onMouseDown={(e) => e.preventDefault()}
+                                className={`social-contact-link ${link.className} ${copied ? 'copied' : ''}`}
                                 title={copied ? '¡Copiado!' : 'Copiar email al portapapeles'}
                               >
                                 <span className="social-contact-icon">
@@ -155,12 +161,13 @@ const Contact = () => {
 
                   {/* Email visible con opción de copiar */}
                   <div className="email-display">
-                    <span className="email-address">tomasimarina@gmail.com</span>
+                    <span className="email-address">📧 tomasimarina@gmail.com</span>
                     <button 
-                      onClick={handleCopyEmail} 
-                      className="copy-email-btn"
+                      onClick={handleCopyEmail}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`copy-email-btn ${copied ? 'copied' : ''}`}
                     >
-                      {copied ? '✅ Copiado' : '📋 Copiar'}
+                      {copied ? '✅ Copiado' : '📋 Copiar Email'}
                     </button>
                   </div>
 
