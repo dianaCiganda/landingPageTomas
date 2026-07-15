@@ -7,19 +7,19 @@ const Footer = () => {
       icon: 'fa-envelope',
       href: 'mailto:tomasimarina@gmail.com',
       className: 'email',
-      type: 'fas',  // ← CORREGIDO: fas para email
+      type: 'fas',
     },
     {
       icon: 'fa-x-twitter',
       href: 'https://x.com/tomimarina1',
       className: 'x',
-      type: 'fab',  // ← fab para redes sociales
+      type: 'fab',
     },
     {
       icon: 'fa-instagram',
       href: 'https://www.instagram.com/tomasimarina86/',
       className: 'instagram',
-      type: 'fab',  // ← fab para redes sociales
+      type: 'fab',
     },
   ]
 
@@ -40,12 +40,11 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`social-link ${link.className}`}
-                title={link.label}
+                aria-label={link.className}
               >
                 <span className="social-icon">
                   <i className={`${link.type} ${link.icon}`}></i>
                 </span>
-                {link.label}
               </a>
             ))}
           </div>

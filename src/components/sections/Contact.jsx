@@ -56,7 +56,6 @@ const Contact = () => {
           </div>
         </section>
 
-
         {/* CONTENIDO PRINCIPAL */}
         <div className="profile-content">
 
@@ -86,7 +85,6 @@ const Contact = () => {
 
           </div>
 
-
           {/* COLUMNA DERECHA */}
           <section className="contact">
 
@@ -107,38 +105,39 @@ const Contact = () => {
                     or just want to connect, please feel free to reach out.
                     Pick your favorite way to get in touch.
                   </p>
- {/* REDES SOCIALES */}
-        <div className="contact-social-wrapper">
 
-          <div className="contact-social">
+                  {/* REDES SOCIALES */}
+                  <div className="contact-social-wrapper">
 
-            {socialLinks.map((link) => (
+                    <div className="contact-social">
 
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`social-contact-link ${link.className}`}
-                title={link.label}
-              >
+                      {socialLinks.map((link) => {
 
-                <span className="social-contact-icon">
-                  <i className={`${link.type} ${link.icon}`}></i>
-                </span>
+                        // Para mailto: no usar target="_blank"
+                        const isMailto = link.href.startsWith('mailto:');
+                        
+                        return (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target={isMailto ? '_self' : '_blank'}
+                            rel={isMailto ? undefined : 'noopener noreferrer'}
+                            className={`social-contact-link ${link.className}`}
+                            title={link.label}
+                          >
+                            <span className="social-contact-icon">
+                              <i className={`${link.type} ${link.icon}`}></i>
+                            </span>
+                            <span className="social-contact-label">
+                              {link.label}
+                            </span>
+                          </a>
+                        );
+                      })}
 
-                <span className="social-contact-label">
-                  {link.label}
-                </span>
+                    </div>
 
-              </a>
-
-            ))}
-
-          </div>
-
-        </div>
-
+                  </div>
 
                 </div>
 
@@ -150,8 +149,6 @@ const Contact = () => {
 
         </div>
 
-
-       
       </div>
 
       <Footer />
