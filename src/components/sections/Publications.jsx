@@ -154,24 +154,7 @@ const Publications = () => {
       </div>
 
       <section id="publications" className="publications">
-        <div className="publications-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <span className="section-tag">Featured publications</span>
-          <Link to="/publications" className="all-publications-link" style={{ 
-            color: '#2ec4b6', 
-            textDecoration: 'none', 
-            fontWeight: '600',
-            fontSize: '0.95rem',
-            padding: '8px 16px',
-            borderRadius: '8px',
-            border: '2px solid #2ec4b6',
-            transition: 'all 0.3s ease',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px'
-          }}>
-            All publications →
-          </Link>
-        </div>
+        <span className="section-tag">Featured publications</span>
 
         <div className="publications-content">
           {allPublications.map((publication, index) => (
