@@ -5,7 +5,7 @@ import CVPage from "./components/sections/CV";
 import Home from "./components/sections/Home";
 import Contact from "./components/sections/Contact";
 import Publications from "./components/sections/Publications";
-import PublicationDetail1 from "./components/sections/PublicationDetail-1";
+import PublicationsDetail1 from "./components/sections/PublicationDetail-1";
 import "./styles/App.css";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/publications" element={<Publications />} />
         {/* Rutas para cada PublicationDetail */}
-        <Route path="/publication-detail/1" element={<PublicationDetail1 />} />
+        <Route path="/publication-detail/:id" element={<PublicationsDetail1 />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Publications.css";
 import { Link } from "react-router-dom";
 import ProfileTemplate from "../layout/ProfileTemplate";
 
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, []); 
   
   // Array de publicaciones - Usando BASE_URL para rutas
   const publications = [
@@ -150,7 +155,7 @@ const Publications = () => {
                   <div className="publication-meta">
                     <p>
                       <span className="meta-label">Authors:</span> 
-                      {hasSearch ? highlightText(firstPublication.authors, searchTerm) : firstPublication.authors}
+                      {hasSearch ? highlightText(firstPublication.authors, searchTerm) : highlightAuthor(firstPublication.authors)}
                     </p>
                     <p>
                       <span className="meta-label">Journal:</span> 

@@ -1,11 +1,33 @@
 // components/sections/publication-details/PublicationDetail1.jsx
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ProfileTemplate from "../layout/ProfileTemplate";
 import "./PublicationDetail.css";
 
 const PublicationDetail1 = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  
+  // FORZAR SCROLL AL INICIO
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    
+    const timers = [
+      setTimeout(() => window.scrollTo(0, 0), 0),
+      setTimeout(() => window.scrollTo(0, 0), 50),
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100)
+    ];
+    
+    return () => timers.forEach(timer => clearTimeout(timer));
+  }, [location.pathname, location.key]);
   
   const publication = {
     id: 1,
@@ -21,6 +43,15 @@ const PublicationDetail1 = () => {
     keywords: ["Ecosystem services", "Food web robustness", "Marine protected areas", "Network theory", "Sub-Antarctic", "Conservation planning"],
     url: "https://doi.org/10.1002/eap.70268",
     pdf: `${import.meta.env.BASE_URL}assets/publicacion1.pdf`
+  };
+
+  // Función para manejar el click en "All publications"
+  const handleGoToPublications = (e) => {
+    e.preventDefault();
+    navigate('/publications');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
   };
 
   // Función para resaltar "Tomás I. Marina"
@@ -175,6 +206,18 @@ const PublicationDetail1 = () => {
             </a>
           </div>
 
+          {/* VIEW PDF - MOVIDO DEBAJO DEL DOI */}
+          <div className="publication-detail-pdf">
+            <a 
+              href={publication.pdf} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="view-pdf-btn"
+            >
+              View PDF →
+            </a>
+          </div>
+
           {/* ABSTRACT CON TÍTULO */}
           <div className="publication-detail-abstract-section">
             <h2 className="abstract-title">
@@ -185,31 +228,14 @@ const PublicationDetail1 = () => {
             </p>
           </div>
 
-          {/* KEYWORDS */}
-          <div className="publication-detail-keywords-section">
-            <h3 className="keywords-title">Keywords</h3>
-            <div className="keywords-list">
-              {publication.keywords.map((keyword, index) => (
-                <span key={index} className="keyword-tag">
-                  {hasSearch ? highlightText(keyword, searchTerm) : keyword}
-                </span>
-              ))}
-            </div>
-          </div>
-
           {/* ACCIONES */}
           <div className="publication-detail-actions">
-            <a 
-              href={publication.pdf} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="view-pdf-btn"
+            <button 
+              onClick={handleGoToPublications}
+              className="btn-secondary"
             >
-              View PDF →
-            </a>
-            <Link to="/publications" className="btn-secondary">
               All publications
-            </Link>
+            </button>
           </div>
         </div>
       ) : (

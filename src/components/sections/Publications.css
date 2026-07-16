@@ -647,3 +647,60 @@
         font-size: 1rem;
     }
 }
+/* Agrega al final de Publications.css */
+
+/* ==========================================
+   AUTOR DESTACADO - Tomás I. Marina
+   (Mismo estilo que en PublicationDetail)
+========================================== */
+
+.highlighted-author {
+    color: #1a8a7e;
+    font-weight: 700;
+    font-size: 1.05rem;
+    background: #e8f5f3;
+    padding: 1px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #2ec4b6;
+}
+
+/* ==========================================
+   RESALTADO DE BÚSQUEDA
+   (Mismo estilo que en PublicationDetail)
+========================================== */
+
+.search-highlight {
+    background-color: #ffeb3b;
+    color: #1a2a3a;
+    font-weight: 600;
+    padding: 0 2px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255, 235, 59, 0.5);
+}
+
+/* ==========================================
+   RESPONSIVE PARA EL RESALTADO
+========================================== */
+
+@media screen and (max-width: 768px) {
+    .highlighted-author {
+        font-size: 0.95rem;
+        padding: 1px 6px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .highlighted-author {
+        font-size: 0.9rem;
+        padding: 0px 4px;
+        border-bottom-width: 1px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .highlighted-author {
+        font-size: 0.85rem;
+        padding: 0px 3px;
+    }
+}

@@ -112,15 +112,16 @@
 }
 
 /* ==========================================
-   TIPO DE PUBLICACIÓN (Journal article)
+   TIPO DE PUBLICACIÓN (Journal article) - MÁS GRANDE
 ========================================== */
 
 .publication-detail-type {
-    font-size: 0.95rem;
+    font-size: 1.8rem;
     color: #2ec4b6;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 8px;
     font-style: italic;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================
@@ -176,7 +177,7 @@
 .publication-detail-doi {
     font-size: 0.95rem;
     color: #333;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     line-height: 1.6;
 }
 
@@ -194,6 +195,37 @@
 .doi-link:hover {
     color: #1a8a7e;
     text-decoration: underline;
+}
+
+/* ==========================================
+   VIEW PDF - DEBAJO DEL DOI (NUEVA SECCIÓN)
+========================================== */
+
+.publication-detail-pdf {
+    margin-bottom: 24px;
+}
+
+.publication-detail-pdf .view-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a6b61;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border: 2px solid #1a6b61;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.publication-detail-pdf .view-pdf-btn:hover {
+    color: #ffffff;
+    background: #1a6b61;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
 }
 
 /* ==========================================
@@ -221,7 +253,7 @@
 }
 
 /* ==========================================
-   ACCIONES
+   ACCIONES - SOLO ALL PUBLICATIONS
 ========================================== */
 
 .publication-detail-actions {
@@ -231,28 +263,6 @@
     padding-top: 25px;
     border-top: 1px solid #e8e8e8;
     flex-wrap: wrap;
-}
-
-.view-pdf-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #1a6b61;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    padding: 10px 20px;
-    border: 2px solid #1a6b61;
-    border-radius: 8px;
-    background: transparent;
-}
-
-.view-pdf-btn:hover {
-    color: #ffffff;
-    background: #1a6b61;
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
 }
 
 .btn-secondary {
@@ -268,6 +278,7 @@
     border: 2px solid #ddd;
     border-radius: 8px;
     background: transparent;
+    cursor: pointer;
 }
 
 .btn-secondary:hover {
@@ -286,6 +297,10 @@
         font-size: 1.7rem;
     }
     
+    .publication-detail-type {
+        font-size: 1.5rem;
+    }
+    
     .search-input {
         font-size: 0.9rem;
         padding: 10px 36px 10px 40px;
@@ -295,6 +310,10 @@
 @media screen and (max-width: 550px) and (min-width: 401px) {
     .publication-detail-title {
         font-size: 1.4rem;
+    }
+    
+    .publication-detail-type {
+        font-size: 1.3rem;
     }
     
     .search-container {
@@ -315,11 +334,20 @@
         font-size: 1.2rem;
         right: 8px;
     }
+    
+    .publication-detail-pdf .view-pdf-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .publication-detail-title {
         font-size: 1.2rem;
+    }
+    
+    .publication-detail-type {
+        font-size: 1.1rem;
     }
     
     .search-container {
@@ -344,6 +372,13 @@
     .search-wrapper {
         border-radius: 8px;
     }
+    
+    .publication-detail-pdf .view-pdf-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -351,15 +386,23 @@
         font-size: 1.5rem;
     }
     
+    .publication-detail-type {
+        font-size: 1.4rem;
+    }
+    
     .publication-detail-actions {
         flex-direction: column;
         align-items: stretch;
     }
     
-    .view-pdf-btn,
     .btn-secondary {
         justify-content: center;
         text-align: center;
+    }
+    
+    .publication-detail-pdf .view-pdf-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -367,10 +410,18 @@
     .publication-detail-title {
         font-size: 1.3rem;
     }
+    
+    .publication-detail-type {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 400px) {
     .publication-detail-title {
         font-size: 1.1rem;
+    }
+    
+    .publication-detail-type {
+        font-size: 1rem;
     }
 }
