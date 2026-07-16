@@ -64,8 +64,7 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -249,8 +248,7 @@
     height: auto;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -443,6 +441,19 @@
 }
 
 /* ==========================================
+   RESALTADO DE BÚSQUEDA
+========================================== */
+
+.search-highlight {
+    background-color: #ffeb3b;
+    color: #1a2a3a;
+    font-weight: 600;
+    padding: 0 2px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255, 235, 59, 0.5);
+}
+
+/* ==========================================
    RESPONSIVE
 ========================================== */
 
@@ -515,7 +526,7 @@
     }
     .pub-list-image {
         width: 60px;
-        height: 60px;
+        height: auto;
     }
     .titulo-publication {
         font-size: 1.1rem;
@@ -560,7 +571,7 @@
     }
     .pub-list-image {
         width: 50px;
-        height: 50px;
+        height: auto;
     }
     .publication-preview-image {
         width: 150px;
@@ -646,37 +657,6 @@
     .titulo-publication {
         font-size: 1rem;
     }
-}
-/* Agrega al final de Publications.css */
-
-/* ==========================================
-   AUTOR DESTACADO - Tomás I. Marina
-   (Mismo estilo que en PublicationDetail)
-========================================== */
-
-.highlighted-author {
-    color: #1a8a7e;
-    font-weight: 700;
-    font-size: 1.05rem;
-    background: #e8f5f3;
-    padding: 1px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #2ec4b6;
-}
-
-/* ==========================================
-   RESALTADO DE BÚSQUEDA
-   (Mismo estilo que en PublicationDetail)
-========================================== */
-
-.search-highlight {
-    background-color: #ffeb3b;
-    color: #1a2a3a;
-    font-weight: 600;
-    padding: 0 2px;
-    border-radius: 3px;
-    box-shadow: 0 0 0 1px rgba(255, 235, 59, 0.5);
 }
 
 /* ==========================================

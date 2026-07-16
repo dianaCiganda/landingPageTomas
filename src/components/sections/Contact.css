@@ -28,7 +28,7 @@
 .section-contact-tag {
     display: inline-block;
     margin-bottom: 14px;
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 3em);
     font-weight: 600;
     color: #2ec4b6;
     letter-spacing: 2px;
@@ -153,18 +153,22 @@
     .contact-text {
         font-size: 0.9rem;
     }
+
     .social-contact-icon {
         width: 50px;
         height: 50px;
         font-size: 2.2rem;
     }
+
     .social-contact-link {
         padding: 10px 14px;
         gap: 6px;
     }
+
     .contact-social {
         gap: 12px;
     }
+
     .social-contact-label {
         font-size: 0.85rem;
     }
@@ -174,22 +178,27 @@
     .contact-text {
         font-size: 0.85rem;
     }
+
     .contact-social-wrapper {
         justify-content: center;
     }
+
     .contact-social {
         justify-content: center;
         gap: 8px;
     }
+
     .social-contact-link {
         padding: 6px 10px;
         gap: 4px;
     }
+
     .social-contact-icon {
         width: 32px;
         height: 32px;
         font-size: 1.4rem;
     }
+
     .social-contact-label {
         font-size: 0.7rem;
     }
@@ -200,33 +209,41 @@
         font-size: 0.8rem;
         line-height: 1.6;
     }
+
     .section-contact-tag {
         font-size: 0.7rem;
         margin-bottom: 8px;
     }
+
     .contact-intro {
         font-size: 0.85rem;
         margin-bottom: 12px;
     }
+
     .contact-text p {
         margin-bottom: 12px;
     }
+
     .contact-social-wrapper {
         justify-content: center;
     }
+
     .contact-social {
         justify-content: center;
         gap: 6px;
     }
+
     .social-contact-link {
         padding: 4px 8px;
         gap: 4px;
     }
+
     .social-contact-icon {
         width: 28px;
         height: 28px;
         font-size: 1.2rem;
     }
+
     .social-contact-label {
         font-size: 0.65rem;
     }
@@ -236,22 +253,27 @@
     .contact-text {
         font-size: 0.95rem;
     }
+
     .contact-social-wrapper {
         justify-content: center;
     }
+
     .contact-social {
         justify-content: center;
         gap: 10px;
     }
+
     .social-contact-link {
         padding: 8px 12px;
         gap: 6px;
     }
+
     .social-contact-icon {
         width: 40px;
         height: 40px;
         font-size: 1.8rem;
     }
+
     .social-contact-label {
         font-size: 0.8rem;
     }
@@ -261,22 +283,27 @@
     .contact-text {
         font-size: 0.95rem;
     }
+
     .contact-social-wrapper {
         justify-content: center;
     }
+
     .contact-social {
         justify-content: center;
         gap: 8px;
     }
+
     .social-contact-link {
         padding: 6px 10px;
         gap: 4px;
     }
+
     .social-contact-icon {
         width: 32px;
         height: 32px;
         font-size: 1.4rem;
     }
+
     .social-contact-label {
         font-size: 0.7rem;
     }
@@ -286,22 +313,27 @@
     .contact-text {
         font-size: 0.9rem;
     }
+
     .contact-social-wrapper {
         justify-content: center;
     }
+
     .contact-social {
         justify-content: center;
         gap: 6px;
     }
+
     .social-contact-link {
         padding: 4px 8px;
         gap: 4px;
     }
+
     .social-contact-icon {
         width: 28px;
         height: 28px;
         font-size: 1.2rem;
     }
+
     .social-contact-label {
         font-size: 0.65rem;
     }
@@ -317,13 +349,16 @@
         height: 70px;
         font-size: 3.2rem;
     }
+
     .social-contact-link {
         padding: 14px 18px;
         gap: 10px;
     }
+
     .contact-social {
         gap: 18px;
     }
+
     .social-contact-label {
         font-size: 1.1rem;
     }
