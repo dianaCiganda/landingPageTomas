@@ -149,7 +149,7 @@ const Publications = () => {
           )}
         </div>
         <span className="search-results-count">
-          {hasSearch ? `${filteredPublications.length} result${filteredPublications.length !== 1 ? 's' : ''}` : `${publications.length} results`}
+          {hasSearch ? `${filteredPublications.length} result${filteredPublications.length !== 1 ? 's' : ''}` : ''}
         </span>
       </div>
 
@@ -253,6 +253,5 @@ const Publications = () => {
     </ProfileTemplate>
   );
 };
-
 
 export default Publications;
