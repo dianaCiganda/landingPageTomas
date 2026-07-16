@@ -8,7 +8,6 @@ const Home = () => {
     <>
     <Header />
     <Inicio />
-    <Footer/>
     </>
   )
 }

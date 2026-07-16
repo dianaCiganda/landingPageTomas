@@ -116,8 +116,6 @@ const Contact = () => {
           </div>
         </section>
       </ProfileTemplate>
-
-      <Footer />
     </>
   );
 };
