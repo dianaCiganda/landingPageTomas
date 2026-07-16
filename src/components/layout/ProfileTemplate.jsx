@@ -1,7 +1,9 @@
+// components/layout/ProfileTemplate.jsx
 import React, { useState } from "react";
-import "./Banner.css";
+import "./ProfileTemplate.css";
+import Footer from "./Footer";
 
-const Banner = () => {
+const ProfileTemplate = ({ children, title }) => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -61,7 +63,9 @@ const Banner = () => {
   ];
 
   return (
+    <>
     <div className="page-wrapper">
+      {/* BANNER / PORTADA */}
       <section id="home" className="banner">
         <div className="banner-contenedor">
           <div className="banner-background">
@@ -82,6 +86,7 @@ const Banner = () => {
       </section>
 
       <div className="profile-content">
+        {/* PERFIL Y REDES - COLUMNA IZQUIERDA */}
         <div className="profile-left">
           <div className="banner-de-perfil">
             {!profileError ? (
@@ -98,7 +103,7 @@ const Banner = () => {
             )}
           </div>
 
-          <h1 className="titulo-profile">Tomás I. Marina</h1>
+          <h1 className="titulo-profile">{title || "Tomás I. Marina"}</h1>
 
           <aside className="redes">
             <div className="profile-contact">
@@ -143,29 +148,15 @@ const Banner = () => {
           </aside>
         </div>
 
-        <section className="about">
-          <div className="about-container">
-            <div className="about-wrapper">
-              <div className="about-text">
-                <span className="section-tag">About Me</span>
-                <p className="about-intro">
-                  I am a full-time researcher at <strong>CADIC-CONICET</strong> in Ushuaia, Argentina. 
-                  With an M.Sc. in Biological Oceanography (CINVESTAV-IPN, Mexico) and a Ph.D. in Science 
-                  (UNGS, Argentina), my research focuses on <strong>modeling species interactions</strong> 
-                  in high-latitude marine ecosystems using a network perspective.
-                </p>
-                <p>
-                  I have published over <strong>20 peer-reviewed articles</strong> and I am currently 
-                  (2022–2026) leading a project on the effects of multiple stressors on marine ecosystems. 
-                  I also teach a postgraduate course on <strong>food web modeling</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* CONTENIDO DINÁMICO - COLUMNA DERECHA */}
+        <div className="profile-right">
+          {children}
+        </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
-export default Banner;
+export default ProfileTemplate;

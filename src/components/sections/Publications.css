@@ -1,87 +1,649 @@
-.publications-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    max-width: 900px;
-    margin: 0 auto;
+/* ==========================================
+   PUBLICATIONS - Estilo revista científica
+========================================== */
+
+.publications {
+    width: 100%;
+    padding-top: 0;
+    min-width: 0;
 }
 
-.pub-item {
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 1.5rem;
-    background: var(--principal-suave);
-    padding: 1.5rem 2rem;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(46, 196, 182, 0.06);
+.publications-content {
+    width: 100%;
 }
 
-.pub-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px var(--sombra);
-    border-color: var(--principal);
-}
+/* ==========================================
+   TÍTULO DE SECCIÓN
+========================================== */
 
-.pub-year {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--principal);
-    padding-top: 0.2rem;
-}
-
-.pub-content h3 {
-    font-size: 1rem;
+.section-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 0.2rem;
+    color: #2ec4b6;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.pub-content h3 a {
-    color: var(--texto-principal);
-    text-decoration: none;
-    transition: color 0.3s;
+/* ==========================================
+   PUBLICACIÓN DESTACADA (FEATURED)
+========================================== */
+
+.publication-preview {
+    background: #f8faf9;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    border-left: 6px solid #2ec4b6;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.pub-content h3 a:hover {
-    color: var(--principal);
+.publication-preview:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
 }
 
-.pub-authors {
-    font-size: 0.85rem;
-    color: var(--texto-terciario);
-    margin-bottom: 0.1rem;
+.publication-preview.featured {
+    background: linear-gradient(135deg, #f0faf9 0%, #f8faf9 100%);
 }
 
-.pub-journal {
-    font-size: 0.85rem;
-    color: var(--texto-secundario);
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.pub-tags {
+.publication-preview-layout {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 28px;
+    align-items: flex-start;
 }
 
-.pub-tags span {
-    background: rgba(46, 196, 182, 0.1);
-    padding: 0.15rem 0.7rem;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    color: var(--texto-terciario);
+.publication-preview-image {
+    flex: 0 0 200px;
+}
+
+.pub-featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.pub-featured-image:hover {
+    transform: scale(1.02);
+}
+
+.publication-preview-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==========================================
+   TÍTULO DE PUBLICACIÓN
+========================================== */
+
+.titulo-publication {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    text-decoration: none;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.titulo-publication:hover {
+    color: #0d6b61;
+    text-decoration: none;
+}
+
+/* ==========================================
+   METADATOS
+========================================== */
+
+.publication-meta {
+    margin: 12px 0 16px;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 2;
+}
+
+.publication-meta p {
+    margin: 2px 0;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #1a2a3a;
+    min-width: 70px;
+    display: inline-block;
+}
+
+.doi-link {
+    color: #2ec4b6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.doi-link:hover {
+    color: #1a8a7e;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   AUTOR DESTACADO - Tomás I. Marina
+========================================== */
+
+.highlighted-author {
+    color: #1a8a7e;
+    font-weight: 700;
+    font-size: 1.05rem;
+    background: #e8f5f3;
+    padding: 1px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #2ec4b6;
+}
+
+/* ==========================================
+   RESUMEN PREVIEW
+========================================== */
+
+.publication-abstract-preview {
+    color: #555;
+    line-height: 1.7;
+    margin: 12px 0 16px;
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   ACCIONES - VIEW PDF Y READ MORE (mismo estilo)
+========================================== */
+
+.publication-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.view-pdf-btn,
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.view-pdf-btn {
+    color: #1a6b61;
+    border: 2px solid #1a6b61;
+}
+
+.view-pdf-btn:hover {
+    color: #ffffff;
+    background: #1a6b61;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
+}
+
+.read-more-btn {
+    color: #1a6b61;
+    border: 2px solid #1a6b61;
+}
+
+.read-more-btn:hover {
+    color: #ffffff;
+    background: #1a6b61;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
+}
+
+/* ==========================================
+   LISTA DE PUBLICACIONES
+========================================== */
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.publications-list li {
+    padding: 18px 20px;
+    border-bottom: 1px solid #eef0f0;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.publications-list li:hover {
+    background: #f8faf9;
+    transform: translateX(4px);
+}
+
+.publications-list li:last-child {
+    border-bottom: none;
+}
+
+.publication-item-layout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.publication-item-image {
+    flex: 0 0 80px;
+}
+
+.pub-list-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.pub-list-image:hover {
+    transform: scale(1.05);
+}
+
+.publication-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.publication-link {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: all 0.3s ease;
+    padding: 2px 0;
+    font-size: 0.98rem;
+}
+
+.publication-link:hover {
+    color: #1a2a3a;
+}
+
+.publication-link strong {
+    color: #1a2a3a;
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: 0.3px;
+}
+
+.publication-link em {
+    color: #2ec4b6;
+    font-style: italic;
     font-weight: 500;
 }
 
-@media (max-width: 768px) {
-    .pub-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 1.25rem;
-    }
+.publication-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding-left: 4px;
+}
 
-    .pub-year {
+.pub-tag {
+    background: #e8f5f3;
+    color: #1a8a7e;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.pub-tag:hover {
+    background: #2ec4b6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.pdf-tag {
+    background: #1a6b61;
+    color: #ffffff;
+}
+
+.pdf-tag:hover {
+    background: #2ec4b6;
+    color: white;
+}
+
+/* ==========================================
+   FILTRO DE BÚSQUEDA
+========================================== */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-wrapper {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f8faf9;
+    border-radius: 10px;
+    border: 2px solid #e8ecef;
+    transition: all 0.3s ease;
+}
+
+.search-wrapper:focus-within {
+    border-color: #2ec4b6;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(46, 196, 182, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    color: #999;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 40px 12px 44px;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #1a2a3a;
+    outline: none;
+    font-family: inherit;
+    border-radius: 8px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.search-clear {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #999;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.search-clear:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.08);
+}
+
+.search-results-count {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 6px 12px;
+    background: #f0f0f0;
+    border-radius: 20px;
+}
+
+/* ==========================================
+   MENSAJE DE NO RESULTADOS
+========================================== */
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    color: #ddd;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.no-results-text {
+    font-size: 1.2rem;
+    color: #1a2a3a;
+    margin-bottom: 8px;
+}
+
+.no-results-text strong {
+    color: #2ec4b6;
+}
+
+.no-results-hint {
+    font-size: 0.95rem;
+    color: #999;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media screen and (max-width: 850px) and (min-width: 701px) {
+    .publication-preview {
+        padding: 22px 24px;
+    }
+    .publication-preview-image {
+        flex: 0 0 150px;
+    }
+    .publication-item-image {
+        flex: 0 0 60px;
+    }
+    .titulo-publication {
+        font-size: 1.3rem;
+    }
+    .publication-link {
+        font-size: 0.92rem;
+    }
+    .publication-meta {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .publication-preview-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    .publication-preview-image {
+        flex: 0 0 auto;
+        width: 200px;
+        max-width: 100%;
+    }
+    .publication-preview-content {
+        width: 100%;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .search-wrapper {
+        min-width: unset;
+    }
+    .search-results-count {
+        align-self: flex-end;
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    .search-input {
+        font-size: 0.9rem;
+        padding: 10px 36px 10px 40px;
+    }
+}
+
+@media screen and (max-width: 550px) and (min-width: 401px) {
+    .publication-preview {
+        padding: 18px 16px;
+    }
+    .publication-item-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .publication-item-image {
+        flex: 0 0 auto;
+        width: 60px;
+    }
+    .pub-list-image {
+        width: 60px;
+        height: 60px;
+    }
+    .titulo-publication {
+        font-size: 1.1rem;
+    }
+    .publication-link {
+        font-size: 0.88rem;
+    }
+    .publication-meta {
+        font-size: 0.85rem;
+    }
+    .publications-list li {
+        padding: 14px 12px;
+    }
+    .pub-tag {
+        font-size: 0.65rem;
+        padding: 2px 10px;
+    }
+    .view-pdf-btn,
+    .read-more-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    .highlighted-author {
+        font-size: 0.95rem;
+        padding: 1px 6px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .publication-preview {
+        padding: 14px 12px;
+        border-left-width: 4px;
+    }
+    .publication-item-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .publication-item-image {
+        flex: 0 0 auto;
+        width: 50px;
+    }
+    .pub-list-image {
+        width: 50px;
+        height: 50px;
+    }
+    .publication-preview-image {
+        width: 150px;
+    }
+    .titulo-publication {
+        font-size: 1rem;
+    }
+    .publication-link {
+        font-size: 0.85rem;
+    }
+    .publication-meta {
+        font-size: 0.8rem;
+    }
+    .publication-abstract-preview {
+        font-size: 0.85rem;
+    }
+    .publications-list li {
+        padding: 12px 10px;
+    }
+    .pub-tag {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+    .view-pdf-btn,
+    .read-more-btn {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        border-width: 1.5px;
+    }
+    .highlighted-author {
+        font-size: 0.9rem;
+        padding: 1px 4px;
+    }
+    
+    .search-input {
+        font-size: 0.85rem;
+        padding: 8px 32px 8px 36px;
+    }
+    .search-icon {
+        font-size: 0.8rem;
+        left: 10px;
+    }
+    .search-clear {
+        font-size: 1.2rem;
+        right: 8px;
+    }
+    .no-results {
+        padding: 40px 16px;
+    }
+    .no-results-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .publication-preview {
+        padding: 20px 18px;
+    }
+    .titulo-publication {
+        font-size: 1.2rem;
+    }
+    .publication-link {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .publication-preview {
+        padding: 16px 14px;
+    }
+    .titulo-publication {
+        font-size: 1.1rem;
+    }
+    .publication-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .publication-preview {
+        padding: 12px 10px;
+    }
+    .titulo-publication {
         font-size: 1rem;
     }
 }

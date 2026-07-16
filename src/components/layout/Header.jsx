@@ -45,8 +45,14 @@ const Header = () => {
     navigate("/contact");
   };
 
+  const goToPublications = () => {
+    closeMenu();
+    navigate("/publications");
+  };
+
   const isCVPage = location.pathname === "/cv";
   const isContactPage = location.pathname === "/contact";
+  const isPublicationsPage = location.pathname === "/publications";
   const isHomePage = location.pathname === "/";
 
   return (
@@ -65,7 +71,13 @@ const Header = () => {
             <button onClick={() => goToSection("projects")}>Projects</button>
           </li>
           <li>
-            <button onClick={() => goToSection("publications")}>Publications</button>
+            {/* AHORA VA DIRECTAMENTE A LA PÁGINA DE PUBLICACIONES */}
+            <button 
+              onClick={goToPublications} 
+              className={isPublicationsPage ? "active" : ""}
+            >
+              Publications
+            </button>
           </li>
           <li>
             <button onClick={() => goToSection("supervision")}>Supervision</button>

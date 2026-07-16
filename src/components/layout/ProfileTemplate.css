@@ -132,7 +132,7 @@ body {
 
 .titulo-profile {
     margin: 0 0 25px;
-    font-size: 2.2rem;
+    font-size: 3.2rem;
     font-weight: 700;
     color: #1a2a3a;
     line-height: 1.2;
@@ -223,48 +223,13 @@ body {
 }
 
 /* ==========================================
-   ABOUT
+   COLUMNA DERECHA - CONTENIDO DINÁMICO
 ========================================== */
 
-.about {
+.profile-right {
     width: 100%;
     padding-top: 20px;
     min-width: 0;
-}
-
-.about-text {
-    line-height: 1.8;
-    color: #333;
-    font-size: 1rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.section-tag {
-    display: inline-block;
-    margin-bottom: 14px;
-    font-size: .9rem;
-    font-weight: 600;
-    color: #2ec4b6;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.about-intro {
-    font-size: 1.08rem;
-    margin-bottom: 18px;
-}
-
-.about-text p {
-    margin-bottom: 18px;
-}
-
-.about-text strong {
-    color: #1a2a3a;
-}
-
-#about {
-    scroll-margin-top: 80px;
 }
 
 /* ==========================================
@@ -465,10 +430,6 @@ body {
     .contact-label {
         font-size: 0.8rem;
     }
-
-    .about-text {
-        font-size: 0.9rem;
-    }
 }
 
 /* ==========================================
@@ -599,10 +560,6 @@ body {
         width: auto;
         font-size: 1.3rem;
     }
-
-    .about-text {
-        font-size: 0.85rem;
-    }
 }
 
 /* ==========================================
@@ -670,25 +627,6 @@ body {
     .contact-icon {
         width: auto;
         font-size: 1.1rem;
-    }
-
-    .about-text {
-        font-size: 0.8rem;
-        line-height: 1.6;
-    }
-
-    .section-tag {
-        font-size: 0.7rem;
-        margin-bottom: 8px;
-    }
-
-    .about-intro {
-        font-size: 0.85rem;
-        margin-bottom: 12px;
-    }
-
-    .about-text p {
-        margin-bottom: 12px;
     }
 }
 
@@ -815,10 +753,6 @@ body {
     .contact-icon {
         font-size: 1.3rem;
     }
-
-    .about-text {
-        font-size: 0.95rem;
-    }
 }
 
 /* ==========================================
@@ -864,10 +798,6 @@ body {
 
     .contact-icon {
         font-size: 1.1rem;
-    }
-
-    .about-text {
-        font-size: 0.9rem;
     }
 }
 

@@ -1,150 +1,5 @@
 /* ==========================================
-   CONTACT - Mismo estilo que Banner
-========================================== */
-
-/* ==========================================
-   RESET
-========================================== */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    font-size: 16px;
-    background-color: #fdfdfd;
-}
-
-/* ==========================================
-   BANNER
-========================================== */
-
-.banner {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.banner-contenedor {
-    position: relative;
-    width: 100%;
-    height: 420px;
-}
-
-.banner-background {
-    width: 100%;
-    height: 100%;
-}
-
-.image-banner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner-bg-fallback {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #1a8a7e, #2ec4b6, #5ed4c8);
-    font-size: 4rem;
-}
-
-/* ==========================================
-   CONTENEDOR PRINCIPAL
-========================================== */
-
-.profile-content {
-    max-width: 1200px;
-    width: 92%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    column-gap: 60px;
-    align-items: start;
-    position: relative;
-    z-index: 10;
-}
-
-/* ==========================================
-   COLUMNA IZQUIERDA
-========================================== */
-
-.profile-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    position: relative;
-    z-index: 20;
-}
-
-/* ==========================================
-   FOTO DE PERFIL
-========================================== */
-
-.banner-de-perfil {
-    width: 100%;
-    margin-top: -170px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 30;
-}
-
-.imagen-de-perfil {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 5px solid #fff;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
-    display: block;
-}
-
-.banner-profile-placeholder {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 10px;
-    border: 5px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #e8f5f3;
-    font-size: 5rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
-}
-
-/* ==========================================
-   TÍTULO
-========================================== */
-
-.titulo-profile {
-    margin: 0 0 25px;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1a2a3a;
-    line-height: 1.2;
-    text-align: left;
-}
-
-/* ==========================================
-   CONTACT - Mismo estilo que ABOUT
+   CONTACT
 ========================================== */
 
 .contact {
@@ -173,7 +28,7 @@ body {
 .section-contact-tag {
     display: inline-block;
     margin-bottom: 14px;
-    font-size: .9rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #2ec4b6;
     letter-spacing: 2px;
@@ -194,7 +49,7 @@ body {
 }
 
 /* ==========================================
-   REDES SOCIALES - Alineadas al margen izquierdo del About
+   REDES SOCIALES
 ========================================== */
 
 .contact-social-wrapper {
@@ -236,7 +91,6 @@ body {
     vertical-align: middle;
 }
 
-/* Eliminar estado de foco persistente en móviles */
 .social-contact-link:focus:not(:active) {
     transform: none;
     background: none;
@@ -252,7 +106,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ICONOS - Tamaño grande pero proporcionado */
 .social-contact-icon {
     width: 60px;
     height: 60px;
@@ -263,10 +116,6 @@ body {
     flex-shrink: 0;
 }
 
-/* ==========================================
-   TEXTO DEL LABEL
-========================================== */
-
 .social-contact-label {
     display: inline-block;
     font-size: 0.95rem;
@@ -276,19 +125,11 @@ body {
     white-space: nowrap;
 }
 
-/* ==========================================
-   COLORES HOVER
-========================================== */
-
 .social-contact-link.email:hover,
 .social-contact-link.x:hover,
 .social-contact-link.instagram:hover {
     background: #a9c9f8;
 }
-
-/* ==========================================
-   ESTADO DE COPIADO PARA EL BOTÓN DE EMAIL
-========================================== */
 
 .social-contact-link.email.copied {
     background: #28a745;
@@ -305,172 +146,10 @@ body {
 }
 
 /* ==========================================
-   ZOOM 100% - BASE
-========================================== */
-
-@media screen and (min-width: 1201px) {
-    .banner-contenedor {
-        height: 420px;
-    }
-    .banner-de-perfil {
-        margin-top: -170px;
-    }
-    .profile-content {
-        grid-template-columns: 340px 1fr;
-        column-gap: 60px;
-    }
-    .titulo-profile {
-        font-size: 2.2rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 90%
-========================================== */
-
-@media screen and (min-width: 1300px) and (max-width: 1440px) {
-    .banner-contenedor {
-        height: 400px;
-    }
-    .banner-de-perfil {
-        margin-top: -160px;
-    }
-    .profile-content {
-        grid-template-columns: 320px 1fr;
-        column-gap: 50px;
-    }
-    .imagen-de-perfil {
-        width: 320px;
-        height: 320px;
-    }
-    .titulo-profile {
-        font-size: 2rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 80%
-========================================== */
-
-@media screen and (min-width: 1450px) and (max-width: 1600px) {
-    .banner-contenedor {
-        height: 380px;
-    }
-    .banner-de-perfil {
-        margin-top: -150px;
-    }
-    .profile-content {
-        grid-template-columns: 300px 1fr;
-        column-gap: 40px;
-    }
-    .imagen-de-perfil {
-        width: 300px;
-        height: 300px;
-    }
-    .titulo-profile {
-        font-size: 1.8rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 70%
-========================================== */
-
-@media screen and (min-width: 1650px) {
-    .banner-contenedor {
-        height: 360px;
-    }
-    .banner-de-perfil {
-        margin-top: -140px;
-    }
-    .profile-content {
-        grid-template-columns: 280px 1fr;
-        column-gap: 30px;
-        width: 85%;
-        max-width: 1600px;
-    }
-    .imagen-de-perfil {
-        width: 280px;
-        height: 280px;
-    }
-    .titulo-profile {
-        font-size: 1.6rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 110%
-========================================== */
-
-@media screen and (max-width: 1100px) and (min-width: 1001px) {
-    .banner-contenedor {
-        height: 390px;
-    }
-    .banner-de-perfil {
-        margin-top: -180px;
-    }
-    .profile-content {
-        grid-template-columns: 320px 1fr;
-        column-gap: 40px;
-        width: 94%;
-    }
-    .imagen-de-perfil {
-        width: 320px;
-        height: 320px;
-    }
-    .titulo-profile {
-        font-size: 2rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 125%
-========================================== */
-
-@media screen and (max-width: 1000px) and (min-width: 851px) {
-    .banner-contenedor {
-        height: 370px;
-    }
-    .banner-de-perfil {
-        margin-top: -190px;
-    }
-    .profile-content {
-        grid-template-columns: 300px 1fr;
-        column-gap: 30px;
-        width: 95%;
-    }
-    .imagen-de-perfil {
-        width: 300px;
-        height: 300px;
-    }
-    .titulo-profile {
-        font-size: 1.8rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 150%
+   RESPONSIVE
 ========================================== */
 
 @media screen and (max-width: 850px) and (min-width: 701px) {
-    .banner-contenedor {
-        height: 330px;
-    }
-    .banner-de-perfil {
-        margin-top: -200px;
-    }
-    .profile-content {
-        grid-template-columns: 260px 1fr;
-        column-gap: 20px;
-        width: 96%;
-    }
-    .imagen-de-perfil {
-        width: 260px;
-        height: 260px;
-    }
-    .titulo-profile {
-        font-size: 1.5rem;
-    }
     .contact-text {
         font-size: 0.9rem;
     }
@@ -491,86 +170,7 @@ body {
     }
 }
 
-/* ==========================================
-   ZOOM 175% - CAMBIA A UNA COLUMNA
-========================================== */
-
-@media screen and (max-width: 700px) and (min-width: 551px) {
-    .banner-contenedor {
-        height: 290px;
-    }
-    .banner-de-perfil {
-        width: 220px;
-        margin-top: -180px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .profile-content {
-        grid-template-columns: 1fr;
-        row-gap: 20px;
-        width: 96%;
-    }
-    .profile-left {
-        align-items: center;
-        text-align: center;
-    }
-    .titulo-profile {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    .contact-social-wrapper {
-        justify-content: center;
-    }
-    .contact-social {
-        justify-content: center;
-        gap: 10px;
-    }
-    .social-contact-link {
-        padding: 8px 12px;
-        gap: 6px;
-    }
-    .social-contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.8rem;
-    }
-    .social-contact-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* ==========================================
-   ZOOM 200%
-========================================== */
-
 @media screen and (max-width: 550px) and (min-width: 401px) {
-    .banner-contenedor {
-        height: 250px;
-    }
-    .banner-de-perfil {
-        width: 180px;
-        margin-top: -150px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .imagen-de-perfil {
-        border-width: 4px;
-    }
-    .profile-content {
-        grid-template-columns: 1fr;
-        width: 98%;
-        row-gap: 15px;
-        padding: 0 5px;
-    }
-    .profile-left {
-        align-items: center;
-        text-align: center;
-    }
-    .titulo-profile {
-        font-size: 1.3rem;
-        text-align: center;
-        margin-bottom: 15px;
-    }
     .contact-text {
         font-size: 0.85rem;
     }
@@ -595,38 +195,7 @@ body {
     }
 }
 
-/* ==========================================
-   ZOOM 250% O MÁS
-========================================== */
-
 @media screen and (max-width: 400px) {
-    .banner-contenedor {
-        height: 200px;
-    }
-    .banner-de-perfil {
-        width: 140px;
-        margin-top: -120px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .imagen-de-perfil {
-        border-width: 3px;
-    }
-    .profile-content {
-        grid-template-columns: 1fr;
-        width: 100%;
-        row-gap: 10px;
-        padding: 0 5px;
-    }
-    .profile-left {
-        align-items: center;
-        text-align: center;
-    }
-    .titulo-profile {
-        font-size: 1.1rem;
-        text-align: center;
-        margin-bottom: 12px;
-    }
     .contact-text {
         font-size: 0.8rem;
         line-height: 1.6;
@@ -663,36 +232,9 @@ body {
     }
 }
 
-/* ==========================================
-   TABLET
-========================================== */
-
 @media (max-width: 768px) {
-    .banner-contenedor {
-        height: 320px;
-    }
-    .banner-de-perfil {
-        width: 240px;
-        margin-top: -120px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .imagen-de-perfil {
-        width: 240px;
-        height: 240px;
-    }
-    .profile-content {
-        grid-template-columns: 1fr;
-        row-gap: 20px;
-        width: 92%;
-    }
-    .profile-left {
-        align-items: center;
-        text-align: center;
-    }
-    .titulo-profile {
-        font-size: 1.8rem;
-        text-align: center;
+    .contact-text {
+        font-size: 0.95rem;
     }
     .contact-social-wrapper {
         justify-content: center;
@@ -715,33 +257,7 @@ body {
     }
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
-
 @media (max-width: 600px) {
-    .banner-contenedor {
-        height: 280px;
-    }
-    .banner-de-perfil {
-        width: 200px;
-        margin-top: -100px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .imagen-de-perfil {
-        width: 200px;
-        height: 200px;
-        border-width: 4px;
-    }
-    .profile-content {
-        row-gap: 15px;
-        width: 95%;
-    }
-    .titulo-profile {
-        font-size: 1.5rem;
-        text-align: center;
-    }
     .contact-text {
         font-size: 0.95rem;
     }
@@ -766,26 +282,7 @@ body {
     }
 }
 
-/* ==========================================
-   MOBILE PEQUEÑA
-========================================== */
-
 @media (max-width: 400px) {
-    .banner-contenedor {
-        height: 230px;
-    }
-    .banner-de-perfil {
-        width: 160px;
-        margin-top: -80px;
-    }
-    .imagen-de-perfil {
-        width: 160px;
-        height: 160px;
-        border-width: 3px;
-    }
-    .titulo-profile {
-        font-size: 1.3rem;
-    }
     .contact-text {
         font-size: 0.9rem;
     }
@@ -815,24 +312,6 @@ body {
 ========================================== */
 
 @media (min-width: 1400px) {
-    .banner-contenedor {
-        height: 420px;
-    }
-    .banner-de-perfil {
-        margin-top: -170px;
-    }
-    .profile-content {
-        max-width: 1400px;
-        column-gap: 80px;
-        grid-template-columns: 340px 1fr;
-    }
-    .imagen-de-perfil {
-        width: 340px;
-        height: 340px;
-    }
-    .titulo-profile {
-        font-size: 2.5rem;
-    }
     .social-contact-icon {
         width: 70px;
         height: 70px;
