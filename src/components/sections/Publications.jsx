@@ -172,9 +172,7 @@ const Publications = () => {
                       </a>
                     </p>
                   </div>
-                  <p className="publication-abstract-preview">
-                    {hasSearch ? highlightText(firstPublication.abstract.substring(0, 180), searchTerm) : firstPublication.abstract.substring(0, 180)}...
-                  </p>
+                  {/* ELIMINADO: Resumen (abstract) */}
                   <div className="publication-actions">
                     <a 
                       href={firstPublication.pdf} 
