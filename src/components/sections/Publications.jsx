@@ -208,7 +208,7 @@ const Publications = () => {
       title: "Seaweeds in the Antarctic marine coastal food web",
       authors: "Fernando R. Momo, Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Gabriela L. Campana, Mariano Valli, Santiago R. Doyle & Leonardo A. Saravia",
       year: 2020,
-      journal: "Antarctic Seaweeds: diversity, adaptation and ecosystem services. Springer",
+      journal:"/ Editorial: Antarctic Seaweeds: diversity, adaptation and ecosystem services / Springer / 978-3-030-39447-9",
       doi: "10.1007/978-3-030-39448-6_15",
       url: "https://doi.org/10.1007/978-3-030-39448-6_15",
       pdf: `${import.meta.env.BASE_URL}assets/Pub 18.pdf`,
@@ -361,13 +361,6 @@ const Publications = () => {
   const featuredPublications = allPublications.filter(pub => pub.id >= 1 && pub.id <= 3);
   
   // Full list: orden específico según lo solicitado
-  // IDs: 2 (Disentangling), 1 (First evidence), 4 (Standardising), 5 (Marine trophic), 
-  // 6 (Food web structure), 3 (The response of trophic), 7 (Complex network), 
-  // 8 (New insights), 9 (Estimating), 10 (Complejidad), 11 (Ecological networks), 
-  // 12 (Una revisión), 13 (Food web rewiring), 14 (Marine food webs), 
-  // 15 (Ecological network assembly), 16 (Southern Ocean), 17 (Green vs brown), 
-  // 18 (Seaweeds), 19 (Soil fauna), 20 (Effects of macroalgae), 21 (Long-finned), 
-  // 22 (Architecture), 23 (The food web), 24 (Respuesta)
   const fullListOrder = [2, 1, 4, 5, 6, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
   
   const fullListPublications = allPublications.filter(pub => fullListOrder.includes(pub.id))
