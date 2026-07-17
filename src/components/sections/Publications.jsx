@@ -208,7 +208,7 @@ const Publications = () => {
       title: "Seaweeds in the Antarctic marine coastal food web",
       authors: "Fernando R. Momo, Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Gabriela L. Campana, Mariano Valli, Santiago R. Doyle & Leonardo A. Saravia",
       year: 2020,
-      book: "/ Editorial: Antarctic Seaweeds: diversity, adaptation and ecosystem services / Springer / 978-3-030-39447-9",
+      book: " Antarctic Seaweeds: diversity, adaptation and ecosystem services ",
       doi: "10.1007/978-3-030-39448-6_15",
       url: "https://doi.org/10.1007/978-3-030-39448-6_15",
       pdf: `${import.meta.env.BASE_URL}assets/Pub 18.pdf`,
