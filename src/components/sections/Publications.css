@@ -96,6 +96,7 @@
     color: #0d6b61;
     text-decoration: none;
 }
+
 /* ==========================================
    FULL LIST HEADER - Separación
 ========================================== */
@@ -103,57 +104,51 @@
 .full-list-header {
     margin-top: 60px;
 }
-/* ==========================================
-   METADATOS
-========================================== */
 
 /* ==========================================
-   METADATOS
+   METADATOS - ETIQUETAS MÁS GRANDES
 ========================================== */
 
 .publication-meta {
     margin: 12px 0 16px;
     font-size: 0.95rem;
     color: #444;
-    line-height: 1.5;  /* Reducido de 2 a 1.5 */
+    line-height: 1.5;
 }
 
+/* Espaciado entre párrafos de metadatos */
 .publication-meta p {
-    margin: 2px 0;     /* Añade esta línea para reducir el margen entre párrafos */
-}
-
-.meta-label {
-    font-weight: 600;
-    color: #1a2a3a;
-    min-width: 70px;
-    display: inline-block;
+    margin: 6px 0;        /* Espacio entre párrafos (6px) */
+    line-height: 1.5;
 }
 
 /* ==========================================
-   AUTORES - Control de espaciado
+   ETIQUETAS (AUTOR, JOURNAL, YEAR, DOI) - MÁS GRANDES
 ========================================== */
 
+.meta-label {
+    font-weight: 700;      /* Más negrita */
+    font-size: 1.05rem;    /* Más grande que el texto normal */
+    color: #1a2a3a;
+    min-width: 80px;       /* Un poco más ancho */
+    display: inline-block;
+    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
+}
 
+/* ==========================================
+   AUTORES - Control de espaciado (más pequeño que las etiquetas)
+========================================== */
+
+/* Línea de autores con espaciado reducido */
 .publication-meta p.author-line {
-    margin: 1px 0 2px 0; 
-    line-height: 1.3;   
+    margin: 4px 0 6px 0;   /* Menos espacio que los otros párrafos */
+    line-height: 1.3;      /* Espaciado más ajustado entre autores */
 }
 
 .authors-list {
     line-height: 1.3;     
     display: inline;      
-}
-
-.highlighted-author {
-    color: #1a8a7e;
-    font-weight: 700;
-    font-size: 1.05rem;
-    background: #e8f5f3;
-    padding: 1px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #2ec4b6;
-    line-height: 1.3;     /* Asegura consistencia */
+    font-size: 0.95rem;    /* Tamaño normal para autores */
 }
 
 /* ==========================================
@@ -169,6 +164,7 @@
     border-radius: 4px;
     letter-spacing: 0.5px;
     border-bottom: 2px solid #2ec4b6;
+    line-height: 1.3;
 }
 
 /* ==========================================
@@ -366,6 +362,13 @@
     .publication-meta {
         font-size: 0.9rem;
     }
+    .meta-label {
+        font-size: 1rem;
+        min-width: 75px;
+    }
+    .authors-list {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -399,6 +402,20 @@
         font-size: 0.9rem;
         padding: 10px 36px 10px 40px;
     }
+    
+    .meta-label {
+        font-size: 0.95rem;
+        min-width: 70px;
+    }
+    .publication-meta p {
+        margin: 4px 0;
+    }
+    .publication-meta p.author-line {
+        margin: 2px 0 4px 0;
+    }
+    .authors-list {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 550px) and (min-width: 401px) {
@@ -411,6 +428,10 @@
     .publication-meta {
         font-size: 0.85rem;
     }
+    .meta-label {
+        font-size: 0.9rem;
+        min-width: 65px;
+    }
     .view-pdf-btn,
     .read-more-btn {
         font-size: 0.8rem;
@@ -419,6 +440,15 @@
     .highlighted-author {
         font-size: 0.95rem;
         padding: 1px 6px;
+    }
+    .authors-list {
+        font-size: 0.85rem;
+    }
+    .publication-meta p {
+        margin: 3px 0;
+    }
+    .publication-meta p.author-line {
+        margin: 2px 0 3px 0;
     }
 }
 
@@ -436,6 +466,10 @@
     .publication-meta {
         font-size: 0.8rem;
     }
+    .meta-label {
+        font-size: 0.85rem;
+        min-width: 60px;
+    }
     .view-pdf-btn,
     .read-more-btn {
         font-size: 0.75rem;
@@ -445,6 +479,15 @@
     .highlighted-author {
         font-size: 0.9rem;
         padding: 1px 4px;
+    }
+    .authors-list {
+        font-size: 0.8rem;
+    }
+    .publication-meta p {
+        margin: 2px 0;
+    }
+    .publication-meta p.author-line {
+        margin: 1px 0 2px 0;
     }
     
     .search-input {
