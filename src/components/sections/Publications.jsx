@@ -208,7 +208,7 @@ const Publications = () => {
       title: "Seaweeds in the Antarctic marine coastal food web",
       authors: "Fernando R. Momo, Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Gabriela L. Campana, Mariano Valli, Santiago R. Doyle & Leonardo A. Saravia",
       year: 2020,
-      journal:"/ Editorial: Antarctic Seaweeds: diversity, adaptation and ecosystem services / Springer / 978-3-030-39447-9",
+      book: "/ Editorial: Antarctic Seaweeds: diversity, adaptation and ecosystem services / Springer / 978-3-030-39447-9",
       doi: "10.1007/978-3-030-39448-6_15",
       url: "https://doi.org/10.1007/978-3-030-39448-6_15",
       pdf: `${import.meta.env.BASE_URL}assets/Pub 18.pdf`,
@@ -291,12 +291,18 @@ const Publications = () => {
     }
     
     return publications.filter((pub) => {
-      return (
-        pub.title.toLowerCase().includes(searchLower) ||
-        pub.authors.toLowerCase().includes(searchLower) ||
-        pub.journal.toLowerCase().includes(searchLower) ||
-        pub.year.toString().includes(searchLower) ||
-        pub.doi.toLowerCase().includes(searchLower)
+      // Buscar en todos los campos incluyendo book
+      const searchableFields = [
+        pub.title,
+        pub.authors,
+        pub.journal,
+        pub.book,
+        pub.year.toString(),
+        pub.doi
+      ].filter(Boolean);
+      
+      return searchableFields.some(field => 
+        field.toLowerCase().includes(searchLower)
       );
     });
   };
@@ -365,6 +371,22 @@ const Publications = () => {
   
   const fullListPublications = allPublications.filter(pub => fullListOrder.includes(pub.id))
     .sort((a, b) => fullListOrder.indexOf(a.id) - fullListOrder.indexOf(b.id));
+
+  // Función para obtener el texto de la publicación (journal o book)
+  const getPublicationText = (publication) => {
+    if (publication.book) {
+      return publication.book;
+    }
+    return publication.journal || '';
+  };
+
+  // Función para obtener la etiqueta (Journal: o Book:)
+  const getPublicationLabel = (publication) => {
+    if (publication.book) {
+      return "Book:";
+    }
+    return "Journal:";
+  };
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
@@ -506,8 +528,8 @@ const Publications = () => {
                           {hasSearch ? highlightText(publication.authors, searchTerm) : highlightAuthor(publication.authors)}
                         </p>
                         <p>
-                          <span className="meta-label">Journal:</span> 
-                          {hasSearch ? highlightText(publication.journal, searchTerm) : publication.journal}
+                          <span className="meta-label">{getPublicationLabel(publication)}</span> 
+                          {hasSearch ? highlightText(getPublicationText(publication), searchTerm) : getPublicationText(publication)}
                         </p>
                         <p>
                           <span className="meta-label">Year:</span> 
