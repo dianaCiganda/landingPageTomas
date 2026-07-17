@@ -13,7 +13,7 @@ const Publications = () => {
     document.documentElement.scrollTop = 0;
   }, []); 
   
-  // Array de publicaciones - Sin keywords
+  // Array de publicaciones - Sin keywords (ordenadas por año, más reciente primero)
   const publications = [
     {
       id: 1,
@@ -36,17 +36,6 @@ const Publications = () => {
       url: "https://doi.org/10.3389/fmars.2026.1868956",
       pdf: `${import.meta.env.BASE_URL}assets/Featured-pub-2.pdf`,
       image: `${import.meta.env.BASE_URL}assets/Featured-pub-2.png`
-    },
-    {
-      id: 3,
-      title: "The response of trophic interaction networks to multiple stressors along a large-scale latitudinal range in the Southern Hemisphere",
-      authors: "Tomás I. Marina, Leonardo A. Saravia, Iara D. Rodriguez, Manuela Funes, Georgina Cordone, Santiago R. Doyle, Anahí Silvestro, David E. Galván, Susanne Kortsch & Fernando R. Momo",
-      year: 2024,
-      journal: "Environmental Reviews",
-      doi: "10.1139/er-2024-0012",
-      url: "https://doi.org/10.1139/er-2024-0012",
-      pdf: `${import.meta.env.BASE_URL}assets/Featured-pub-3.pdf`,
-      image: `${import.meta.env.BASE_URL}assets/Featured-pub-3.png`
     },
     {
       id: 4,
@@ -80,6 +69,17 @@ const Publications = () => {
       url: "https://doi.org/10.1007/s00300-025-03368-8",
       pdf: `${import.meta.env.BASE_URL}assets/PUB-5.pdf`,
       image: `${import.meta.env.BASE_URL}assets/Pub-5.png`
+    },
+    {
+      id: 3,
+      title: "The response of trophic interaction networks to multiple stressors along a large-scale latitudinal range in the Southern Hemisphere",
+      authors: "Tomás I. Marina, Leonardo A. Saravia, Iara D. Rodriguez, Manuela Funes, Georgina Cordone, Santiago R. Doyle, Anahí Silvestro, David E. Galván, Susanne Kortsch & Fernando R. Momo",
+      year: 2024,
+      journal: "Environmental Reviews",
+      doi: "10.1139/er-2024-0012",
+      url: "https://doi.org/10.1139/er-2024-0012",
+      pdf: `${import.meta.env.BASE_URL}assets/Featured-pub-3.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Featured-pub-3.png`
     }
   ];
 
