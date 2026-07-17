@@ -208,7 +208,7 @@ const Publications = () => {
       title: "Seaweeds in the Antarctic marine coastal food web",
       authors: "Fernando R. Momo, Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Gabriela L. Campana, Mariano Valli, Santiago R. Doyle & Leonardo A. Saravia",
       year: 2020,
-      book: " Antarctic Seaweeds: diversity, adaptation and ecosystem services ",
+      book: "Antarctic Seaweeds: diversity, adaptation and ecosystem services",
       doi: "10.1007/978-3-030-39448-6_15",
       url: "https://doi.org/10.1007/978-3-030-39448-6_15",
       pdf: `${import.meta.env.BASE_URL}assets/Pub 18.pdf`,
@@ -291,7 +291,6 @@ const Publications = () => {
     }
     
     return publications.filter((pub) => {
-      // Buscar en todos los campos incluyendo book
       const searchableFields = [
         pub.title,
         pub.authors,
@@ -310,16 +309,17 @@ const Publications = () => {
   const filteredPublications = getFilteredPublications();
   const hasSearch = searchTerm.trim().length > 0;
 
+  // FUNCIÓN MODIFICADA CON LA CLASE authors-list
   const highlightAuthor = (authors) => {
     const nameToHighlight = "Tomás I. Marina";
     const parts = authors.split(nameToHighlight);
     
     if (parts.length === 1) {
-      return <span>{authors}</span>;
+      return <span className="authors-list">{authors}</span>;
     }
     
     return (
-      <span>
+      <span className="authors-list">
         {parts.map((part, index) => (
           <React.Fragment key={index}>
             {part}
@@ -350,7 +350,6 @@ const Publications = () => {
     );
   };
 
-  // Función para manejar el clic en "Read more"
   const handleReadMore = (id) => {
     console.log("Navegando a publicación con ID:", id);
     try {
@@ -363,16 +362,13 @@ const Publications = () => {
 
   const allPublications = filteredPublications;
   
-  // Featured: primeras 3 publicaciones (IDs 1, 2, 3 en ese orden) - SIN CAMBIOS
   const featuredPublications = allPublications.filter(pub => pub.id >= 1 && pub.id <= 3);
   
-  // Full list: orden específico según lo solicitado
   const fullListOrder = [2, 1, 4, 5, 6, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
   
   const fullListPublications = allPublications.filter(pub => fullListOrder.includes(pub.id))
     .sort((a, b) => fullListOrder.indexOf(a.id) - fullListOrder.indexOf(b.id));
 
-  // Función para obtener el texto de la publicación (journal o book)
   const getPublicationText = (publication) => {
     if (publication.book) {
       return publication.book;
@@ -380,7 +376,6 @@ const Publications = () => {
     return publication.journal || '';
   };
 
-  // Función para obtener la etiqueta (Journal: o Book:)
   const getPublicationLabel = (publication) => {
     if (publication.book) {
       return "Book:";
@@ -390,7 +385,6 @@ const Publications = () => {
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
-      {/* BARRA DE BÚSQUEDA */}
       <div className="search-container">
         <div className="search-wrapper">
           <i className="fas fa-search search-icon"></i>
@@ -417,7 +411,6 @@ const Publications = () => {
       </div>
 
       <section id="publications" className="publications">
-        {/* SECCIÓN FEATURED PUBLICATIONS - SIN CAMBIOS */}
         <span className="section-tag">Featured publications</span>
 
         <div className="publications-content">
@@ -447,7 +440,7 @@ const Publications = () => {
                   </h2>
                   
                   <div className="publication-meta">
-                    <p>
+                    <p className="author-line">
                       <span className="meta-label">Authors:</span> 
                       {hasSearch ? highlightText(publication.authors, searchTerm) : highlightAuthor(publication.authors)}
                     </p>
@@ -489,7 +482,6 @@ const Publications = () => {
           ))}
         </div>
 
-        {/* SECCIÓN FULL LIST OF PUBLICATIONS - CON NUEVO ORDEN */}
         {fullListPublications.length > 0 && (
           <>
             <div className="full-list-header">
