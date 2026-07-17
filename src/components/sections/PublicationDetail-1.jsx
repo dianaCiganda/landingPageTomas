@@ -327,6 +327,7 @@ const PublicationDetail1 = () => {
         </div>
       )}
     </ProfileTemplate>
+    
   );
 };
 
