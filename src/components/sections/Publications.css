@@ -118,7 +118,7 @@
 
 /* Espaciado entre párrafos de metadatos */
 .publication-meta p {
-    margin: 6px 0;        /* Espacio entre párrafos (6px) */
+    margin: 6px 0;
     line-height: 1.5;
 }
 
@@ -127,38 +127,38 @@
 ========================================== */
 
 .meta-label {
-    font-weight: 700;      /* Más negrita */
-    font-size: 1.05rem;    /* Más grande que el texto normal */
+    font-weight: 700;
+    font-size: 1.05rem;
     color: #1a2a3a;
-    min-width: 80px;       /* Un poco más ancho */
+    min-width: 80px;
     display: inline-block;
-    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
+    letter-spacing: 0.3px;
 }
 
 /* ==========================================
-   AUTORES - Control de espaciado (más pequeño que las etiquetas)
+   AUTORES - Control de espaciado
 ========================================== */
 
 /* Línea de autores con espaciado reducido */
 .publication-meta p.author-line {
-    margin: 4px 0 6px 0;   /* Menos espacio que los otros párrafos */
-    line-height: 1.3;      /* Espaciado más ajustado entre autores */
+    margin: 4px 0 6px 0;
+    line-height: 1.3;
 }
 
 .authors-list {
-    line-height: 1.3;     
-    display: inline;      
-    font-size: 0.95rem;    /* Tamaño normal para autores */
+    line-height: 1.3;
+    display: inline;
+    font-size: 0.95rem;    /* Mismo tamaño que el texto normal */
 }
 
 /* ==========================================
-   AUTOR DESTACADO - Tomás I. Marina
+   AUTOR DESTACADO - Tomás I. Marina (mismo tamaño que el párrafo)
 ========================================== */
 
 .highlighted-author {
     color: #1a8a7e;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 0.95rem;    /* Mismo tamaño que .publication-meta */
     background: #e8f5f3;
     padding: 1px 8px;
     border-radius: 4px;
@@ -369,6 +369,9 @@
     .authors-list {
         font-size: 0.9rem;
     }
+    .highlighted-author {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -416,6 +419,9 @@
     .authors-list {
         font-size: 0.9rem;
     }
+    .highlighted-author {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 550px) and (min-width: 401px) {
@@ -438,7 +444,7 @@
         padding: 6px 14px;
     }
     .highlighted-author {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         padding: 1px 6px;
     }
     .authors-list {
@@ -477,7 +483,7 @@
         border-width: 1.5px;
     }
     .highlighted-author {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding: 1px 4px;
     }
     .authors-list {
@@ -543,14 +549,14 @@
 
 @media screen and (max-width: 768px) {
     .highlighted-author {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         padding: 1px 6px;
     }
 }
 
 @media screen and (max-width: 550px) {
     .highlighted-author {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         padding: 0px 4px;
         border-bottom-width: 1px;
     }
@@ -558,7 +564,7 @@
 
 @media screen and (max-width: 400px) {
     .highlighted-author {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         padding: 0px 3px;
     }
 }
