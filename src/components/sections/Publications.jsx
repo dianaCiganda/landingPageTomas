@@ -80,6 +80,205 @@ const Publications = () => {
       url: "https://doi.org/10.1007/s00300-025-03368-8",
       pdf: `${import.meta.env.BASE_URL}assets/PUB-5.pdf`,
       image: `${import.meta.env.BASE_URL}assets/Pub-5.png`
+    },
+    // Full list publications in the specific order you provided
+    {
+      id: 7,
+      title: "Complex network of trophic interactions in Burdwood Bank, a sub-Antarctic oceanic marine protected area",
+      authors: "Tomás I. Marina, Irene R. Schloss, Gustavo Lovrich, … & Luciana Riccialdelli",
+      year: 2024,
+      journal: "Marine Ecology Progress Series",
+      doi: "10.3354/meps14600",
+      url: "https://doi.org/10.3354/meps14600",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 6.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-6.png`
+    },
+    {
+      id: 8,
+      title: "New insights into the Weddell Sea ecosystem applying a quantitative network approach",
+      authors: "Tomás I. Marina, Leonardo A. Saravia & Susanne Kortsch",
+      year: 2024,
+      journal: "Ocean Science",
+      doi: "10.5194/os-20-141-2024",
+      url: "https://doi.org/10.5194/os-20-141-2024",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 8.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-8.png`
+    },
+    {
+      id: 9,
+      title: "Estimating the Impact of Biodiversity Loss in a Marine Antarctic Food Web",
+      authors: "Vanesa Salinas, Georgina Cordone, Tomás I. Marina & Fernando R. Momo",
+      year: 2024,
+      journal: "Diversity",
+      doi: "10.3390/d16010063",
+      url: "https://doi.org/10.3390/d16010063",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 9.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-9.png`
+    },
+    {
+      id: 10,
+      title: "Complejidad y estabilidad en redes tróficas: un análisis de redes empíricas",
+      authors: "Tomás I. Marina & Nathan Colbrunn",
+      year: 2023,
+      journal: "Anales del Instituto de la Patagonia",
+      doi: "10.22352/AIP2023",
+      url: "https://www.scielo.cl/scielo.php?pid=S0718-686X2023000100206&script=sci_arttext",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 10.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-10.png`
+    },
+    {
+      id: 11,
+      title: "Ecological networks of an Antarctic ecosystem: a full description of non-trophic interactions",
+      authors: "Vanesa Salinas, Tomás I. Marina, Georgina Cordone & Fernando R. Momo",
+      year: 2023,
+      journal: "Marine Biology",
+      doi: "10.1007/s00227-022-04155-3",
+      url: "https://doi.org/10.1007/s00227-022-04155-3",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 11.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-11.png`
+    },
+    {
+      id: 12,
+      title: "Una revisión de los efectos de los cambios ambientales antropogénicos en las interacciones tróficas de cuatro ecosistemas marinos entre los 45° y 62° S",
+      authors: "Tomás I. Marina & Leonardo A. Saravia",
+      year: 2022,
+      journal: "Anales del Instituto de la Patagonia",
+      doi: "10.22352/AIP2022",
+      url: "https://doi.org/10.22352/AIP2022",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 12.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-12.png`
+    },
+    {
+      id: 13,
+      title: "Food web rewiring drives long-term compositional differences and late-disturbance interactions at the community level",
+      authors: "Francesco Polazzo, Tomás I. Marina, Melina Crettaz-Minaglia & Andreu Rico",
+      year: 2022,
+      journal: "Proceedings of the National Academy of Sciences",
+      doi: "10.1073/pnas.2117364119",
+      url: "https://doi.org/10.1073/pnas.2117364119",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 13.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-13.png`
+    },
+    {
+      id: 14,
+      title: "Marine food webs are more complex but less stable in sub-Antarctic (Beagle Channel, Argentina) than in Antarctic (Potter Cove, Antarctic Peninsula) regions",
+      authors: "Iara D. Rodríguez, Tomás I. Marina, Irene R. Schloss & Leonardo A. Saravia",
+      year: 2022,
+      journal: "Marine Environmental Research",
+      doi: "10.1016/j.marenvres.2022.105561",
+      url: "https://doi.org/10.1016/j.marenvres.2022.105561",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 14.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-14.png`
+    },
+    {
+      id: 15,
+      title: "Ecological network assembly: how the regional metaweb influences local food webs",
+      authors: "Leonardo A. Saravia, Tomás I. Marina, Nadiah Kristensen, Marleen De Troch & Fernando R. Momo",
+      year: 2022,
+      journal: "Journal of Animal Ecology",
+      doi: "10.1111/1365-2656.13652",
+      url: "https://doi.org/10.1111/1365-2656.13652",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 15.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-15.png`
+    },
+    {
+      id: 16,
+      title: "Southern Ocean food webs: progress, prognoses, future priorities and opportunities for policy makers",
+      authors: "Stacey A. McCormack, Jessica Melbourne-Thomas, Rowan Trebilco, Gary Griffith, Simeon L. Hill, Carie Hoover, Nadine M. Johnston, Tomás I. Marina … & Andrew J. Constable",
+      year: 2021,
+      journal: "Frontiers in Ecology and Evolution",
+      doi: "10.3389/fevo.2021.624763",
+      url: "https://doi.org/10.3389/fevo.2021.624763",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 16.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-16.png`
+    },
+    {
+      id: 17,
+      title: "Green vs brown food web: Effects of habitat type on multidimensional stability proxies for a highly-resolved Antarctic food web",
+      authors: "Georgina Cordone, Vanesa Salinas, Tomás I. Marina, Santiago R. Doyle, Francesca Pasotti, Leonardo A. Saravia & Fernando R. Momo",
+      year: 2020,
+      journal: "Food Webs",
+      doi: "10.1016/j.fooweb.2020.e00166",
+      url: "https://doi.org/10.1016/j.fooweb.2020.e00166",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 17.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-17.png`
+    },
+    {
+      id: 18,
+      title: "Seaweeds in the Antarctic marine coastal food web",
+      authors: "Fernando R. Momo, Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Gabriela L. Campana, Mariano Valli, Santiago R. Doyle & Leonardo A. Saravia",
+      year: 2020,
+      journal: "Antarctic Seaweeds: diversity, adaptation and ecosystem services. Springer",
+      doi: "10.1007/978-3-030-39448-6_15",
+      url: "https://doi.org/10.1007/978-3-030-39448-6_15",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 18.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-18.png`
+    },
+    {
+      id: 19,
+      title: "Soil fauna community and ecosystem's resilience: a food web approach",
+      authors: "Gisela Maggiotto, Leticia Sabatté, Tomás I. Marina, Luciana Fueyo-Sánchez, Angélica M. Ramírez Londoño, Mónica Díaz Porres, Macarena Rionda, Marianela Domínguez, Rosa Perelli & Fernando R. Momo",
+      year: 2019,
+      journal: "Acta Oecologica",
+      doi: "10.1016/j.actao.2019.103445",
+      url: "https://doi.org/10.1016/j.actao.2019.103445",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 19.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-19.png`
+    },
+    {
+      id: 20,
+      title: "Effects of macroalgae loss in an Antarctic marine food web: applying extinction thresholds to food web studies",
+      authors: "Georgina Cordone, Tomás I. Marina, Vanesa Salinas, Santiago R. Doyle, Leonardo A. Saravia & Fernando R. Momo",
+      year: 2018,
+      journal: "PeerJ",
+      doi: "10.7717/peerj.5531",
+      url: "https://doi.org/10.7717/peerj.5531",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 20.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-20.png`
+    },
+    {
+      id: 21,
+      title: "Long-finned Pilot Whale (Globicephala melas Traill, 1809) subspecies in the Atlantic Ocean: are there differences in their skulls?",
+      authors: "Tomás I. Marina, María Constanza Marchesi & R. Natalie P. Goodall",
+      year: 2018,
+      journal: "Marine Mammal Science",
+      doi: "10.1111/mms.12548",
+      url: "https://doi.org/10.1111/mms.12548",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 21.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-21.png`
+    },
+    {
+      id: 22,
+      title: "Architecture of marine food webs: To be or not be a 'small-world'",
+      authors: "Tomás I. Marina, Leonardo A. Saravia, Georgina Cordone, Vanesa Salinas, Santiago R. Doyle & Fernando R. Momo",
+      year: 2018,
+      journal: "PLoS ONE",
+      doi: "10.1371/journal.pone.0198217",
+      url: "https://doi.org/10.1371/journal.pone.0198217",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 22.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-22.png`
+    },
+    {
+      id: 23,
+      title: "The food web of Potter Cove (Antarctica): complexity, structure and function",
+      authors: "Tomás I. Marina, Vanesa Salinas, Georgina Cordone, Gabriela Campana, Eugenia Moreira, Dolores Deregibus, Luciana Torre, Ricardo Sahade, Marcos Tatián, Esteban Barrera Oro, Marleen De Troch, Santiago R. Doyle, María Liliana Quartino, Leonardo A. Saravia & Fernando R. Momo",
+      year: 2018,
+      journal: "Estuarine, Coastal and Shelf Science",
+      doi: "10.1016/j.ecss.2017.10.015",
+      url: "https://doi.org/10.1016/j.ecss.2017.10.015",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 23.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-23.png`
+    },
+    {
+      id: 24,
+      title: "Respuesta de la comunidad de fitoplancton y zooplancton al afloramiento de agua subterránea y surgencia costera en la península de Yucatán, México",
+      authors: "Tomás I. Marina, Jorge A. Herrera-Silveira & Israel Medina-Gómez",
+      year: 2017,
+      journal: "Ecología Austral",
+      doi: "10.25260/EA.17.27.2.0.229",
+      url: "https://doi.org/10.25260/EA.17.27.2.0.229",
+      pdf: `${import.meta.env.BASE_URL}assets/Pub 24.pdf`,
+      image: `${import.meta.env.BASE_URL}assets/Pub-24.png`
     }
   ];
 
@@ -158,28 +357,21 @@ const Publications = () => {
 
   const allPublications = filteredPublications;
   
-  // Featured: primeras 3 publicaciones (IDs 1, 2, 3 en ese orden)
-  const featuredPublications = allPublications.slice(0, 3);
+  // Featured: primeras 3 publicaciones (IDs 1, 2, 3 en ese orden) - SIN CAMBIOS
+  const featuredPublications = allPublications.filter(pub => pub.id >= 1 && pub.id <= 3);
   
-  // Full list: orden específico: Disentangling (2026), First evidence (2026), Standardising (2026), Marine trophic (2026), Food web structure (2025), The response of trophic (2024)
-  const fullListPublications = [...allPublications].sort((a, b) => {
-    // Orden específico por ID para el mismo año
-    const order2026 = [2, 1, 4, 5]; // Disentangling, First, Standardising, Marine trophic
-    const order2025 = [6]; // Food web structure
-    const order2024 = [3]; // The response of trophic
-    
-    if (b.year !== a.year) {
-      return b.year - a.year;
-    }
-    
-    // Para 2026, usar el orden específico
-    if (a.year === 2026) {
-      return order2026.indexOf(a.id) - order2026.indexOf(b.id);
-    }
-    
-    // Para otros años, mantener orden original
-    return allPublications.indexOf(a) - allPublications.indexOf(b);
-  });
+  // Full list: orden específico según lo solicitado
+  // IDs: 2 (Disentangling), 1 (First evidence), 4 (Standardising), 5 (Marine trophic), 
+  // 6 (Food web structure), 3 (The response of trophic), 7 (Complex network), 
+  // 8 (New insights), 9 (Estimating), 10 (Complejidad), 11 (Ecological networks), 
+  // 12 (Una revisión), 13 (Food web rewiring), 14 (Marine food webs), 
+  // 15 (Ecological network assembly), 16 (Southern Ocean), 17 (Green vs brown), 
+  // 18 (Seaweeds), 19 (Soil fauna), 20 (Effects of macroalgae), 21 (Long-finned), 
+  // 22 (Architecture), 23 (The food web), 24 (Respuesta)
+  const fullListOrder = [2, 1, 4, 5, 6, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  
+  const fullListPublications = allPublications.filter(pub => fullListOrder.includes(pub.id))
+    .sort((a, b) => fullListOrder.indexOf(a.id) - fullListOrder.indexOf(b.id));
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
@@ -210,7 +402,7 @@ const Publications = () => {
       </div>
 
       <section id="publications" className="publications">
-        {/* SECCIÓN FEATURED PUBLICATIONS */}
+        {/* SECCIÓN FEATURED PUBLICATIONS - SIN CAMBIOS */}
         <span className="section-tag">Featured publications</span>
 
         <div className="publications-content">
@@ -282,7 +474,7 @@ const Publications = () => {
           ))}
         </div>
 
-        {/* SECCIÓN FULL LIST OF PUBLICATIONS */}
+        {/* SECCIÓN FULL LIST OF PUBLICATIONS - CON NUEVO ORDEN */}
         {fullListPublications.length > 0 && (
           <>
             <div className="full-list-header">
