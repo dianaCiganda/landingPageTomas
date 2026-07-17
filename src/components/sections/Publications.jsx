@@ -158,11 +158,28 @@ const Publications = () => {
 
   const allPublications = filteredPublications;
   
-  // Separar las primeras 3 publicaciones como destacadas (IDs 1, 2, 3)
+  // Featured: primeras 3 publicaciones (IDs 1, 2, 3 en ese orden)
   const featuredPublications = allPublications.slice(0, 3);
   
-  // Crear una copia de TODAS las publicaciones y ordenarlas por año (más reciente primero) para la lista completa
-  const fullListPublications = [...allPublications].sort((a, b) => b.year - a.year);
+  // Full list: orden específico: Disentangling (2026), First evidence (2026), Standardising (2026), Marine trophic (2026), Food web structure (2025), The response of trophic (2024)
+  const fullListPublications = [...allPublications].sort((a, b) => {
+    // Orden específico por ID para el mismo año
+    const order2026 = [2, 1, 4, 5]; // Disentangling, First, Standardising, Marine trophic
+    const order2025 = [6]; // Food web structure
+    const order2024 = [3]; // The response of trophic
+    
+    if (b.year !== a.year) {
+      return b.year - a.year;
+    }
+    
+    // Para 2026, usar el orden específico
+    if (a.year === 2026) {
+      return order2026.indexOf(a.id) - order2026.indexOf(b.id);
+    }
+    
+    // Para otros años, mantener orden original
+    return allPublications.indexOf(a) - allPublications.indexOf(b);
+  });
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
@@ -265,7 +282,7 @@ const Publications = () => {
           ))}
         </div>
 
-        {/* SECCIÓN FULL LIST OF PUBLICATIONS - ORDENADA POR AÑO (MÁS RECIENTE PRIMERO) */}
+        {/* SECCIÓN FULL LIST OF PUBLICATIONS */}
         {fullListPublications.length > 0 && (
           <>
             <div className="full-list-header">
