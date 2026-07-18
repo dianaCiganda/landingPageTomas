@@ -6,6 +6,40 @@ import Footer from "./Footer";
 const ProfileTemplate = ({ children, title }) => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const email = 'tomasimarina@gmail.com';
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:${email}`;
+    
+    // Crear un enlace invisible y hacer clic
+    const link = document.createElement('a');
+    link.href = mailtoLink;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback: si no funciona, copiar al portapapeles
+    setTimeout(() => {
+      if (!document.hidden) {
+        navigator.clipboard.writeText(email).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        }).catch(() => {
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        });
+      }
+    }, 1500);
+  };
 
   const contactLinks = [
     {
@@ -14,7 +48,6 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "mailto:tomasimarina@gmail.com", // ← Agregamos mailto
     },
     {
       icon: "fa-graduation-cap",
@@ -88,19 +121,19 @@ const ProfileTemplate = ({ children, title }) => {
               {contactLinks.map((link) => {
                 if (link.isEmail) {
                   return (
-                    <a
+                    <button
                       key="email"
-                      href={link.href} // ← mailto:tomasimarina@gmail.com
-                      className={`contact-item`}
-                      title="Enviar email"
+                      onClick={handleEmailClick}
+                      className={`contact-item ${copied ? 'copied' : ''}`}
+                      title={copied ? '¡Copiado!' : 'Abrir correo o copiar'}
                     >
                       <span className="contact-icon">
                         <i className={`${link.type} ${link.icon}`}></i>
                       </span>
                       <span className="contact-label">
-                        {link.label}
+                        {copied ? '¡Copiado!' : link.label}
                       </span>
-                    </a>
+                    </button>
                   );
                 }
                 

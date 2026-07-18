@@ -1,7 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.css'
 
 const Footer = () => {
+  const [copied, setCopied] = useState(false);
+  const email = 'tomasimarina@gmail.com';
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:${email}`;
+    
+    // Crear un enlace invisible y hacer clic
+    const link = document.createElement('a');
+    link.href = mailtoLink;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback: si no funciona, copiar al portapapeles
+    setTimeout(() => {
+      if (!document.hidden) {
+        navigator.clipboard.writeText(email).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        }).catch(() => {
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        });
+      }
+    }, 1500);
+  };
+
   const socialLinks = [
     {
       icon: "fa-envelope",
@@ -9,7 +44,6 @@ const Footer = () => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "mailto:tomasimarina@gmail.com", // ← Agregamos mailto
     },
     {
       icon: 'fa-x-twitter',
@@ -40,18 +74,18 @@ const Footer = () => {
             {socialLinks.map((link) => {
               if (link.isEmail) {
                 return (
-                  <div key="email" className="social-link-wrapper">
-                    <a
-                      href={link.href} // ← mailto:tomasimarina@gmail.com
-                      className={`social-link ${link.className}`}
-                      aria-label={link.label}
-                      title="Enviar email"
-                    >
-                      <span className="social-icon">
-                        <i className={`${link.type} ${link.icon}`}></i>
-                      </span>
-                    </a>
-                  </div>
+                  <button
+                    key="email"
+                    onClick={handleEmailClick}
+                    className={`social-link ${link.className} ${copied ? 'copied' : ''}`}
+                    aria-label={link.label}
+                    title={copied ? '¡Copiado!' : 'Abrir correo o copiar'}
+                  >
+                    <span className="social-icon">
+                      <i className={`${link.type} ${link.icon}`}></i>
+                    </span>
+                    {copied && <span className="copied-tooltip">¡Copiado!</span>}
+                  </button>
                 );
               }
               
