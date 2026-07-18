@@ -211,29 +211,29 @@ body {
 ========================================== */
 
 .contact-item.copied {
-    background: #28a745 !important;
-    color: white !important;
-    transform: none !important;
+    background: #28a745;
+    color: white;
+    transform: none;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .contact-item.copied .contact-label {
-    color: white !important;
+    color: white;
 }
 
 .contact-item.copied .contact-icon {
-    color: white !important;
+    color: white;
 }
 
 .contact-item.copied .contact-icon i {
-    color: white !important;
+    color: white;
 }
 
 .contact-item.copied:hover {
-    background: #28a745 !important;
-    color: white !important;
-    transform: scale(1.02) !important;
+    background: #28a745;
+    color: white;
+    transform: scale(1.02);
 }
 
 /* ==========================================
@@ -497,7 +497,7 @@ body {
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.8rem;
-        color: white !important;
+        color: white;
     }
 
     .contact-item {
@@ -563,7 +563,7 @@ body {
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
-        color: white !important;
+        color: white;
     }
 
     .contact-item {
@@ -629,7 +629,7 @@ body {
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.65rem;
-        color: white !important;
+        color: white;
     }
 
     .contact-item {
@@ -686,7 +686,7 @@ body {
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
-        color: white !important;
+        color: white;
     }
 
     .contact-item {
