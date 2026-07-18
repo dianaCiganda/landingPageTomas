@@ -6,6 +6,42 @@ import Footer from "./Footer";
 const ProfileTemplate = ({ children, title }) => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [isCopying, setIsCopying] = useState(false);
+  const email = "tomasimarina@gmail.com";
+
+  const handleCopyEmail = () => {
+    setIsCopying(true);
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setIsCopying(false);
+      setTimeout(() => setCopied(false), 3000);
+    }).catch(() => {
+      const textArea = document.createElement('textarea');
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setIsCopying(false);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    
+    // Intentar abrir mailto
+    window.location.href = `mailto:${email}`;
+    
+    // Fallback: si después de 1.5 segundos no funcionó, copiar automáticamente
+    setTimeout(() => {
+      if (!document.hidden && !isCopying) {
+        handleCopyEmail();
+      }
+    }, 1500);
+  };
 
   const contactLinks = [
     {
@@ -14,7 +50,6 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "mailto:tomasimarina@gmail.com",
     },
     {
       icon: "fa-graduation-cap",
@@ -87,24 +122,43 @@ const ProfileTemplate = ({ children, title }) => {
 
             <aside className="redes">
               <div className="profile-contact">
-                {contactLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target={link.isEmail ? "_self" : "_blank"}
-                    rel={link.isEmail ? undefined : "noopener noreferrer"}
-                    className={`contact-item ${link.className || ""}`}
-                    title={link.label}
-                  >
-                    <span className="contact-icon">
-                      <i className={`${link.type} ${link.icon}`}></i>
-                    </span>
-
-                    <span className="contact-label">
-                      {link.label}
-                    </span>
-                  </a>
-                ))}
+                {contactLinks.map((link) => {
+                  if (link.isEmail) {
+                    return (
+                      <button
+                        key="email"
+                        onClick={handleEmailClick}
+                        className={`contact-item ${link.className || ""} ${copied ? 'copied' : ''}`}
+                        title={copied ? '¡Copiado!' : 'Abrir email'}
+                      >
+                        <span className="contact-icon">
+                          <i className={`${link.type} ${link.icon}`}></i>
+                        </span>
+                        <span className="contact-label">
+                          {copied ? '¡Copiado!' : link.label}
+                        </span>
+                      </button>
+                    );
+                  }
+                  
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`contact-item ${link.className || ""}`}
+                      title={link.label}
+                    >
+                      <span className="contact-icon">
+                        <i className={`${link.type} ${link.icon}`}></i>
+                      </span>
+                      <span className="contact-label">
+                        {link.label}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </aside>
           </div>
