@@ -1,5 +1,5 @@
 // components/layout/ProfileTemplate.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./ProfileTemplate.css";
 import Footer from "./Footer";
 
@@ -9,113 +9,95 @@ const ProfileTemplate = ({ children, title }) => {
   const [copied, setCopied] = useState(false);
   const [isCopying, setIsCopying] = useState(false);
   const email = "tomasimarina@gmail.com";
+  const mailtoTimerRef = useRef(null);
+  const fallbackUsedRef = useRef(false);
+
+  // Limpiar timer al desmontar
+  useEffect(() => {
+    return () => {
+      if (mailtoTimerRef.current) {
+        clearTimeout(mailtoTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleCopyEmail = () => {
     if (isCopying) return;
     
     setIsCopying(true);
-    
-    // Usar el método fallback directamente para evitar el permiso del portapapeles
-    try {
-      const textArea = document.createElement('textarea');
-      textArea.value = email;
-      // Hacer que el textarea sea invisible pero funcional
-      textArea.style.position = 'fixed';
-      textArea.style.top = '0';
-      textArea.style.left = '0';
-      textArea.style.width = '2em';
-      textArea.style.height = '2em';
-      textArea.style.padding = '0';
-      textArea.style.border = 'none';
-      textArea.style.outline = 'none';
-      textArea.style.boxShadow = 'none';
-      textArea.style.background = 'transparent';
-      textArea.style.opacity = '0';
-      textArea.style.pointerEvents = 'none';
-      document.body.appendChild(textArea);
-      textArea.select();
-      textArea.setSelectionRange(0, 99999);
-      const success = document.execCommand('copy');
-      document.body.removeChild(textArea);
-      
-      if (success) {
+    navigator.clipboard.writeText(email)
+      .then(() => {
         setCopied(true);
         setIsCopying(false);
         setTimeout(() => setCopied(false), 3000);
-      } else {
-        // Si falla, mostrar el email para copia manual
-        setIsCopying(false);
-        // Crear un pequeño toast o notificación
-        const emailDisplay = document.createElement('div');
-        emailDisplay.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: #333;
-          color: white;
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-family: sans-serif;
-          font-size: 14px;
-          z-index: 9999;
-          text-align: center;
-          max-width: 90%;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        `;
-        emailDisplay.textContent = `📧 ${email} (copia manualmente)`;
-        document.body.appendChild(emailDisplay);
-        setTimeout(() => {
-          document.body.removeChild(emailDisplay);
-        }, 3000);
-      }
-    } catch (err) {
-      setIsCopying(false);
-      // Mostrar el email en una notificación
-      const emailDisplay = document.createElement('div');
-      emailDisplay.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-family: sans-serif;
-        font-size: 14px;
-        z-index: 9999;
-        text-align: center;
-        max-width: 90%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      `;
-      emailDisplay.textContent = `📧 ${email} (copia manualmente)`;
-      document.body.appendChild(emailDisplay);
-      setTimeout(() => {
-        document.body.removeChild(emailDisplay);
-      }, 3000);
-    }
+      })
+      .catch(() => {
+        try {
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          setCopied(true);
+          setIsCopying(false);
+          setTimeout(() => setCopied(false), 3000);
+        } catch (err) {
+          setIsCopying(false);
+          alert(`No se pudo copiar el email. Por favor, copia manualmente: ${email}`);
+        }
+      });
   };
 
   const handleEmailClick = (e) => {
     e.preventDefault();
     
+    // Resetear el flag de fallback
+    fallbackUsedRef.current = false;
+    
     // Intentar abrir mailto
     window.location.href = `mailto:${email}`;
     
-    // Fallback: si después de 1.5 segundos no funcionó, copiar automáticamente
-    setTimeout(() => {
-      if (!document.hidden && !isCopying) {
+    // Detectar si la página se oculta (la app de correo se abrió)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // La app de correo se abrió, no hacer nada
+        fallbackUsedRef.current = true;
+        if (mailtoTimerRef.current) {
+          clearTimeout(mailtoTimerRef.current);
+        }
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // También detectar blur de la ventana
+    const handleBlur = () => {
+      // La ventana perdió foco, probablemente se abrió la app
+      fallbackUsedRef.current = true;
+      if (mailtoTimerRef.current) {
+        clearTimeout(mailtoTimerRef.current);
+      }
+      window.removeEventListener('blur', handleBlur);
+    };
+    
+    window.addEventListener('blur', handleBlur);
+    
+    // Fallback: si después de 2 segundos no se detectó que la app se abrió
+    mailtoTimerRef.current = setTimeout(() => {
+      // Si la página sigue visible y no se usó el fallback
+      if (!fallbackUsedRef.current && !document.hidden && !isCopying) {
+        // mailto falló, copiar automáticamente
         handleCopyEmail();
       }
-    }, 1500);
-
-    // Verificar también a los 2.5 segundos por si acaso
-    setTimeout(() => {
-      if (!document.hidden && !isCopying) {
-        handleCopyEmail();
-      }
-    }, 2500);
+      // Limpiar eventos
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleBlur);
+    }, 2000);
   };
 
   const contactLinks = [
