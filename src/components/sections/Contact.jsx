@@ -1,16 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css";
 import Footer from "../layout/Footer";
 import ProfileTemplate from "../layout/ProfileTemplate";
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const email = 'tomasimarina@gmail.com';
+
+  const handleEmailClick = () => {
+    const mailtoLink = `mailto:${email}`;
+    
+    // Crear un enlace invisible y hacer clic
+    const link = document.createElement('a');
+    link.href = mailtoLink;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback: si no funciona, copiar al portapapeles
+    setTimeout(() => {
+      // Si la página sigue visible después de 1.5 segundos, asumimos que mailto falló
+      if (!document.hidden) {
+        navigator.clipboard.writeText(email).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        }).catch(() => {
+          // Fallback para navegadores que no soportan clipboard
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        });
+      }
+    }, 1500);
+  };
+
   const socialLinks = [
     {
       icon: "fa-envelope",
-      href: "mailto:tomasimarina@gmail.com",
       className: "email",
       type: "fas",
       label: "Email",
+      isEmail: true,
     },
     {
       icon: "fa-x-twitter",
@@ -49,23 +85,43 @@ const Contact = () => {
 
                 <div className="contact-social-wrapper">
                   <div className="contact-social">
-                    {socialLinks.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target={link.href.startsWith('mailto:') ? undefined : "_blank"}
-                        rel={link.href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
-                        className={`social-contact-link ${link.className}`}
-                        title={link.label}
-                      >
-                        <span className="social-contact-icon">
-                          <i className={`${link.type} ${link.icon}`}></i>
-                        </span>
-                        <span className="social-contact-label">
-                          {link.label}
-                        </span>
-                      </a>
-                    ))}
+                    {socialLinks.map((link) => {
+                      if (link.isEmail) {
+                        return (
+                          <button
+                            key="email"
+                            onClick={handleEmailClick}
+                            className={`social-contact-link ${link.className} ${copied ? 'copied' : ''}`}
+                            title={copied ? '¡Copiado!' : 'Abrir correo o copiar'}
+                          >
+                            <span className="social-contact-icon">
+                              <i className={`${link.type} ${link.icon}`}></i>
+                            </span>
+                            <span className="social-contact-label">
+                              {copied ? '¡Copiado!' : link.label}
+                            </span>
+                          </button>
+                        );
+                      }
+                      
+                      return (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`social-contact-link ${link.className}`}
+                          title={link.label}
+                        >
+                          <span className="social-contact-icon">
+                            <i className={`${link.type} ${link.icon}`}></i>
+                          </span>
+                          <span className="social-contact-label">
+                            {link.label}
+                          </span>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
