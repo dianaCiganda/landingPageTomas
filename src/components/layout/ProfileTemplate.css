@@ -92,7 +92,7 @@ body {
 }
 
 /* ==========================================
-   FOTO DE PERFIL - POSICIÓN RELATIVA
+   FOTO DE PERFIL
 ========================================== */
 
 .banner-de-perfil {
@@ -140,7 +140,7 @@ body {
 }
 
 /* ==========================================
-   REDES
+   REDES / CONTACTOS
 ========================================== */
 
 .redes {
@@ -164,7 +164,7 @@ body {
     color: #033694;
     padding: 10px 12px;
     border-radius: 8px;
-    transition: .25s;
+    transition: all .25s ease;
     width: fit-content;
     background: none;
     border: none;
@@ -175,7 +175,6 @@ body {
     outline: none;
 }
 
-/* Eliminar estado de foco persistente en móviles */
 .contact-item:focus:not(:active) {
     transform: none;
     background: none;
@@ -207,23 +206,38 @@ body {
     line-height: 1;
 }
 
-/* Estado de copiado para el botón de email */
+/* ==========================================
+   ESTADO DE COPIADO - FONDO VERDE
+========================================== */
+
 .contact-item.copied {
-    background: #28a745;
-    color: white;
-    transform: none;
+    background: #28a745 !important;
+    color: white !important;
+    transform: none !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .contact-item.copied .contact-label {
-    color: white;
+    color: white !important;
 }
 
 .contact-item.copied .contact-icon {
-    color: white;
+    color: white !important;
+}
+
+.contact-item.copied .contact-icon i {
+    color: white !important;
+}
+
+.contact-item.copied:hover {
+    background: #28a745 !important;
+    color: white !important;
+    transform: scale(1.02) !important;
 }
 
 /* ==========================================
-   COLUMNA DERECHA - CONTENIDO DINÁMICO
+   COLUMNA DERECHA
 ========================================== */
 
 .profile-right {
@@ -233,7 +247,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 100% - BASE
+   RESPONSIVE - ZOOM 100%
 ========================================== */
 
 @media screen and (min-width: 1201px) {
@@ -256,7 +270,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 90%
+   RESPONSIVE - ZOOM 90%
 ========================================== */
 
 @media screen and (min-width: 1300px) and (max-width: 1440px) {
@@ -284,7 +298,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 80%
+   RESPONSIVE - ZOOM 80%
 ========================================== */
 
 @media screen and (min-width: 1450px) and (max-width: 1600px) {
@@ -312,7 +326,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 70%
+   RESPONSIVE - ZOOM 70%
 ========================================== */
 
 @media screen and (min-width: 1650px) {
@@ -342,7 +356,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 110%
+   RESPONSIVE - ZOOM 110%
 ========================================== */
 
 @media screen and (max-width: 1100px) and (min-width: 1001px) {
@@ -371,7 +385,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 125%
+   RESPONSIVE - ZOOM 125%
 ========================================== */
 
 @media screen and (max-width: 1000px) and (min-width: 851px) {
@@ -400,7 +414,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 150%
+   RESPONSIVE - ZOOM 150% (TABLET GRANDE)
 ========================================== */
 
 @media screen and (max-width: 850px) and (min-width: 701px) {
@@ -433,25 +447,30 @@ body {
 }
 
 /* ==========================================
-   ZOOM 175% - CAMBIA A UNA COLUMNA
+   RESPONSIVE - TABLET (UNA COLUMNA)
 ========================================== */
 
-@media screen and (max-width: 700px) and (min-width: 551px) {
+@media screen and (max-width: 768px) {
     .banner-contenedor {
-        height: 290px;
+        height: 320px;
     }
 
     .banner-de-perfil {
-        width: 220px;
-        margin-top: -180px;
+        width: 240px;
+        margin-top: -120px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .imagen-de-perfil {
+        width: 240px;
+        height: 240px;
     }
 
     .profile-content {
         grid-template-columns: 1fr;
         row-gap: 20px;
-        width: 96%;
+        width: 92%;
     }
 
     .profile-left {
@@ -460,7 +479,7 @@ body {
     }
 
     .titulo-profile {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         text-align: center;
     }
 
@@ -468,34 +487,32 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px;
+        gap: 10px;
     }
 
-    /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
 
-    /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
-        font-size: 0.75rem;
-        color: white;
+        font-size: 0.8rem;
+        color: white !important;
     }
 
     .contact-item {
-        padding: 8px 12px;
+        padding: 10px 14px;
         gap: 8px;
     }
 
     .contact-icon {
         width: auto;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 }
 
 /* ==========================================
-   ZOOM 200%
+   RESPONSIVE - ZOOM 200% (MOBILE)
 ========================================== */
 
 @media screen and (max-width: 550px) and (min-width: 401px) {
@@ -539,16 +556,14 @@ body {
         gap: 6px;
     }
 
-    /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
 
-    /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
-        color: white;
+        color: white !important;
     }
 
     .contact-item {
@@ -563,7 +578,7 @@ body {
 }
 
 /* ==========================================
-   ZOOM 250% O MÁS
+   RESPONSIVE - ZOOM 250% (MOBILE PEQUEÑA)
 ========================================== */
 
 @media screen and (max-width: 400px) {
@@ -607,16 +622,14 @@ body {
         gap: 4px;
     }
 
-    /* Ocultar labels en responsive - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
 
-    /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.65rem;
-        color: white;
+        color: white !important;
     }
 
     .contact-item {
@@ -631,74 +644,7 @@ body {
 }
 
 /* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width: 768px) {
-    .banner-contenedor {
-        height: 320px;
-    }
-
-    .banner-de-perfil {
-        width: 240px;
-        margin-top: -120px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .imagen-de-perfil {
-        width: 240px;
-        height: 240px;
-    }
-
-    .profile-content {
-        grid-template-columns: 1fr;
-        row-gap: 20px;
-        width: 92%;
-    }
-
-    .profile-left {
-        align-items: center;
-        text-align: center;
-    }
-
-    .titulo-profile {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    .profile-contact {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    /* Ocultar labels en tablet - solo iconos */
-    .contact-item .contact-label {
-        display: none;
-    }
-
-    /* Mostrar el label solo cuando está copiado */
-    .contact-item.copied .contact-label {
-        display: inline-block;
-        font-size: 0.8rem;
-        color: white;
-    }
-
-    .contact-item {
-        padding: 10px 14px;
-        gap: 8px;
-    }
-
-    .contact-icon {
-        width: auto;
-        font-size: 1.5rem;
-    }
-}
-
-/* ==========================================
-   MOBILE
+   RESPONSIVE - MOBILE 600px
 ========================================== */
 
 @media (max-width: 600px) {
@@ -733,16 +679,14 @@ body {
         gap: 6px;
     }
 
-    /* Ocultar labels en mobile - solo iconos */
     .contact-item .contact-label {
         display: none;
     }
 
-    /* Mostrar el label solo cuando está copiado */
     .contact-item.copied .contact-label {
         display: inline-block;
         font-size: 0.7rem;
-        color: white;
+        color: white !important;
     }
 
     .contact-item {
@@ -752,52 +696,6 @@ body {
 
     .contact-icon {
         font-size: 1.3rem;
-    }
-}
-
-/* ==========================================
-   MOBILE PEQUEÑA
-========================================== */
-
-@media (max-width: 400px) {
-    .banner-contenedor {
-        height: 230px;
-    }
-
-    .banner-de-perfil {
-        width: 160px;
-        margin-top: -80px;
-    }
-
-    .imagen-de-perfil {
-        width: 160px;
-        height: 160px;
-        border-width: 3px;
-    }
-
-    .titulo-profile {
-        font-size: 1.3rem;
-    }
-
-    /* Ocultar labels en mobile pequeña - solo iconos */
-    .contact-item .contact-label {
-        display: none;
-    }
-
-    /* Mostrar el label solo cuando está copiado */
-    .contact-item.copied .contact-label {
-        display: inline-block;
-        font-size: 0.65rem;
-        color: white;
-    }
-
-    .contact-item {
-        padding: 4px 8px;
-        gap: 4px;
-    }
-
-    .contact-icon {
-        font-size: 1.1rem;
     }
 }
 

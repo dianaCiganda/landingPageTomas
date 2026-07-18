@@ -7,20 +7,6 @@ const Contact = () => {
   const [copied, setCopied] = useState(false);
   const email = "tomasimarina@gmail.com";
 
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    
-    // Intentar abrir mailto
-    window.location.href = `mailto:${email}`;
-    
-    // Fallback: si después de 1.5 segundos no funcionó, copiar automáticamente
-    setTimeout(() => {
-      if (!document.hidden) {
-        handleCopyEmail();
-      }
-    }, 1500);
-  };
-
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email)
       .then(() => {
@@ -45,6 +31,27 @@ const Contact = () => {
           alert(`No se pudo copiar el email. Por favor, copia manualmente: ${email}`);
         }
       });
+  };
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    
+    // Intentar abrir mailto
+    window.location.href = `mailto:${email}`;
+    
+    // Fallback: si después de 1.5 segundos no funcionó, copiar automáticamente
+    setTimeout(() => {
+      if (!document.hidden) {
+        handleCopyEmail();
+      }
+    }, 1500);
+
+    // Verificar también a los 2.5 segundos por si acaso
+    setTimeout(() => {
+      if (!document.hidden) {
+        handleCopyEmail();
+      }
+    }, 2500);
   };
 
   const socialLinks = [

@@ -11,22 +11,34 @@ const ProfileTemplate = ({ children, title }) => {
   const email = "tomasimarina@gmail.com";
 
   const handleCopyEmail = () => {
+    if (isCopying) return;
+    
     setIsCopying(true);
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setIsCopying(false);
-      setTimeout(() => setCopied(false), 3000);
-    }).catch(() => {
-      const textArea = document.createElement('textarea');
-      textArea.value = email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setIsCopying(false);
-      setTimeout(() => setCopied(false), 3000);
-    });
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        setCopied(true);
+        setIsCopying(false);
+        setTimeout(() => setCopied(false), 3000);
+      })
+      .catch(() => {
+        try {
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          setCopied(true);
+          setIsCopying(false);
+          setTimeout(() => setCopied(false), 3000);
+        } catch (err) {
+          setIsCopying(false);
+          alert(`No se pudo copiar el email. Por favor, copia manualmente: ${email}`);
+        }
+      });
   };
 
   const handleEmailClick = (e) => {
@@ -41,6 +53,13 @@ const ProfileTemplate = ({ children, title }) => {
         handleCopyEmail();
       }
     }, 1500);
+
+    // Verificar también a los 2.5 segundos por si acaso
+    setTimeout(() => {
+      if (!document.hidden && !isCopying) {
+        handleCopyEmail();
+      }
+    }, 2500);
   };
 
   const contactLinks = [
