@@ -14,31 +14,87 @@ const ProfileTemplate = ({ children, title }) => {
     if (isCopying) return;
     
     setIsCopying(true);
-    navigator.clipboard.writeText(email)
-      .then(() => {
+    
+    // Usar el método fallback directamente para evitar el permiso del portapapeles
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = email;
+      // Hacer que el textarea sea invisible pero funcional
+      textArea.style.position = 'fixed';
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.width = '2em';
+      textArea.style.height = '2em';
+      textArea.style.padding = '0';
+      textArea.style.border = 'none';
+      textArea.style.outline = 'none';
+      textArea.style.boxShadow = 'none';
+      textArea.style.background = 'transparent';
+      textArea.style.opacity = '0';
+      textArea.style.pointerEvents = 'none';
+      document.body.appendChild(textArea);
+      textArea.select();
+      textArea.setSelectionRange(0, 99999);
+      const success = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      if (success) {
         setCopied(true);
         setIsCopying(false);
         setTimeout(() => setCopied(false), 3000);
-      })
-      .catch(() => {
-        try {
-          const textArea = document.createElement('textarea');
-          textArea.value = email;
-          textArea.style.position = 'fixed';
-          textArea.style.opacity = '0';
-          textArea.style.left = '-9999px';
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-          setCopied(true);
-          setIsCopying(false);
-          setTimeout(() => setCopied(false), 3000);
-        } catch (err) {
-          setIsCopying(false);
-          alert(`No se pudo copiar el email. Por favor, copia manualmente: ${email}`);
-        }
-      });
+      } else {
+        // Si falla, mostrar el email para copia manual
+        setIsCopying(false);
+        // Crear un pequeño toast o notificación
+        const emailDisplay = document.createElement('div');
+        emailDisplay.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #333;
+          color: white;
+          padding: 12px 24px;
+          border-radius: 8px;
+          font-family: sans-serif;
+          font-size: 14px;
+          z-index: 9999;
+          text-align: center;
+          max-width: 90%;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        `;
+        emailDisplay.textContent = `📧 ${email} (copia manualmente)`;
+        document.body.appendChild(emailDisplay);
+        setTimeout(() => {
+          document.body.removeChild(emailDisplay);
+        }, 3000);
+      }
+    } catch (err) {
+      setIsCopying(false);
+      // Mostrar el email en una notificación
+      const emailDisplay = document.createElement('div');
+      emailDisplay.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-family: sans-serif;
+        font-size: 14px;
+        z-index: 9999;
+        text-align: center;
+        max-width: 90%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      `;
+      emailDisplay.textContent = `📧 ${email} (copia manualmente)`;
+      document.body.appendChild(emailDisplay);
+      setTimeout(() => {
+        document.body.removeChild(emailDisplay);
+      }, 3000);
+    }
   };
 
   const handleEmailClick = (e) => {
