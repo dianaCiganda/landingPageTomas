@@ -6,40 +6,6 @@ import Footer from "./Footer";
 const ProfileTemplate = ({ children, title }) => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const email = 'tomasimarina@gmail.com';
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    const mailtoLink = `mailto:${email}`;
-    
-    // Crear un enlace invisible y hacer clic
-    const link = document.createElement('a');
-    link.href = mailtoLink;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Fallback: si no funciona, copiar al portapapeles
-    setTimeout(() => {
-      if (!document.hidden) {
-        navigator.clipboard.writeText(email).then(() => {
-          setCopied(true);
-          setTimeout(() => setCopied(false), 3000);
-        }).catch(() => {
-          const textArea = document.createElement('textarea');
-          textArea.value = email;
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 3000);
-        });
-      }
-    }, 1500);
-  };
 
   const contactLinks = [
     {
@@ -48,6 +14,7 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
+      href: "mailto:tomasimarina@gmail.com",
     },
     {
       icon: "fa-graduation-cap",
@@ -118,42 +85,23 @@ const ProfileTemplate = ({ children, title }) => {
 
           <aside className="redes">
             <div className="profile-contact">
-              {contactLinks.map((link) => {
-                if (link.isEmail) {
-                  return (
-                    <button
-                      key="email"
-                      onClick={handleEmailClick}
-                      className={`contact-item ${copied ? 'copied' : ''}`}
-                      title={copied ? '¡Copiado!' : 'Abrir correo o copiar'}
-                    >
-                      <span className="contact-icon">
-                        <i className={`${link.type} ${link.icon}`}></i>
-                      </span>
-                      <span className="contact-label">
-                        {copied ? '¡Copiado!' : link.label}
-                      </span>
-                    </button>
-                  );
-                }
-                
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-item"
-                  >
-                    <span className="contact-icon">
-                      <i className={`${link.type} ${link.icon}`}></i>
-                    </span>
-                    <span className="contact-label">
-                      {link.label}
-                    </span>
-                  </a>
-                );
-              })}
+              {contactLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.isEmail ? undefined : "_blank"}
+                  rel={link.isEmail ? undefined : "noopener noreferrer"}
+                  className={`contact-item ${link.className || ''}`}
+                  title={link.isEmail ? "Enviar email" : link.label}
+                >
+                  <span className="contact-icon">
+                    <i className={`${link.type} ${link.icon}`}></i>
+                  </span>
+                  <span className="contact-label">
+                    {link.label}
+                  </span>
+                </a>
+              ))}
             </div>
           </aside>
         </div>

@@ -1,62 +1,9 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import "./Contact.css";
 import Footer from "../layout/Footer";
 import ProfileTemplate from "../layout/ProfileTemplate";
 
 const Contact = () => {
-  const [copied, setCopied] = useState(false);
-  const longPressTimer = useRef(null);
-  const email = 'tomasimarina@gmail.com';
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    }).catch(() => {
-      const textArea = document.createElement('textarea');
-      textArea.value = email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
-  };
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    
-    // En móviles, abrir mailto directamente
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      // Usar window.location para abrir mailto
-      window.location.href = `mailto:${email}`;
-      
-      // Si después de 1 segundo sigue visible, copiar como fallback
-      setTimeout(() => {
-        if (!document.hidden) {
-          handleCopyEmail();
-        }
-      }, 1000);
-    } else {
-      // En desktop, copiar al portapapeles
-      handleCopyEmail();
-    }
-  };
-
-  // Manejar touch events para evitar el long press nativo
-  const handleTouchStart = (e) => {
-    // Prevenir el menú contextual de long press
-    longPressTimer.current = setTimeout(() => {
-      // Si mantiene presionado, copiar
-      handleCopyEmail();
-    }, 500);
-  };
-
-  const handleTouchEnd = () => {
-    clearTimeout(longPressTimer.current);
-  };
-
   const socialLinks = [
     {
       icon: "fa-envelope",
@@ -64,6 +11,7 @@ const Contact = () => {
       type: "fas",
       label: "Email",
       isEmail: true,
+      href: "mailto:tomasimarina@gmail.com",
     },
     {
       icon: "fa-x-twitter",
@@ -105,22 +53,19 @@ const Contact = () => {
                     {socialLinks.map((link) => {
                       if (link.isEmail) {
                         return (
-                          <button
+                          <a
                             key="email"
-                            onClick={handleEmailClick}
-                            onTouchStart={handleTouchStart}
-                            onTouchEnd={handleTouchEnd}
-                            onTouchCancel={handleTouchEnd}
-                            className={`social-contact-link ${link.className} ${copied ? 'copied' : ''}`}
-                            title={copied ? '¡Copiado!' : 'Toca para abrir correo | Mantén para copiar'}
+                            href={link.href}
+                            className={`social-contact-link ${link.className}`}
+                            title="Enviar email"
                           >
                             <span className="social-contact-icon">
                               <i className={`${link.type} ${link.icon}`}></i>
                             </span>
                             <span className="social-contact-label">
-                              {copied ? '¡Copiado!' : link.label}
+                              {link.label}
                             </span>
-                          </button>
+                          </a>
                         );
                       }
                       
