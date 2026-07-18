@@ -14,7 +14,7 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "mailto:tomasimarina@gmail.com",
+      href: "tomasimarina@gmail.com",
     },
     {
       icon: "fa-graduation-cap",

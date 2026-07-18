@@ -9,7 +9,7 @@ const Footer = () => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "mailto:tomasimarina@gmail.com",
+      href: "tomasimarina@gmail.com",
     },
     {
       icon: 'fa-x-twitter',
