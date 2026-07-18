@@ -14,7 +14,7 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
-      href: "tomasimarina@gmail.com",
+      href: "mailto:tomasimarina@gmail.com",
     },
     {
       icon: "fa-graduation-cap",
@@ -44,74 +44,78 @@ const ProfileTemplate = ({ children, title }) => {
 
   return (
     <>
-    <div className="page-wrapper">
-      <section id="home" className="banner">
-        <div className="banner-contenedor">
-          <div className="banner-background">
-            {!bannerError ? (
-              <img
-                src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
-                className="image-banner"
-                alt="Imagen de fondo"
-                onError={() => setBannerError(true)}
-              />
-            ) : (
-              <div className="banner-bg-fallback">
-                <span>🌊</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <div className="profile-content">
-        <div className="profile-left">
-          <div className="banner-de-perfil">
-            {!profileError ? (
-              <img
-                src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
-                className="imagen-de-perfil"
-                alt="Imagen de perfil"
-                onError={() => setProfileError(true)}
-              />
-            ) : (
-              <div className="banner-profile-placeholder">
-                <span>👤</span>
-              </div>
-            )}
-          </div>
-
-          <h1 className="titulo-profile">{title || "Tomás I. Marina"}</h1>
-
-          <aside className="redes">
-            <div className="profile-contact">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.isEmail ? undefined : "_blank"}
-                  rel={link.isEmail ? undefined : "noopener noreferrer"}
-                  className={`contact-item ${link.className || ''}`}
-                  title={link.isEmail ? "Enviar email" : link.label}
-                >
-                  <span className="contact-icon">
-                    <i className={`${link.type} ${link.icon}`}></i>
-                  </span>
-                  <span className="contact-label">
-                    {link.label}
-                  </span>
-                </a>
-              ))}
+      <div className="page-wrapper">
+        <section id="home" className="banner">
+          <div className="banner-contenedor">
+            <div className="banner-background">
+              {!bannerError ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
+                  className="image-banner"
+                  alt="Imagen de fondo"
+                  onError={() => setBannerError(true)}
+                />
+              ) : (
+                <div className="banner-bg-fallback">
+                  <span>🌊</span>
+                </div>
+              )}
             </div>
-          </aside>
-        </div>
+          </div>
+        </section>
 
-        <div className="profile-right">
-          {children}
+        <div className="profile-content">
+          <div className="profile-left">
+            <div className="banner-de-perfil">
+              {!profileError ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
+                  className="imagen-de-perfil"
+                  alt="Imagen de perfil"
+                  onError={() => setProfileError(true)}
+                />
+              ) : (
+                <div className="banner-profile-placeholder">
+                  <span>👤</span>
+                </div>
+              )}
+            </div>
+
+            <h1 className="titulo-profile">
+              {title || "Tomás I. Marina"}
+            </h1>
+
+            <aside className="redes">
+              <div className="profile-contact">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target={link.isEmail ? "_self" : "_blank"}
+                    rel={link.isEmail ? undefined : "noopener noreferrer"}
+                    className={`contact-item ${link.className || ""}`}
+                    title={link.label}
+                  >
+                    <span className="contact-icon">
+                      <i className={`${link.type} ${link.icon}`}></i>
+                    </span>
+
+                    <span className="contact-label">
+                      {link.label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </aside>
+          </div>
+
+          <div className="profile-right">
+            {children}
+          </div>
         </div>
       </div>
-    </div>
-    <Footer />
+
+      <Footer />
     </>
   );
 };

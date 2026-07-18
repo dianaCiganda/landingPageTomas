@@ -4,14 +4,15 @@ import Footer from "../layout/Footer";
 import ProfileTemplate from "../layout/ProfileTemplate";
 
 const Contact = () => {
+  const email = "tomasimarina@gmail.com";
+
   const socialLinks = [
     {
       icon: "fa-envelope",
+      href: `mailto:${email}`,
       className: "email",
       type: "fas",
       label: "Email",
-      isEmail: true,
-      href: "tomasimarina@gmail.com",
     },
     {
       icon: "fa-x-twitter",
@@ -50,43 +51,28 @@ const Contact = () => {
 
                 <div className="contact-social-wrapper">
                   <div className="contact-social">
-                    {socialLinks.map((link) => {
-                      if (link.isEmail) {
-                        return (
-                          <a
-                            key="email"
-                            href={link.href}
-                            className={`social-contact-link ${link.className}`}
-                            title="Enviar email"
-                          >
-                            <span className="social-contact-icon">
-                              <i className={`${link.type} ${link.icon}`}></i>
-                            </span>
-                            <span className="social-contact-label">
-                              {link.label}
-                            </span>
-                          </a>
-                        );
-                      }
-                      
-                      return (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`social-contact-link ${link.className}`}
-                          title={link.label}
-                        >
-                          <span className="social-contact-icon">
-                            <i className={`${link.type} ${link.icon}`}></i>
-                          </span>
-                          <span className="social-contact-label">
-                            {link.label}
-                          </span>
-                        </a>
-                      );
-                    })}
+                    {socialLinks.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target={link.href.startsWith("mailto:") ? "_self" : "_blank"}
+                        rel={
+                          link.href.startsWith("mailto:")
+                            ? undefined
+                            : "noopener noreferrer"
+                        }
+                        className={`social-contact-link ${link.className}`}
+                        title={link.label}
+                      >
+                        <span className="social-contact-icon">
+                          <i className={`${link.type} ${link.icon}`}></i>
+                        </span>
+
+                        <span className="social-contact-label">
+                          {link.label}
+                        </span>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -94,6 +80,8 @@ const Contact = () => {
           </div>
         </section>
       </ProfileTemplate>
+
+      <Footer />
     </>
   );
 };
