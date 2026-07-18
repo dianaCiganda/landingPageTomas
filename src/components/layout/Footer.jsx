@@ -1,29 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Footer.css'
 
 const Footer = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = (e) => {
-    if (e && e.currentTarget) {
-      e.currentTarget.blur();
-    }
-    
-    navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    }).catch(() => {
-      const textArea = document.createElement('textarea');
-      textArea.value = 'tomasimarina@gmail.com';
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
-  };
-
   const socialLinks = [
     {
       icon: "fa-envelope",
@@ -31,6 +9,7 @@ const Footer = () => {
       type: "fas",
       label: "Email",
       isEmail: true,
+      href: "mailto:tomasimarina@gmail.com", // ← Agregamos mailto
     },
     {
       icon: 'fa-x-twitter',
@@ -62,20 +41,16 @@ const Footer = () => {
               if (link.isEmail) {
                 return (
                   <div key="email" className="social-link-wrapper">
-                    <button
-                      onClick={handleCopyEmail}
-                      onMouseDown={(e) => e.preventDefault()}
-                      className={`social-link ${link.className} ${copied ? 'copied' : ''}`}
+                    <a
+                      href={link.href} // ← mailto:tomasimarina@gmail.com
+                      className={`social-link ${link.className}`}
                       aria-label={link.label}
-                      title={copied ? '¡Copiado!' : 'Copiar email'}
+                      title="Enviar email"
                     >
                       <span className="social-icon">
                         <i className={`${link.type} ${link.icon}`}></i>
                       </span>
-                    </button>
-                    {copied && (
-                      <span className="copy-tooltip">¡Email copiado!</span>
-                    )}
+                    </a>
                   </div>
                 );
               }

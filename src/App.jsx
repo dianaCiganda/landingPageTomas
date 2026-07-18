@@ -7,6 +7,7 @@ import Contact from "./components/sections/Contact";
 import Publications from "./components/sections/Publications";
 import PublicationsDetail1 from "./components/sections/PublicationDetail-1";
 import "./styles/App.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (

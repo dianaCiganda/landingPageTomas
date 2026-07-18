@@ -6,27 +6,6 @@ import Footer from "./Footer";
 const ProfileTemplate = ({ children, title }) => {
   const [bannerError, setBannerError] = useState(false);
   const [profileError, setProfileError] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = (e) => {
-    if (e && e.currentTarget) {
-      e.currentTarget.blur();
-    }
-    
-    navigator.clipboard.writeText('tomasimarina@gmail.com').then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    }).catch(() => {
-      const textArea = document.createElement('textarea');
-      textArea.value = 'tomasimarina@gmail.com';
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
-  };
 
   const contactLinks = [
     {
@@ -35,6 +14,7 @@ const ProfileTemplate = ({ children, title }) => {
       type: "fas",
       label: "Email",
       isEmail: true,
+      href: "mailto:tomasimarina@gmail.com", // ← Agregamos mailto
     },
     {
       icon: "fa-graduation-cap",
@@ -65,7 +45,6 @@ const ProfileTemplate = ({ children, title }) => {
   return (
     <>
     <div className="page-wrapper">
-      {/* BANNER / PORTADA */}
       <section id="home" className="banner">
         <div className="banner-contenedor">
           <div className="banner-background">
@@ -86,7 +65,6 @@ const ProfileTemplate = ({ children, title }) => {
       </section>
 
       <div className="profile-content">
-        {/* PERFIL Y REDES - COLUMNA IZQUIERDA */}
         <div className="profile-left">
           <div className="banner-de-perfil">
             {!profileError ? (
@@ -110,20 +88,19 @@ const ProfileTemplate = ({ children, title }) => {
               {contactLinks.map((link) => {
                 if (link.isEmail) {
                   return (
-                    <button
+                    <a
                       key="email"
-                      onClick={handleCopyEmail}
-                      onMouseDown={(e) => e.preventDefault()}
-                      className={`contact-item ${copied ? 'copied' : ''}`}
-                      title={copied ? '¡Copiado!' : 'Copiar email'}
+                      href={link.href} // ← mailto:tomasimarina@gmail.com
+                      className={`contact-item`}
+                      title="Enviar email"
                     >
                       <span className="contact-icon">
                         <i className={`${link.type} ${link.icon}`}></i>
                       </span>
                       <span className="contact-label">
-                        {copied ? '¡Copiado!' : link.label}
+                        {link.label}
                       </span>
-                    </button>
+                    </a>
                   );
                 }
                 
@@ -148,7 +125,6 @@ const ProfileTemplate = ({ children, title }) => {
           </aside>
         </div>
 
-        {/* CONTENIDO DINÁMICO - COLUMNA DERECHA */}
         <div className="profile-right">
           {children}
         </div>
