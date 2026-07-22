@@ -19,7 +19,9 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   // Navegar a una sección del Home
   const goToHomeSection = (sectionId) => {
@@ -52,16 +54,62 @@ const Header = () => {
 
   // Navegar a otra página
   const goToPage = (path) => {
-    closeMenu();
+    closeMenu(); // Cerrar el menú primero
 
-    if (location.pathname !== path) {
-      navigate(path);
-    } else {
+    // Si ya estamos en la página, solo hacer scroll al inicio
+    if (location.pathname === path) {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
+      return;
     }
+
+    // Navegar a la página
+    navigate(path);
+    
+    // Forzar scroll al inicio después de la navegación
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100);
+  };
+
+  // Manejar click en Projects - comportamiento especial
+  const handleProjectsClick = () => {
+    closeMenu(); // Cerrar el menú primero
+    
+    // Si estamos en home, ir a la sección projects
+    if (location.pathname === "/") {
+      const element = document.getElementById("projects");
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+      return;
+    }
+    
+    // Si estamos en projects, hacer scroll al inicio
+    if (location.pathname === "/projects") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+    
+    // Si estamos en otra página, navegar a projects
+    navigate("/projects");
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -80,9 +128,11 @@ const Header = () => {
           </li>
 
           <li>
-            <button    onClick={() => goToPage("/projects")}
-              className={isActive("/projects") ? "active" : ""}>
-                Projects
+           <button
+              onClick={() => goToPage("/projects")}
+              className={isActive("/projects") ? "active" : ""}
+            >
+              Projects
             </button>
           </li>
 
