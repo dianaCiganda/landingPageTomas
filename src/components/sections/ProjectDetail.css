@@ -1,0 +1,453 @@
+/* ==========================================
+   PROJECT DETAIL
+========================================== */
+
+.project-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Título principal */
+.project-detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+/* ==========================================
+   IMAGEN DEL PROYECTO - 50% más pequeña
+========================================== */
+
+.project-detail-image-wrapper {
+    margin: 20px 0 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 250px;
+    object-fit: contain;
+    background: #f8faf9;
+}
+
+/* ==========================================
+   SECCIONES - Espacios reducidos al 50%
+========================================== */
+
+.project-detail-section {
+    margin-bottom: 8px; /* Reducido de 16px a 8px (50%) */
+    padding-bottom: 6px; /* Reducido de 12px a 6px (50%) */
+    border-bottom: 1px solid #e8ecef;
+}
+
+.project-detail-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2ec4b6;
+    margin-bottom: 3px; /* Reducido de 6px a 3px (50%) */
+    letter-spacing: 0.5px;
+}
+
+.project-detail-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+}
+
+.project-overview {
+    white-space: pre-line;
+}
+
+/* ==========================================
+   LISTA DEL EQUIPO - Distancia mínima entre líneas (50% menos)
+========================================== */
+
+.project-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-detail-list-item {
+    padding: 0;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.1; /* Reducido de 1.2 a 1.1 */
+    border-bottom: none;
+    margin: 0;
+}
+
+/* Borde aún más sutil entre items */
+.project-detail-list-item:not(:last-child) {
+    border-bottom: 1px solid #f8f8f8; /* Borde más sutil */
+}
+
+/* Autor destacado - Más compacto */
+.highlighted-author {
+    color: #1a8a7e;
+    font-weight: 700;
+    background: #e8f5f3;
+    padding: 0 4px; /* Reducido de 0 5px a 0 4px */
+    border-radius: 3px;
+    letter-spacing: 0.1px; /* Reducido de 0.2px a 0.1px */
+    border-bottom: 1.5px solid #2ec4b6; /* Borde más delgado */
+}
+
+/* ==========================================
+   PUBLICACIONES RELACIONADAS - Más compacto
+========================================== */
+
+.related-publications-section {
+    margin-top: 8px; /* Reducido de 16px a 8px (50%) */
+    padding-top: 8px; /* Reducido de 16px a 8px (50%) */
+    border-top: 2px solid #2ec4b6;
+}
+
+.related-publications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px; /* Reducido de 20px a 12px */
+    margin-top: 6px; /* Reducido de 12px a 6px (50%) */
+}
+
+/* Card de publicación relacionada - Más compacta */
+.related-publication-card {
+    background: #f8faf9;
+    border-radius: 10px; /* Reducido de 12px a 10px */
+    overflow: hidden;
+    border: 1px solid #e8ecef;
+    transition: all 0.3s ease;
+}
+
+.related-publication-card-clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.related-publication-card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-color: #2ec4b6;
+}
+
+/* Contenedor de imagen - Más compacto */
+.related-publication-image-wrapper {
+    width: 100%;
+    height: 160px; /* Reducido de 200px a 160px */
+    overflow: hidden;
+    background: #f0faf9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px; /* Reducido de 8px a 6px */
+}
+
+.related-publication-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    background: #ffffff;
+}
+
+.related-publication-card-clickable:hover .related-publication-image {
+    transform: scale(1.05);
+}
+
+.related-publication-content {
+    padding: 8px 12px; /* Reducido de 12px 16px a 8px 12px */
+}
+
+.related-publication-title {
+    font-size: 0.9rem; /* Reducido de 0.95rem a 0.9rem */
+    font-weight: 600;
+    color: #1a2a3a;
+    margin-bottom: 2px; /* Reducido de 4px a 2px */
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-publication-authors {
+    font-size: 0.78rem; /* Reducido de 0.82rem a 0.78rem */
+    color: #666;
+    margin-bottom: 1px; /* Reducido de 2px a 1px */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-publication-meta {
+    font-size: 0.78rem; /* Reducido de 0.82rem a 0.78rem */
+    color: #888;
+    font-style: italic;
+    margin-bottom: 1px; /* Reducido de 2px a 1px */
+}
+
+.related-publication-doi {
+    font-size: 0.75rem; /* Reducido de 0.78rem a 0.75rem */
+    color: #2ec4b6;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* Coming Soon - Más compacto */
+.coming-soon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px; /* Reducido de 30px 20px a 20px 16px */
+    background: #f8faf9;
+    border-radius: 10px;
+    border: 2px dashed #d0d7dd;
+    min-height: 200px; /* Reducido de 260px a 200px */
+    text-align: center;
+}
+
+.coming-soon-image-placeholder {
+    width: 50px; /* Reducido de 70px a 50px */
+    height: 50px; /* Reducido de 70px a 50px */
+    background: #e8ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px; /* Reducido de 12px a 8px */
+}
+
+.coming-soon-image-placeholder i {
+    font-size: 1.8rem; /* Reducido de 2.2rem a 1.8rem */
+    color: #2ec4b6;
+}
+
+.coming-soon-title {
+    font-size: 0.9rem; /* Reducido de 1rem a 0.9rem */
+    font-weight: 600;
+    color: #1a2a3a;
+    margin-bottom: 2px; /* Reducido de 4px a 2px */
+}
+
+.coming-soon-text {
+    color: #999;
+    font-style: italic;
+    font-size: 0.85rem; /* Reducido de 0.95rem a 0.85rem */
+    margin: 0;
+}
+
+/* Acciones */
+.project-detail-actions {
+    margin-top: 20px; /* Reducido de 30px a 20px */
+    padding-top: 12px; /* Reducido de 20px a 12px */
+    border-top: 2px solid #e8ecef;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px; /* Reducido de 10px 24px a 8px 20px */
+    background: transparent;
+    color: #1a6b61;
+    border: 2px solid #1a6b61;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem; /* Reducido de 0.95rem a 0.9rem */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-secondary:hover {
+    background: #1a6b61;
+    color: #ffffff;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
+}
+
+/* ==========================================
+   ENLACES EN FUNDING - Sin subrayado y color celeste
+========================================== */
+
+.funding-link {
+    color: #2ec4b6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.funding-link:hover {
+    color: #1a8a7e;
+    border-bottom: 2px solid #2ec4b6;
+    text-decoration: none;
+}
+
+.funding-link:visited {
+    color: #2ec4b6;
+}
+
+.funding-link:active {
+    color: #1a6b61;
+}
+
+/* ==========================================
+   RESPONSIVE - Más compacto
+========================================== */
+
+@media screen and (max-width: 768px) {
+    .project-detail-title {
+        font-size: 1.6rem;
+    }
+
+    .project-detail-image-wrapper {
+        max-width: 400px;
+    }
+
+    .project-detail-image {
+        max-height: 200px;
+    }
+
+    .related-publications-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .related-publication-image-wrapper {
+        height: 140px;
+    }
+
+    .project-detail-section {
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-detail {
+        padding: 10px 0;
+    }
+
+    .project-detail-title {
+        font-size: 1.3rem;
+    }
+
+    .project-detail-image-wrapper {
+        max-width: 300px;
+        margin: 10px auto 16px;
+    }
+
+    .project-detail-image {
+        max-height: 150px;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+
+    .project-detail-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .project-detail-section {
+        margin-bottom: 4px;
+        padding-bottom: 3px;
+    }
+
+    .project-detail-list-item {
+        font-size: 0.85rem;
+        line-height: 1.1;
+        padding: 0;
+    }
+
+    .related-publications-grid {
+        gap: 8px;
+    }
+
+    .related-publication-image-wrapper {
+        height: 120px;
+        padding: 4px;
+    }
+
+    .related-publication-content {
+        padding: 6px 10px;
+    }
+
+    .related-publication-title {
+        font-size: 0.85rem;
+    }
+
+    .related-publication-authors {
+        font-size: 0.75rem;
+    }
+
+    .related-publication-meta {
+        font-size: 0.75rem;
+    }
+
+    .related-publication-doi {
+        font-size: 0.7rem;
+    }
+
+    .coming-soon-card {
+        min-height: 150px;
+        padding: 16px 12px;
+    }
+
+    .coming-soon-image-placeholder {
+        width: 40px;
+        height: 40px;
+    }
+
+    .coming-soon-image-placeholder i {
+        font-size: 1.5rem;
+    }
+
+    .coming-soon-title {
+        font-size: 0.85rem;
+    }
+
+    .coming-soon-text {
+        font-size: 0.8rem;
+    }
+
+    .btn-secondary {
+        padding: 6px 16px;
+        font-size: 0.85rem;
+    }
+
+    .project-detail-actions {
+        margin-top: 16px;
+        padding-top: 10px;
+    }
+
+    .highlighted-author {
+        padding: 0 3px;
+        font-size: 0.85rem;
+        border-bottom-width: 1.5px;
+    }
+}

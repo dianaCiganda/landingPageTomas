@@ -21,39 +21,50 @@ const Header = () => {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const goToSection = (sectionId) => {
+  // Navegar a una sección del Home
+  const goToHomeSection = (sectionId) => {
     closeMenu();
 
     if (location.pathname !== "/") {
       navigate("/");
+
       setTimeout(() => {
         const element = document.getElementById(sectionId);
+
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         }
-      }, 200);
+      }, 400);
     } else {
       const element = document.getElementById(sectionId);
+
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     }
   };
 
-  const goToContact = () => {
+  // Navegar a otra página
+  const goToPage = (path) => {
     closeMenu();
-    navigate("/contact");
+
+    if (location.pathname !== path) {
+      navigate(path);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
-  const goToPublications = () => {
-    closeMenu();
-    navigate("/publications");
-  };
-
-  const isCVPage = location.pathname === "/cv";
-  const isContactPage = location.pathname === "/contact";
-  const isPublicationsPage = location.pathname === "/publications";
-  const isHomePage = location.pathname === "/";
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
@@ -61,40 +72,62 @@ const Header = () => {
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
           <li>
             <button
-              onClick={() => goToSection("home")}
-              className={isHomePage ? "active" : ""}
+              onClick={() => goToHomeSection("home")}
+              className={isActive("/") ? "active" : ""}
             >
               About
             </button>
           </li>
+
           <li>
-            <button onClick={() => goToSection("projects")}>Projects</button>
+            <button    onClick={() => goToPage("/projects")}
+              className={isActive("/projects") ? "active" : ""}>
+                Projects
+            </button>
           </li>
+
           <li>
-            {/* AHORA VA DIRECTAMENTE A LA PÁGINA DE PUBLICACIONES */}
-            <button 
-              onClick={goToPublications} 
-              className={isPublicationsPage ? "active" : ""}
+            <button
+              onClick={() => goToPage("/publications")}
+              className={isActive("/publications") ? "active" : ""}
             >
               Publications
             </button>
           </li>
+
           <li>
-            <button onClick={() => goToSection("supervision")}>Supervision</button>
+            <button onClick={() => goToHomeSection("supervision")}>
+              Supervision
+            </button>
           </li>
+
           <li>
-            <button onClick={() => goToSection("teaching")}>Teaching</button>
+            <button onClick={() => goToHomeSection("teaching")}>
+              Teaching
+            </button>
           </li>
+
           <li>
-            <button onClick={() => goToSection("news")}>News</button>
+            <button onClick={() => goToHomeSection("news")}>
+              News
+            </button>
           </li>
+
           <li>
-            <Link to="/cv" onClick={closeMenu} className={isCVPage ? "active" : ""}>
+            <Link
+              to="/cv"
+              onClick={closeMenu}
+              className={isActive("/cv") ? "active" : ""}
+            >
               CV
             </Link>
           </li>
+
           <li>
-            <button onClick={goToContact} className={isContactPage ? "active" : ""}>
+            <button
+              onClick={() => goToPage("/contact")}
+              className={isActive("/contact") ? "active" : ""}
+            >
               Contact
             </button>
           </li>

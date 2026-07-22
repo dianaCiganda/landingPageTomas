@@ -51,18 +51,18 @@
 }
 
 /* ==========================================
-   LAYOUT - Imagen a la izquierda (50% más grande)
+   LAYOUT - Imagen a la izquierda (estilo Publications)
 ========================================== */
 
 .project-preview-layout {
     display: flex;
-    gap: 32px; /* Aumentado el gap para mejor proporción */
+    gap: 28px;
     align-items: flex-start;
 }
 
 .project-preview-image {
-    flex: 0 0 240px; /* Aumentado de 160px a 240px (50% más) */
-    max-width: 240px;
+    flex: 0 0 160px; /* Tamaño más pequeño como en Publications */
+    max-width: 160px;
 }
 
 .project-featured-image {
@@ -109,7 +109,7 @@
 }
 
 /* ==========================================
-   BOTÓN VIEW PROJECT
+   BOTÓN VIEW PROJECT - Estilo como botón secundario
 ========================================== */
 
 .project-actions {
@@ -127,14 +127,13 @@
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    padding: 10px 24px;
+    padding: 8px 20px;
     border-radius: 8px;
     background: transparent;
     color: #1a6b61;
     border: 2px solid #1a6b61;
     cursor: pointer;
     font-family: inherit;
-    letter-spacing: 0.3px;
 }
 
 .view-project-btn:hover {
@@ -204,15 +203,15 @@
         padding: 22px 24px;
     }
     .project-preview-image {
-        flex: 0 0 200px; /* Aumentado de 140px a 200px */
-        max-width: 200px;
+        flex: 0 0 140px;
+        max-width: 140px;
     }
     .titulo-project {
         font-size: 1.3rem;
     }
     .view-project-btn {
         font-size: 0.85rem;
-        padding: 8px 18px;
+        padding: 7px 16px;
     }
 }
 
@@ -226,7 +225,7 @@
     }
     .project-preview-image {
         flex: 0 0 auto;
-        width: 280px; /* Aumentado de 200px a 280px */
+        width: 200px;
         max-width: 100%;
     }
     .project-preview-content {
@@ -245,7 +244,7 @@
     }
     .view-project-btn {
         font-size: 0.85rem;
-        padding: 8px 18px;
+        padding: 7px 16px;
     }
 }
 
@@ -255,7 +254,7 @@
         padding: 18px 16px;
     }
     .project-preview-image {
-        width: 220px; /* Aumentado de 160px a 220px */
+        width: 160px;
         max-width: 100%;
     }
     .titulo-project {
@@ -263,7 +262,7 @@
     }
     .view-project-btn {
         font-size: 0.8rem;
-        padding: 7px 16px;
+        padding: 6px 14px;
     }
 }
 
@@ -274,7 +273,7 @@
         border-left-width: 4px;
     }
     .project-preview-image {
-        width: 180px; /* Aumentado de 140px a 180px */
+        width: 140px;
         max-width: 100%;
     }
     .titulo-project {
@@ -282,7 +281,7 @@
     }
     .view-project-btn {
         font-size: 0.75rem;
-        padding: 6px 14px;
+        padding: 5px 12px;
         border-width: 1.5px;
     }
     .no-results {

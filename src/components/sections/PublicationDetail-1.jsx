@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ProfileTemplate from "../layout/ProfileTemplate";
 import "./PublicationDetail.css";
+import SearchFilter from "../sections/SearchFilter";
 
 const PublicationDetail1 = () => {
   const location = useLocation();
@@ -465,31 +466,14 @@ const PublicationDetail1 = () => {
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
-      {/* BARRA DE BÚSQUEDA - DEBAJO DEL BANNER */}
-      <div className="search-container">
-        <div className="search-wrapper">
-          <i className="fas fa-search search-icon"></i>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search in this publication..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {searchTerm && (
-            <button 
-              className="search-clear"
-              onClick={() => setSearchTerm("")}
-              aria-label="Clear search"
-            >
-              ×
-            </button>
-          )}
-        </div>
-        <span className="search-results-count">
-          {hasSearch ? `${matchCount} match${matchCount !== 1 ? 'es' : ''} found` : '0 results'}
-        </span>
-      </div>
+      {/* FILTRO DE BÚSQUEDA - COMPONENTE SEPARADO */}
+      <SearchFilter 
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        placeholder="Search in this publication..."
+        resultsCount={matchCount}
+        resultsLabel={matchCount !== 1 ? 'matches' : 'match'}
+      />
 
       {/* MOSTRAR PUBLICACIÓN SOLO SI COINCIDE CON LA BÚSQUEDA */}
       {publicationMatches ? (

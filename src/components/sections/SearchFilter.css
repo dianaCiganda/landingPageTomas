@@ -1,0 +1,122 @@
+/* ==========================================
+   SEARCH FILTER COMPONENT
+========================================== */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-wrapper {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f8faf9;
+    border-radius: 10px;
+    border: 2px solid #e8ecef;
+    transition: all 0.3s ease;
+}
+
+.search-wrapper:focus-within {
+    border-color: #2ec4b6;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(46, 196, 182, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    color: #999;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 40px 12px 44px;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #1a2a3a;
+    outline: none;
+    font-family: inherit;
+    border-radius: 8px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.search-clear {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #999;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.search-clear:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.08);
+}
+
+.search-results-count {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 6px 12px;
+    background: #f0f0f0;
+    border-radius: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media screen and (max-width: 700px) {
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .search-wrapper {
+        min-width: unset;
+    }
+    .search-results-count {
+        align-self: flex-end;
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    .search-input {
+        font-size: 0.9rem;
+        padding: 10px 36px 10px 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .search-input {
+        font-size: 0.85rem;
+        padding: 8px 32px 8px 36px;
+    }
+    .search-icon {
+        font-size: 0.8rem;
+        left: 10px;
+    }
+    .search-clear {
+        font-size: 1.2rem;
+        right: 8px;
+    }
+}

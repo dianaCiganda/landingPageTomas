@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Publications.css";
 import { Link, useNavigate } from "react-router-dom";
 import ProfileTemplate from "../layout/ProfileTemplate";
+import SearchFilter from "../sections/SearchFilter";
 
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +14,7 @@ const Publications = () => {
     document.documentElement.scrollTop = 0;
   }, []); 
   
-  // Array de publicaciones - Sin keywords
+  // Array de publicaciones completo
   const publications = [
     {
       id: 1,
@@ -81,7 +82,6 @@ const Publications = () => {
       pdf: `${import.meta.env.BASE_URL}assets/PUB-5.pdf`,
       image: `${import.meta.env.BASE_URL}assets/Pub-5.png`
     },
-    // Full list publications in the specific order you provided
     {
       id: 7,
       title: "Complex network of trophic interactions in Burdwood Bank, a sub-Antarctic oceanic marine protected area",
@@ -385,30 +385,14 @@ const Publications = () => {
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
-      <div className="search-container">
-        <div className="search-wrapper">
-          <i className="fas fa-search search-icon"></i>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search publications by title, author, journal, year..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {searchTerm && (
-            <button 
-              className="search-clear"
-              onClick={() => setSearchTerm("")}
-              aria-label="Clear search"
-            >
-              ×
-            </button>
-          )}
-        </div>
-        <span className="search-results-count">
-          {hasSearch ? `${filteredPublications.length} result${filteredPublications.length !== 1 ? 's' : ''}` : ''}
-        </span>
-      </div>
+      {/* FILTRO DE BÚSQUEDA - COMPONENTE SEPARADO */}
+      <SearchFilter 
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        placeholder="Search publications by title, author, journal, year..."
+        resultsCount={filteredPublications.length}
+        resultsLabel={filteredPublications.length !== 1 ? 'results' : 'result'}
+      />
 
       <section id="publications" className="publications">
         <span className="section-tag">Featured publications</span>
