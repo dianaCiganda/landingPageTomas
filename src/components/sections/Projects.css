@@ -1,322 +1,302 @@
-/* ==========================================
-   PROJECTS - Estilo simplificado (solo título + imagen + botón)
-========================================== */
-
+/* Projects.css */
 .projects {
-    width: 100%;
-    padding-top: 0;
-    min-width: 0;
+  padding: 2rem 0;
+  width: 100%;
 }
-
-.projects-content {
-    width: 100%;
-}
-
-/* ==========================================
-   TÍTULO DE SECCIÓN
-========================================== */
 
 .section-tag {
-    display: inline-block;
-    margin-bottom: 14px;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #2ec4b6;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+  display: inline-block;
+  background: #2ec4b6;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================
-   PROYECTO PREVIEW - Estilo Publications
+   LISTA VERTICAL - UNO ABAJO DEL OTRO
 ========================================== */
 
-.project-preview {
-    background: #f8faf9;
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 40px;
-    border-left: 6px solid #2ec4b6;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
 }
 
-.project-preview:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+.project-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 100%;
 }
 
-.project-preview.featured {
-    background: linear-gradient(135deg, #f0faf9 0%, #f8faf9 100%);
+.project-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project-item-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  align-items: flex-start;
+}
+
+.project-item-image {
+  flex: 0 0 200px;
+  max-width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0faf9;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  display: block;
+  background: #f0faf9;
+}
+
+.project-item:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-item-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.75rem;
 }
 
 /* ==========================================
-   LAYOUT - Imagen a la izquierda (50% más grande)
+   TÍTULO DE PROYECTO - TEXTO COMPLETO SIN ...
 ========================================== */
 
-.project-preview-layout {
-    display: flex;
-    gap: 32px; /* Aumentado el gap para mejor proporción */
-    align-items: flex-start;
+.project-title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2a3a;
+  text-decoration: none;
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.3s ease;
+  /* Eliminadas las propiedades que truncaban el texto */
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-.project-preview-image {
-    flex: 0 0 240px; /* Aumentado de 160px a 240px (50% más) */
-    max-width: 240px;
+.project-title:hover {
+  color: #0d6b61;
+  text-decoration: none;
 }
-
-.project-featured-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.project-featured-image:hover {
-    transform: scale(1.02);
-}
-
-.project-preview-content {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-/* ==========================================
-   TÍTULO DE PROYECTO
-========================================== */
-
-.titulo-project {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a2a3a;
-    text-decoration: none;
-    margin: 0 0 12px 0;
-    line-height: 1.3;
-    transition: color 0.3s ease;
-    cursor: pointer;
-}
-
-.titulo-project:hover {
-    color: #0d6b61;
-    text-decoration: none;
-}
-
-/* ==========================================
-   BOTÓN VIEW PROJECT
-========================================== */
 
 .project-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 4px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
 }
 
 .view-project-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    padding: 10px 24px;
-    border-radius: 8px;
-    background: transparent;
-    color: #1a6b61;
-    border: 2px solid #1a6b61;
-    cursor: pointer;
-    font-family: inherit;
-    letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: transparent;
+  color: #1a6b61;
+  border: 2px solid #1a6b61;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.3px;
 }
 
 .view-project-btn:hover {
-    color: #ffffff;
-    background: #1a6b61;
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
+  color: #ffffff;
+  background: #1a6b61;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(26, 107, 97, 0.3);
 }
 
 .view-project-btn:active {
-    transform: translateX(2px);
-    box-shadow: 0 2px 6px rgba(26, 107, 97, 0.2);
+  transform: translateX(2px);
+  box-shadow: 0 2px 6px rgba(26, 107, 97, 0.2);
 }
 
-/* ==========================================
-   RESALTADO DE BÚSQUEDA
-========================================== */
-
+/* Search Highlight */
 .search-highlight {
-    background-color: #ffeb3b;
-    color: #1a2a3a;
-    font-weight: 600;
-    padding: 0 2px;
-    border-radius: 3px;
-    box-shadow: 0 0 0 1px rgba(255, 235, 59, 0.5);
+  background-color: #fef3c7;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+  color: #1a2a3a;
 }
 
-/* ==========================================
-   MENSAJE DE NO RESULTADOS
-========================================== */
-
+/* No Results */
 .no-results {
-    text-align: center;
-    padding: 60px 20px;
-    color: #666;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-top: 2rem;
 }
 
 .no-results-icon {
-    font-size: 3rem;
-    color: #ddd;
-    margin-bottom: 16px;
-    display: block;
+  font-size: 2.5rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
 }
 
 .no-results-text {
-    font-size: 1.2rem;
-    color: #1a2a3a;
-    margin-bottom: 8px;
-}
-
-.no-results-text strong {
-    color: #2ec4b6;
+  font-size: 1.1rem;
+  color: #1a2a3a;
+  margin-bottom: 0.5rem;
 }
 
 .no-results-hint {
-    font-size: 0.95rem;
-    color: #999;
+  font-size: 0.95rem;
+  color: #64748b;
 }
 
 /* ==========================================
    RESPONSIVE
 ========================================== */
 
-/* Tablets pequeñas / Móviles grandes */
+/* Tablets */
 @media screen and (max-width: 850px) and (min-width: 701px) {
-    .project-preview {
-        padding: 22px 24px;
-    }
-    .project-preview-image {
-        flex: 0 0 200px; /* Aumentado de 140px a 200px */
-        max-width: 200px;
-    }
-    .titulo-project {
-        font-size: 1.3rem;
-    }
-    .view-project-btn {
-        font-size: 0.85rem;
-        padding: 8px 18px;
-    }
+  .project-item-layout {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+  .project-item-image {
+    flex: 0 0 160px;
+    max-width: 160px;
+  }
+  .project-image {
+    aspect-ratio: 4/3;
+  }
+  .project-title {
+    font-size: 1.1rem;
+  }
 }
 
 /* Móviles - apilar verticalmente */
 @media screen and (max-width: 700px) {
-    .project-preview-layout {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 16px;
-    }
-    .project-preview-image {
-        flex: 0 0 auto;
-        width: 280px; /* Aumentado de 200px a 280px */
-        max-width: 100%;
-    }
-    .project-preview-content {
-        width: 100%;
-        align-items: center;
-    }
-    .project-preview {
-        padding: 20px 18px;
-    }
-    .titulo-project {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-    .project-actions {
-        justify-content: center;
-    }
-    .view-project-btn {
-        font-size: 0.85rem;
-        padding: 8px 18px;
-    }
+  .project-item-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+  .project-item-image {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 280px;
+  }
+  .project-image {
+    aspect-ratio: 4/3;
+  }
+  .project-item-content {
+    width: 100%;
+    align-items: center;
+  }
+  .project-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .project-actions {
+    justify-content: center;
+  }
+  .view-project-btn {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+  }
 }
 
 /* Móviles pequeños */
 @media screen and (max-width: 550px) and (min-width: 401px) {
-    .project-preview {
-        padding: 18px 16px;
-    }
-    .project-preview-image {
-        width: 220px; /* Aumentado de 160px a 220px */
-        max-width: 100%;
-    }
-    .titulo-project {
-        font-size: 1.1rem;
-    }
-    .view-project-btn {
-        font-size: 0.8rem;
-        padding: 7px 16px;
-    }
+  .project-item-layout {
+    padding: 1rem;
+  }
+  .project-item-image {
+    max-width: 220px;
+  }
+  .project-image {
+    aspect-ratio: 4/3;
+  }
+  .project-title {
+    font-size: 1rem;
+  }
+  .view-project-btn {
+    font-size: 0.8rem;
+    padding: 7px 16px;
+  }
 }
 
 /* Móviles muy pequeños */
 @media screen and (max-width: 400px) {
-    .project-preview {
-        padding: 14px 12px;
-        border-left-width: 4px;
-    }
-    .project-preview-image {
-        width: 180px; /* Aumentado de 140px a 180px */
-        max-width: 100%;
-    }
-    .titulo-project {
-        font-size: 1rem;
-    }
-    .view-project-btn {
-        font-size: 0.75rem;
-        padding: 6px 14px;
-        border-width: 1.5px;
-    }
-    .no-results {
-        padding: 40px 16px;
-    }
-    .no-results-text {
-        font-size: 1rem;
-    }
+  .project-item-layout {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  .project-item-image {
+    max-width: 180px;
+  }
+  .project-image {
+    aspect-ratio: 4/3;
+  }
+  .project-title {
+    font-size: 0.9rem;
+  }
+  .view-project-btn {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-width: 1.5px;
+  }
+  .no-results {
+    padding: 40px 16px;
+  }
+  .no-results-text {
+    font-size: 1rem;
+  }
 }
 
 /* Móviles general */
 @media (max-width: 768px) {
-    .project-preview {
-        padding: 20px 18px;
-    }
-    .titulo-project {
-        font-size: 1.2rem;
-    }
+  .projects-list {
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
-    .project-preview {
-        padding: 16px 14px;
-    }
-    .titulo-project {
-        font-size: 1.1rem;
-    }
+  .projects-list {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 400px) {
-    .project-preview {
-        padding: 12px 10px;
-    }
-    .titulo-project {
-        font-size: 1rem;
-    }
+  .projects-list {
+    gap: 0.75rem;
+  }
 }

@@ -25,44 +25,14 @@
     overflow-wrap: break-word;
 }
 
-.section-contact-tag {
+.section-tag {
     display: inline-block;
     margin-bottom: 14px;
-    font-size: clamp(1rem, 3vw, 3em);
+    font-size: 50px;
     font-weight: 600;
     color: #2ec4b6;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
-
-/* Aumentar el título "Contact" un 200% en celulares */
-@media (max-width: 768px) {
-    .section-contact-tag {
-        font-size: clamp(2rem, 6vw, 3em); /* Aumentado de 1rem a 2rem */
-        display: block;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .section-contact-tag {
-        font-size: clamp(2.5rem, 8vw, 3.5em); /* Aún más grande en pantallas pequeñas */
-        display: block;
-        text-align: center;
-        margin-bottom: 24px;
-        letter-spacing: 3px;
-    }
-}
-
-@media (max-width: 400px) {
-    .section-contact-tag {
-        font-size: clamp(3rem, 10vw, 4em); /* Máximo tamaño en pantallas muy pequeñas */
-        display: block;
-        text-align: center;
-        margin-bottom: 28px;
-        letter-spacing: 4px;
-    }
 }
 
 .contact-intro {
@@ -176,7 +146,7 @@
 }
 
 /* ==========================================
-   RESPONSIVE
+   RESPONSIVE - MISMO QUE ABOUT
 ========================================== */
 
 @media screen and (max-width: 850px) and (min-width: 701px) {
@@ -239,20 +209,17 @@
         font-size: 0.8rem;
         line-height: 1.6;
     }
-
-    .section-contact-tag {
-        font-size: clamp(3rem, 10vw, 4em);
-        display: block;
-        text-align: center;
-        margin-bottom: 28px;
-        letter-spacing: 4px;
+    
+    .section-tag {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
     }
-
+    
     .contact-intro {
         font-size: 0.85rem;
         margin-bottom: 12px;
     }
-
+    
     .contact-text p {
         margin-bottom: 12px;
     }

@@ -128,7 +128,7 @@ const Contact = () => {
         <div className="contact-container">
           <div className="contact-wrapper">
             <div className="contact-text">
-              <span className="section-contact-tag">
+              <span className="section-tag">
                 Contact
               </span>
 

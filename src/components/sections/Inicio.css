@@ -16,7 +16,7 @@
     overflow-wrap: break-word;
 }
 
-.section-tag {
+.section-about-tag {
     display: inline-block;
     margin-bottom: 14px;
     font-size: 2rem;
@@ -65,7 +65,7 @@
         line-height: 1.6;
     }
     
-    .section-tag {
+    .section-about-tag {
         font-size: 0.7rem;
         margin-bottom: 8px;
     }
