@@ -35,7 +35,7 @@
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 6.4rem;
+    gap: 3.2rem; /* REDUCIDO: de 6.4rem a 3.2rem (mitad) */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -297,7 +297,7 @@
         gap: 14px;
     }
     .projects-list {
-        gap: 5.6rem;
+        gap: 2.8rem; /* REDUCIDO: de 5.6rem a 2.8rem (mitad) */
     }
     .section-tag {
         margin-bottom: 20px; /* TRIPLE: 6.7px ≈ 20px */
@@ -338,7 +338,7 @@
         padding: 12px 14px;
     }
     .projects-list {
-        gap: 4.8rem;
+        gap: 2.4rem; /* REDUCIDO: de 4.8rem a 2.4rem (mitad) */
     }
     .view-project-btn {
         font-size: 0.8rem;
@@ -382,7 +382,7 @@
         gap: 10px;
     }
     .projects-list {
-        gap: 4rem;
+        gap: 2rem; /* REDUCIDO: de 4rem a 2rem (mitad) */
     }
     .section-tag {
         margin-bottom: 18px; /* TRIPLE: 6px x 3 = 18px */
@@ -431,7 +431,7 @@
         width: 120px;
     }
     .projects-list {
-        gap: 3.2rem;
+        gap: 1.6rem; /* REDUCIDO: de 3.2rem a 1.6rem (mitad) */
     }
     .section-tag {
         margin-bottom: 12px; /* TRIPLE: 4px x 3 = 12px */
