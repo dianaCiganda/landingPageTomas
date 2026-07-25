@@ -1,0 +1,585 @@
+/* ==========================================
+   PROJECTS
+========================================== */
+
+.projects {
+    width: 100%;
+    padding-top: 0;
+    min-width: 0;
+}
+
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: #2ec4b6;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   LIST
+========================================== */
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+
+    width: 100%;
+}
+
+
+/* ==========================================
+   PROJECT CARD
+========================================== */
+
+.project-item {
+
+    background: #f8faf9;
+
+    border-radius: 12px;
+
+    padding: 28px 32px;
+
+    border-left: 6px solid #2ec4b6;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+
+    transition: all 0.3s ease;
+
+    cursor: default;
+
+}
+
+
+.project-item:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+/* ==========================================
+   IMAGE + CONTENT
+========================================== */
+
+.project-item-layout {
+
+    display: flex;
+
+    gap: 28px;
+
+    align-items: flex-start;
+
+}
+
+
+.project-item-image {
+
+    flex: 0 0 160px;
+
+    max-width: 160px;
+
+    cursor: pointer;
+
+}
+
+
+.project-image {
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 8px;
+
+    object-fit: contain;
+
+    display: block;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.project-image:hover {
+
+    transform: scale(1.02);
+
+}
+
+
+.project-item-content {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+
+/* ==========================================
+   TITLE - CLICKEABLE CON HOVER (estilo Publications)
+========================================== */
+
+.project-header {
+
+    width: 100%;
+
+}
+
+
+.project-title {
+
+    margin: 0;
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    color: #1a2a3a;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+
+    text-decoration: none;
+
+}
+
+
+/* EFECTO HOVER DEL TÍTULO - ESTILO PUBLICATIONS */
+.project-title:hover {
+
+    color: #0d6b61; /* Mismo color que Publications */
+
+    text-decoration: none;
+
+}
+
+
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.project-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 14px;
+
+}
+
+
+
+/* VIEW PROJECT */
+
+.view-project-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+
+    padding: 8px 20px;
+
+
+    background: transparent;
+
+    color: #1a6b61;
+
+
+    border:
+
+        2px solid #1a6b61;
+
+
+    border-radius: 8px;
+
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+
+    font-family: inherit;
+
+
+    cursor: pointer;
+
+
+    transition: all .3s ease;
+
+}
+
+
+
+.view-project-btn:hover {
+
+    background: #1a6b61;
+
+    color: white;
+
+    transform: translateX(4px);
+
+}
+
+
+
+/* ==========================================
+   STATUS BUTTONS - DECORATIVOS
+========================================== */
+
+
+.status-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 18px;
+
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    cursor: default;
+
+    pointer-events: none;
+
+    user-select: none;
+
+}
+
+
+/* ACTIVE */
+
+.status-btn-active {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    border: 2px solid #22c55e;
+
+}
+
+
+/* FINALIZED */
+
+.status-btn-finalized {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    border: 2px solid #ef4444;
+
+}
+
+
+/* ==========================================
+   SEARCH HIGHLIGHT
+========================================== */
+
+.search-highlight {
+
+    background-color: #ffeb3b;
+
+    color: #1a2a3a;
+
+    font-weight: 600;
+
+    padding: 0 2px;
+
+    border-radius: 3px;
+
+}
+
+
+
+/* ==========================================
+   NO RESULTS
+========================================== */
+
+.no-results {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #666;
+
+}
+
+
+.no-results-icon {
+
+    font-size: 3rem;
+
+    color: #ddd;
+
+    margin-bottom: 16px;
+
+    display: block;
+
+}
+
+
+.no-results-text {
+
+    font-size: 1.2rem;
+
+    color: #1a2a3a;
+
+    margin-bottom: 8px;
+
+}
+
+
+.no-results-text strong {
+
+    color: #2ec4b6;
+
+}
+
+
+.no-results-hint {
+
+    font-size: .95rem;
+
+    color: #999;
+
+}
+
+
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media screen and (max-width:850px) and (min-width:701px) {
+
+
+    .project-item {
+
+        padding: 22px 24px;
+
+    }
+
+
+    .project-item-image {
+
+        flex-basis: 140px;
+
+        max-width: 140px;
+
+    }
+
+
+    .project-title {
+
+        font-size: 1.3rem;
+
+    }
+
+
+    .view-project-btn,
+    .status-btn {
+
+        font-size: .85rem;
+
+        padding: 7px 15px;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media screen and (max-width:700px) {
+
+
+    .project-item-layout {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+    }
+
+
+    .project-item-image {
+
+        width: 200px;
+
+        max-width: 100%;
+
+        flex: auto;
+
+    }
+
+
+    .project-item-content {
+
+        width: 100%;
+
+    }
+
+
+    .project-title {
+
+        font-size: 1.2rem;
+
+        text-align: center;
+
+    }
+
+
+    .project-actions {
+
+        justify-content: center;
+
+    }
+
+
+}
+
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media screen and (max-width:500px) {
+
+
+    .project-item {
+
+        padding: 18px 16px;
+
+    }
+
+
+    .project-item-image {
+
+        width: 160px;
+
+    }
+
+
+    .project-title {
+
+        font-size: 1.1rem;
+
+    }
+
+
+    .view-project-btn,
+    .status-btn {
+
+        font-size: .8rem;
+
+        padding: 6px 12px;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   VERY SMALL MOBILE
+========================================== */
+
+@media screen and (max-width:400px) {
+
+
+    .project-item {
+
+        padding: 14px 12px;
+
+    }
+
+
+    .project-actions {
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
+
+
+    .view-project-btn,
+    .status-btn {
+
+        width: 100%;
+
+    }
+
+
+    .project-title {
+
+        font-size: 1rem;
+
+    }
+
+
+    .no-results {
+
+        padding: 40px 16px;
+
+    }
+
+
+}

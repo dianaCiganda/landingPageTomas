@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Projects.css";
+import "./Proyects.css";
 import { useNavigate } from "react-router-dom";
 import ProfileTemplate from "../layout/ProfileTemplate";
 import SearchFilter from "../sections/SearchFilter";
@@ -15,13 +15,9 @@ const Projects = () => {
     document.documentElement.scrollTop = 0;
   }, []);
 
-  // Función para filtrar proyectos
   const getFilteredProjects = () => {
     const searchLower = searchTerm.toLowerCase().trim();
-    
-    if (!searchLower) {
-      return projects;
-    }
+    if (!searchLower) return projects;
     
     return projects.filter((project) => {
       const searchableFields = [
@@ -31,7 +27,8 @@ const Projects = () => {
         project.team.join(" "),
         project.role,
         project.overview,
-        project.funding
+        project.funding,
+        project.status
       ].filter(Boolean);
       
       return searchableFields.some(field => 
@@ -43,18 +40,13 @@ const Projects = () => {
   const filteredProjects = getFilteredProjects();
   const hasSearch = searchTerm.trim().length > 0;
 
-  // Función para resaltar texto en la búsqueda
   const highlightText = (text, searchTerm) => {
     if (!searchTerm || !text) return text;
-    
     const searchLower = searchTerm.toLowerCase().trim();
     const textLower = text.toLowerCase();
-    
     if (!textLower.includes(searchLower)) return text;
-    
     const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     const parts = text.split(regex);
-    
     return parts.map((part, index) => 
       part.toLowerCase() === searchLower ? 
         <mark key={index} className="search-highlight">{part}</mark> : 
@@ -71,19 +63,38 @@ const Projects = () => {
     }
   };
 
-  // Función para obtener la ruta correcta de la imagen
   const getImagePath = (path) => {
     if (!path) return '';
-    if (path.startsWith(import.meta.env.BASE_URL)) {
-      return path;
-    }
-    if (path.startsWith('assets/')) {
-      return `${import.meta.env.BASE_URL}${path}`;
-    }
-    if (path.startsWith('/')) {
-      return `${import.meta.env.BASE_URL}${path.substring(1)}`;
-    }
+    if (path.startsWith(import.meta.env.BASE_URL)) return path;
+    if (path.startsWith('assets/')) return `${import.meta.env.BASE_URL}${path}`;
+    if (path.startsWith('/')) return `${import.meta.env.BASE_URL}${path.substring(1)}`;
     return `${import.meta.env.BASE_URL}${path}`;
+  };
+
+  const getStatusBadge = (status) => {
+    const handleBadgeClick = (e) => {
+      e.stopPropagation();
+    };
+
+    if (status === "active") {
+      return (
+        <span 
+          className="status-btn status-btn-active"
+          onClick={handleBadgeClick}
+        >
+          ● Active
+        </span>
+      );
+    } else {
+      return (
+        <span 
+          className="status-btn status-btn-finalized"
+          onClick={handleBadgeClick}
+        >
+          ● Finalized
+        </span>
+      );
+    }
   };
 
   return (
@@ -104,11 +115,14 @@ const Projects = () => {
             <div 
               key={project.id} 
               className="project-item"
-              onClick={() => handleProjectClick(project.id)}
-              style={{ cursor: 'pointer' }}
             >
               <div className="project-item-layout">
-                <div className="project-item-image">
+                {/* IMAGEN CLICKEABLE */}
+                <div 
+                  className="project-item-image"
+                  onClick={() => handleProjectClick(project.id)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <img 
                     src={getImagePath(project.image)} 
                     alt={project.title}
@@ -119,20 +133,28 @@ const Projects = () => {
                     }}
                   />
                 </div>
+                
                 <div className="project-item-content">
-                  <h2 className="project-title">
-                    {hasSearch ? highlightText(project.title, searchTerm) : project.title}
-                  </h2>
+                  <div className="project-header">
+                    {/* TITULO CLICKEABLE */}
+                    <h2 
+                      className="project-title"
+                      onClick={() => handleProjectClick(project.id)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {hasSearch ? highlightText(project.title, searchTerm) : project.title}
+                    </h2>
+                  </div>
                   <div className="project-actions">
+                    {/* BOTON VIEW PROJECT CLICKEABLE */}
                     <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleProjectClick(project.id);
-                      }}
+                      onClick={() => handleProjectClick(project.id)}
                       className="view-project-btn"
                     >
                       View Project →
                     </button>
+                    {/* BADGE DECORATIVO (NO CLICKEABLE) */}
+                    {getStatusBadge(project.status)}
                   </div>
                 </div>
               </div>
