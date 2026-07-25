@@ -139,7 +139,7 @@ const Contact = () => {
                 or just want to connect, please feel free to reach out.
                 Pick your favorite way to get in touch.
               </p>
-
+<h1 className="titulo-parpadeo">Pick your favorite</h1>
               <div className="contact-social-wrapper">
                 <div className="contact-social">
                   {socialLinks.map((link) => {
