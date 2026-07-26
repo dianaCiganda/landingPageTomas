@@ -1,16 +1,17 @@
 /* ==========================================
-   TÍTULO PICK YOUR FAVORITE - ESTILO CONTACT (30% MÁS GRANDE)
+   TÍTULO PICK YOUR FAVORITE - ESTILO CONTACT (GRANDE EN MÓVIL)
 ========================================== */
 
 .titulo-parpadeo {
     display: inline-block;
     margin: 10px 0 8px 0;
-    font-size: 19.5px; /* 15px * 1.3 = 19.5px */
+    font-size: 19.5px;
     font-weight: 600;
     color: #033694;
     letter-spacing: 1px;
     text-transform: uppercase;
     animation: parpadeo-oscuro 2.5s ease-in-out infinite;
+    -webkit-animation: parpadeo-oscuro 2.5s ease-in-out infinite;
     font-family: inherit;
     line-height: 1.2;
     pointer-events: none;
@@ -43,77 +44,102 @@
     }
 }
 
+@-webkit-keyframes parpadeo-oscuro {
+    0%, 100% {
+        color: #033694;
+        text-shadow: 0 0 0px rgba(3, 54, 148, 0);
+        transform: scale(1);
+    }
+    30% {
+        color: #022a73;
+        text-shadow: 0 0 5px rgba(3, 54, 148, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        color: #011f54;
+        text-shadow: 0 0 10px rgba(3, 54, 148, 0.3);
+        transform: scale(1.02);
+    }
+    70% {
+        color: #022a73;
+        text-shadow: 0 0 5px rgba(3, 54, 148, 0.2);
+        transform: scale(1);
+    }
+}
+
 /* ==========================================
-   RESPONSIVE - 30% MÁS GRANDE TAMBIÉN
+   RESPONSIVE - TAMAÑO GRANDE EN MÓVIL
 ========================================== */
 
-@media screen and (max-width: 850px) and (min-width: 701px) {
-    .titulo-parpadeo {
-        font-size: 14.82px; /* 11.4px * 1.3 */
-        margin: 8px 0 6px 0;
-        letter-spacing: 0.8px;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .titulo-parpadeo {
-        font-size: 10.92px; /* 8.4px * 1.3 */
-        margin: 6px 0 4px 0;
-        letter-spacing: 0.5px;
-    }
-}
-
-@media screen and (max-width: 550px) and (min-width: 401px) {
-    .titulo-parpadeo {
-        font-size: 8.58px; /* 6.6px * 1.3 */
-        margin: 5px 0 3px 0;
-        letter-spacing: 0.3px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .titulo-parpadeo {
-        font-size: 7.02px; /* 5.4px * 1.3 */
-        margin: 4px 0 2px 0;
-        letter-spacing: 0.3px;
-        line-height: 1.2;
-    }
-}
-
-@media (max-width: 768px) {
-    .titulo-parpadeo {
-        font-size: 12.48px; /* 9.6px * 1.3 */
-        margin: 6px 0 4px 0;
-        letter-spacing: 0.5px;
-    }
-}
-
-@media (max-width: 600px) {
-    .titulo-parpadeo {
-        font-size: 9.36px; /* 7.2px * 1.3 */
-        margin: 5px 0 3px 0;
-        letter-spacing: 0.3px;
-    }
-}
-
-@media (max-width: 400px) {
-    .titulo-parpadeo {
-        font-size: 7.02px; /* 5.4px * 1.3 */
-        margin: 4px 0 2px 0;
-    }
-}
-
+/* Pantallas muy grandes */
 @media (min-width: 1400px) {
     .titulo-parpadeo {
-        font-size: 23.4px; /* 18px * 1.3 */
+        font-size: 23.4px;
         margin: 12px 0 8px 0;
         letter-spacing: 1.2px;
     }
 }
 
+/* Desktop normal */
+@media (min-width: 851px) and (max-width: 1399px) {
+    .titulo-parpadeo {
+        font-size: 19.5px;
+        margin: 10px 0 8px 0;
+        letter-spacing: 1px;
+    }
+}
+
+/* Tablets grandes */
+@media screen and (max-width: 850px) and (min-width: 701px) {
+    .titulo-parpadeo {
+        font-size: 18px;
+        margin: 10px 0 8px 0;
+        letter-spacing: 1px;
+    }
+}
+
+/* Tablets pequeñas */
+@media screen and (max-width: 700px) and (min-width: 551px) {
+    .titulo-parpadeo {
+        font-size: 20px;
+        margin: 12px 0 10px 0;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+    }
+}
+
+/* Móviles grandes */
+@media screen and (max-width: 550px) and (min-width: 401px) {
+    .titulo-parpadeo {
+        font-size: 18px;
+        margin: 10px 0 8px 0;
+        letter-spacing: 1.2px;
+        font-weight: 700;
+    }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 400px) {
+    .titulo-parpadeo {
+        font-size: 16px;
+        margin: 8px 0 6px 0;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+}
+
+/* Móviles muy pequeños (menos de 320px) */
+@media screen and (max-width: 320px) {
+    .titulo-parpadeo {
+        font-size: 14px;
+        margin: 6px 0 4px 0;
+        letter-spacing: 0.8px;
+        font-weight: 700;
+    }
+}
+
 /* ==========================================
    ESTILOS DE REDES SOCIALES - RESTAURADOS
-   (Sin usar !important)
 ========================================== */
 
 /* Selectores más específicos para las redes */
@@ -181,7 +207,29 @@
     color: white;
 }
 
-/* Responsive de redes */
+/* ==========================================
+   RESPONSIVE DE REDES SOCIALES
+========================================== */
+
+/* Pantallas muy grandes */
+@media (min-width: 1400px) {
+    .contact .contact-social-wrapper .contact-social .social-contact-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 3.2rem;
+    }
+
+    .contact .contact-social-wrapper .contact-social .social-contact-link {
+        padding: 14px 18px;
+        gap: 10px;
+    }
+
+    .contact .contact-social-wrapper .contact-social .social-contact-label {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablets grandes */
 @media screen and (max-width: 850px) and (min-width: 701px) {
     .contact .contact-social-wrapper .contact-social .social-contact-icon {
         width: 50px;
@@ -199,40 +247,7 @@
     }
 }
 
-@media screen and (max-width: 550px) and (min-width: 401px) {
-    .contact .contact-social-wrapper .contact-social .social-contact-link {
-        padding: 6px 10px;
-        gap: 4px;
-    }
-
-    .contact .contact-social-wrapper .contact-social .social-contact-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 1.4rem;
-    }
-
-    .contact .contact-social-wrapper .contact-social .social-contact-label {
-        font-size: 0.7rem;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .contact .contact-social-wrapper .contact-social .social-contact-link {
-        padding: 4px 8px;
-        gap: 4px;
-    }
-
-    .contact .contact-social-wrapper .contact-social .social-contact-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 1.2rem;
-    }
-
-    .contact .contact-social-wrapper .contact-social .social-contact-label {
-        font-size: 0.65rem;
-    }
-}
-
+/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
     .contact .contact-social-wrapper .contact-social .social-contact-link {
         padding: 8px 12px;
@@ -250,7 +265,8 @@
     }
 }
 
-@media (max-width: 600px) {
+/* Móviles grandes */
+@media screen and (max-width: 550px) and (min-width: 401px) {
     .contact .contact-social-wrapper .contact-social .social-contact-link {
         padding: 6px 10px;
         gap: 4px;
@@ -267,19 +283,20 @@
     }
 }
 
-@media (min-width: 1400px) {
-    .contact .contact-social-wrapper .contact-social .social-contact-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 3.2rem;
+/* Móviles pequeños */
+@media screen and (max-width: 400px) {
+    .contact .contact-social-wrapper .contact-social .social-contact-link {
+        padding: 4px 8px;
+        gap: 4px;
     }
 
-    .contact .contact-social-wrapper .contact-social .social-contact-link {
-        padding: 14px 18px;
-        gap: 10px;
+    .contact .contact-social-wrapper .contact-social .social-contact-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
     }
 
     .contact .contact-social-wrapper .contact-social .social-contact-label {
-        font-size: 1.1rem;
+        font-size: 0.65rem;
     }
 }
