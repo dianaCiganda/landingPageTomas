@@ -1,11 +1,11 @@
 /* ==========================================
-   TÍTULO PICK YOUR FAVORITE - ESTILO CONTACT (GRANDE EN MÓVIL)
+   TÍTULO PICK YOUR FAVORITE - ESTILO CONTACT
 ========================================== */
 
 .titulo-parpadeo {
     display: inline-block;
     margin: 10px 0 8px 0;
-    font-size: 19.5px;
+    font-size: 16px; /* Tamaño base igual al texto normal */
     font-weight: 600;
     color: #033694;
     letter-spacing: 1px;
@@ -74,16 +74,16 @@
 /* Pantallas muy grandes */
 @media (min-width: 1400px) {
     .titulo-parpadeo {
-        font-size: 23.4px;
+        font-size: 18px; /* Ligeramente más grande en pantallas grandes */
         margin: 12px 0 8px 0;
         letter-spacing: 1.2px;
     }
 }
 
-/* Desktop normal */
+/* Desktop normal - IGUAL AL TEXTO NORMAL */
 @media (min-width: 851px) and (max-width: 1399px) {
     .titulo-parpadeo {
-        font-size: 19.5px;
+        font-size: 16px; /* Mismo tamaño que el texto normal */
         margin: 10px 0 8px 0;
         letter-spacing: 1px;
     }
@@ -92,16 +92,17 @@
 /* Tablets grandes */
 @media screen and (max-width: 850px) and (min-width: 701px) {
     .titulo-parpadeo {
-        font-size: 18px;
+        font-size: 22px; /* Empieza a crecer en tablets */
         margin: 10px 0 8px 0;
         letter-spacing: 1px;
+        font-weight: 700;
     }
 }
 
 /* Tablets pequeñas */
 @media screen and (max-width: 700px) and (min-width: 551px) {
     .titulo-parpadeo {
-        font-size: 20px;
+        font-size: 26px;
         margin: 12px 0 10px 0;
         letter-spacing: 1.5px;
         font-weight: 700;
@@ -111,7 +112,7 @@
 /* Móviles grandes */
 @media screen and (max-width: 550px) and (min-width: 401px) {
     .titulo-parpadeo {
-        font-size: 18px;
+        font-size: 28px; /* Grande en móvil */
         margin: 10px 0 8px 0;
         letter-spacing: 1.2px;
         font-weight: 700;
@@ -121,7 +122,7 @@
 /* Móviles pequeños */
 @media screen and (max-width: 400px) {
     .titulo-parpadeo {
-        font-size: 16px;
+        font-size: 24px; /* Ajustado para pantallas pequeñas */
         margin: 8px 0 6px 0;
         letter-spacing: 1px;
         font-weight: 700;
@@ -131,7 +132,7 @@
 /* Móviles muy pequeños (menos de 320px) */
 @media screen and (max-width: 320px) {
     .titulo-parpadeo {
-        font-size: 14px;
+        font-size: 20px;
         margin: 6px 0 4px 0;
         letter-spacing: 0.8px;
         font-weight: 700;
