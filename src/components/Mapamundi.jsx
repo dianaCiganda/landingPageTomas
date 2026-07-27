@@ -147,58 +147,53 @@ const Mapamundi = () => {
         riseOnHover: true,
       }).addTo(map);
 
-      const popupOptions = {
-        className: 'custom-popup',
-        maxWidth: isMobile ? window.innerWidth - 40 : 380,
-        minWidth: isMobile ? 200 : 280,
-        closeButton: true,
-        closeOnClick: false,
-        autoClose: false,
-        autoPan: true,
-        autoPanPadding: [isMobile ? 10 : 50, isMobile ? 10 : 50],
-        keepInView: true,
-        offset: [0, -10]
-      };
-
+     const popupOptions = {
+  className: 'custom-popup',
+  maxWidth: isMobile ? window.innerWidth - 40 : 380,
+  minWidth: isMobile ? 200 : 280,
+  closeButton: true,
+  closeOnClick: false,
+  autoClose: false,
+  autoPan: true,
+  autoPanPadding: [isMobile ? 10 : 50, isMobile ? 10 : 50],
+  keepInView: true,
+  interactive: true,
+  offset: [0, -10]
+};
       marker.bindPopup(crearPopupHTML(colab), popupOptions);
+marker.on("popupopen", function () {
 
-      // Evento para móvil: touch/click
-      marker.on('click', function (e) {
-        L.DomEvent.stopPropagation(e);
-        const popup = this.getPopup();
-        if (popup && popup.isOpen()) {
-          this.closePopup();
-        } else {
-          this.openPopup();
-          if (isMobile) {
-            setTimeout(() => {
-              const latlng = this.getLatLng();
-              map.panTo(latlng, { animate: true, duration: 0.3 });
-            }, 100);
-          }
-        }
+    const popup = this.getPopup();
+
+    if (!popup) return;
+
+    setTimeout(() => {
+        map.panInside(
+            this.getLatLng(),
+            {
+                padding: [40, 40]
+            }
+        );
+    }, 100);
+
+});
+        // En móvil también manejar touchstart para mejor respuesta
+   marker.on("click", function (e) {
+  L.DomEvent.stop(e);
+
+  if (this.isPopupOpen()) {
+    this.closePopup();
+  } else {
+    this.openPopup();
+
+    setTimeout(() => {
+      map.panTo(this.getLatLng(), {
+        animate: true,
+        duration: 0.3
       });
-
-      // En móvil también manejar touchstart para mejor respuesta
-      if (isMobile) {
-        marker.on('touchstart', function (e) {
-          L.DomEvent.stopPropagation(e);
-          const popup = this.getPopup();
-          if (popup && popup.isOpen()) {
-            // No hacer nada si ya está abierto
-          } else {
-            // Abrir el popup en touchstart
-            setTimeout(() => {
-              this.openPopup();
-              setTimeout(() => {
-                const latlng = this.getLatLng();
-                map.panTo(latlng, { animate: true, duration: 0.3 });
-              }, 100);
-            }, 50);
-          }
-        });
-      }
-
+    }, 100);
+  }
+});
       // En desktop: hover para abrir
       if (!isMobile) {
         marker.on('mouseover', function () {
@@ -218,18 +213,33 @@ const Mapamundi = () => {
 
     const isMobile = window.innerWidth < 768;
 
-    const map = L.map('map', {
-      zoomControl: false,
-      fadeAnimation: true,
-      zoomAnimation: true,
-      inertia: true,
-      worldCopyJump: false,
-      maxBounds: [[-90, -180], [90, 180]],
-      maxBoundsViscosity: 1.0,
-      center: [0, 0],
-      zoom: 2,
-    });
+   const map = L.map("map", {
 
+    zoomControl: false,
+
+    fadeAnimation: true,
+
+    zoomAnimation: true,
+
+    markerZoomAnimation: true,
+
+    inertia: true,
+
+    tap: true,
+
+    tapTolerance: 20,
+
+    worldCopyJump: false,
+
+    maxBounds: [[-90, -180], [90, 180]],
+
+    maxBoundsViscosity: 1.0,
+
+    center: [0,0],
+
+    zoom: 2
+
+});
     map.getPane('popupPane').style.zIndex = 9999;
     map.getPane('popupPane').style.pointerEvents = 'auto';
 
@@ -270,14 +280,26 @@ const Mapamundi = () => {
     window.addEventListener('resize', handleResize);
 
     // Cerrar popups al hacer click fuera en móvil
-    if (isMobile) {
-      map.on('click', function(e) {
-        // Solo cerrar si no se hizo click en un marcador
-        if (!e.originalEvent || !e.originalEvent.target || !e.originalEvent.target.closest('.custom-marker')) {
-          map.closePopup();
-        }
-      });
+   if (isMobile) {
+
+  map.on("click", function (e) {
+
+    const target = e.originalEvent?.target;
+
+    // Si tocó un marcador o el popup, no hacer nada
+    if (
+      target?.closest(".custom-marker") ||
+      target?.closest(".leaflet-popup")
+    ) {
+      return;
     }
+
+    // Si tocó cualquier otra parte del mapa
+    map.closePopup();
+
+  });
+
+}
 
     return () => {
       window.removeEventListener('resize', handleResize);

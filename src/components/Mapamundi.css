@@ -128,10 +128,29 @@
   color: white;
 }
 
-.leaflet-popup-pane,
-.leaflet-popup,
+.leaflet-popup-pane {
+  z-index: 9999;
+}
+
+.leaflet-popup {
+  z-index: 9999;
+  pointer-events: auto;
+}
+
 .custom-popup {
   z-index: 9999;
+}
+
+.leaflet-popup-content-wrapper {
+  pointer-events: auto;
+}
+
+.leaflet-popup-content {
+  pointer-events: auto;
+}
+
+.custom-marker div {
+  pointer-events: none;
 }
 
 /* RESPONSIVE */
@@ -174,10 +193,13 @@
     font-size: 20px;
   }
 
-  /* Mejorar área táctil en móvil */
-  .custom-marker {
-    touch-action: manipulation !important;
-  }
+.custom-marker {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+.custom-marker div {
+  pointer-events: none;
+}
 }
 
 @media (max-width: 480px) {
@@ -193,4 +215,15 @@
     max-width: 240px;
     min-width: 160px;
   }
+}
+.custom-marker div {
+    pointer-events: none;
+}
+
+.leaflet-popup-content-wrapper {
+    pointer-events: auto;
+}
+
+.leaflet-popup-content {
+    pointer-events: auto;
 }
