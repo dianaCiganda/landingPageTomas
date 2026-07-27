@@ -58,13 +58,11 @@ const Mapamundi = () => {
     const flagSize = isMobile ? '28px' : '32px';
     const textSize = isMobile ? '13px' : '14px';
 
-    const flagUrl = getFlagUrl(colab.flagCode);
-
     return `
       <div style="padding:${padding}; min-width:${isMobile ? '200px' : '240px'}; max-width:${popupWidth}; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5);">
         <div style="margin-bottom:10px;">
           <h3 style="margin:0; color:white; font-size:${fontSize}; font-weight:700; display:flex; align-items:center; gap:10px;">
-            <img src="${flagUrl}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
+            <img src="${getFlagUrl(colab.flagCode)}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
             ${colab.nombre}
           </h3>
           <div style="color:#8899aa; font-size:${isMobile ? '12px' : '13px'}; margin-top:2px;">${colab.region}, ${colab.pais}</div>
@@ -101,8 +99,42 @@ const Mapamundi = () => {
     `;
   };
 
-  const crearMarcadores = (map) => {
+  useEffect(() => {
+    if (!containerRef.current || mapRef.current) return;
+
     const isMobile = window.innerWidth < 768;
+
+    const map = L.map(containerRef.current, {
+      zoomControl: false,
+      fadeAnimation: true,
+      zoomAnimation: true,
+      markerZoomAnimation: true,
+      inertia: true,
+      tap: true,
+      tapTolerance: 15,
+      center: [0, 0],
+      zoom: 2,
+      maxBounds: [[-90, -180], [90, 180]],
+      maxBoundsViscosity: 1.0,
+      worldCopyJump: false,
+    });
+
+    mapRef.current = map;
+
+    map.getPane('popupPane').style.zIndex = 9999;
+    map.getPane('popupPane').style.pointerEvents = 'auto';
+
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/">CARTO</a>',
+      maxZoom: 19,
+      minZoom: 2,
+      noWrap: true,
+      bounds: [[-90, -180], [90, 180]],
+    }).addTo(map);
+
+    const bounds = L.latLngBounds(colaboraciones.map(c => c.coordenadas));
 
     colaboraciones.forEach((colab) => {
       const markerSize = isMobile ? 56 : 44;
@@ -155,69 +187,31 @@ const Mapamundi = () => {
         offset: [0, -10],
       });
 
-      marker.on('popupopen', function () {
-        setTimeout(() => {
-          map.panInside(this.getLatLng(), { padding: [40, 40] });
-        }, 80);
-      });
-
-      marker.on('click', function () {
+      const togglePopup = function () {
         if (this.isPopupOpen()) {
           this.closePopup();
-          return;
+        } else {
+          this.openPopup();
         }
-        this.openPopup();
-        setTimeout(() => {
-          map.panTo(this.getLatLng(), { animate: true, duration: 0.25 });
-        }, 50);
-      });
+      };
 
-      if (!isMobile) {
+      if (isMobile) {
+        marker.on('pointerup', function (e) {
+          e.originalEvent?.preventDefault?.();
+          e.originalEvent?.stopPropagation?.();
+          togglePopup.call(this);
+        });
+      } else {
+        marker.on('click', function () {
+          togglePopup.call(this);
+        });
+
         marker.on('mouseover', function () {
           if (!this.isPopupOpen()) this.openPopup();
         });
       }
     });
-  };
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    if (mapRef.current) return;
-
-    const isMobile = window.innerWidth < 768;
-
-    const map = L.map(containerRef.current, {
-      zoomControl: false,
-      fadeAnimation: true,
-      zoomAnimation: true,
-      markerZoomAnimation: true,
-      inertia: true,
-      tap: false,
-      worldCopyJump: false,
-      maxBounds: [[-90, -180], [90, 180]],
-      maxBoundsViscosity: 1.0,
-      center: [0, 0],
-      zoom: 2,
-    });
-
-    mapRef.current = map;
-
-    map.getPane('popupPane').style.zIndex = 9999;
-    map.getPane('popupPane').style.pointerEvents = 'auto';
-
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/">CARTO</a>',
-      maxZoom: 19,
-      minZoom: 2,
-      noWrap: true,
-      bounds: [[-90, -180], [90, 180]],
-    }).addTo(map);
-
-    crearMarcadores(map);
-
-    const bounds = L.latLngBounds(colaboraciones.map(c => c.coordenadas));
     map.fitBounds(bounds, { padding: [isMobile ? 20 : 50, isMobile ? 20 : 50] });
 
     const handleResize = () => {
@@ -228,14 +222,6 @@ const Mapamundi = () => {
     };
 
     window.addEventListener('resize', handleResize);
-
-    if (isMobile) {
-      map.on('click', (e) => {
-        const target = e.originalEvent?.target;
-        if (target?.closest('.custom-marker') || target?.closest('.leaflet-popup')) return;
-        map.closePopup();
-      });
-    }
 
     setTimeout(() => {
       map.invalidateSize();
