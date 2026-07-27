@@ -17,14 +17,11 @@ const ProjectDetail = () => {
     document.documentElement.scrollTop = 0;
   }, [location.pathname]);
 
-  // Obtener el ID de la URL
   const pathParts = location.pathname.split('/');
   const id = parseInt(pathParts[pathParts.length - 1]);
   
-  // Buscar el proyecto en los datos
   const project = projects.find(p => p.id === id);
 
-  // Función para obtener publicaciones relacionadas
   const getRelatedPublications = (projectId) => {
     if (!projectId) return [];
     return publications.filter(pub => 
@@ -32,7 +29,6 @@ const ProjectDetail = () => {
     );
   };
 
-  // Si no se encuentra el proyecto, mostrar mensaje
   if (!project) {
     return (
       <ProfileTemplate title="Tomás I. Marina">
@@ -46,10 +42,8 @@ const ProjectDetail = () => {
     );
   }
 
-  // Obtener publicaciones relacionadas
   const relatedPublications = getRelatedPublications(project.id);
 
-  // Función para convertir URLs en enlaces clickeables (SIN SUBRAYADO)
   const renderTextWithLinks = (text) => {
     if (!text) return text;
     
@@ -74,7 +68,6 @@ const ProjectDetail = () => {
     });
   };
 
-  // Función para formatear el overview con items A, B, C, D
   const renderOverview = (text) => {
     if (!text) return text;
     
@@ -95,7 +88,6 @@ const ProjectDetail = () => {
     return formattedLines.join('\n');
   };
 
-  // Función para resaltar texto en la búsqueda
   const highlightText = (text, searchTerm) => {
     if (!searchTerm || !text) return text;
     
@@ -114,7 +106,6 @@ const ProjectDetail = () => {
     );
   };
 
-  // Función para verificar si el texto contiene la búsqueda
   const matchesSearch = (text, searchTerm) => {
     if (!searchTerm) return true;
     const searchLower = searchTerm.toLowerCase().trim();
@@ -122,10 +113,8 @@ const ProjectDetail = () => {
     return text.toLowerCase().includes(searchLower);
   };
 
-  // Verificar si hay búsqueda
   const hasSearch = searchTerm.trim().length > 0;
 
-  // Verificar si el proyecto coincide con la búsqueda
   const projectMatches = hasSearch ? (
     matchesSearch(project.title, searchTerm) ||
     matchesSearch(project.aim, searchTerm) ||
@@ -136,7 +125,6 @@ const ProjectDetail = () => {
     matchesSearch(project.funding, searchTerm)
   ) : true;
 
-  // Contar resultados encontrados
   const getMatchCount = () => {
     if (!hasSearch) return 0;
     let count = 0;
@@ -147,7 +135,6 @@ const ProjectDetail = () => {
     if (matchesSearch(project.role, searchTerm)) count++;
     if (matchesSearch(project.overview, searchTerm)) count++;
     if (matchesSearch(project.funding, searchTerm)) count++;
-    // Contar también en publicaciones relacionadas
     relatedPublications.forEach(pub => {
       if (matchesSearch(pub.title, searchTerm)) count++;
       if (matchesSearch(pub.authors, searchTerm)) count++;
@@ -160,7 +147,6 @@ const ProjectDetail = () => {
 
   const matchCount = getMatchCount();
 
-  // Función para resaltar "Tomás I. Marina"
   const highlightAuthor = (text) => {
     const nameToHighlight = "Tomás I. Marina";
     if (!text) return text;
@@ -185,7 +171,6 @@ const ProjectDetail = () => {
     );
   };
 
-  // Función para manejar el click en "All projects"
   const handleGoToProjects = (e) => {
     e.preventDefault();
     navigate('/projects');
@@ -194,13 +179,11 @@ const ProjectDetail = () => {
     }, 0);
   };
 
-  // Función para manejar el click en publicación relacionada
   const handlePublicationClick = (e, id) => {
     e.preventDefault();
     navigate(`/publication-detail/${id}`);
   };
 
-  // Función para obtener la ruta correcta de la imagen
   const getImagePath = (path) => {
     if (!path) return '';
     if (path.startsWith(import.meta.env.BASE_URL)) {
@@ -215,14 +198,11 @@ const ProjectDetail = () => {
     return `${import.meta.env.BASE_URL}${path}`;
   };
 
-  // Función para renderizar texto con enlaces (para overview y funding)
   const renderTextWithLinksAndHighlight = (text, searchTerm, hasSearch) => {
     if (!text) return text;
     
-    // Primero aplicar renderTextWithLinks para convertir URLs en enlaces
     const withLinks = renderTextWithLinks(text);
     
-    // Luego aplicar highlight si hay búsqueda
     if (hasSearch) {
       return highlightText(withLinks, searchTerm);
     }
@@ -232,7 +212,6 @@ const ProjectDetail = () => {
 
   return (
     <ProfileTemplate title="Tomás I. Marina">
-      {/* FILTRO DE BÚSQUEDA */}
       <SearchFilter 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -241,7 +220,6 @@ const ProjectDetail = () => {
         resultsLabel={matchCount !== 1 ? 'matches' : 'match'}
       />
 
-      {/* MOSTRAR PROYECTO SOLO SI COINCIDE CON LA BÚSQUEDA */}
       {projectMatches ? (
         <div className="project-detail">
           {/* TÍTULO */}
@@ -278,17 +256,18 @@ const ProjectDetail = () => {
             </p>
           </div>
 
-          {/* TEAM */}
-          <div className="project-detail-section">
-            <h2 className="section-subtitle">Team</h2>
-            <ul className="project-detail-list">
-              {project.team.map((member, index) => (
-                <li key={index} className="project-detail-list-item">
-                  {hasSearch ? highlightText(member, searchTerm) : highlightAuthor(member)}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* TEAM - CON ESPACIO DE PÁRRAFO IGUAL QUE OVERVIEW */}
+          {/* TEAM - CON SALTOS DE LÍNEA */}
+<div className="project-detail-section">
+  <h2 className="section-subtitle">Team</h2>
+  <div className="project-detail-text team-text">
+    {project.team.map((member, index) => (
+      <div key={index} className="team-member-line">
+        {hasSearch ? highlightText(member.trim(), searchTerm) : highlightAuthor(member.trim())}
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* ROLE */}
           <div className="project-detail-section">
@@ -326,7 +305,6 @@ const ProjectDetail = () => {
               <h2 className="section-subtitle">Related Publications</h2>
               <div className="related-publications-grid">
                 {relatedPublications.map((pub) => {
-                  // Verificar si la publicación coincide con la búsqueda
                   const pubMatches = hasSearch ? (
                     matchesSearch(pub.title, searchTerm) ||
                     matchesSearch(pub.authors, searchTerm) ||
@@ -335,7 +313,6 @@ const ProjectDetail = () => {
                     matchesSearch(pub.doi, searchTerm)
                   ) : true;
 
-                  // Si no coincide, no mostrar
                   if (!pubMatches) return null;
 
                   return (
@@ -406,7 +383,6 @@ const ProjectDetail = () => {
           </div>
         </div>
       ) : (
-        /* MENSAJE DE NO RESULTADOS */
         <div className="no-results">
           <i className="fas fa-search no-results-icon"></i>
           <p className="no-results-text">

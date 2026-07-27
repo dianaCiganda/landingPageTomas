@@ -68,6 +68,7 @@
   outline: none;
 }
 
+/* Estilos de Leaflet - sobreescribir con mayor especificidad */
 .leaflet-control-zoom {
   border: none;
   background: rgba(13, 21, 32, 0.9);
@@ -98,6 +99,7 @@
   border-bottom: none;
 }
 
+/* Popups personalizados */
 .custom-popup .leaflet-popup-content-wrapper {
   background: transparent;
   box-shadow: none;
@@ -128,14 +130,9 @@
   color: white;
 }
 
-.leaflet-popup-pane {
-  z-index: 9999;
-}
-
-.leaflet-popup {
-  z-index: 9999;
-}
-
+/* Z-index para popups */
+.leaflet-popup-pane,
+.leaflet-popup,
 .custom-popup {
   z-index: 9999;
 }
@@ -160,8 +157,9 @@
   }
 
   .custom-popup .leaflet-popup-content {
-    max-width: 260px;
-    min-width: 220px;
+    max-width: 280px;
+    min-width: 200px;
+    padding: 0;
   }
 
   .custom-popup .leaflet-popup-tip {
@@ -172,11 +170,12 @@
     font-size: 1.2rem;
     padding: 8px 12px;
   }
-
+  
+  /* Marcadores más grandes en móvil */
   .custom-marker div {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 18px !important;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
   }
 }
 
@@ -190,7 +189,7 @@
   }
 
   .custom-popup .leaflet-popup-content {
-    max-width: 220px;
-    min-width: 180px;
+    max-width: 240px;
+    min-width: 160px;
   }
 }
