@@ -16,7 +16,7 @@ const Mapamundi = () => {
       region: 'Baja California Sur',
       coordenadas: [24.142, -110.31],
       color: '#0a6b8a',
-      emoji: '🇲🇽',
+      flagCode: 'mx',
       colaboracion: {
         titulo: 'Investigación Marina',
         institucion: 'UABC · CICESE',
@@ -35,7 +35,7 @@ const Mapamundi = () => {
       region: 'Magallanes',
       coordenadas: [-53.163, -70.917],
       color: '#1a7a4a',
-      emoji: '🇨🇱',
+      flagCode: 'cl',
       colaboracion: {
         titulo: 'Investigación Polar',
         institucion: 'CONICET · UMAG',
@@ -49,40 +49,54 @@ const Mapamundi = () => {
     }
   ];
 
+  // Función para obtener la URL de la bandera
+  const getFlagUrl = (code) => {
+    return `https://flagcdn.com/w40/${code}.png`;
+  };
+
   const crearPopupHTML = (colab) => {
+    const isMobile = window.innerWidth < 768;
+    const popupWidth = isMobile ? '260px' : '340px';
+    const fontSize = isMobile ? '14px' : '18px';
+    const padding = isMobile ? '12px' : '16px';
+    const flagSize = isMobile ? '24px' : '32px';
+
+    const flagUrl = getFlagUrl(colab.flagCode);
+
     return `
-      <div style="padding: 16px; min-width: 280px; max-width: 340px; color: #e8edf5; background: #0d1520; border-radius: 16px; border: 1px solid rgba(74, 158, 255, 0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-        <div style="margin-bottom: 12px;">
-          <h3 style="margin: 0; color: white; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            ${colab.emoji} ${colab.nombre}
+      <div style="padding: ${padding}; min-width: 240px; max-width: ${popupWidth}; color: #e8edf5; background: #0d1520; border-radius: 16px; border: 1px solid rgba(74, 158, 255, 0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+        <div style="margin-bottom: 10px;">
+          <h3 style="margin: 0; color: white; font-size: ${fontSize}; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+            <img src="${flagUrl}" alt="${colab.pais}" style="width: ${flagSize}; height: ${flagSize}; object-fit: cover; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.3);">
+            ${colab.nombre}
           </h3>
-          <div style="color: #8899aa; font-size: 13px; margin-top: 2px;">${colab.region}, ${colab.pais}</div>
+          <div style="color: #8899aa; font-size: ${isMobile ? '11px' : '13px'}; margin-top: 2px;">${colab.region}, ${colab.pais}</div>
         </div>
 
-        <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 8px 0 12px 0;">
+        <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 6px 0 10px 0;">
 
-        <div style="display: inline-block; background: ${colab.color}25; color: ${colab.color}; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid ${colab.color}40; margin-bottom: 12px;">
+        <div style="display: inline-block; background: ${colab.color}25; color: ${colab.color}; padding: 3px 12px; border-radius: 20px; font-size: ${isMobile ? '10px' : '12px'}; font-weight: 600; border: 1px solid ${colab.color}40; margin-bottom: 10px;">
           🔬 ${colab.colaboracion.titulo}
         </div>
 
-        <div style="background: rgba(255,255,255,0.03); border-radius: 10px; padding: 10px 12px; margin: 8px 0 12px 0;">
-          <div style="color: white; font-weight: 600; font-size: 15px;">${colab.colaboracion.cientifico}</div>
-          <div style="color: #8899aa; font-size: 13px;">${colab.colaboracion.especialidad}</div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 10px; padding: 8px 10px; margin: 6px 0 10px 0;">
+          <div style="color: white; font-weight: 600; font-size: ${isMobile ? '13px' : '15px'};">${colab.colaboracion.cientifico}</div>
+          <div style="color: #8899aa; font-size: ${isMobile ? '11px' : '13px'};">${colab.colaboracion.especialidad}</div>
         </div>
 
-        <p style="color: #99aabb; font-size: 14px; margin: 0 0 12px 0; line-height: 1.6;">${colab.colaboracion.descripcion}</p>
+        <p style="color: #99aabb; font-size: ${isMobile ? '12px' : '14px'}; margin: 0 0 10px 0; line-height: 1.5;">${colab.colaboracion.descripcion}</p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px;">
           ${colab.colaboracion.proyectos.map(p => 
-            `<span style="background: #4a9eff18; padding: 4px 14px; border-radius: 14px; font-size: 12px; color: #4a9eff; border: 1px solid #4a9eff25;">${p}</span>`
+            `<span style="background: #4a9eff18; padding: ${isMobile ? '2px 10px' : '4px 14px'}; border-radius: 14px; font-size: ${isMobile ? '10px' : '12px'}; color: #4a9eff; border: 1px solid #4a9eff25;">${p}</span>`
           ).join('')}
         </div>
 
-        <div style="font-size: 13px; color: #667788; margin-bottom: 10px;">
+        <div style="font-size: ${isMobile ? '11px' : '13px'}; color: #667788; margin-bottom: 8px;">
           📅 ${colab.colaboracion.fecha}
         </div>
 
-        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #556677; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; justify-content: space-between; font-size: ${isMobile ? '10px' : '12px'}; color: #556677; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 4px;">
           <span>🏛️ ${colab.colaboracion.institucion}</span>
           <span style="color: #4a9eff; font-weight: 500;">🤝 ${colab.colaboracion.colaborador}</span>
         </div>
@@ -127,20 +141,34 @@ const Mapamundi = () => {
         riseOnHover: true,
       }).addTo(map);
 
+      const isMobile = window.innerWidth < 768;
+      
       marker.bindPopup(crearPopupHTML(colab), {
         className: 'custom-popup',
-        maxWidth: 380,
-        minWidth: 280,
+        maxWidth: isMobile ? 280 : 380,
+        minWidth: isMobile ? 240 : 280,
         closeButton: true,
-        closeOnClick: false,
+        closeOnClick: true,
         autoClose: false,
         autoPan: true,
-        autoPanPadding: [50, 50],
+        autoPanPadding: [isMobile ? 20 : 50, isMobile ? 20 : 50],
         keepInView: true,
       });
 
-      marker.on('mouseover', function () {
-        this.openPopup();
+      if (!isMobile) {
+        marker.on('mouseover', function () {
+          this.openPopup();
+        });
+      }
+
+      marker.on('click', function (e) {
+        L.DomEvent.stopPropagation(e);
+        const popup = this.getPopup();
+        if (popup.isOpen()) {
+          this.closePopup();
+        } else {
+          this.openPopup();
+        }
       });
     });
   };
@@ -172,7 +200,6 @@ const Mapamundi = () => {
       position: 'bottomright'
     }).addTo(map);
 
-    // MAPA OSCURO - Estilo CartoDB Dark
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/">CARTO</a>',
       maxZoom: 19,
