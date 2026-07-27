@@ -84,7 +84,7 @@ const Supervision = ({ supervision = [], publications = [] }) => {
                   
                   {sup.relatedPublication && (
                     <p className="supervision-field publication-field">
-                      <span className="supervision-label">Related publication</span>
+                      <span className="supervision-label">Related Publication</span>
                       <span 
                         className="publication-link" 
                         onClick={() => handlePublicationClick(sup.relatedPublication.id)}
@@ -146,7 +146,7 @@ const Supervision = ({ supervision = [], publications = [] }) => {
                   
                   {sup.relatedPublication && (
                     <p className="supervision-field publication-field">
-                      <span className="supervision-label">Related publication</span>
+                      <span className="supervision-label">Related Publication</span>
                       <span 
                         className="publication-link" 
                         onClick={() => handlePublicationClick(sup.relatedPublication.id)}
