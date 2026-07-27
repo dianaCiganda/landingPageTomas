@@ -57,43 +57,46 @@ const Mapamundi = () => {
     const padding = isMobile ? '12px' : '16px';
     const flagSize = isMobile ? '24px' : '32px';
     const textSize = isMobile ? '12px' : '14px';
+    const maxHeight = isMobile ? '300px' : 'auto';
 
     return `
-      <div style="padding:${padding}; width:${popupWidth}; max-width:100%; box-sizing:border-box; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5); overflow:hidden;">
-        <div style="margin-bottom:10px;">
-          <h3 style="margin:0; color:white; font-size:${fontSize}; font-weight:700; display:flex; align-items:center; gap:10px;">
-            <img src="${getFlagUrl(colab.flagCode)}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
-            ${colab.nombre}
-          </h3>
-          <div style="color:#8899aa; font-size:${isMobile ? '12px' : '13px'}; margin-top:2px;">${colab.region}, ${colab.pais}</div>
-        </div>
+      <div style="padding:${padding}; width:${popupWidth}; max-width:100%; box-sizing:border-box; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5); overflow:hidden; max-height:${maxHeight}; display:flex; flex-direction:column;">
+        <div style="flex-shrink:0; overflow-y:auto; -webkit-overflow-scrolling:touch; padding-right:4px;">
+          <div style="margin-bottom:10px;">
+            <h3 style="margin:0; color:white; font-size:${fontSize}; font-weight:700; display:flex; align-items:center; gap:10px;">
+              <img src="${getFlagUrl(colab.flagCode)}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
+              ${colab.nombre}
+            </h3>
+            <div style="color:#8899aa; font-size:${isMobile ? '12px' : '13px'}; margin-top:2px;">${colab.region}, ${colab.pais}</div>
+          </div>
 
-        <hr style="border:none; border-top:1px solid rgba(255,255,255,0.08); margin:6px 0 10px 0;">
+          <hr style="border:none; border-top:1px solid rgba(255,255,255,0.08); margin:6px 0 10px 0;">
 
-        <div style="display:inline-block; background:${colab.color}25; color:${colab.color}; padding:3px 12px; border-radius:20px; font-size:${isMobile ? '11px' : '12px'}; font-weight:600; border:1px solid ${colab.color}40; margin-bottom:10px;">
-          🔬 ${colab.colaboracion.titulo}
-        </div>
+          <div style="display:inline-block; background:${colab.color}25; color:${colab.color}; padding:3px 12px; border-radius:20px; font-size:${isMobile ? '11px' : '12px'}; font-weight:600; border:1px solid ${colab.color}40; margin-bottom:10px;">
+            🔬 ${colab.colaboracion.titulo}
+          </div>
 
-        <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:8px 10px; margin:6px 0 10px 0;">
-          <div style="color:white; font-weight:600; font-size:${isMobile ? '14px' : '15px'};">${colab.colaboracion.cientifico}</div>
-          <div style="color:#8899aa; font-size:${isMobile ? '12px' : '13px'};">${colab.colaboracion.especialidad}</div>
-        </div>
+          <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:8px 10px; margin:6px 0 10px 0;">
+            <div style="color:white; font-weight:600; font-size:${isMobile ? '14px' : '15px'};">${colab.colaboracion.cientifico}</div>
+            <div style="color:#8899aa; font-size:${isMobile ? '12px' : '13px'};">${colab.colaboracion.especialidad}</div>
+          </div>
 
-        <p style="color:#99aabb; font-size:${textSize}; margin:0 0 10px 0; line-height:1.5;">${colab.colaboracion.descripcion}</p>
+          <p style="color:#99aabb; font-size:${textSize}; margin:0 0 10px 0; line-height:1.5;">${colab.colaboracion.descripcion}</p>
 
-        <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px;">
-          ${colab.colaboracion.proyectos.map(p => `
-            <span style="background:#4a9eff18; padding:${isMobile ? '3px 10px' : '4px 14px'}; border-radius:14px; font-size:${isMobile ? '11px' : '12px'}; color:#4a9eff; border:1px solid #4a9eff25;">${p}</span>
-          `).join('')}
-        </div>
+          <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px;">
+            ${colab.colaboracion.proyectos.map(p => `
+              <span style="background:#4a9eff18; padding:${isMobile ? '3px 10px' : '4px 14px'}; border-radius:14px; font-size:${isMobile ? '11px' : '12px'}; color:#4a9eff; border:1px solid #4a9eff25;">${p}</span>
+            `).join('')}
+          </div>
 
-        <div style="font-size:${isMobile ? '12px' : '13px'}; color:#667788; margin-bottom:8px;">
-          📅 ${colab.colaboracion.fecha}
-        </div>
+          <div style="font-size:${isMobile ? '12px' : '13px'}; color:#667788; margin-bottom:8px;">
+            📅 ${colab.colaboracion.fecha}
+          </div>
 
-        <div style="display:flex; justify-content:space-between; font-size:${isMobile ? '11px' : '12px'}; color:#556677; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; gap:4px;">
-          <span>🏛️ ${colab.colaboracion.institucion}</span>
-          <span style="color:#4a9eff; font-weight:500;">🤝 ${colab.colaboracion.colaborador}</span>
+          <div style="display:flex; justify-content:space-between; font-size:${isMobile ? '11px' : '12px'}; color:#556677; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; gap:4px;">
+            <span>🏛️ ${colab.colaboracion.institucion}</span>
+            <span style="color:#4a9eff; font-weight:500;">🤝 ${colab.colaboracion.colaborador}</span>
+          </div>
         </div>
       </div>
     `;
