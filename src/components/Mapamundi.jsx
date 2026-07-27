@@ -52,14 +52,14 @@ const Mapamundi = () => {
 
   const crearPopupHTML = (colab) => {
     const isMobile = window.innerWidth < 768;
-    const popupWidth = isMobile ? '280px' : '340px';
-    const fontSize = isMobile ? '15px' : '18px';
-    const padding = isMobile ? '14px' : '16px';
-    const flagSize = isMobile ? '28px' : '32px';
-    const textSize = isMobile ? '13px' : '14px';
+    const popupWidth = isMobile ? 'min(82vw, 260px)' : '340px';
+    const fontSize = isMobile ? '14px' : '18px';
+    const padding = isMobile ? '12px' : '16px';
+    const flagSize = isMobile ? '24px' : '32px';
+    const textSize = isMobile ? '12px' : '14px';
 
     return `
-      <div style="padding:${padding}; min-width:${isMobile ? '200px' : '240px'}; max-width:${popupWidth}; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+      <div style="padding:${padding}; width:${popupWidth}; max-width:100%; box-sizing:border-box; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5); overflow:hidden;">
         <div style="margin-bottom:10px;">
           <h3 style="margin:0; color:white; font-size:${fontSize}; font-weight:700; display:flex; align-items:center; gap:10px;">
             <img src="${getFlagUrl(colab.flagCode)}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
@@ -175,13 +175,13 @@ const Mapamundi = () => {
 
       marker.bindPopup(crearPopupHTML(colab), {
         className: 'custom-popup',
-        maxWidth: isMobile ? window.innerWidth - 40 : 380,
-        minWidth: isMobile ? 200 : 280,
+        maxWidth: isMobile ? Math.min(window.innerWidth - 24, 280) : 380,
+        minWidth: isMobile ? 0 : 280,
         closeButton: true,
         closeOnClick: false,
         autoClose: false,
         autoPan: true,
-        autoPanPadding: [isMobile ? 20 : 50, isMobile ? 20 : 50],
+        autoPanPadding: [isMobile ? 12 : 50, isMobile ? 12 : 50],
         keepInView: true,
         interactive: true,
         offset: [0, -10],
