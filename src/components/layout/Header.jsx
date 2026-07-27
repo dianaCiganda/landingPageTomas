@@ -18,29 +18,12 @@ const Header = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+useEffect(() => {
+  if (location.pathname === "/" && location.state?.scrollTo) {
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+    const sectionId = location.state.scrollTo;
 
-  // Navegar a una sección del Home
-  const goToHomeSection = (sectionId) => {
-    closeMenu();
-
-    if (location.pathname !== "/") {
-      navigate("/");
-
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-
-        if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      }, 400);
-    } else {
+    setTimeout(() => {
       const element = document.getElementById(sectionId);
 
       if (element) {
@@ -49,8 +32,33 @@ const Header = () => {
           block: "start",
         });
       }
-    }
+    }, 300);
+
+  }
+}, [location]);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
+
+  // Navegar a una sección del Home
+  const goToHomeSection = (sectionId) => {
+  closeMenu();
+
+  if (location.pathname !== "/") {
+    navigate("/", {
+      state: { scrollTo: sectionId }
+    });
+  } else {
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }
+};
 
   // Navegar a otra página
   const goToPage = (path) => {
@@ -67,7 +75,7 @@ const Header = () => {
 
     // Navegar a la página
     navigate(path);
-    
+
     // Forzar scroll al inicio después de la navegación
     setTimeout(() => {
       window.scrollTo({
@@ -80,7 +88,7 @@ const Header = () => {
   // Manejar click en Projects - comportamiento especial
   const handleProjectsClick = () => {
     closeMenu(); // Cerrar el menú primero
-    
+
     // Si estamos en home, ir a la sección projects
     if (location.pathname === "/") {
       const element = document.getElementById("projects");
@@ -92,7 +100,7 @@ const Header = () => {
       }
       return;
     }
-    
+
     // Si estamos en projects, hacer scroll al inicio
     if (location.pathname === "/projects") {
       window.scrollTo({
@@ -101,7 +109,7 @@ const Header = () => {
       });
       return;
     }
-    
+
     // Si estamos en otra página, navegar a projects
     navigate("/projects");
     setTimeout(() => {
@@ -128,7 +136,7 @@ const Header = () => {
           </li>
 
           <li>
-           <button
+            <button
               onClick={() => goToPage("/projects")}
               className={isActive("/projects") ? "active" : ""}
             >
@@ -145,11 +153,14 @@ const Header = () => {
             </button>
           </li>
 
-          <li>
-            <button onClick={() => goToHomeSection("supervision")}>
-              Supervision
-            </button>
-          </li>
+        <li>
+  <button
+    onClick={() => goToPage("/supervision")}
+    className={isActive("/supervision") ? "active" : ""}
+  >
+    Supervision
+  </button>
+</li>
 
           <li>
             <button onClick={() => goToHomeSection("teaching")}>

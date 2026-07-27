@@ -10,6 +10,8 @@ import Projects from "./components/sections/Projects";
 import ProjectDetail from "./components/sections/ProjectDetail"; // Importar
 import "./styles/App.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Supervision from "./components/sections/Supervision";
+import supervision from "./data/supervisionsData";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
         <Route path="/publication-detail/:id" element={<PublicationsDetail1 />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-detail/:id" element={<ProjectDetail />} /> {/* Nueva ruta */}
+        <Route
+          path="/supervision"
+          element={<Supervision supervision={supervision} />}
+        />
       </Routes>
     </BrowserRouter>
   );
