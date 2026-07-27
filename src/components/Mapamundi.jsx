@@ -57,11 +57,28 @@ const Mapamundi = () => {
     const padding = isMobile ? '12px' : '16px';
     const flagSize = isMobile ? '24px' : '32px';
     const textSize = isMobile ? '12px' : '14px';
-    const maxHeight = isMobile ? '300px' : 'auto';
 
     return `
-      <div style="padding:${padding}; width:${popupWidth}; max-width:100%; box-sizing:border-box; color:#e8edf5; background:#0d1520; border-radius:16px; border:1px solid rgba(74,158,255,0.15); box-shadow:0 8px 32px rgba(0,0,0,0.5); overflow:hidden; max-height:${maxHeight}; display:flex; flex-direction:column;">
-        <div style="flex-shrink:0; overflow-y:auto; -webkit-overflow-scrolling:touch; padding-right:4px;">
+      <div class="popup-scroll-container" style="
+        padding:${padding}; 
+        width:${popupWidth}; 
+        max-width:100%; 
+        box-sizing:border-box; 
+        color:#e8edf5; 
+        background:#0d1520; 
+        border-radius:16px; 
+        border:1px solid rgba(74,158,255,0.15); 
+        box-shadow:0 8px 32px rgba(0,0,0,0.5); 
+        overflow-y:auto; 
+        max-height:${isMobile ? '60vh' : 'auto'};
+        -webkit-overflow-scrolling:touch;
+        overscroll-behavior:contain;
+        touch-action:pan-y;
+      ">
+        <div style="
+          padding-right:4px;
+          touch-action:pan-y;
+        ">
           <div style="margin-bottom:10px;">
             <h3 style="margin:0; color:white; font-size:${fontSize}; font-weight:700; display:flex; align-items:center; gap:10px;">
               <img src="${getFlagUrl(colab.flagCode)}" alt="${colab.pais}" style="width:${flagSize}; height:${flagSize}; object-fit:cover; border-radius:2px;">
@@ -195,6 +212,17 @@ const Mapamundi = () => {
           this.closePopup();
         } else {
           this.openPopup();
+          // Permitir scroll en móvil después de abrir
+          if (isMobile) {
+            setTimeout(() => {
+              const popupContent = document.querySelector('.custom-popup .leaflet-popup-content');
+              if (popupContent) {
+                popupContent.style.overflowY = 'auto';
+                popupContent.style.touchAction = 'pan-y';
+                popupContent.style.webkitOverflowScrolling = 'touch';
+              }
+            }, 50);
+          }
         }
       };
 
