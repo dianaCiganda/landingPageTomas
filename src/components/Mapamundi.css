@@ -68,7 +68,6 @@
   outline: none;
 }
 
-/* Estilos de Leaflet - sobreescribir con mayor especificidad */
 .leaflet-control-zoom {
   border: none;
   background: rgba(13, 21, 32, 0.9);
@@ -99,7 +98,6 @@
   border-bottom: none;
 }
 
-/* Popups personalizados */
 .custom-popup .leaflet-popup-content-wrapper {
   background: transparent;
   box-shadow: none;
@@ -130,7 +128,6 @@
   color: white;
 }
 
-/* Z-index para popups */
 .leaflet-popup-pane,
 .leaflet-popup,
 .custom-popup {
@@ -171,11 +168,15 @@
     padding: 8px 12px;
   }
   
-  /* Marcadores más grandes en móvil */
   .custom-marker div {
     width: 56px;
     height: 56px;
     font-size: 20px;
+  }
+
+  /* Mejorar área táctil en móvil */
+  .custom-marker {
+    touch-action: manipulation !important;
   }
 }
 

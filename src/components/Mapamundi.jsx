@@ -162,6 +162,7 @@ const Mapamundi = () => {
 
       marker.bindPopup(crearPopupHTML(colab), popupOptions);
 
+      // Evento para móvil: touch/click
       marker.on('click', function (e) {
         L.DomEvent.stopPropagation(e);
         const popup = this.getPopup();
@@ -178,6 +179,27 @@ const Mapamundi = () => {
         }
       });
 
+      // En móvil también manejar touchstart para mejor respuesta
+      if (isMobile) {
+        marker.on('touchstart', function (e) {
+          L.DomEvent.stopPropagation(e);
+          const popup = this.getPopup();
+          if (popup && popup.isOpen()) {
+            // No hacer nada si ya está abierto
+          } else {
+            // Abrir el popup en touchstart
+            setTimeout(() => {
+              this.openPopup();
+              setTimeout(() => {
+                const latlng = this.getLatLng();
+                map.panTo(latlng, { animate: true, duration: 0.3 });
+              }, 100);
+            }, 50);
+          }
+        });
+      }
+
+      // En desktop: hover para abrir
       if (!isMobile) {
         marker.on('mouseover', function () {
           this.openPopup();
@@ -225,9 +247,6 @@ const Mapamundi = () => {
 
     crearMarcadores(map);
 
-    // ELIMINADA: Línea conectora entre marcadores
-    // Ya no se crea la polyline
-
     mapRef.current = map;
 
     const bounds = L.latLngBounds(colaboraciones.map(c => c.coordenadas));
@@ -250,9 +269,13 @@ const Mapamundi = () => {
 
     window.addEventListener('resize', handleResize);
 
+    // Cerrar popups al hacer click fuera en móvil
     if (isMobile) {
-      map.on('click', function() {
-        map.closePopup();
+      map.on('click', function(e) {
+        // Solo cerrar si no se hizo click en un marcador
+        if (!e.originalEvent || !e.originalEvent.target || !e.originalEvent.target.closest('.custom-marker')) {
+          map.closePopup();
+        }
       });
     }
 
