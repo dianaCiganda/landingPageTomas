@@ -32,10 +32,7 @@ function InitialWorldView() {
   const map = useMap();
 
   useEffect(() => {
-    // Forzamos la actualización de tamaño para evitar desfasajes en responsive
     map.invalidateSize();
-    
-    // Centramos el mapa globalmente (lat: 0, lng: -20) con libertad de movimiento
     map.setView([0, -20], 1);
   }, [map]);
 
@@ -214,7 +211,6 @@ const Mapamundi = () => {
         bounceAtZoomLimits={false}
         worldCopyJump={false}
         className="leaflet-map"
-        // Sin maxBounds para permitir arrastrar completamente hacia el sur sin rebotes
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -258,12 +254,6 @@ const Mapamundi = () => {
                   {selectedCollaborator.city}
                 </p>
                 <p><strong>Institution Address:</strong><br />{selectedCollaborator.address}</p>
-                <p><strong>Collaboration:</strong><br />{selectedCollaborator.collaboration.split('\n').map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < selectedCollaborator.collaboration.split('\n').length - 1 && <br />}
-                  </span>
-                ))}</p>
                 <p><strong>Period:</strong><br />{selectedCollaborator.period}</p>
               </div>
 
