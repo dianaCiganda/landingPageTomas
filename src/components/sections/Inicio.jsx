@@ -26,8 +26,11 @@ const Inicio = () => {
             </div>
           </div>
         </div>
+        
+        <div className="map-wrapper">
+          <Mapamundi />
+        </div>
       </section>
-      <Mapamundi />
     </ProfileTemplate>
   );
 };

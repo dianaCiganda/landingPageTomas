@@ -87,7 +87,7 @@
     font-weight: 700;
     color: #1a2a3a;
     text-decoration: none;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     line-height: 1.3;
     transition: color 0.3s ease;
 }
@@ -106,57 +106,73 @@
 }
 
 /* ==========================================
-   METADATOS - ETIQUETAS MÁS GRANDES
+   METADATOS - Espaciado consistente
 ========================================== */
 
 .publication-meta {
-    margin: 12px 0 16px;
+    margin: 0 0 18px 0;
     font-size: 0.95rem;
     color: #444;
-    line-height: 1.5;
 }
 
-/* Espaciado entre párrafos de metadatos */
+/* Cada línea de metadato - espaciado vertical consistente */
 .publication-meta p {
-    margin: 6px 0;
-    line-height: 1.5;
+    margin: 8px 0;
+    line-height: 1.6;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+/* Línea de autores con el mismo espaciado */
+.publication-meta p.author-line {
+    margin: 8px 0;
+    line-height: 1.6;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
 /* ==========================================
-   ETIQUETAS (AUTOR, JOURNAL, YEAR, DOI) - MÁS GRANDES
+   ETIQUETAS (AUTOR, JOURNAL, YEAR, DOI)
 ========================================== */
 
 .meta-label {
     font-weight: 700;
     font-size: 1.05rem;
     color: #1a2a3a;
-    min-width: 80px;
-    display: inline-block;
+    min-width: 85px;
+    flex-shrink: 0;
     letter-spacing: 0.3px;
 }
 
 /* ==========================================
-   AUTORES - Control de espaciado
+   AUTORES
 ========================================== */
 
-/* Línea de autores con espaciado reducido */
-.publication-meta p.author-line {
-    margin: 4px 0 6px 0;
-    line-height: 1.3;
-}
-
 .authors-list {
-    line-height: 1.3;
+    line-height: 1.6;
     display: inline;
     font-size: 0.95rem;
+    flex: 1;
+}
+
+/* Enlaces DOI */
+.doi-link {
+    color: #1a6b61;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.doi-link:hover {
+    color: #0d4f47;
+    text-decoration: underline;
 }
 
 /* ==========================================
-   AUTOR DESTACADO - Tomás I. Marina (mismo tamaño que el párrafo)
-   Usamos especificidad para evitar !important
+   AUTOR DESTACADO - Tomás I. Marina
 ========================================== */
 
-/* Especificidad: .publication-meta .authors-list .highlighted-author */
 .publication-meta .authors-list .highlighted-author {
     color: #1a8a7e;
     font-weight: 700;
@@ -166,23 +182,22 @@
     border-radius: 4px;
     letter-spacing: 0.5px;
     border-bottom: 2px solid #2ec4b6;
-    line-height: 1.3;
+    line-height: 1.6;
 }
 
-/* También cubrimos el caso de strong dentro de .highlighted-author */
 .publication-meta .authors-list strong.highlighted-author {
     font-size: 0.95rem;
 }
 
 /* ==========================================
-   ACCIONES - VIEW PDF Y READ MORE (mismo estilo)
+   ACCIONES - VIEW PDF Y READ MORE
 ========================================== */
 
 .publication-actions {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .view-pdf-btn,
@@ -281,13 +296,14 @@
     }
     .titulo-publication {
         font-size: 1.3rem;
+        margin-bottom: 16px;
     }
     .publication-meta {
         font-size: 0.9rem;
     }
     .meta-label {
         font-size: 1rem;
-        min-width: 75px;
+        min-width: 80px;
     }
     .authors-list {
         font-size: 0.9rem;
@@ -297,6 +313,17 @@
     }
     .publication-meta .authors-list strong.highlighted-author {
         font-size: 0.9rem;
+    }
+    .publication-meta p {
+        margin: 7px 0;
+        gap: 6px;
+    }
+    .publication-meta p.author-line {
+        margin: 7px 0;
+        gap: 6px;
+    }
+    .publication-actions {
+        margin-top: 10px;
     }
 }
 
@@ -316,13 +343,15 @@
     
     .meta-label {
         font-size: 0.95rem;
-        min-width: 70px;
+        min-width: 75px;
     }
     .publication-meta p {
-        margin: 4px 0;
+        margin: 7px 0;
+        gap: 6px;
     }
     .publication-meta p.author-line {
-        margin: 2px 0 4px 0;
+        margin: 7px 0;
+        gap: 6px;
     }
     .authors-list {
         font-size: 0.9rem;
@@ -333,6 +362,12 @@
     .publication-meta .authors-list strong.highlighted-author {
         font-size: 0.9rem;
     }
+    .publication-preview-content .titulo-publication {
+        text-align: center;
+    }
+    .publication-actions {
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 550px) and (min-width: 401px) {
@@ -341,13 +376,14 @@
     }
     .titulo-publication {
         font-size: 1.1rem;
+        margin-bottom: 14px;
     }
     .publication-meta {
         font-size: 0.85rem;
     }
     .meta-label {
         font-size: 0.9rem;
-        min-width: 65px;
+        min-width: 70px;
     }
     .view-pdf-btn,
     .read-more-btn {
@@ -365,10 +401,15 @@
         font-size: 0.85rem;
     }
     .publication-meta p {
-        margin: 3px 0;
+        margin: 6px 0;
+        gap: 5px;
     }
     .publication-meta p.author-line {
-        margin: 2px 0 3px 0;
+        margin: 6px 0;
+        gap: 5px;
+    }
+    .publication-actions {
+        margin-top: 8px;
     }
 }
 
@@ -382,13 +423,14 @@
     }
     .titulo-publication {
         font-size: 1rem;
+        margin-bottom: 12px;
     }
     .publication-meta {
         font-size: 0.8rem;
     }
     .meta-label {
         font-size: 0.85rem;
-        min-width: 60px;
+        min-width: 65px;
     }
     .view-pdf-btn,
     .read-more-btn {
@@ -407,10 +449,16 @@
         font-size: 0.8rem;
     }
     .publication-meta p {
-        margin: 2px 0;
+        margin: 5px 0;
+        gap: 4px;
     }
     .publication-meta p.author-line {
-        margin: 1px 0 2px 0;
+        margin: 5px 0;
+        gap: 4px;
+    }
+    .publication-actions {
+        margin-top: 6px;
+        gap: 8px;
     }
     
     .no-results {
