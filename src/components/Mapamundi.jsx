@@ -26,14 +26,15 @@ const markerIcon = new L.Icon({
 });
 
 // =================================
-// ENCUADRE INICIAL
+// ENCUADRE INICIAL CON MEJOR ZOOM
 // =================================
 function InitialWorldView() {
   const map = useMap();
 
   useEffect(() => {
     map.invalidateSize();
-    map.setView([0, -20], 1);
+    // Cambio: centrar en el Atlántico Norte para ver mejor Europa y Sudamérica
+    map.setView([20, -10], 2);
   }, [map]);
 
   return null;
@@ -87,7 +88,7 @@ const Mapamundi = () => {
     },
     {
       id: 2,
-      coordinates: [59.8333, 10.75],
+      coordinates: [59.8333, 22.9667], // Hanko, Finlandia
       title: "Hanko",
       country: "Finland",
       countryEn: "Finland",
@@ -202,8 +203,8 @@ const Mapamundi = () => {
   return (
     <div className="map-real-container">
       <MapContainer
-        center={[0, -20]}
-        zoom={1}
+        center={[20, -10]} // ← Centrado en el Atlántico Norte
+        zoom={2}            // ← Zoom más cercano para ver mejor Europa
         minZoom={1}
         maxZoom={8}
         scrollWheelZoom={true}
@@ -239,7 +240,6 @@ const Mapamundi = () => {
           <div className="modal-window" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
-            {/* SACADO "Colaborador/a:" - SOLO EL NOMBRE */}
             <h2 className="modal-name">{selectedCollaborator.name}</h2>
 
             <div className="modal-body">
