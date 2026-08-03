@@ -15,6 +15,7 @@
 .supervisions-title {
   display: inline-block;
   margin-bottom: 14px;
+  margin-top: 10px;  /* ← Agregado el mismo margin-top para ambos */
   font-size: 1.5rem;
   font-weight: 600;
   color: #2ec4b6;
@@ -22,8 +23,9 @@
   text-transform: uppercase;
 }
 
+/* Eliminamos la clase específica que tenía margin-top diferente */
 .supervisions-title.research-title {
-  margin-top: 40px;
+  /* Ya no necesita margin-top separado */
 }
 
 /* ==========================================

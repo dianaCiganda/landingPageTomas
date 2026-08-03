@@ -54,7 +54,7 @@ const Flag = ({ countryCode, size = 24 }) => {
         height: size * 0.75,
         display: 'inline-block',
         verticalAlign: 'middle',
-        marginRight: '4px'
+        marginLeft: '4px'
       }}
     />
   );
@@ -78,7 +78,7 @@ const Mapamundi = () => {
       countryCode: "CL",
       name: "Claudia D. Andrade, Ph.D.",
       institution: "Universidad de Magallanes",
-      city: "Punta Arenas, Chile",
+      city: "Punta Arenas",
       address: "Av. Pdte. Manuel Bulnes 01855, 6210427 Punta Arenas, Magallanes y la Antártica Chilena, Chile",
       collaboration: "Marine trophic architecture and hidden ecological connections in the Strait of Magellan: keystone species and ecosystem resilience.",
       period: "05.2024 - present",
@@ -94,7 +94,7 @@ const Mapamundi = () => {
       countryCode: "FI",
       name: "Susanne Kortsch, Ph.D.",
       institution: "University of Helsinki",
-      city: "Hanko, Finland",
+      city: "Hanko",
       address: "J.A. Palménin tie 260, 10900 Hanko, Finland",
       collaboration: "Featured Pub: The response of trophic interaction networks to multiple stressors along a large-scale latitudinal range in the Southern Hemisphere.\nPub: New insights into the Weddell Sea ecosystem applying a quantitative network approach.\nProy: What are the effects of anthropogenic environmental changes on trophic interactions in marine communities along the Southwest Atlantic - Antarctica latitudinal gradient?",
       period: "01.2022 - present",
@@ -111,7 +111,7 @@ const Mapamundi = () => {
       countryCode: "DE",
       name: "Charlotte Havermans, Ph.D.",
       institution: "University of Bremen",
-      city: "Bremen, Germany",
+      city: "Bremen",
       address: "Bibliothekstraße 1, 28359 Bremen-Horn-Lehe, Germany",
       collaboration: "GLACIER-WEB – Glacier retreat and changing food webs: a bipolar eDNA assessment in fjord ecosystems.",
       period: "01.2026 - present",
@@ -127,7 +127,7 @@ const Mapamundi = () => {
       countryCode: "BE",
       name: "Ulrike Braeckman, Ph.D.",
       institution: "Ghent University",
-      city: "Ghent, Belgium",
+      city: "Ghent",
       address: "Sint-Pietersnieuwstraat 33, 9000 Ghent, Belgium",
       collaboration: "GLACIER-WEB – Glacier retreat and changing food webs: a bipolar eDNA assessment in fjord ecosystems.",
       period: "01.2026 - present",
@@ -143,7 +143,7 @@ const Mapamundi = () => {
       countryCode: "ES",
       name: "Francesco Polazzo & Andreu Rico",
       institution: "Institutos Madrileño de Estudios Avanzados (IMDEA) Agua",
-      city: "Madrid, Spain",
+      city: "Madrid",
       address: "Av. Punto Com, 2, 28805 Alcalá de Henares, Madrid, Spain",
       collaboration: "Food web rewiring drives long-term compositional differences and late-disturbance interactions at the community level.",
       period: "01.2021 - 04.2022",
@@ -179,7 +179,7 @@ const Mapamundi = () => {
           onClick={() => navigateToPublication(id)} 
           className="modal-link-btn"
         >
-          📄 {pub.title.substring(0, 60)}...
+          📜 {pub.title.substring(0, 60)}...
         </button>
       );
     });
@@ -194,7 +194,7 @@ const Mapamundi = () => {
         onClick={() => navigateToProject(projectId)} 
         className="modal-link-btn"
       >
-        🔬 {project.title.substring(0, 60)}...
+        📊 {project.title.substring(0, 60)}...
       </button>
     );
   };
@@ -219,10 +219,9 @@ const Mapamundi = () => {
           className="dark-blue-tiles"
         />
 
-        {/* PUNTOS DE COLABORACIONES */}
-        {collaborations.map((collab, index) => (
+        {collaborations.map((collab) => (
           <Marker
-            key={`collab-${index}`}
+            key={collab.id}
             position={collab.coordinates}
             icon={markerIcon}
             eventHandlers={{
@@ -240,40 +239,40 @@ const Mapamundi = () => {
           <div className="modal-window" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
-            <div className="modal-header">
-              <div>
-                <h2>Colaborador/a: {selectedCollaborator.name}</h2>
-              </div>
-            </div>
+            {/* SACADO "Colaborador/a:" - SOLO EL NOMBRE */}
+            <h2 className="modal-name">{selectedCollaborator.name}</h2>
 
             <div className="modal-body">
               <div className="modal-info">
-                <p><strong>Institution:</strong><br />{selectedCollaborator.institution}</p>
-                <p><strong>City and Country:</strong><br />
+                <p className="modal-institution">
+                  {selectedCollaborator.institution}
+                  <span>,</span>
+                  <span> {selectedCollaborator.city}</span>
+                  <span>,</span>
+                  <span> {selectedCollaborator.country}</span>
                   <Flag countryCode={selectedCollaborator.countryCode} size={16} />
-                  {selectedCollaborator.city}
                 </p>
-                <p><strong>Institution Address:</strong><br />{selectedCollaborator.address}</p>
-                <p><strong>Period:</strong><br />{selectedCollaborator.period}</p>
+                
+                <p className="modal-period">{selectedCollaborator.period}</p>
               </div>
 
               {selectedCollaborator.publicationIds && selectedCollaborator.publicationIds.length > 0 && (
                 <div className="modal-links">
-                  <p><strong>Related Publications:</strong></p>
+                  <p><strong>📜 Related Publications:</strong></p>
                   {renderPublicationButtons(selectedCollaborator.publicationIds)}
                 </div>
               )}
 
               {selectedCollaborator.publicationId && !selectedCollaborator.publicationIds && (
                 <div className="modal-links">
-                  <p><strong>Related Publication:</strong></p>
+                  <p><strong>📜 Related Publication:</strong></p>
                   {renderPublicationButtons([selectedCollaborator.publicationId])}
                 </div>
               )}
 
               {selectedCollaborator.projectId && (
                 <div className="modal-links">
-                  <p><strong>Related Project:</strong></p>
+                  <p><strong>📊 Related Project:</strong></p>
                   {renderProjectButton(selectedCollaborator.projectId)}
                 </div>
               )}
