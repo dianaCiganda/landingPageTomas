@@ -1,61 +1,545 @@
-.teaching-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+/* ==========================================
+   TEACHING PAGE
+========================================== */
+.teaching-page {
+  padding: 40px 0 20px 0;
+  background: #ffffff;
+  min-height: 100vh;
 }
 
-.teaching-card {
-    background: var(--blanco);
-    padding: 2rem;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(46, 196, 182, 0.08);
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.teaching-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px var(--sombra);
-    border-color: var(--principal);
+/* ==========================================
+   SECTION GROUP
+========================================== */
+.section-group {
+  margin-bottom: 50px;
 }
 
-.teaching-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.8rem;
+.section-group:last-child {
+  margin-bottom: 0;
 }
 
-.teaching-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    color: var(--texto-principal);
+.section-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2ec4b6;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #2ec4b6;
+  display: inline-block;
+}
+
+/* ==========================================
+   TEACHING LIST
+========================================== */
+.teaching-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   TEACHING CARD
+========================================== */
+.teaching-item {
+  background: #f8faf9;
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-bottom: 30px;
+  border-left: 4px solid #2ec4b6;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  cursor: default;
+  line-height: 1.2;
+}
+
+.teaching-item:last-child {
+  margin-bottom: 0;
+}
+
+.teaching-item:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Estilo diferenciado para cursos de grado */
+.graduate-item {
+  border-left-color: #f39c12;
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+.teaching-item-layout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+.teaching-item-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .teaching-title {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--texto-principal);
-    margin-bottom: 0.5rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1a2a3a;
+  cursor: default;
 }
 
-.teaching-desc {
-    color: var(--texto-secundario);
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
+.teaching-meta {
+  margin: 6px 0 8px 0;
+  font-size: 0.9rem;
+  color: #2d3f4f;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
 }
 
-.teaching-level {
-    display: inline-block;
-    background: rgba(46, 196, 182, 0.1);
-    color: var(--principal-oscuro);
-    padding: 0.15rem 0.8rem;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 500;
+.teaching-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-@media (max-width: 480px) {
-    .teaching-grid {
-        grid-template-columns: 1fr;
-    }
+.teaching-meta .role-badge {
+  background: #e1f0ee;
+  color: #0e5e55;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.graduate-item .teaching-meta .role-badge {
+  background: #fef3e2;
+  color: #b7680a;
+}
+
+.teaching-meta .institution {
+  font-weight: 500;
+  color: #0e5e55;
+}
+
+.teaching-meta .period {
+  color: #4a5b6b;
+}
+
+.teaching-meta .language {
+  background: #f0f0f0;
+  color: #555;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ==========================================
+   RESUMEN - SOLO PARA POSGRADOS
+========================================== */
+.teaching-summary {
+  margin: 10px 0 12px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #1e2a3a;
+  max-width: 95%;
+}
+
+.teaching-summary p {
+  margin: 0;
+}
+
+/* ==========================================
+   INFORMACIÓN COMPLETA - PARA GRADUADOS
+========================================== */
+.teaching-full-info {
+  margin: 10px 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1e2a3a;
+}
+
+.teaching-full-info .info-text {
+  margin: 0 0 8px 0;
+}
+
+.teaching-full-info .info-text:last-child {
+  margin-bottom: 0;
+}
+
+.teaching-full-info a {
+  color: #1a6b61;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.teaching-full-info a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   BOTÓN
+========================================== */
+.teaching-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.view-teaching-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: transparent;
+  color: #1a6b61;
+  border: 2px solid #1a6b61;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .2s ease;
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.view-teaching-btn:hover {
+  background: #1a6b61;
+  color: white;
+  transform: translateX(2px);
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  padding: 24px 32px;
+  border-bottom: 2px solid #2ec4b6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8faf9;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1a2a3a;
+  font-weight: 700;
+  line-height: 1.3;
+  padding-right: 20px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #4a5b6b;
+  transition: color 0.2s;
+  line-height: 1;
+  padding: 0 8px;
+}
+
+.modal-close:hover {
+  color: #1a2a3a;
+}
+
+.modal-body {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: calc(90vh - 140px);
+}
+
+.detail-item {
+  margin-bottom: 20px;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #0e5e55;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.detail-item span {
+  font-size: 0.95rem;
+  color: #1a2a3a;
+  display: block;
+}
+
+.detail-item p {
+  margin: 4px 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1a2a3a;
+}
+
+.detail-item a {
+  color: #1a6b61;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.detail-item a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   BOTÓN PDF DENTRO DEL MODAL
+========================================== */
+.pdf-detail-item {
+  margin-top: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #e8eceb;
+}
+
+.modal-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 28px;
+  background: transparent;
+  color: #1a6b61;
+  border: 2px solid #1a6b61;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.modal-pdf-btn:hover {
+  background: #1a6b61;
+  color: white;
+  transform: translateX(2px);
+}
+
+/* ==========================================
+   FOOTER DEL MODAL
+========================================== */
+.modal-footer {
+  padding: 16px 32px;
+  border-top: 1px solid #e8eceb;
+  background: #f8faf9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-btn-close {
+  padding: 8px 24px;
+  background: #e8eceb;
+  color: #4a5b6b;
+  border: 2px solid #e8eceb;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-btn-close:hover {
+  background: #d5dad9;
+  border-color: #d5dad9;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media screen and (max-width: 850px) and (min-width: 701px) {
+  .teaching-item {
+    padding: 22px 24px;
+    margin-bottom: 24px;
+  }
+  .teaching-title {
+    font-size: 1.2rem;
+  }
+  .view-teaching-btn {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .teaching-item-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  .teaching-item-content {
+    width: 100%;
+  }
+  .teaching-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .teaching-actions {
+    justify-content: center;
+  }
+  .teaching-item {
+    padding: 18px 16px;
+    margin-bottom: 24px;
+  }
+  .teaching-meta {
+    justify-content: center;
+  }
+  .teaching-summary {
+    max-width: 100%;
+    text-align: left;
+  }
+  .teaching-full-info {
+    text-align: left;
+  }
+  .section-subtitle {
+    font-size: 1.3rem;
+    display: block;
+    text-align: center;
+  }
+  .modal-content {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  .modal-header {
+    padding: 16px 20px;
+  }
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+  .modal-body {
+    padding: 20px;
+    max-height: calc(95vh - 130px);
+  }
+  .modal-footer {
+    padding: 12px 20px;
+    justify-content: center;
+  }
+  .modal-pdf-btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 550px) and (min-width: 401px) {
+  .teaching-item {
+    padding: 18px 16px;
+    margin-bottom: 20px;
+  }
+  .teaching-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .teaching-item {
+    padding: 14px 12px;
+    border-left-width: 3px;
+    margin-bottom: 18px;
+  }
+  .teaching-title {
+    font-size: 1rem;
+  }
+  .view-teaching-btn {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-width: 1.5px;
+  }
+  .teaching-meta {
+    font-size: 0.8rem;
+    gap: 6px 12px;
+  }
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  .modal-header h2 {
+    font-size: 1rem;
+  }
+  .detail-item strong {
+    font-size: 0.8rem;
+  }
+  .detail-item span,
+  .detail-item p {
+    font-size: 0.85rem;
+  }
+  .modal-pdf-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
 }
