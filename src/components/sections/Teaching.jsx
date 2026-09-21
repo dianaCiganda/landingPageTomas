@@ -168,7 +168,7 @@ const Teaching = () => {
     <>
       <ProfileTemplate title="Tomás I. Marina">
         <section className="projects">
-          <span className="section-tag">Teaching Experience</span>
+          <span className="section-tag">Teaching</span>
 
           {/* Postgraduate Courses */}
           <div className="section-group">

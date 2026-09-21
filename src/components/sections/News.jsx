@@ -161,6 +161,26 @@ const newsData = [
         sustainability ahead of major polar initiatives like the 5th
         International Polar Year (IPY 2032–2033).
       </>,
+      <>
+        More details on the PCAPS and TAES can be found here:{" "}
+        <a
+          href="https://www.wwrp-pcaps.net/about-pcaps"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="news-link"
+        >
+          https://www.wwrp-pcaps.net/about-pcaps
+        </a>
+        ;{" "}
+        <a
+          href="https://www.wwrp-pcaps.net/what-we-do"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="news-link"
+        >
+          https://www.wwrp-pcaps.net/what-we-do
+        </a>
+      </>,
     ],
   },
 ];
@@ -181,22 +201,6 @@ const News = () => {
           {newsData.map((news) => (
             <div key={news.id} className="project-item">
               <div className="project-item-layout">
-                <div
-                  className={`project-item-image ${
-                    news.images?.length > 1 ? "project-item-image--multi" : ""
-                  }`}
-                >
-                  {news.images?.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.alt}
-                      className="project-image"
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
-
                 <div className="project-item-content">
                   <div className="project-header">
                     <h2 className="project-title">{news.title}</h2>
@@ -207,6 +211,22 @@ const News = () => {
                       <p key={idx} className="news-paragraph">
                         {p}
                       </p>
+                    ))}
+                  </div>
+
+                  <div
+                    className={`project-item-image ${
+                      news.images?.length > 1 ? "project-item-image--multi" : ""
+                    }`}
+                  >
+                    {news.images?.map((img, idx) => (
+                      <img
+                        key={idx}
+                        src={img.src}
+                        alt={img.alt}
+                        className="project-image"
+                        loading="lazy"
+                      />
                     ))}
                   </div>
                 </div>
