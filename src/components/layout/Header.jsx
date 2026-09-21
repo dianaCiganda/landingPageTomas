@@ -23,10 +23,10 @@ const Header = () => {
   useEffect(() => {
     if (location.state?.scrollTo) {
       const sectionId = location.state.scrollTo;
-      
+
       setTimeout(() => {
         const element = document.getElementById(sectionId);
-        
+
         if (element) {
           element.scrollIntoView({
             behavior: "smooth",
@@ -34,10 +34,10 @@ const Header = () => {
           });
         }
       }, 300);
-      
-      navigate(location.pathname, { 
+
+      navigate(location.pathname, {
         replace: true,
-        state: {} 
+        state: {},
       });
     }
   }, [location, navigate]);
@@ -52,11 +52,11 @@ const Header = () => {
 
     if (location.pathname !== "/") {
       navigate("/", {
-        state: { scrollTo: sectionId }
+        state: { scrollTo: sectionId },
       });
     } else {
       const element = document.getElementById(sectionId);
-      
+
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",
@@ -79,7 +79,7 @@ const Header = () => {
     }
 
     navigate(path);
-    
+
     setTimeout(() => {
       window.scrollTo({
         top: 0,
@@ -97,7 +97,7 @@ const Header = () => {
     if (location.pathname === "/") {
       console.log("🔍 Buscando sección #projects en Home");
       const element = document.getElementById("projects");
-      
+
       if (element) {
         console.log("✅ Elemento #projects encontrado, scrolleando");
         element.scrollIntoView({
@@ -126,7 +126,7 @@ const Header = () => {
     // Caso 3: Estamos en cualquier otra página → navegar a Projects
     console.log("🚀 Navegando a /projects desde:", location.pathname);
     navigate("/projects", { replace: true });
-    
+
     setTimeout(() => {
       console.log("📜 Scroll al inicio después de navegar");
       window.scrollTo({
@@ -145,7 +145,7 @@ const Header = () => {
     if (location.pathname === "/") {
       console.log("🔍 Buscando sección #teaching en Home");
       const element = document.getElementById("teaching");
-      
+
       if (element) {
         console.log("✅ Elemento #teaching encontrado, scrolleando");
         element.scrollIntoView({
@@ -174,6 +174,54 @@ const Header = () => {
     console.log("🚀 Navegando a /teaching desde:", location.pathname);
     navigate("/teaching", { replace: true });
     setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 150);
+  };
+
+  // 🎯 Manejar click en News - VERSIÓN CORREGIDA
+  const handleNewsClick = () => {
+    console.log("🎯 Click en News - Path actual:", location.pathname);
+    closeMenu();
+
+    // Caso 1: Estamos en el Home → buscar la sección
+    if (location.pathname === "/") {
+      console.log("🔍 Buscando sección #news en Home");
+      const element = document.getElementById("news");
+
+      if (element) {
+        console.log("✅ Elemento #news encontrado, scrolleando");
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        console.warn("⚠️ No se encontró #news en el DOM");
+        console.warn("💡 Asegúrate de tener <section id='news'> en Home.jsx");
+        // Fallback: navegar a la página de News
+        navigate("/news", { replace: true });
+      }
+      return;
+    }
+
+    // Caso 2: Ya estamos en la página de News → scroll al inicio
+    if (location.pathname === "/news") {
+      console.log("📄 Ya en News, scroll al inicio");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    // Caso 3: Estamos en cualquier otra página → navegar a News
+    console.log("🚀 Navegando a /news desde:", location.pathname);
+    navigate("/news", { replace: true });
+
+    setTimeout(() => {
+      console.log("📜 Scroll al inicio después de navegar");
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -232,8 +280,12 @@ const Header = () => {
             </button>
           </li>
 
+          {/* ✅ News con lógica de scroll/navegación completa */}
           <li>
-            <button onClick={() => goToHomeSection("news")}>
+            <button
+              onClick={handleNewsClick}
+              className={isActive("/news") ? "active" : ""}
+            >
               News
             </button>
           </li>

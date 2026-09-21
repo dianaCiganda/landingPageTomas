@@ -10,6 +10,7 @@ import Projects from "./components/sections/Projects";
 import ProjectDetail from "./components/sections/ProjectDetail";
 import Teaching from "./components/sections/Teaching";
 import Supervision from "./components/sections/Supervision";
+import News from "./components/sections/News"; 
 import supervision from "./data/supervisionsData";
 import "./styles/App.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -18,8 +19,7 @@ function App() {
   return (
     <BrowserRouter basename="/landingPageTomas">
       <Routes>
-        {/* Todas las rutas usan el Layout que contiene el Header */}
-        <Route element={<Layout />}>
+           <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/cv" element={<CVPage />} />
           <Route path="/contact" element={<Contact />} />
@@ -29,6 +29,7 @@ function App() {
           <Route path="/project-detail/:id" element={<ProjectDetail />} />
           <Route path="/supervision" element={<Supervision supervision={supervision} />} />
           <Route path="/teaching" element={<Teaching />} />
+          <Route path="/news" element={<News />} /> {/* ✅ NUEVA RUTA */}
         </Route>
       </Routes>
     </BrowserRouter>

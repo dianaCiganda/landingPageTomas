@@ -1,545 +1,512 @@
 /* ==========================================
-   TEACHING PAGE
+   PROJECTS - BASE (idéntico a Proyects.css)
 ========================================== */
-.teaching-page {
-  padding: 40px 0 20px 0;
-  background: #ffffff;
-  min-height: 100vh;
+
+.projects {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* ==========================================
-   SECTION GROUP
+   SECTION TITLE
 ========================================== */
-.section-group {
-  margin-bottom: 50px;
-}
 
-.section-group:last-child {
-  margin-bottom: 0;
-}
-
-.section-subtitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #2ec4b6;
-  margin-bottom: 24px;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #2ec4b6;
-  display: inline-block;
+.section-tag {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2ec4b6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 /* ==========================================
-   TEACHING LIST
+   PROJECT CARD
 ========================================== */
-.teaching-list {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+
+.project-item {
+    background: #f8faf9;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    border-left: 4px solid #2ec4b6;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    cursor: default;
+    line-height: 1.2;
 }
 
-/* ==========================================
-   TEACHING CARD
-========================================== */
-.teaching-item {
-  background: #f8faf9;
-  border-radius: 8px;
-  padding: 28px 32px;
-  margin-bottom: 30px;
-  border-left: 4px solid #2ec4b6;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-  cursor: default;
-  line-height: 1.2;
+.project-item:last-child {
+    margin-bottom: 0;
 }
 
-.teaching-item:last-child {
-  margin-bottom: 0;
-}
-
-.teaching-item:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-/* Estilo diferenciado para cursos de grado */
-.graduate-item {
-  border-left-color: #f39c12;
+.project-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
 }
 
 /* ==========================================
    LAYOUT
 ========================================== */
-.teaching-item-layout {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
+
+.project-item-layout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.project-item-image {
+    flex: 0 0 160px;
+    max-width: 160px;
+    cursor: pointer;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.03);
+}
+
+.project-item-content {
+    flex: 1;
+    min-width: 0;
 }
 
 /* ==========================================
-   CONTENIDO
+   TITLE
 ========================================== */
-.teaching-item-content {
-  flex: 1;
-  min-width: 0;
+
+.project-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a2a3a;
+    transition: color 0.2s ease;
+    text-decoration: none;
 }
 
-.teaching-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #1a2a3a;
-  cursor: default;
+.project-title:hover {
+    color: #0d6b61;
+    text-decoration: none;
 }
 
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.view-project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    color: #1a6b61;
+    border: 2px solid #1a6b61;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .2s ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.view-project-btn:hover {
+    background: #1a6b61;
+    color: white;
+    transform: translateX(2px);
+}
+
+/* ==========================================
+   TEACHING - EXTRA
+========================================== */
+
+.section-group {
+    margin-bottom: 40px;
+}
+
+.section-group:last-child {
+    margin-bottom: 0;
+}
+
+.section-subtitle {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a2a3a;
+    letter-spacing: 0.5px;
+}
+
+/* Meta info (role, institución, periodo, idioma) */
 .teaching-meta {
-  margin: 6px 0 8px 0;
-  font-size: 0.9rem;
-  color: #2d3f4f;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #4a5568;
 }
 
-.teaching-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+.role-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #22c55e;
+    white-space: nowrap;
 }
 
-.teaching-meta .role-badge {
-  background: #e1f0ee;
-  color: #0e5e55;
-  padding: 2px 12px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+.institution,
+.period,
+.language {
+    color: #4a5568;
 }
 
-.graduate-item .teaching-meta .role-badge {
-  background: #fef3e2;
-  color: #b7680a;
+.institution::after,
+.period::after {
+    content: "•";
+    margin-left: 8px;
+    color: #cbd5e0;
 }
 
-.teaching-meta .institution {
-  font-weight: 500;
-  color: #0e5e55;
-}
-
-.teaching-meta .period {
-  color: #4a5b6b;
-}
-
-.teaching-meta .language {
-  background: #f0f0f0;
-  color: #555;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* ==========================================
-   RESUMEN - SOLO PARA POSGRADOS
-========================================== */
+/* Texto del curso */
 .teaching-summary {
-  margin: 10px 0 12px 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #1e2a3a;
-  max-width: 95%;
+    margin-top: 10px;
 }
 
 .teaching-summary p {
-  margin: 0;
+    margin: 0 0 8px 0;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
-/* ==========================================
-   INFORMACIÓN COMPLETA - PARA GRADUADOS
-========================================== */
-.teaching-full-info {
-  margin: 10px 0 0 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #1e2a3a;
+.teaching-summary p:last-child {
+    margin-bottom: 0;
 }
 
-.teaching-full-info .info-text {
-  margin: 0 0 8px 0;
+.teaching-link {
+    color: #1a6b61;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
 }
 
-.teaching-full-info .info-text:last-child {
-  margin-bottom: 0;
-}
-
-.teaching-full-info a {
-  color: #1a6b61;
-  text-decoration: none;
-  word-break: break-all;
-}
-
-.teaching-full-info a:hover {
-  text-decoration: underline;
-}
-
-/* ==========================================
-   BOTÓN
-========================================== */
-.teaching-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.view-teaching-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 20px;
-  background: transparent;
-  color: #1a6b61;
-  border: 2px solid #1a6b61;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all .2s ease;
-  line-height: 1.2;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.view-teaching-btn:hover {
-  background: #1a6b61;
-  color: white;
-  transform: translateX(2px);
+.teaching-link:hover {
+    text-decoration: underline;
 }
 
 /* ==========================================
    MODAL
 ========================================== */
+
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { 
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
 }
 
 .modal-content {
-  background: #ffffff;
-  border-radius: 12px;
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.3s ease;
+    background: #ffffff;
+    border-radius: 10px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .modal-header {
-  padding: 24px 32px;
-  border-bottom: 2px solid #2ec4b6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f8faf9;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8faf9;
 }
 
 .modal-header h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #1a2a3a;
-  font-weight: 700;
-  line-height: 1.3;
-  padding-right: 20px;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    line-height: 1.3;
 }
 
 .modal-close {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #4a5b6b;
-  transition: color 0.2s;
-  line-height: 1;
-  padding: 0 8px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #718096;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
 }
 
 .modal-close:hover {
-  color: #1a2a3a;
+    color: #1a2a3a;
 }
 
 .modal-body {
-  padding: 32px;
-  overflow-y: auto;
-  max-height: calc(90vh - 140px);
+    padding: 20px 24px;
+    overflow-y: auto;
 }
 
 .detail-item {
-  margin-bottom: 20px;
-}
-
-.detail-item:last-child {
-  margin-bottom: 0;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    color: #2d3748;
+    line-height: 1.5;
 }
 
 .detail-item strong {
-  display: block;
-  font-size: 0.85rem;
-  color: #0e5e55;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-
-.detail-item span {
-  font-size: 0.95rem;
-  color: #1a2a3a;
-  display: block;
+    color: #1a2a3a;
 }
 
 .detail-item p {
-  margin: 4px 0 0 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #1a2a3a;
+    margin: 6px 0 0 0;
+    color: #4a5568;
 }
 
 .detail-item a {
-  color: #1a6b61;
-  text-decoration: none;
-  word-break: break-all;
+    color: #1a6b61;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
 }
 
 .detail-item a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* ==========================================
-   BOTÓN PDF DENTRO DEL MODAL
-========================================== */
 .pdf-detail-item {
-  margin-top: 10px;
-  padding-top: 16px;
-  border-top: 1px solid #e8eceb;
+    margin-top: 20px;
 }
 
 .modal-pdf-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 28px;
-  background: transparent;
-  color: #1a6b61;
-  border: 2px solid #1a6b61;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    color: #1a6b61;
+    border: 2px solid #1a6b61;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .modal-pdf-btn:hover {
-  background: #1a6b61;
-  color: white;
-  transform: translateX(2px);
+    background: #1a6b61;
+    color: white;
 }
 
-/* ==========================================
-   FOOTER DEL MODAL
-========================================== */
 .modal-footer {
-  padding: 16px 32px;
-  border-top: 1px solid #e8eceb;
-  background: #f8faf9;
-  display: flex;
-  justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    background: #f8faf9;
 }
 
 .modal-btn-close {
-  padding: 8px 24px;
-  background: #e8eceb;
-  color: #4a5b6b;
-  border: 2px solid #e8eceb;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    padding: 8px 18px;
+    background: #1a6b61;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 .modal-btn-close:hover {
-  background: #d5dad9;
-  border-color: #d5dad9;
+    background: #0d6b61;
 }
 
 /* ==========================================
    RESPONSIVE
 ========================================== */
+
+/* TABLETS (850-701px) */
 @media screen and (max-width: 850px) and (min-width: 701px) {
-  .teaching-item {
-    padding: 22px 24px;
-    margin-bottom: 24px;
-  }
-  .teaching-title {
-    font-size: 1.2rem;
-  }
-  .view-teaching-btn {
-    font-size: 0.8rem;
-    padding: 6px 16px;
-  }
-  .section-subtitle {
-    font-size: 1.5rem;
-  }
+    .project-item {
+        padding: 22px 24px;
+        margin-bottom: 28px;
+    }
+    .project-item:last-child {
+        margin-bottom: 0;
+    }
+    .project-title {
+        font-size: 1.2rem;
+    }
+    .view-project-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    .project-actions {
+        gap: 6px;
+        margin-top: 6px;
+    }
+    .project-item-layout {
+        gap: 14px;
+    }
+    .section-tag {
+        margin-bottom: 20px;
+    }
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+    .teaching-meta {
+        font-size: 0.8rem;
+    }
+    .teaching-summary p {
+        font-size: 0.9rem;
+    }
 }
 
+/* MOBILE (≤700px) */
 @media screen and (max-width: 700px) {
-  .teaching-item-layout {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
-  .teaching-item-content {
-    width: 100%;
-  }
-  .teaching-title {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  .teaching-actions {
-    justify-content: center;
-  }
-  .teaching-item {
-    padding: 18px 16px;
-    margin-bottom: 24px;
-  }
-  .teaching-meta {
-    justify-content: center;
-  }
-  .teaching-summary {
-    max-width: 100%;
-    text-align: left;
-  }
-  .teaching-full-info {
-    text-align: left;
-  }
-  .section-subtitle {
-    font-size: 1.3rem;
-    display: block;
-    text-align: center;
-  }
-  .modal-content {
-    margin: 10px;
-    max-height: 95vh;
-  }
-  .modal-header {
-    padding: 16px 20px;
-  }
-  .modal-header h2 {
-    font-size: 1.1rem;
-  }
-  .modal-body {
-    padding: 20px;
-    max-height: calc(95vh - 130px);
-  }
-  .modal-footer {
-    padding: 12px 20px;
-    justify-content: center;
-  }
-  .modal-pdf-btn {
-    padding: 8px 20px;
-    font-size: 0.85rem;
-  }
+    .project-item-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+    .project-item-content {
+        width: 100%;
+    }
+    .project-title {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .project-actions {
+        justify-content: center;
+        gap: 6px;
+        margin-top: 6px;
+        flex-wrap: wrap;
+    }
+    .project-item {
+        padding: 18px 16px;
+        margin-bottom: 24px;
+    }
+    .project-item:last-child {
+        margin-bottom: 0;
+    }
+    .view-project-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    .section-tag {
+        margin-bottom: 18px;
+    }
+    .teaching-meta {
+        justify-content: center;
+    }
+    .modal-content {
+        max-height: 95vh;
+    }
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
+/* SMALL MOBILE (550-401px) */
 @media screen and (max-width: 550px) and (min-width: 401px) {
-  .teaching-item {
-    padding: 18px 16px;
-    margin-bottom: 20px;
-  }
-  .teaching-title {
-    font-size: 1.1rem;
-  }
+    .project-item {
+        padding: 18px 16px;
+        margin-bottom: 24px;
+    }
+    .project-item:last-child {
+        margin-bottom: 0;
+    }
+    .project-title {
+        font-size: 1.1rem;
+    }
+    .view-project-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
 }
 
+/* VERY SMALL MOBILE (≤400px) */
 @media screen and (max-width: 400px) {
-  .teaching-item {
-    padding: 14px 12px;
-    border-left-width: 3px;
-    margin-bottom: 18px;
-  }
-  .teaching-title {
-    font-size: 1rem;
-  }
-  .view-teaching-btn {
-    font-size: 0.75rem;
-    padding: 5px 12px;
-    border-width: 1.5px;
-  }
-  .teaching-meta {
-    font-size: 0.8rem;
-    gap: 6px 12px;
-  }
-  .section-subtitle {
-    font-size: 1.1rem;
-  }
-  .modal-header h2 {
-    font-size: 1rem;
-  }
-  .detail-item strong {
-    font-size: 0.8rem;
-  }
-  .detail-item span,
-  .detail-item p {
-    font-size: 0.85rem;
-  }
-  .modal-pdf-btn {
-    padding: 6px 16px;
-    font-size: 0.8rem;
-  }
+    .project-item {
+        padding: 14px 12px;
+        border-left-width: 3px;
+        margin-bottom: 24px;
+    }
+    .project-item:last-child {
+        margin-bottom: 0;
+    }
+    .project-title {
+        font-size: 1rem;
+    }
+    .view-project-btn {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        border-width: 1.5px;
+    }
+    .project-actions {
+        gap: 5px;
+        margin-top: 5px;
+    }
+    .role-badge {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
 }
