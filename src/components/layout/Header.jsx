@@ -87,8 +87,6 @@ const Header = () => {
       });
     }, 100);
   };
-
-  // 🎯 Manejar click en Projects - VERSIÓN CORREGIDA
   const handleProjectsClick = () => {
     console.log("🎯 Click en Projects - Path actual:", location.pathname);
     closeMenu();

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/layout/Layout"; // ✅ IMPORTANTE: Importar Layout
+import ScrollToTop from "./components/ScrollToTop"; // ← NUEVO
+import Layout from "./components/layout/Layout";
 import CVPage from "./components/sections/CV";
 import Home from "./components/sections/Home";
 import Contact from "./components/sections/Contact";
@@ -18,8 +19,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function App() {
   return (
     <BrowserRouter basename="/landingPageTomas">
+      <ScrollToTop />   {/* ← NUEVO: debe ir dentro del BrowserRouter */}
       <Routes>
-           <Route element={<Layout />}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/cv" element={<CVPage />} />
           <Route path="/contact" element={<Contact />} />
@@ -29,7 +31,7 @@ function App() {
           <Route path="/project-detail/:id" element={<ProjectDetail />} />
           <Route path="/supervision" element={<Supervision supervision={supervision} />} />
           <Route path="/teaching" element={<Teaching />} />
-          <Route path="/news" element={<News />} /> {/* ✅ NUEVA RUTA */}
+          <Route path="/news" element={<News />} />
         </Route>
       </Routes>
     </BrowserRouter>

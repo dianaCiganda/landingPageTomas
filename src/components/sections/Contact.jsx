@@ -10,8 +10,10 @@ const Contact = () => {
   const mailtoTimerRef = useRef(null);
   const fallbackUsedRef = useRef(false);
 
-  // Limpiar timer al desmontar
+  // Limpiar timer al desmontar + scroll al top al montar
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     return () => {
       if (mailtoTimerRef.current) {
         clearTimeout(mailtoTimerRef.current);
