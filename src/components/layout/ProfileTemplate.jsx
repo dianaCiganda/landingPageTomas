@@ -23,7 +23,7 @@ const ProfileTemplate = ({ children, title }) => {
 
   const handleCopyEmail = () => {
     if (isCopying) return;
-    
+
     setIsCopying(true);
     navigator.clipboard.writeText(email)
       .then(() => {
@@ -54,13 +54,13 @@ const ProfileTemplate = ({ children, title }) => {
 
   const handleEmailClick = (e) => {
     e.preventDefault();
-    
+
     // Resetear el flag de fallback
     fallbackUsedRef.current = false;
-    
+
     // Intentar abrir mailto
     window.location.href = `mailto:${email}`;
-    
+
     // Detectar si la página se oculta (la app de correo se abrió)
     const handleVisibilityChange = () => {
       if (document.hidden) {
@@ -72,9 +72,9 @@ const ProfileTemplate = ({ children, title }) => {
         document.removeEventListener('visibilitychange', handleVisibilityChange);
       }
     };
-    
+
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
+
     // También detectar blur de la ventana
     const handleBlur = () => {
       // La ventana perdió foco, probablemente se abrió la app
@@ -84,9 +84,9 @@ const ProfileTemplate = ({ children, title }) => {
       }
       window.removeEventListener('blur', handleBlur);
     };
-    
+
     window.addEventListener('blur', handleBlur);
-    
+
     // Fallback: si después de 2 segundos no se detectó que la app se abrió
     mailtoTimerRef.current = setTimeout(() => {
       // Si la página sigue visible y no se usó el fallback
@@ -142,7 +142,7 @@ const ProfileTemplate = ({ children, title }) => {
             <div className="banner-background">
               {!bannerError ? (
                 <img
-                  src={`${import.meta.env.BASE_URL}assets/banner.jpeg`}
+                  src="./assets/banner.jpeg"
                   className="image-banner"
                   alt="Imagen de fondo"
                   onError={() => setBannerError(true)}
@@ -161,7 +161,7 @@ const ProfileTemplate = ({ children, title }) => {
             <div className="banner-de-perfil">
               {!profileError ? (
                 <img
-                  src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`}
+                  src="./assets/perfil.jpeg"
                   className="imagen-de-perfil"
                   alt="Imagen de perfil"
                   onError={() => setProfileError(true)}
@@ -197,7 +197,7 @@ const ProfileTemplate = ({ children, title }) => {
                       </button>
                     );
                   }
-                  
+
                   return (
                     <a
                       key={link.href}

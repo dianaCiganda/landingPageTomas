@@ -62,14 +62,13 @@ const Projects = () => {
       window.location.href = `/project-detail/${id}`;
     }
   };
+const getImagePath = (path) => {
+  if (!path) return "";
 
-  const getImagePath = (path) => {
-    if (!path) return '';
-    if (path.startsWith(import.meta.env.BASE_URL)) return path;
-    if (path.startsWith('assets/')) return `${import.meta.env.BASE_URL}${path}`;
-    if (path.startsWith('/')) return `${import.meta.env.BASE_URL}${path.substring(1)}`;
-    return `${import.meta.env.BASE_URL}${path}`;
-  };
+  const baseUrl = import.meta.env.BASE_URL || "/";
+
+  return `${baseUrl}${path.replace(/^\/+/, "")}`;
+};
 
   const getStatusBadge = (status) => {
     const handleBadgeClick = (e) => {
