@@ -18,7 +18,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/landingPageTomas">
+    <BrowserRouter>
       <ScrollToTop />   {/* ← NUEVO: debe ir dentro del BrowserRouter */}
       <Routes>
         <Route element={<Layout />}>

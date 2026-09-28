@@ -17,7 +17,7 @@ const coursesData = {
       overview:
         "This theoretical-practical course introduces complex interaction networks in marine ecosystems. It covers the construction, structural complexity, and stability analysis of marine food webs, as well as the evaluation of species roles and quantitative interaction strengths. Through dedicated R programming laboratories, students work with public repositories to build network datasets and simulate ecosystem responses to perturbations.",
       url: "https://posgrados.cicese.mx/ecologiamarina",
-      pdfUrl: "/landingPageTomas/assets/teaching/Postgraduate 1.pdf",
+      pdfUrl: "assets/teaching/Postgraduate 1.pdf",
     },
     {
       id: "communicating-english",
@@ -31,7 +31,7 @@ const coursesData = {
         "This postgraduate course is taught at the Universidad Nacional de la Patagonia San Juan Bosco (UNPSJB, Puerto Madryn campus). It aims to enhance students' productive writing and oral communication skills in international scientific contexts.",
       overview:
         "This course equips postgraduate students and early-career researchers with the practical tools required for effective, correct scientific communication in English. Delivered through a hybrid model, it combines a virtual module on essential grammatical patterns and scientific vocabulary with an intensive in-person module focused on drafting manuscript sections, writing cover letters, responding to peer reviewers, and delivering professional oral presentations.",
-      pdfUrl: "/landingPageTomas/assets/teaching/Postgraduate 2.pdf",
+      pdfUrl: "assets/teaching/Postgraduate 2.pdf",
     },
   ],
   graduate: [
