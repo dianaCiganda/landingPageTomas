@@ -62,23 +62,16 @@ const ProjectDetail = () => {
   const relatedPublications = getRelatedPublications(project.id);
 
  
- const getImagePath = (path) => {
+const getImagePath = (path) => {
   if (!path) return "";
-
-  // Si ya es URL absoluta, data URI o ruta relativa, devolver tal cual
-  if (
-    /^(https?:)?\/\//i.test(path) ||
-    path.startsWith("data:") ||
-    path.startsWith("./") ||
-    path.startsWith("../")
-  ) {
+  
+  // Si ya es URL absoluta o data URI, devolver tal cual
+  if (/^(https?:)?\/\//i.test(path) || path.startsWith("data:")) {
     return path;
   }
 
-  // Quitar slash inicial y construir ruta relativa
-  const cleanPath = path.replace(/^\/+/, "");
-
-  return `./${cleanPath}`;
+  const baseUrl = import.meta.env.BASE_URL || "/";
+  return `${baseUrl}${path.replace(/^\/+/, "")}`;
 };
 
   // ==========================================

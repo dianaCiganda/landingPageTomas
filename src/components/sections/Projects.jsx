@@ -64,9 +64,13 @@ const Projects = () => {
   };
 const getImagePath = (path) => {
   if (!path) return "";
+  
+  // Si ya es URL absoluta o data URI, devolver tal cual
+  if (/^(https?:)?\/\//i.test(path) || path.startsWith("data:")) {
+    return path;
+  }
 
   const baseUrl = import.meta.env.BASE_URL || "/";
-
   return `${baseUrl}${path.replace(/^\/+/, "")}`;
 };
 

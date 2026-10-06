@@ -141,8 +141,7 @@ const ProfileTemplate = ({ children, title }) => {
           <div className="banner-contenedor">
             <div className="banner-background">
               {!bannerError ? (
-                <img
-                  src="./assets/banner.jpeg"
+                <img src={`${import.meta.env.BASE_URL}assets/banner.jpeg`} 
                   className="image-banner"
                   alt="Imagen de fondo"
                   onError={() => setBannerError(true)}
@@ -160,8 +159,9 @@ const ProfileTemplate = ({ children, title }) => {
           <div className="profile-left">
             <div className="banner-de-perfil">
               {!profileError ? (
-                <img
-                  src="./assets/perfil.jpeg"
+              
+                
+<img src={`${import.meta.env.BASE_URL}assets/perfil.jpeg`} 
                   className="imagen-de-perfil"
                   alt="Imagen de perfil"
                   onError={() => setProfileError(true)}

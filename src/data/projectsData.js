@@ -3,7 +3,7 @@ export const projects = [
   {
     id: 1,
     title: "GLACIER-WEB – Glacier retreat and changing food webs: a bipolar eDNA assessment in fjord ecosystems",
-    image: "assets/Proy 1.png",
+    image: "assets/Proy1.png",
     aim: "Study ecosystem responses to glacier retreat in Antarctic and Arctic marine fjord ecosystems by applying a spatially explicit, high-resolution, multi-trophic and multi-habitat approach.",
     duration: "01.2026 - 12.2029",
     team: [
@@ -21,7 +21,7 @@ export const projects = [
   {
     id: 2,
     title: "What are the effects of anthropogenic environmental changes on trophic interactions in marine communities along the Southwest Atlantic - Antarctica latitudinal gradient?",
-    image: "assets/Proy 2.png",
+    image: "assets/Proy2.png",
     aim: "Study the effects of anthropogenic environmental changes, specifically temperature increases and overfishing, on trophic interactions within communities across marine ecosystems along the Southwestern Atlantic–Antarctica latitudinal gradient.",
     duration: "01.2023 - 10.2026",
     team: [
@@ -44,7 +44,7 @@ export const projects = [
   {
     id: 3,
     title: "CoastCarb – Coastal ecosystem carbon balance in times of rapid glacier melt",
-    image: "assets/Proy 3.png",
+    image: "assets/Proy3.png",
     aim: "Strengthen the exchange and training network to better understand the impacts of climate change in the Beagle Channel and coastal West Antarctica, a region experiencing rapid atmospheric warming.",
     duration: "01.2020 - 09.2025",
     team: [
@@ -65,7 +65,7 @@ export const projects = [
   {
     id: 4,
     title: "Structure, functioning, and stability of communities in the Namuncurá - Burdwood Bank Marine Protected Area: A trophic study using complex networks",
-    image: "assets/Proy 4.png",
+    image: "assets/Proy4.png",
     aim: "Model the trophic structure of pelagic and benthic communities inhabiting Marine Protected Areas (MPAs) in the Argentine Sea, as well as their functioning and stability under anthropogenic and climate change perturbations.",
     duration: "01.2021 - 01.2024",
     team: [
@@ -80,7 +80,7 @@ export const projects = [
   {
     id: 5,
     title: "MEASO – Marine Ecosystem Assessment for the Southern Ocean",
-    image: "assets/Proy 5.png",
+    image: "assets/Proy5.png",
     aim: "Comprehensively evaluate the status and changes in Southern Ocean ecosystems and the underlying factors driving these transformations.",
     duration: "04.2018 - 04.2023",
     team: [
@@ -95,7 +95,7 @@ export const projects = [
   {
     id: 6,
     title: "IMCONet - Interdisciplinary Modelling of Climate Change in Coastal Western Antarctica",
-    image: "assets/Proy 6.png",
+    image: "assets/Proy6.png",
     aim: "Develop predictive climate change and ecosystem models for the whole West Antarctic Peninsula coastal environment based on existing data sets and data exchange policies; and to transfer knowledge between partner countries to enhance collaboration with high quality long-term measuring programs at all 3 stations, to fill present measuring gaps.",
     duration: "04.2014 - 09.2017",
     team: [

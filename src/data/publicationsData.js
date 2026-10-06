@@ -80,7 +80,7 @@ export const publications = [
     journal: "Marine Ecology Progress Series",
     doi: "10.3354/meps14600",
     url: "https://doi.org/10.3354/meps14600",
-    pdf: "assets/Pub 6.pdf",
+    pdf: "assets/Pub6.pdf",
     image: "assets/Pub-6.png",
     projectIds: [4]
   },
@@ -92,7 +92,7 @@ export const publications = [
     journal: "Ocean Science",
     doi: "10.5194/os-20-141-2024",
     url: "https://doi.org/10.5194/os-20-141-2024",
-    pdf: "assets/Pub 8.pdf",
+    pdf: "assets/Pub8.pdf",
     image: "assets/Pub-8.png",
     projectIds: []
   },
@@ -104,7 +104,7 @@ export const publications = [
     journal: "Diversity",
     doi: "10.3390/d16010063",
     url: "https://doi.org/10.3390/d16010063",
-    pdf: "assets/Pub 9.pdf",
+    pdf: "assets/Pub9.pdf",
     image: "assets/Pub-9.png",
     projectIds: [3]
   },
@@ -116,7 +116,7 @@ export const publications = [
     journal: "Anales del Instituto de la Patagonia",
     doi: "10.22352/AIP2023",
     url: "https://www.scielo.cl/scielo.php?pid=S0718-686X2023000100206&script=sci_arttext",
-    pdf: "assets/Pub 10.pdf",
+    pdf: "assets/Pub10.pdf",
     image: "assets/Pub-10.png",
     projectIds: []
   },
@@ -128,7 +128,7 @@ export const publications = [
     journal: "Marine Biology",
     doi: "10.1007/s00227-022-04155-3",
     url: "https://doi.org/10.1007/s00227-022-04155-3",
-    pdf: "assets/Pub 11.pdf",
+    pdf: "assets/Pub11.pdf",
     image: "assets/Pub-11.png",
     projectIds: []
   },
@@ -140,7 +140,7 @@ export const publications = [
     journal: "Anales del Instituto de la Patagonia",
     doi: "10.22352/AIP2022",
     url: "https://doi.org/10.22352/AIP2022",
-    pdf: "assets/Pub 12.pdf",
+    pdf: "assets/Pub12.pdf",
     image: "assets/Pub-12.png",
     projectIds: []
   },
@@ -152,7 +152,7 @@ export const publications = [
     journal: "Proceedings of the National Academy of Sciences",
     doi: "10.1073/pnas.2117364119",
     url: "https://doi.org/10.1073/pnas.2117364119",
-    pdf: "assets/Pub 13.pdf",
+    pdf: "assets/Pub13.pdf",
     image: "assets/Pub-13.png",
     projectIds: []
   },
@@ -164,7 +164,7 @@ export const publications = [
     journal: "Marine Environmental Research",
     doi: "10.1016/j.marenvres.2022.105561",
     url: "https://doi.org/10.1016/j.marenvres.2022.105561",
-    pdf: "assets/Pub 14.pdf",
+    pdf: "assets/Pub14.pdf",
     image: "assets/Pub-14.png",
     projectIds: [3]
   },
@@ -176,7 +176,7 @@ export const publications = [
     journal: "Journal of Animal Ecology",
     doi: "10.1111/1365-2656.13652",
     url: "https://doi.org/10.1111/1365-2656.13652",
-    pdf: "assets/Pub 15.pdf",
+    pdf: "assets/Pub15.pdf",
     image: "assets/Pub-15.png",
     projectIds: []
   },
@@ -188,7 +188,7 @@ export const publications = [
     journal: "Frontiers in Ecology and Evolution",
     doi: "10.3389/fevo.2021.624763",
     url: "https://doi.org/10.3389/fevo.2021.624763",
-    pdf: "assets/Pub 16.pdf",
+    pdf: "assets/Pub16.pdf",
     image: "assets/Pub-16.png",
     projectIds: [5]
   },
@@ -200,7 +200,7 @@ export const publications = [
     journal: "Food Webs",
     doi: "10.1016/j.fooweb.2020.e00166",
     url: "https://doi.org/10.1016/j.fooweb.2020.e00166",
-    pdf: "assets/Pub 17.pdf",
+    pdf: "assets/Pub17.pdf",
     image: "assets/Pub-17.png",
     projectIds: []
   },
@@ -212,7 +212,7 @@ export const publications = [
     book: "Antarctic Seaweeds: diversity, adaptation and ecosystem services",
     doi: "10.1007/978-3-030-39448-6_15",
     url: "https://doi.org/10.1007/978-3-030-39448-6_15",
-    pdf: "assets/Pub 18.pdf",
+    pdf: "assets/Pub18.pdf",
     image: "assets/Pub-18.png",
     projectIds: []
   },
@@ -224,7 +224,7 @@ export const publications = [
     journal: "Acta Oecologica",
     doi: "10.1016/j.actao.2019.103445",
     url: "https://doi.org/10.1016/j.actao.2019.103445",
-    pdf: "assets/Pub 19.pdf",
+    pdf: "assets/Pub19.pdf",
     image: "assets/Pub-19.png",
     projectIds: []
   },
@@ -236,7 +236,7 @@ export const publications = [
     journal: "PeerJ",
     doi: "10.7717/peerj.5531",
     url: "https://doi.org/10.7717/peerj.5531",
-    pdf: "assets/Pub 20.pdf",
+    pdf: "assets/Pub20.pdf",
     image: "assets/Pub-20.png",
     projectIds: [6]
   },
@@ -248,7 +248,7 @@ export const publications = [
     journal: "Marine Mammal Science",
     doi: "10.1111/mms.12548",
     url: "https://doi.org/10.1111/mms.12548",
-    pdf: "assets/Pub 21.pdf",
+    pdf: "assets/Pub21.pdf",
     image: "assets/Pub-21.png",
     projectIds: []
   },
@@ -260,7 +260,7 @@ export const publications = [
     journal: "PLoS ONE",
     doi: "10.1371/journal.pone.0198217",
     url: "https://doi.org/10.1371/journal.pone.0198217",
-    pdf: "assets/Pub 22.pdf",
+    pdf: "assets/Pub22.pdf",
     image: "assets/Pub-22.png",
     projectIds: [6]
   },
@@ -272,7 +272,7 @@ export const publications = [
     journal: "Estuarine, Coastal and Shelf Science",
     doi: "10.1016/j.ecss.2017.10.015",
     url: "https://doi.org/10.1016/j.ecss.2017.10.015",
-    pdf: "assets/Pub 23.pdf",
+    pdf: "assets/Pub23.pdf",
     image: "assets/Pub-23.png",
     projectIds: [6]
   },
@@ -284,7 +284,7 @@ export const publications = [
     journal: "Ecología Austral",
     doi: "10.25260/EA.17.27.2.0.229",
     url: "https://doi.org/10.25260/EA.17.27.2.0.229",
-    pdf: "assets/Pub 24.pdf",
+    pdf: "assets/Pub24.pdf",
     image: "assets/Pub-24.png",
     projectIds: []
   }

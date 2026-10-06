@@ -14,7 +14,7 @@ const Inicio = () => {
             <div className="about-text">
               <span className="section-tag">About Me</span>
               <p className="about-intro">
-                I am an Associate Researcher at <strong>CADIC-CONICET</strong> in Ushuaia, Argentina.
+                I am an Associate Researcher at Centro Austral de Investigaciones Científicas (CADIC-CONICET) in Ushuaia, Argentina.
                 Holding an M.Sc. in Marine Biology (Cinvestav, Mexico) and a Ph.D. in Science and
                 Technology (UNGS, Argentina), my research focuses on the structure, functioning,
                 and dynamic stability of marine ecosystems across polar and sub-polar regions,
@@ -23,8 +23,8 @@ const Inicio = () => {
                 to investigate how trophic and non-trophic interactions respond to environmental
                 drivers, human activities, and climate-driven extreme events.
               </p>
-              <p>
-                I have authored <strong>25 peer-reviewed publications</strong> (September 2026) in
+              <p className="about-intro">
+                I have authored 25 peer-reviewed publications (September 2026) in
                 journals such as <em>PNAS</em>, <em>Earth-Science Reviews</em>,{" "}
                 <em>Ecological Applications</em>, and <em>Oikos</em>, and have served as Principal
                 Investigator on projects evaluating multi-stressor impacts and food-web architecture
@@ -35,7 +35,7 @@ const Inicio = () => {
                 (Mexico), and work to bridge scientific modeling with conservation policy,
                 fisheries sustainability, and polar expedition outreach.
               </p>
-              <p>
+              <p className="about-intro">
                 If you have questions about my work, are interested in partnering on a research
                 project, or just want to connect, please feel free to{" "}
               <Link to="/contact" className="contact-link">
